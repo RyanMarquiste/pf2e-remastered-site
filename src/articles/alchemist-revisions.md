@@ -4,7 +4,7 @@ title: "Alchemist Revisions"
 category: Classes
 class: alchemist
 date: 2026-02-02
-summary: "A set of house-rule tweaks to the Alchemist: renaming the Versatile Vial, smoothing reagent scaling, and unlocking advanced vials earlier."
+summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alchemy."
 ---
 
 The Alchemist asks a lot of its players — tracking formulas, reagents, and a tight action economy — often for less payoff than a full caster or martial gets from a single action. These revisions target the rough edges without rewriting the class.
@@ -62,21 +62,3 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
 
   <p class="stat-block-source">Pathfinder Player Core 2, &copy; Paizo Inc., reproduced under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
-
-**Change:** The Quick Vial option explicitly creates a **Volatile Vial**, matching the rename above — every "versatile vial" reference in the text above is the same renamed item, not a separate consumable.
-
-## Infused Reagents Scale Smoother
-
-**Change:** At 5th level and every 4 levels after (9th, 13th, 17th), gain **+1 additional daily infused reagent**, on top of the normal progression.
-
-Reagent scarcity is fine at low levels but becomes a bottleneck once an Alchemist wants to keep several different item types on hand. This adds a small buffer without doubling resources outright.
-
-## Advanced Vials Come Online Earlier
-
-**Change:** Advanced Alchemy (or the equivalent class feature that unlocks higher-level formulas for daily prep) becomes available **2 levels earlier** than its listed level.
-
-Alchemists often feel like they're playing catch-up to their own level because their best options unlock later than comparable class features for other classes. This closes that gap slightly.
-
-## Table Notes
-
-None of these changes touch the Alchemist's core research fields or class feats — they're meant to be dropped into any existing Alchemist build.
