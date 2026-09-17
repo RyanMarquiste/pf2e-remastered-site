@@ -22,7 +22,6 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
   <p>This tiny glass flask contains volatile chemicals that can be used offensively in a pinch.</p>
-  <p>This vial becomes inert at the end of the turn that it was created on.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>The bomb deals 1d6 acid damage and 1 acid splash damage.</p>
