@@ -49,7 +49,8 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
   </div>
   <p><strong>Source</strong> Player Core 2 pg. 59</p>
   <p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p>
-  <p>Either use up a versatile vial to make another alchemical consumable at a moment's notice, or create an especially short-lived versatile vial. Any effect created by an item made with Quick Alchemy that would have a duration longer than 10 minutes lasts for 10 minutes instead.</p>
+  <p>Either use up a versatile vial to make another alchemical consumable at a moment's notice, or create an especially short-lived versatile vial.</p>
+  <p>Any effect created by an item made with Quick Alchemy that would have a duration longer than 10 minutes lasts for 10 minutes instead.</p>
 
   <div class="stat-block-section"><span>Create Consumable</span></div>
   <p><strong>Requirements</strong> You have at least one versatile vial.</p>
