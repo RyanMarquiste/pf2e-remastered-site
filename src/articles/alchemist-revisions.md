@@ -22,7 +22,7 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
     <span class="trait">Splash</span>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
-  <strong>Activate</strong> [one-action] Strike</p>
+  <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
   <p>This tiny glass flask contains volatile chemicals that can be used offensively in a pinch.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
@@ -47,7 +47,7 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
 ## Quick Alchemy
 
 <div class="stat-block">
-  <h4 class="stat-block-title">Quick Alchemy <span class="stat-block-action">[one-action]</span></h4>
+  <h4 class="stat-block-title">Quick Alchemy <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemist</span>
     <span class="trait">Manipulate</span>
