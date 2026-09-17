@@ -10,6 +10,10 @@ module.exports = function (eleventyConfig) {
     return articles.filter((article) => article.data.category === category);
   });
 
+  eleventyConfig.addFilter("byClass", (articles, classSlug) => {
+    return articles.filter((article) => article.data.class === classSlug);
+  });
+
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString("en-US", {
       year: "numeric",

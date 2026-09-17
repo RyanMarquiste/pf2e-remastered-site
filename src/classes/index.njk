@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Classes
+permalink: /classes/
+---
+<h1>Classes</h1>
+<p>Supplemental material organized by class.</p>
+
+<div class="article-list">
+  {% for cls in classes %}
+  <a class="article-card" href="/classes/{{ cls.slug }}/">
+    <h3>{{ cls.name }}</h3>
+  </a>
+  {% endfor %}
+</div>

@@ -1,0 +1,24 @@
+---
+layout: base.njk
+pagination:
+  data: classes
+  size: 1
+  alias: cls
+permalink: "/classes/{{ cls.slug }}/"
+eleventyComputed:
+  title: "{{ cls.name }}"
+---
+<h1>{{ cls.name }}</h1>
+
+<div class="article-list">
+  {% set clsArticles = collections.articles | byClass(cls.slug) %}
+  {% for article in clsArticles %}
+  <a class="article-card" href="{{ article.url }}">
+    <h3>{{ article.data.title }}</h3>
+    <p class="article-summary">{{ article.data.summary }}</p>
+    <p class="article-meta">{{ article.date | readableDate }}</p>
+  </a>
+  {% else %}
+  <p class="article-summary">No articles for this class yet.</p>
+  {% endfor %}
+</div>

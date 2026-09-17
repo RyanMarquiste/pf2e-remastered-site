@@ -13,6 +13,15 @@
       <a class="site-title" href="/">{{ site.title }}</a>
       <nav class="site-nav">
         <a href="/">Home</a>
+        <details class="nav-dropdown">
+          <summary>Classes</summary>
+          <div class="dropdown-menu">
+            <a href="/classes/">All Classes</a>
+            {% for cls in classes %}
+            <a href="/classes/{{ cls.slug }}/">{{ cls.name }}</a>
+            {% endfor %}
+          </div>
+        </details>
         <a href="/articles/">Articles</a>
         <a href="/about/">About</a>
       </nav>

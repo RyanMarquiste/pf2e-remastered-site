@@ -68,10 +68,55 @@ a:hover {
   color: var(--color-text);
 }
 
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
 .site-nav a {
   margin-left: 20px;
   color: var(--color-text);
   font-weight: 600;
+}
+
+.nav-dropdown {
+  position: relative;
+  margin-left: 20px;
+}
+
+.nav-dropdown summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text);
+  list-style: none;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown summary::after {
+  content: " \25BE";
+  font-size: 0.75em;
+}
+
+.nav-dropdown .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 160px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 6px 0;
+  z-index: 10;
+}
+
+.nav-dropdown .dropdown-menu a {
+  display: block;
+  margin: 0;
+  padding: 6px 14px;
+  font-weight: normal;
+  white-space: nowrap;
 }
 
 main {
