@@ -58,7 +58,7 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
 
   <div class="stat-block-section"><span>Quick Vial</span></div>
   <p>You create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field (it can't be used to create a consumable, for example). This item has the infused trait, but it remains potent only until the end of your current turn.</p>
-  <p>Using Quick Vial does not consume one of your volatile vials.</p>
+  <p>Using Quick Vial does not consume a versatile vial.</p>
 
   <p class="stat-block-source">Pathfinder Player Core 2, &copy; Paizo Inc., reproduced under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
