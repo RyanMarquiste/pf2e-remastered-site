@@ -49,7 +49,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
   </div>
   <p><strong>Source</strong> Player Core 2 pg. 59</p>
   <p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p>
-  <p>You create alchemical items quickly using an alchemist's toolkit. Choose one of the below options of Create Consumable or Quick Vial.</p>
+  <p>You create alchemical items quickly using an alchemist's toolkit. Choose either Create Consumable or Quick Vial as your action for Quick Alchemy.</p>
   <p>Any effect created by an item made with Quick Alchemy that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions such as slow acting poisons, as described in the infused key term.</p>
 
   <div class="stat-block-section"><span>Create Consumable</span></div>
