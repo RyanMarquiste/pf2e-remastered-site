@@ -119,10 +119,6 @@ a:hover {
   white-space: nowrap;
 }
 
-.nav-subdropdown {
-  position: relative;
-}
-
 .nav-subdropdown summary {
   cursor: pointer;
   font-weight: normal;
@@ -137,25 +133,18 @@ a:hover {
 }
 
 .nav-subdropdown summary::after {
-  content: " \25B8";
+  content: " \25BE";
   font-size: 0.75em;
 }
 
 .nav-subdropdown .dropdown-submenu {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  min-width: 140px;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  padding: 6px 0;
-  z-index: 11;
+  padding: 2px 0 6px;
 }
 
 .nav-subdropdown .dropdown-submenu a {
   display: block;
   margin: 0;
-  padding: 6px 14px;
+  padding: 6px 14px 6px 28px;
   font-weight: normal;
   white-space: nowrap;
 }
