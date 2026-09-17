@@ -57,7 +57,8 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
   <p>You expend one of your versatile vials to create a single alchemical consumable item of your level or lower that's in your formula book. You don't have to spend the normal monetary cost in alchemical raw materials or need to attempt a Crafting check. This item has the infused trait, but it remains potent only until the start of your next turn. (As normal, you need only one formula for an item to create any level of that item.)</p>
 
   <div class="stat-block-section"><span>Quick Vial</span></div>
-  <p>You create a versatile vial that can be used only as a bomb or for the versatile vial option from your research field (it can't be used to create a consumable, for example). This item has the infused trait, but it remains potent only until the end of your current turn.</p>
+  <p>You create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field (it can't be used to create a consumable, for example). This item has the infused trait, but it remains potent only until the end of your current turn.</p>
+  <p>Using Quick Vial does not consume one of your volatile vials.</p>
 
   <p class="stat-block-source">Pathfinder Player Core 2, &copy; Paizo Inc., reproduced under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
