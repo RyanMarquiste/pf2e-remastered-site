@@ -12,7 +12,7 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
 ## Volatile Vial (renamed from Versatile Vial)
 
 <div class="stat-block">
-  <h4 class="stat-block-title">Versatile Vial</h4>
+  <h4 class="stat-block-title">Volatile Vial</h4>
   <div class="stat-block-traits">
     <span class="trait">Acid</span>
     <span class="trait">Alchemical</span>
@@ -37,7 +37,7 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
   <div class="stat-block-section"><span>Major</span><span>Item 18</span></div>
   <p>You gain a +3 item bonus to attack rolls. The bomb deals 4d6 acid damage and 4 acid splash damage.</p>
 
-  <p class="stat-block-source">Pathfinder Player Core, &copy; Paizo Inc., reproduced under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
+  <p class="stat-block-source">Adapted from Pathfinder Player Core, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
 
 **Change:** Renamed to the **Volatile Vial**. No mechanical changes yet — all four tiers and their damage/bonus progression stay identical to the text above.
