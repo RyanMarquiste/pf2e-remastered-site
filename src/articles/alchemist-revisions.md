@@ -57,7 +57,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
   <p>Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert.</p>
 
   <div class="stat-block-section"><span>Quick Vial</span></div>
-  <p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait, but it remains potent only until the end of your current turn.</p>
+  <p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait and must be activated by the end of your current turn or else it becomes inert.</p>
   <p>Using Quick Vial does not expend a versatile vial.</p>
 
   <p class="stat-block-source">Pathfinder Player Core 2, &copy; Paizo Inc., reproduced under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
