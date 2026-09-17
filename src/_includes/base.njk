@@ -18,8 +18,26 @@
           <div class="dropdown-menu">
             <a href="{{ '/classes/' | url }}">All Classes</a>
             {% for cls in classes %}
+            {% if cls.slug == "alchemist" %}
+            <details class="nav-subdropdown">
+              <summary>{{ cls.name }}</summary>
+              <div class="dropdown-submenu">
+                <a href="{{ ('/classes/' ~ cls.slug ~ '/') | url }}">Overview</a>
+                <a href="{{ ('/classes/' ~ cls.slug ~ '/feats/') | url }}">Feats</a>
+                <a href="{{ ('/classes/' ~ cls.slug ~ '/items/') | url }}">Items</a>
+              </div>
+            </details>
+            {% else %}
             <a href="{{ ('/classes/' ~ cls.slug ~ '/') | url }}">{{ cls.name }}</a>
+            {% endif %}
             {% endfor %}
+          </div>
+        </details>
+        <details class="nav-dropdown">
+          <summary>General</summary>
+          <div class="dropdown-menu">
+            <a href="{{ '/general/terminology/' | url }}">Terminology</a>
+            <a href="{{ '/general/traits/' | url }}">Traits</a>
           </div>
         </details>
         <a href="{{ '/about/' | url }}">About</a>

@@ -9,7 +9,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
 
 ## Volatile Vial (renamed from Versatile Vial)
 
-<div class="stat-block">
+<div class="stat-block" id="volatile-vial">
   <h4 class="stat-block-title">Volatile Vial</h4>
   <div class="stat-block-traits">
     <span class="trait">Acid</span>
@@ -40,7 +40,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
 
 ## Quick Alchemy
 
-<div class="stat-block">
+<div class="stat-block" id="quick-alchemy">
   <h4 class="stat-block-title">Quick Alchemy <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemist</span>
