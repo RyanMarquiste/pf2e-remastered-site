@@ -7,8 +7,6 @@ date: 2026-02-02
 summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alchemy."
 ---
 
-The Alchemist asks a lot of its players — tracking formulas, reagents, and a tight action economy — often for less payoff than a full caster or martial gets from a single action. These revisions target the rough edges without rewriting the class.
-
 ## Volatile Vial (renamed from Versatile Vial)
 
 <div class="stat-block">
