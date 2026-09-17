@@ -1,8 +1,8 @@
-# PF2E Remastered — Supplemental Articles
+# Remastered Additions — Supplemental Articles
 
-A small Eleventy site for homebrew and supplemental material for Pathfinder Second Edition Remastered: new options, house rules, and GM tools meant to slot alongside the core rules.
+A small Eleventy site for homebrew and supplemental material for a popular ORC-licensed tabletop RPG: new options, house rules, and GM tools meant to slot alongside the core rules.
 
-This is unofficial fan content, published under the [Paizo Community Use Policy](https://paizo.com/community/communityuse).
+Some content adapts Licensed Material originally published by Paizo Inc., used under the [Open RPG Creative (ORC) License](https://paizo.com/orclicense). This project is independent and not affiliated with, sponsored by, or endorsed by Paizo Inc.
 
 ## Working locally
 

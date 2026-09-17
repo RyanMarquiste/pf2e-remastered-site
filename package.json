@@ -1,7 +1,7 @@
 {
   "name": "pf2e-remastered-site",
   "version": "1.0.0",
-  "description": "Community articles and supplemental material for Pathfinder 2E Remastered.",
+  "description": "Community articles and supplemental material for a popular ORC-licensed tabletop RPG.",
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
