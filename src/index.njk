@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Home
+---
+<section class="hero">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</section>
+
+<section class="article-list">
+  <h2>Latest Articles</h2>
+  {% for article in collections.articles %}
+  <a class="article-card" href="{{ article.url }}">
+    <p class="article-category">{{ article.data.category }}</p>
+    <h3>{{ article.data.title }}</h3>
+    <p class="article-summary">{{ article.data.summary }}</p>
+    <p class="article-meta">{{ article.date | readableDate }}</p>
+  </a>
+  {% endfor %}
+</section>

@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Articles
+permalink: /articles/
+---
+<h1>All Articles</h1>
+
+{% for cat in site.categories %}
+  {% set catArticles = collections.articles | byCategory(cat) %}
+  {% if catArticles.length %}
+  <section class="category-group">
+    <h2>{{ cat }}</h2>
+    <div class="article-list">
+      {% for article in catArticles %}
+      <a class="article-card" href="{{ article.url }}">
+        <h3>{{ article.data.title }}</h3>
+        <p class="article-summary">{{ article.data.summary }}</p>
+        <p class="article-meta">{{ article.date | readableDate }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+{% endfor %}
