@@ -51,13 +51,13 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
   </div>
   <p><strong>Source</strong> Player Core 2 pg. 59</p>
   <p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p>
-  <p>You can either use up a versatile vial to make another alchemical consumable at a moment's notice or create an especially short-lived versatile vial. Any effect created by an item made with Quick Alchemy that would have a duration longer than 10 minutes lasts for 10 minutes instead.</p>
+  <p>Either use up a versatile vial to make another alchemical consumable at a moment's notice, or create an especially short-lived versatile vial. Any effect created by an item made with Quick Alchemy that would have a duration longer than 10 minutes lasts for 10 minutes instead.</p>
 
   <div class="stat-block-section"><span>Create Consumable</span></div>
-  <p>You expend one of your versatile vials to create a single alchemical consumable item of your level or lower that's in your formula book. You don't have to spend the normal monetary cost in alchemical raw materials or need to attempt a Crafting check. This item has the infused trait, but it remains potent only until the start of your next turn. (As normal, you need only one formula for an item to create any level of that item.)</p>
+  <p>Expend one of your versatile vials to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait, but it remains potent only until the start of your next turn. (As normal, you need only one formula for an item to create any level of that item.)</p>
 
   <div class="stat-block-section"><span>Quick Vial</span></div>
-  <p>You create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait, but it remains potent only until the end of your current turn.</p>
+  <p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait, but it remains potent only until the end of your current turn.</p>
   <p>Using Quick Vial does not consume a versatile vial.</p>
 
   <p class="stat-block-source">Pathfinder Player Core 2, &copy; Paizo Inc., reproduced under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
