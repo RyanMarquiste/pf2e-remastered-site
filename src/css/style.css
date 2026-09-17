@@ -230,6 +230,12 @@ h1, h2, h3 {
   margin: 0 0 8px;
 }
 
+.stat-block-action {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
 .stat-block-traits {
   margin-bottom: 8px;
 }
