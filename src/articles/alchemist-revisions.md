@@ -52,7 +52,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
   <p>Any effect created by an item made with Quick Alchemy that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions such as slow acting poisons, as described in the infused trait.</p>
 
   <div class="stat-block-section"><span>Create Consumable</span></div>
-  <p><strong>Requirements</strong> You have at least one versatile vial.</p>
+  <p><strong>Requirements</strong> You have at least one versatile vial</p>
   <p>Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert.</p>
 
   <div class="stat-block-section"><span>Quick Vial</span></div>
