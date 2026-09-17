@@ -41,10 +41,6 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
   <p class="stat-block-source">Adapted from Pathfinder Player Core, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
 
-**Change:** Renamed to the **Volatile Vial**. No mechanical changes yet — all four tiers and their damage/bonus progression stay identical to the text above.
-
-"Volatile" reads better against the class's identity as something dangerous and unstable in your hands, rather than merely flexible. Further mechanical revisions to this item may follow.
-
 ## Quick Alchemy
 
 <div class="stat-block">
