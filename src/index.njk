@@ -10,7 +10,7 @@ title: Home
 <section class="article-list">
   <h2>Latest Articles</h2>
   {% for article in collections.articles %}
-  <a class="article-card" href="{{ article.url }}">
+  <a class="article-card" href="{{ article.url | url }}">
     <p class="article-category">{{ article.data.category }}</p>
     <h3>{{ article.data.title }}</h3>
     <p class="article-summary">{{ article.data.summary }}</p>

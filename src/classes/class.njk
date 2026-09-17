@@ -13,7 +13,7 @@ eleventyComputed:
 <div class="article-list">
   {% set clsArticles = collections.articles | byClass(cls.slug) %}
   {% for article in clsArticles %}
-  <a class="article-card" href="{{ article.url }}">
+  <a class="article-card" href="{{ article.url | url }}">
     <h3>{{ article.data.title }}</h3>
     <p class="article-summary">{{ article.data.summary }}</p>
     <p class="article-meta">{{ article.date | readableDate }}</p>

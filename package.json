@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy",
+    "build:pages": "eleventy --pathprefix /pf2e-remastered-site/",
     "serve": "eleventy --serve"
   },
   "keywords": [],
