@@ -210,6 +210,72 @@ h1, h2, h3 {
   color: var(--color-muted);
 }
 
+/* Stat block: styled like Archives of Nethys item/feat cards, colors fixed
+   regardless of site theme so quoted rules text reads as a distinct "card". */
+.stat-block {
+  background: #333333;
+  border: 1px solid #ffffff;
+  padding: 10px 14px;
+  margin: 20px 0;
+  color: #e8e8e8;
+}
+
+.stat-block-title {
+  background: #806e45;
+  color: #0f0f0f;
+  padding: 4px 9px;
+  border-radius: 3px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin: 0 0 8px;
+}
+
+.stat-block-traits {
+  margin-bottom: 8px;
+}
+
+.stat-block .trait {
+  display: inline-block;
+  background: #531004;
+  border: 2px double #d5c489;
+  color: #ffffff;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 1px 6px;
+  margin: 2px 4px 2px 0;
+}
+
+.stat-block p {
+  margin: 8px 0;
+  color: #e8e8e8;
+}
+
+.stat-block-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: #627d62;
+  color: #0f0f0f;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin: 12px 0 4px;
+}
+
+.stat-block-source {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #555555;
+  font-size: 0.8rem;
+  color: #b3b3b3;
+}
+
+.stat-block-source a {
+  color: #d5c489;
+}
+
 .site-footer {
   border-top: 1px solid var(--color-border);
   padding: 20px 0;

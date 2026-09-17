@@ -11,7 +11,36 @@ The Alchemist asks a lot of its players — tracking formulas, reagents, and a t
 
 ## Volatile Vial (renamed from Versatile Vial)
 
-**Change:** The Versatile Vial is renamed the **Volatile Vial**. No mechanical changes yet — same four tiers (lesser/moderate/greater/major at levels 1/4/12/18), same acid + splash damage scaling, same item bonus to attack rolls at moderate and above.
+<div class="stat-block">
+  <h4 class="stat-block-title">Versatile Vial</h4>
+  <div class="stat-block-traits">
+    <span class="trait">Acid</span>
+    <span class="trait">Alchemical</span>
+    <span class="trait">Bomb</span>
+    <span class="trait">Consumable</span>
+    <span class="trait">Infused</span>
+    <span class="trait">Splash</span>
+  </div>
+  <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
+  <strong>Activate</strong> [one-action] Strike</p>
+  <p>This tiny glass flask contains volatile chemicals that can be used offensively in a pinch.</p>
+
+  <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
+  <p>The bomb deals 1d6 acid damage and 1 acid splash damage.</p>
+
+  <div class="stat-block-section"><span>Moderate</span><span>Item 4</span></div>
+  <p>You gain a +1 item bonus to attack rolls. The bomb deals 2d6 acid damage and 2 acid splash damage.</p>
+
+  <div class="stat-block-section"><span>Greater</span><span>Item 12</span></div>
+  <p>You gain a +2 item bonus to attack rolls. The bomb deals 3d6 acid damage and 3 acid splash damage.</p>
+
+  <div class="stat-block-section"><span>Major</span><span>Item 18</span></div>
+  <p>You gain a +3 item bonus to attack rolls. The bomb deals 4d6 acid damage and 4 acid splash damage.</p>
+
+  <p class="stat-block-source">Pathfinder Player Core, &copy; Paizo Inc., reproduced under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
+</div>
+
+**Change:** Renamed to the **Volatile Vial**. No mechanical changes yet — all four tiers and their damage/bonus progression stay identical to the text above.
 
 "Volatile" reads better against the class's identity as something dangerous and unstable in your hands, rather than merely flexible. Further mechanical revisions to this item may follow.
 
