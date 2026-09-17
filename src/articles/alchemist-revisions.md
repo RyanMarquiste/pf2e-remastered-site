@@ -53,6 +53,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial and Quick Alche
 
   <div class="stat-block-section"><span>Create Consumable</span></div>
   <p>Expend one of your versatile vials to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait, but it remains potent only until the start of your next turn. (As normal, you need only one formula for an item to create any level of that item.)</p>
+  <p>Any effect created by an item made with Create Consumable that would have a duration longer than 10 minutes lasts for 10 minutes instead. This does not include long-lasting poison effects.</p>
 
   <div class="stat-block-section"><span>Quick Vial</span></div>
   <p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait, but it remains potent only until the end of your current turn.</p>
