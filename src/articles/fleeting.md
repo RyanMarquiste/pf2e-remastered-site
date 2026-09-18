@@ -9,4 +9,5 @@ summary: "New trait: Fleeting, for items, spells, effects, or creatures that onl
 <div class="stat-block" id="fleeting">
   <h4 class="stat-block-title">Fleeting</h4>
   <p>This item, spell, effect, or creature is fleeting. It lasts only until the end of the turn on which it was created or summoned. After that time it vanishes, is destroyed, disappears, becomes inert, or otherwise is no longer usable for its current purpose as appropriate for its type.</p>
+  <p>This is equivalent to it having a duration until the end of the current turn.</p>
 </div>
