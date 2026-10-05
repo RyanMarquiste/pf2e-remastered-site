@@ -4,7 +4,7 @@ title: "Warding Crust"
 category: Equipment
 class: alchemist
 date: 2026-10-05
-summary: "An alchemical paste that grants resistance to one energy type until it has blocked enough damage, then flakes away."
+summary: "An alchemical paste that grants resistance to one energy type for a limited number of hits, then flakes away."
 ---
 
 <div class="stat-block" id="warding-crust">
@@ -17,17 +17,17 @@ summary: "An alchemical paste that grants resistance to one energy type until it
   <strong>Activate</strong> {% actionIcon "three" %} Interact</p>
   <p>This small jar holds a thick, mineral-laced paste. When prepared, Warding Crust is attuned to one damage type: acid, cold, electricity, or fire.</p>
   <p>Slather Warding Crust over a willing or unconscious creature's exposed skin. Once applied, it hardens into a thin, brittle crust, granting the creature resistance to the attuned damage type.</p>
-  <p>Each time this resistance reduces damage from an attack, subtract the amount prevented from the paste's capacity. Once its capacity reaches 0, the crust flakes away and the effect ends immediately, even mid-combat. The effect also ends if its duration runs out, whichever happens first.</p>
+  <p>Warding Crust grants a limited number of instances of protection, noted below by tier. Each time this resistance reduces damage from an attack, the paste loses one instance of protection. Once it has no instances of protection remaining, the crust flakes away and the effect ends immediately, even mid-combat. The effect also ends if its duration runs out, whichever happens first.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>Resistance 5, capacity 25, duration 10 minutes.</p>
+  <p>Resistance 5, 5 instances of protection, duration 10 minutes.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 3</span></div>
-  <p>Resistance 10, capacity 50, duration 1 hour.</p>
+  <p>Resistance 10, 7 instances of protection, duration 1 hour.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 11</span></div>
-  <p>Resistance 15, capacity 100, duration 8 hours.</p>
+  <p>Resistance 15, 10 instances of protection, duration 8 hours.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
-  <p>Resistance 20, capacity 200, duration 24 hours.</p>
+  <p>Resistance 20, 15 instances of protection, duration 24 hours.</p>
 </div>
