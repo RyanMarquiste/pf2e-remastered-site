@@ -20,7 +20,7 @@ summary: "An alchemical paste that grants resistance to one energy type until it
   <p>Each time this resistance reduces damage from an attack, subtract the amount prevented from the paste's capacity. Once its capacity reaches 0, the crust flakes away and the effect ends immediately, even mid-combat. The effect also ends if its duration runs out, whichever happens first.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>Resistance 5, capacity 25, duration 1 hour.</p>
+  <p>Resistance 5, capacity 25, duration 10 minutes.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 3</span></div>
   <p>Resistance 10, capacity 50, duration 1 hour.</p>
