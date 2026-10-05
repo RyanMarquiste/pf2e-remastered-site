@@ -24,7 +24,7 @@ summary: "A spice blend that makes any food or drink it's added to compellingly 
     <li><strong>Subsisting</strong> No bonus or penalty; uses DC 18 as normal.</li>
     <li><strong>Hungry or starving</strong> &minus;2 circumstance penalty to the save.</li>
   </ul>
-  <p>The effect based on the creature's save:</p>
+  <p>The effect based on the result of the saving throw:</p>
   <ul>
     <li><strong>Critical Success</strong> The creature is unaffected and can tell something about the food or drink is unnatural.</li>
     <li><strong>Success</strong> The creature is unaffected and becomes temporarily immune to this application of Sensational Spices for 1 minute.</li>
