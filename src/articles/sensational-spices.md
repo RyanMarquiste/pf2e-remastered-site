@@ -8,7 +8,7 @@ summary: "A spice blend that makes any food or drink it's added to compellingly 
 ---
 
 <div class="stat-block" id="sensational-spices">
-  <h4 class="stat-block-title">Sensational Spices</h4>
+  <h4 class="stat-block-title">Sensational Spices <span class="stat-block-action">Item 3</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
