@@ -17,12 +17,6 @@ summary: "An Alchemist Additive feat that makes multiple distinct poisons on the
   <p><strong>Trigger</strong> You use Quick Alchemy to create a poison.</p>
   <p>You mix in a compound that makes toxins interfere with the body's ability to fight off further poisoning. If a creature fails its initial save against this poison, it also becomes affected by the compounding poisons effect.</p>
   <p><strong>Compounding Poisons Effect</strong> While affected, whenever the creature attempts a save against any poison, count the number of unique poison effects currently afflicting it, excluding persistent poison damage. If that count is 2, the creature takes a &minus;1 status penalty to the save; if the count is 3 or more, the status penalty is instead &minus;2. A single unique poison effect on its own confers no penalty.</p>
-  <p>A creature can be affected by only one compounding poisons effect at a time. If it would be affected by a second, its duration instead resets to whichever remaining duration is longer.</p>
-  <p>The duration of the compounding poisons effect depends on your level:</p>
-  <ul>
-    <li><strong>Level 6&ndash;9</strong> 1 minute.</li>
-    <li><strong>Level 10&ndash;13</strong> 10 minutes.</li>
-    <li><strong>Level 14&ndash;17</strong> 1 hour.</li>
-    <li><strong>Level 18&ndash;20</strong> 8 hours.</li>
-  </ul>
+  <p>A creature can be affected by only one compounding poisons effect at a time. If it would be affected by a second, its duration instead resets to 1 minute.</p>
+  <p>The compounding poisons effect lasts 1 minute.</p>
 </div>
