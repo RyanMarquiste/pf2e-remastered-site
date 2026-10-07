@@ -16,7 +16,7 @@ summary: "An Alchemist Additive feat that makes multiple distinct poisons on the
   <p><strong>Frequency</strong> once per round</p>
   <p><strong>Trigger</strong> You use Quick Alchemy to create a poison.</p>
   <p>You mix in a compound that causes poisons to interact with each other in complementary and debilitating ways, increasing the difficulty to fight off their effects. If a creature fails its initial save against this poison, it also becomes affected by the compounding poisons effect.</p>
-  <p><strong>Compounding Poisons Effect</strong> While affected, you take a penalty to saves versus ongoing poison effects based on the number of unique poisons you are afflicted by, excluding persistent poison damage:</p>
+  <p><strong>Compounding Poisons Effect</strong> While affected, you take a status penalty to saves versus unique poisons that you are afflicted by, excluding persistent poison damage:</p>
   <ul>
     <li><strong>2 unique poisons</strong> &minus;1 status penalty.</li>
     <li><strong>3+ unique poisons</strong> &minus;2 status penalty.</li>
