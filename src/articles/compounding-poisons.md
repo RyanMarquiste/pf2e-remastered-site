@@ -21,6 +21,7 @@ summary: "An Alchemist Additive feat that makes multiple distinct poisons on the
     <li><strong>2 unique poisons</strong> &minus;1 status penalty.</li>
     <li><strong>3+ unique poisons</strong> &minus;2 status penalty.</li>
   </ul>
+  <p>This penalty applies only to saves against poisons you're already afflicted by; it doesn't apply to the initial save when you're first exposed to a new poison.</p>
   <p>A creature can be affected by only one compounding poisons effect at a time. If it would be affected by a second, its duration instead resets to 1 minute.</p>
   <p><strong>Duration</strong> 1 minute or until you are no longer under the effect of a unique poison, whichever comes first</p>
 </div>
