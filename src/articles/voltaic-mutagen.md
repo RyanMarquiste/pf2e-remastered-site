@@ -1,14 +1,14 @@
 ---
 layout: article.njk
-title: "Galvanic Mutagen"
+title: "Voltaic Mutagen"
 category: Equipment
 class: alchemist
 date: 2026-10-08
 summary: "A mutagen that turns the drinker's body into a living bio-electric capacitor, crackling with eel-like current."
 ---
 
-<div class="stat-block" id="galvanic-mutagen">
-  <h4 class="stat-block-title">Galvanic Mutagen</h4>
+<div class="stat-block" id="voltaic-mutagen">
+  <h4 class="stat-block-title">Voltaic Mutagen</h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
