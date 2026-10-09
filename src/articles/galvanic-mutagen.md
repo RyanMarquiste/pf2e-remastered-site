@@ -24,15 +24,15 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   <p>While wielding a metal weapon, your attacks with it deal a small amount of additional electricity damage.</p>
   <p><strong>Drawback</strong> The current running through you disrupts your own precision. You take a &minus;1 status penalty to Reflex saves, Dexterity-based skill checks, and Dexterity-based attack rolls.</p>
 
-  <div class="stat-block-section"><span>Lesser</span><span>Item 4</span></div>
-  <p>Resistance 2, +1 status bonus, retaliation 1d4 electricity, metal weapons deal +1 electricity, duration 1 minute.</p>
+  <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
+  <p>Resistance 1, +1 status bonus, retaliation 1d4 electricity, metal weapons deal +1 electricity, duration 1 minute.</p>
 
-  <div class="stat-block-section"><span>Moderate</span><span>Item 9</span></div>
-  <p>Resistance 4, +1 status bonus, retaliation 1d6 electricity, metal weapons deal +2 electricity, duration 10 minutes.</p>
+  <div class="stat-block-section"><span>Moderate</span><span>Item 7</span></div>
+  <p>Resistance 3, +1 status bonus, retaliation 1d6 electricity, metal weapons deal +2 electricity, duration 10 minutes.</p>
 
-  <div class="stat-block-section"><span>Greater</span><span>Item 14</span></div>
-  <p>Resistance 7, +2 status bonus, retaliation 2d6 electricity, metal weapons deal +3 electricity, duration 1 hour.</p>
+  <div class="stat-block-section"><span>Greater</span><span>Item 12</span></div>
+  <p>Resistance 6, +2 status bonus, retaliation 2d6 electricity, metal weapons deal +3 electricity, duration 1 hour.</p>
 
-  <div class="stat-block-section"><span>Major</span><span>Item 19</span></div>
-  <p>Resistance 9, +2 status bonus, retaliation 3d6 electricity, metal weapons deal +4 electricity, duration 1 hour.</p>
+  <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
+  <p>Resistance 8, +2 status bonus, retaliation 3d6 electricity, metal weapons deal +4 electricity, duration 1 hour.</p>
 </div>
