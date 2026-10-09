@@ -22,7 +22,7 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   <p>You gain resistance to electricity equal to half this mutagen's level (minimum 1), a status bonus to Perception checks and Intelligence-based skill checks, and a jolt of retaliatory current, all scaled by the mutagen's tier below.</p>
   <p>Once per round, the first time you're hit by a melee or unarmed attack, the attacker takes electricity damage with a basic Reflex save. This resets at the start of your turn. For this purpose, a touch effect that targets you, friendly or not, counts as an attack.</p>
   <p>While wielding a metal weapon, your attacks with it deal a small amount of additional electricity damage.</p>
-  <p><strong>Drawback</strong> The current running through you disrupts your own precision. You take a &minus;1 status penalty to Reflex saves, Dexterity-based skill checks, and Dexterity-based attack rolls.</p>
+  <p><strong>Drawback</strong> The current running through you disrupts your own precision. You take a &minus;1 status penalty to Reflex saves, Dexterity-based skill checks, and Dexterity-based attack rolls. The electrical discharge doesn't distinguish friend from foe: a friendly melee, unarmed, or touch attack against you is just as likely to trigger it as a hostile one.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
   <p>Resistance 1, +1 status bonus, retaliation 1d4 electricity, metal weapons deal +1 electricity, duration 1 minute.</p>
