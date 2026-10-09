@@ -42,10 +42,10 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   <h4 class="stat-block-title">Voltaic Charge <span class="stat-block-action">Effect</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Electricity</span>
-    <span class="trait">Mutagen</span>
   </div>
   <p>You crackle with charged current, ready to discharge into whatever strikes you next.</p>
   <p>The first time you're hit by a melee or unarmed attack while you have this effect, you lose it, and the attacker takes electricity damage with a basic Reflex save. For this purpose, a touch effect that targets you, friendly or not, counts as an attack.</p>
   <p>This effect doesn't stack with itself; gaining it again while you already have it does nothing further.</p>
   <p><strong>Special</strong> The amount of electricity damage dealt is determined by whatever granted you this effect, such as a Voltaic Mutagen.</p>
+  <p><strong>Duration</strong> 1 round</p>
 </div>
