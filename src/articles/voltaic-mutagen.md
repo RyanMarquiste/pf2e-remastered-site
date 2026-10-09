@@ -22,7 +22,7 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   <p>You gain resistance to electricity equal to half this mutagen's level (minimum 1).</p>
   <p>When you first drink this mutagen, and again at the start of each of your turns while under its effects, you gain the tier of voltaic charge effect noted below for this mutagen's tier.</p>
   <p>While wielding a metal weapon, your attacks with it deal a small amount of additional electricity damage.</p>
-  <p>You gain a status bonus to saves against effects that would leave you paralyzed or stunned, scaled by tier below, as the current running through you resists outside attempts to seize control of your nerves. You also gain a +1 status bonus to your recovery checks while dying, as the current helps jolt your heart back into rhythm.</p>
+  <p>You gain a status bonus to saves against effects that would leave you paralyzed or stunned, scaled by tier below, as the current running through you resists outside attempts to seize control of your nerves. You also gain a +1 status bonus to your recovery checks while dying, as your internal bio-electric currents attempt to jump start your body and organs back to life.</p>
   <p><strong>Drawback</strong> The current running through you disrupts your own precision. You take a &minus;1 status penalty to Reflex saves, Dexterity-based skill checks, and Dexterity-based attack rolls. The electrical discharge doesn't distinguish friend from foe: a friendly melee, unarmed, or touch attack against you is just as likely to trigger it as a hostile one.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
