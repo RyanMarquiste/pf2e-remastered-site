@@ -12,7 +12,6 @@ summary: "A cantrip that conjures a fleeting shred of unlife to strike a foe wit
     <span class="trait">Cantrip</span>
     <span class="trait">Conjuration</span>
     <span class="trait">Fleeting</span>
-    <span class="trait">Necromancy</span>
     <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}</p>
