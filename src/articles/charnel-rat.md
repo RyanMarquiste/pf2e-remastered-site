@@ -10,7 +10,6 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
   <h4 class="stat-block-title">Charnel Rat <span class="stat-block-action">Cantrip 1</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Cantrip</span>
-    <span class="trait">Conjuration</span>
     <span class="trait">Fleeting</span>
     <span class="trait">Void</span>
   </div>
