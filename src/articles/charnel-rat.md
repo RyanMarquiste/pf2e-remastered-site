@@ -16,7 +16,7 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}</p>
   <p><strong>Range</strong> 30 feet</p>
-  <p>You conjure a small skeletal rat in an unoccupied space within range. It is fleeting (see the Fleeting trait) and can act immediately using any actions you have remaining this turn, taking one of the following actions:</p>
+  <p>You conjure a small skeletal rat in an unoccupied space within range. It is fleeting (see the Fleeting trait) and immediately acts using its own 2 actions, each spent on one of the following:</p>
   <ul>
     <li><strong>Bite</strong> It makes a melee Strike against an adjacent creature using your spell attack modifier, dealing 1d4 piercing damage.</li>
     <li><strong>Scurry</strong> It squeezes through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice &mdash; to move to another spot within range, where it can retrieve a small unattended object or interact with a simple mechanism such as a lever or latch.</li>

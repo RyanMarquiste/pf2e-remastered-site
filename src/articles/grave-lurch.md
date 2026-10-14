@@ -16,6 +16,6 @@ summary: "A cantrip that erupts a fleeting zombie fragment from the ground to sl
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}</p>
   <p><strong>Range</strong> 30 feet</p>
-  <p>A crude heap of rotting matter bursts up from the ground adjacent to a creature of your choice within range, assembling into a crude zombie fragment. It is fleeting (see the Fleeting trait) and can act immediately using any actions you have remaining this turn. It can make a melee Strike against that creature using your spell attack modifier, dealing 1d6 bludgeoning damage. On a critical hit, the target is also knocked prone.</p>
+  <p>A crude heap of rotting matter bursts up from the ground adjacent to a creature of your choice within range, assembling into a crude zombie fragment. It is fleeting (see the Fleeting trait). Unlike other summoned creatures, it immediately acts using only 1 action, as its shambling, undead form is too slow to muster the usual two &mdash; it makes a melee Strike against that creature using your spell attack modifier, dealing 1d6 bludgeoning damage. On a critical hit, the target is also knocked prone.</p>
   <p><strong>Heightened (+1)</strong> The damage increases by 1d6.</p>
 </div>
