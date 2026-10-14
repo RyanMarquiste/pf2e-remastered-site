@@ -14,7 +14,7 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
     <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}</p>
-  <p><strong>Range</strong> 30 feet</p>
+  <p><strong>Range</strong> 30 feet; <strong>Speed</strong> 20 feet, climb 10 feet</p>
   <p>You conjure a small skeletal rat in an unoccupied space within range. It is fleeting (see the Fleeting trait) and immediately acts using its own 2 actions, each spent on one of the following:</p>
   <ul>
     <li><strong>Bite</strong> It makes a melee Strike against an adjacent creature using your spell attack modifier, dealing 1d4 piercing damage.</li>
