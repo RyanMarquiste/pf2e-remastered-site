@@ -14,6 +14,7 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
     <span class="trait">Fleeting</span>
     <span class="trait">Necromancy</span>
   </div>
+  <p><strong>Cast</strong> {% actionIcon "two" %}</p>
   <p><strong>Range</strong> 30 feet</p>
   <p>You conjure a small skeletal rat in an unoccupied space within range. It is fleeting (see the Fleeting trait) and can act immediately using any actions you have remaining this turn, taking one of the following actions:</p>
   <ul>
