@@ -15,6 +15,6 @@ summary: "A cantrip that bursts a fleeting zombie from the terrain to slam a foe
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}</p>
   <p><strong>Range</strong> 30 feet</p>
-  <p>A zombie bursts from the terrain beneath or next to a creature of your choice within range. It is fleeting (see the Fleeting trait). Unlike other summoned creatures, it immediately acts using only 1 action, as its shambling, undead form is too slow to muster the usual two &mdash; it makes a melee Strike against that creature using your spell attack modifier, dealing 1d6 bludgeoning damage. On a critical hit, the target is also knocked prone.</p>
-  <p><strong>Heightened (+1)</strong> The damage increases by 1d6.</p>
+  <p>A zombie bursts from the terrain beneath or next to a creature of your choice within range. It is fleeting (see the Fleeting trait). Unlike other summoned creatures, it immediately acts using only 1 action, as its shambling, undead form is too slow to muster the usual two &mdash; it makes a melee Strike against that creature using your spell attack modifier, dealing 1d8 bludgeoning damage. On a critical hit, the target is also knocked prone.</p>
+  <p><strong>Heightened (+1)</strong> The damage increases by 1d8.</p>
 </div>
