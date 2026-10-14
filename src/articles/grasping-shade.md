@@ -1,0 +1,21 @@
+---
+layout: article.njk
+title: "Grasping Shade"
+category: Spells
+date: 2026-10-14
+summary: "A cantrip that conjures a fleeting shred of unlife to strike a foe with void damage."
+---
+
+<div class="stat-block" id="grasping-shade">
+  <h4 class="stat-block-title">Grasping Shade <span class="stat-block-action">Cantrip 1</span></h4>
+  <div class="stat-block-traits">
+    <span class="trait">Cantrip</span>
+    <span class="trait">Conjuration</span>
+    <span class="trait">Fleeting</span>
+    <span class="trait">Necromancy</span>
+    <span class="trait">Void</span>
+  </div>
+  <p><strong>Range</strong> 30 feet</p>
+  <p>You conjure a writhing shred of unlife in an unoccupied space within range, adjacent to a creature of your choice. It is fleeting (see the Fleeting trait) and can act immediately using any actions you have remaining this turn. It can make a melee Strike against that creature using your spell attack modifier, dealing 1d4 void damage.</p>
+  <p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>
+</div>
