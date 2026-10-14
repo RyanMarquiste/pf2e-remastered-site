@@ -44,7 +44,7 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   </div>
   <p><strong>Saving Throw</strong> basic Reflex</p>
   <p>You crackle with electricity, ready to discharge into whatever strikes you next.</p>
-  <p>The first time you're hit by a melee or unarmed attack while you have this effect, you lose it, and the attacker takes electricity damage, as noted below for your tier. For this purpose, a touch effect that targets you, friendly or not, counts as an attack.</p>
+  <p>The first time you're hit by a melee or unarmed attack, hit a creature with a melee or unarmed Strike, or succeed at a grapple against a creature, while you have this effect, you lose it, and the other creature takes electricity damage, as noted below for your tier. For this purpose, a touch effect that targets you, friendly or not, counts as an attack.</p>
   <p>This effect doesn't stack with itself; if you would gain it again while you already have it, you instead take the stronger of the two effects.</p>
   <p><strong>Duration</strong> 1 round</p>
 
