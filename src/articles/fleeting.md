@@ -15,6 +15,6 @@ summary: "New trait: Fleeting, for items, spells, effects, or creatures that onl
     <li><strong>Item</strong> The item either falls apart, disappears, or becomes inert at the end of the current turn.</li>
     <li><strong>Effect</strong> The effect lasts until the end of the current turn and then immediately ends.</li>
   </ul>
-  <p><strong>Note</strong> Fleeting durations cannot be extended unless the duration extension specifically says that it extends Fleeting.</p>
+  <p><strong>Note</strong> Fleeting cannot be extended in duration unless the extension specifically says that it extends Fleeting.</p>
 </div>
 <p class="trait-note"><strong>Special</strong> The purpose of the Fleeting keyword is to call extra attention to items, effects, or summons that have a short until end of turn duration. This helps to highlight what should be acted on immediately and gives an easy visual aid to help in deciding what to prioritize. It also provides an avenue for providing low-powered effects and items early in level progression, or providing shorter lived stronger effects or items.</p>
