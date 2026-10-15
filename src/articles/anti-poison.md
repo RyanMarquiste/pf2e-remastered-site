@@ -1,14 +1,14 @@
 ---
 layout: article.njk
-title: "Poison Conditioning"
+title: "Anti-Poison"
 category: Classes
 class: alchemist
 date: 2026-10-13
 summary: "A feat that lets a poison crafter convert a named poison into a targeted antitoxin instead."
 ---
 
-<div class="stat-block" id="poison-conditioning">
-  <h4 class="stat-block-title">Poison Conditioning <span class="stat-block-action">Feat 4</span></h4>
+<div class="stat-block" id="anti-poison">
+  <h4 class="stat-block-title">Anti-Poison <span class="stat-block-action">Feat 4</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemist</span>
     <span class="trait">Poisoner</span>
