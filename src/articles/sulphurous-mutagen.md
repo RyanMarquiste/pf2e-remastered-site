@@ -27,12 +27,12 @@ summary: "A mutagen that wreathes the drinker in volatile sulphur fumes, ready t
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>Resistance 5, ignition damage 1d4, aura 5 feet, duration 1 minute.</p>
 
-  <div class="stat-block-section"><span>Moderate</span><span>Item 4</span></div>
+  <div class="stat-block-section"><span>Moderate</span><span>Item 3</span></div>
   <p>Resistance 10, ignition damage 1d6, aura 5 feet, duration 10 minutes.</p>
 
-  <div class="stat-block-section"><span>Greater</span><span>Item 8</span></div>
+  <div class="stat-block-section"><span>Greater</span><span>Item 11</span></div>
   <p>Resistance 15, ignition damage 2d6, aura 10 feet, duration 1 hour.</p>
 
-  <div class="stat-block-section"><span>Major</span><span>Item 12</span></div>
+  <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
   <p>Resistance 20, ignition damage 3d6, aura 10 feet, duration 1 hour.</p>
 </div>
