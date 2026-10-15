@@ -4,7 +4,7 @@ title: "Sulphurous Mutagen"
 category: Equipment
 class: alchemist
 date: 2026-10-15
-summary: "A mutagen that lets the drinker exhale volatile sulphur clouds, set as traps and flash-ignited on demand."
+summary: "A mutagen that lets the drinker exhale volatile sulphur clouds that flash-ignite when fire touches them."
 ---
 
 <div class="stat-block" id="sulphurous-mutagen">
@@ -22,9 +22,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulphur clouds, set as
   <p>You gain resistance to fire, scaled by tier below, as the compounds in your blood soak up heat.</p>
   <p><strong>Activate</strong> {% actionIcon "one" %} Sulphur Cloud</p>
   <p>You exhale a cloud of sulphur fumes that fills a 5-foot emanation around you (10 feet at Greater and Major). The cloud stays where it forms, so you can move out of it, and it disperses at the start of your next turn. Only one cloud can exist at a time; creating a new one disperses the previous one. The cloud has no effect on its own.</p>
-  <p><strong>Ignite</strong> {% actionIcon "reaction" %}<br>
-  <strong>Trigger</strong> A creature enters your sulphur cloud or starts its turn in it.</p>
-  <p>You set the cloud alight. The cloud also ignites on its own if fire damage is dealt to a creature in it, or an effect with the fire trait passes through it, including your enemies' fire. When the cloud ignites, each creature in it takes fire damage as noted below for this mutagen's tier, and the cloud disperses. Creatures other than you attempt a basic Reflex save against the item's DC; you attempt none, and if you are in the cloud, your fire resistance negates the damage. It affects allies and enemies alike.</p>
+  <p><strong>Ignition</strong> If a creature or object in the cloud takes fire damage, or an attack or effect with the fire trait is made into or through the cloud, the cloud ignites. Any source of fire counts, including your enemies', and readying a fire attack for when a creature enters the cloud is a classic way to spring the trap. When the cloud ignites, each creature in it takes fire damage as noted below for this mutagen's tier, and the cloud disperses. Creatures other than you attempt a basic Reflex save against the item's DC; you attempt none, and if you are in the cloud, your fire resistance negates the damage. It affects allies and enemies alike.</p>
   <p><strong>Drawback</strong> The compounds building up in your body are easily overpowered by caustic and toxic substances, giving you weakness 3 to acid and weakness 3 to poison. The odorous, tear-inducing vapors that cling to you make social graces difficult, giving you a &minus;2 item penalty to Charisma-based skill checks. The reek is also easy to follow: creatures attempting to track you by scent gain a +2 circumstance bonus to Survival checks to Track you and to Perception checks to notice you by smell.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
