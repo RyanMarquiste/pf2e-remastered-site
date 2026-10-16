@@ -3,7 +3,7 @@ layout: article.njk
 title: "Fleeting Death"
 category: Spells
 date: 2026-10-16
-summary: "A cantrip that conjures a fleeting undead creature, a grasping shade, charnel rat, or grave zombie, to strike a foe."
+summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, grasping shade, or grave zombie, to strike a foe."
 ---
 
 <div class="stat-block" id="fleeting-death">
@@ -14,8 +14,26 @@ summary: "A cantrip that conjures a fleeting undead creature, a grasping shade, 
     <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
-  <p>You conjure a fleeting, summoned undead creature of your choice in an unoccupied space within range: a grasping shade, a charnel rat, or a grave zombie. The creature immediately acts using its own 2 actions.</p>
-  <p><strong>Heightened (+1)</strong> The damage of the creature's attack increases by 1d4 of its damage type: void for the grasping shade, piercing for the charnel rat, and bludgeoning for the grave zombie.</p>
+  <p>You conjure a fleeting, summoned undead creature of your choice in an unoccupied space within range: a charnel rat, a grasping shade, or a grave zombie. The creature immediately acts using its own 2 actions.</p>
+  <p><strong>Heightened (+1)</strong> The damage of the creature's attack increases by 1d4 of its damage type: piercing for the charnel rat, void for the grasping shade, and bludgeoning for the grave zombie.</p>
+  <div class="stat-block creature-block" id="charnel-rat">
+    <h5 class="stat-block-title">Charnel Rat <span class="stat-block-action">Summoned Creature</span></h5>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <div class="stat-block-traits">
+          <span class="trait">Fleeting</span>
+          <span class="trait">Minion</span>
+          <span class="trait">Summoned</span>
+          <span class="trait">Tiny</span>
+          <span class="trait">Undead</span>
+        </div>
+        <p><strong>Speed</strong> 20 feet, climb 10 feet</p>
+        <p><strong>Melee</strong> {% actionIcon "one" %} bite (your spell attack modifier), <strong>Damage</strong> 1d4 piercing plus the target is sickened 1 if they fail a Fortitude save against your spell DC (the sickened condition is a disease effect)</p>
+        <p><strong>Scurry</strong> {% actionIcon "two" %} (move) The rat moves up to twice its Speed, climbing as needed, squeezing through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice. It can carry an unattended object of L bulk or less along with it during this movement.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/charnel-rat.jpg' | url }}" alt="A skeletal rat with a glowing green eye and venomous green slime dripping from its fangs stalks across a dungeon floor." loading="lazy">
+    </div>
+  </div>
   <div class="stat-block creature-block" id="grasping-shade">
     <h5 class="stat-block-title">Grasping Shade <span class="stat-block-action">Summoned Creature</span></h5>
     <div class="stat-block-body">
@@ -33,24 +51,6 @@ summary: "A cantrip that conjures a fleeting undead creature, a grasping shade, 
         <p><strong>Melee</strong> {% actionIcon "one" %} grasp (your spell attack modifier), <strong>Damage</strong> 1d6 void plus the target is enfeebled 1 (enfeebled 2 on crit) for 1 round</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/grasping-shade.jpg' | url }}" alt="A dark, clawed shade with glowing eyes reaches out of a derelict mansion hallway, embers drifting around it." loading="lazy">
-    </div>
-  </div>
-  <div class="stat-block creature-block" id="charnel-rat">
-    <h5 class="stat-block-title">Charnel Rat <span class="stat-block-action">Summoned Creature</span></h5>
-    <div class="stat-block-body">
-      <div class="stat-block-main">
-        <div class="stat-block-traits">
-          <span class="trait">Fleeting</span>
-          <span class="trait">Minion</span>
-          <span class="trait">Summoned</span>
-          <span class="trait">Tiny</span>
-          <span class="trait">Undead</span>
-        </div>
-        <p><strong>Speed</strong> 20 feet, climb 10 feet</p>
-        <p><strong>Melee</strong> {% actionIcon "one" %} bite (your spell attack modifier), <strong>Damage</strong> 1d4 piercing plus the target is sickened 1 if they fail a Fortitude save against your spell DC (the sickened condition is a disease effect)</p>
-        <p><strong>Scurry</strong> {% actionIcon "two" %} (move) The rat moves up to twice its Speed, climbing as needed, squeezing through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice. It can carry an unattended object of L bulk or less along with it during this movement.</p>
-      </div>
-      <img class="stat-block-art" src="{{ '/images/charnel-rat.jpg' | url }}" alt="A skeletal rat with a glowing green eye and venomous green slime dripping from its fangs stalks across a dungeon floor." loading="lazy">
     </div>
   </div>
   <div class="stat-block creature-block" id="grave-zombie">
