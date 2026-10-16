@@ -342,6 +342,16 @@ h1, h2, h3 {
   min-width: 0;
 }
 
+.stat-block.creature-block {
+  margin: 14px 0 0;
+  background: #2a2a2a;
+  border: 1px solid #806e45;
+}
+
+.creature-block > .stat-block-title {
+  background: #627d62;
+}
+
 .stat-block-art {
   flex: 0 0 20%;
   min-width: 80px;
@@ -370,5 +380,18 @@ h1, h2, h3 {
 
   .article-card {
     flex-basis: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-block-body {
+    flex-direction: column;
+  }
+
+  .stat-block-art {
+    order: -1;
+    align-self: center;
+    flex: 0 0 auto;
+    width: 120px;
   }
 }
