@@ -248,6 +248,7 @@ h1, h2, h3 {
   padding: 10px 14px;
   margin: 20px 0;
   color: #e8e8e8;
+  display: flow-root;
 }
 
 .stat-block-title {
@@ -321,11 +322,11 @@ h1, h2, h3 {
 }
 
 .stat-block-art {
-  display: block;
-  width: 100%;
-  max-width: 480px;
+  float: right;
+  width: 20%;
+  min-width: 80px;
   height: auto;
-  margin: 12px auto 0;
+  margin: 8px 0 8px 14px;
   border-radius: 4px;
 }
 
