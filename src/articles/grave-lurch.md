@@ -25,7 +25,6 @@ summary: "A cantrip that bursts a fleeting zombie from the terrain to slam a foe
       <span class="trait">Summoned</span>
       <span class="trait">Undead</span>
     </div>
-    <p><strong>Actions</strong> 2 (1 while slowed)</p>
     <p><strong>Slow</strong> The zombie is permanently slowed 1 and can't use reactions.</p>
     <p><strong>Melee</strong> {% actionIcon "one" %} fist (your spell attack modifier), <strong>Damage</strong> 1d8 bludgeoning plus Toppling Slam</p>
     <p><strong>Toppling Slam</strong> <strong>Effect</strong> On a critical hit, the target is knocked prone.</p>

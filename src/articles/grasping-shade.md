@@ -28,7 +28,6 @@ summary: "A cantrip that conjures a fleeting shred of unlife to strike a foe wit
           <span class="trait">Summoned</span>
           <span class="trait">Undead</span>
         </div>
-        <p><strong>Actions</strong> 2</p>
         <p><strong>Speed</strong> fly 30 feet</p>
         <p><strong>Melee</strong> {% actionIcon "one" %} grasp (your spell attack modifier), <strong>Damage</strong> 1d6 void plus Sapping Grasp</p>
         <p><strong>Sapping Grasp</strong> <strong>Duration</strong> 1 round; <strong>Effect</strong> The target is enfeebled 1 on a hit, or enfeebled 2 on a critical hit.</p>

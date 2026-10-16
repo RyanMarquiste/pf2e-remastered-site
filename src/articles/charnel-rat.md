@@ -27,7 +27,6 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
           <span class="trait">Tiny</span>
           <span class="trait">Undead</span>
         </div>
-        <p><strong>Actions</strong> 2</p>
         <p><strong>Speed</strong> 20 feet, climb 10 feet</p>
         <p><strong>Melee</strong> {% actionIcon "one" %} bite (your spell attack modifier), <strong>Damage</strong> 1d4 piercing plus the target is sickened 1 if they fail a Fortitude save against your spell DC (the sickened condition is a disease effect)</p>
         <p><strong>Scurry</strong> {% actionIcon "two" %} (move) The rat moves up to twice its Speed, climbing as needed, squeezing through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice. It can carry an unattended object of L bulk or less along with it during this movement.</p>
