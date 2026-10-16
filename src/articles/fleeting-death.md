@@ -14,7 +14,6 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
     <span class="trait">Divine</span>
     <span class="trait">Fleeting</span>
     <span class="trait">Occult</span>
-    <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
   <p>You conjure a fleeting, summoned undead creature of your choice in an unoccupied space within range: a charnel rat, a grasping shade, or a grave zombie. The creature immediately acts using its own 2 actions.</p>
@@ -51,7 +50,7 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
         </div>
         <p><strong>Speed</strong> fly 30 feet</p>
         <p><strong>Incorporeal</strong> The shade can fly through walls and creatures, but it can't end its movement inside them.</p>
-        <p><strong>Melee</strong> {% actionIcon "one" %} (attack) grasp (your spell attack modifier), <strong>Damage</strong> 1d6 void plus the target is enfeebled 1 (enfeebled 2 on crit) for 1 round</p>
+        <p><strong>Melee</strong> {% actionIcon "one" %} (attack, void) grasp (your spell attack modifier), <strong>Damage</strong> 1d6 void plus the target is enfeebled 1 (enfeebled 2 on crit) for 1 round</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/grasping-shade.jpg' | url }}" alt="A dark, clawed shade with glowing eyes reaches out of a derelict mansion hallway, embers drifting around it." loading="lazy">
     </div>
