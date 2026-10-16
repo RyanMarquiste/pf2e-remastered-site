@@ -68,8 +68,7 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
           <span class="trait">Undead</span>
         </div>
         <p><strong>Slow</strong> The zombie is permanently slowed 1 and can't use reactions.</p>
-        <p><strong>Melee</strong> {% actionIcon "one" %} fist (your spell attack modifier), <strong>Damage</strong> 1d8 bludgeoning plus Toppling Slam</p>
-        <p><strong>Toppling Slam</strong> <strong>Effect</strong> On a critical hit, the target is knocked prone.</p>
+        <p><strong>Melee</strong> {% actionIcon "one" %} fist (your spell attack modifier), <strong>Damage</strong> 1d8 bludgeoning plus on a critical hit the target is knocked prone</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/grave-zombie.jpg' | url }}" alt="A snarling zombie with glowing eyes claws its way out of churned earth in a moonlit graveyard, embers and rubble flying." loading="lazy">
     </div>
