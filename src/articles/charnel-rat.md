@@ -19,7 +19,10 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
       <p><strong>Range</strong> 30 feet; <strong>Speed</strong> 20 feet, climb 10 feet</p>
       <p>You conjure a small skeletal rat in an unoccupied space within range. It is fleeting (see the Fleeting trait) and immediately acts using its own 2 actions, each spent on one of the following:</p>
       <ul>
-        <li><strong>Bite</strong> It makes a melee Strike against an adjacent creature using your spell attack modifier, dealing 1d4 piercing damage. On a hit, the target must succeed at a Fortitude save against your spell DC or become sickened 1, as grave-rot takes hold (a disease effect, resisted or ignored accordingly).</li>
+        <li><strong>Bite</strong> It makes a melee Strike against an adjacent creature using your spell attack modifier: 1d4 piercing damage plus grave rot.<br>
+          <strong>Grave Rot</strong> (disease) On a hit, the target is sickened 1.<br>
+          <strong>Duration</strong> 1 round<br>
+          <strong>Saving Throw</strong> Fortitude negates (your spell DC)</li>
         <li><strong>Scurry</strong> It moves up to its Speed, climbing at its climb Speed as needed, squeezing through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice. It can use this movement to position itself for a bite, or to retrieve an unattended object of L bulk or less.</li>
       </ul>
       <p><strong>Heightened (+1)</strong> The bite's damage increases by 1d4.</p>
