@@ -30,8 +30,7 @@ summary: "A cantrip that conjures a fleeting undead creature, a grasping shade, 
         </div>
         <p><strong>Speed</strong> fly 30 feet</p>
         <p><strong>Incorporeal</strong> The shade can fly through walls and creatures, but it can't end its movement inside them.</p>
-        <p><strong>Melee</strong> {% actionIcon "one" %} grasp (your spell attack modifier), <strong>Damage</strong> 1d6 void plus Sapping Grasp</p>
-        <p><strong>Sapping Grasp</strong> <strong>Duration</strong> 1 round; <strong>Effect</strong> The target is enfeebled 1 on a hit, or enfeebled 2 on a critical hit.</p>
+        <p><strong>Melee</strong> {% actionIcon "one" %} grasp (your spell attack modifier), <strong>Damage</strong> 1d6 void plus the target is enfeebled 1 (enfeebled 2 on crit) for 1 round</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/grasping-shade.jpg' | url }}" alt="A dark, clawed shade with glowing eyes reaches out of a derelict mansion hallway, embers drifting around it." loading="lazy">
     </div>
