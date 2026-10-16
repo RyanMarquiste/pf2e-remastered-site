@@ -29,18 +29,10 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
         </div>
         <p><strong>Actions</strong> 2</p>
         <p><strong>Speed</strong> 20 feet, climb 10 feet</p>
-        <p><strong>Melee</strong> {% actionIcon "one" %} bite (your spell attack modifier), <strong>Damage</strong> 1d4 piercing plus Minor Grave Rot</p>
+        <p><strong>Melee</strong> {% actionIcon "one" %} bite (your spell attack modifier), <strong>Damage</strong> 1d4 piercing plus the target is sickened 1 if they fail a Fortitude save against your spell DC (the sickened condition is a disease effect)</p>
         <p><strong>Scurry</strong> {% actionIcon "two" %} (move) The rat moves up to twice its Speed, climbing as needed, squeezing through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice. It can carry an unattended object of L bulk or less along with it during this movement.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/charnel-rat.jpg' | url }}" alt="A skeletal rat with a glowing green eye and venomous green slime dripping from its fangs stalks across a dungeon floor." loading="lazy">
     </div>
-  </div>
-  <div class="stat-block effect-block" id="minor-grave-rot">
-    <h5 class="stat-block-title">Minor Grave Rot <span class="stat-block-action">Effect</span></h5>
-    <div class="stat-block-traits">
-      <span class="trait">Disease</span>
-    </div>
-    <p><strong>Saving Throw</strong> Fortitude negates (your spell DC)</p>
-    <p>On a failed save, the target is sickened 1.</p>
   </div>
 </div>
