@@ -9,8 +9,11 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
 <div class="stat-block" id="fleeting-death">
   <h4 class="stat-block-title">Fleeting Death <span class="stat-block-action">Cantrip 1</span></h4>
   <div class="stat-block-traits">
+    <span class="trait">Arcane</span>
     <span class="trait">Cantrip</span>
+    <span class="trait">Divine</span>
     <span class="trait">Fleeting</span>
+    <span class="trait">Occult</span>
     <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
