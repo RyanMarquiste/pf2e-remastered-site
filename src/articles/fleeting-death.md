@@ -55,15 +55,20 @@ summary: "A cantrip that conjures a fleeting undead creature, a grasping shade, 
   </div>
   <div class="stat-block creature-block" id="grave-zombie">
     <h5 class="stat-block-title">Grave Zombie <span class="stat-block-action">Summoned Creature</span></h5>
-    <div class="stat-block-traits">
-      <span class="trait">Fleeting</span>
-      <span class="trait">Medium</span>
-      <span class="trait">Minion</span>
-      <span class="trait">Summoned</span>
-      <span class="trait">Undead</span>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <div class="stat-block-traits">
+          <span class="trait">Fleeting</span>
+          <span class="trait">Medium</span>
+          <span class="trait">Minion</span>
+          <span class="trait">Summoned</span>
+          <span class="trait">Undead</span>
+        </div>
+        <p><strong>Slow</strong> The zombie is permanently slowed 1 and can't use reactions.</p>
+        <p><strong>Melee</strong> {% actionIcon "one" %} fist (your spell attack modifier), <strong>Damage</strong> 1d8 bludgeoning plus Toppling Slam</p>
+        <p><strong>Toppling Slam</strong> <strong>Effect</strong> On a critical hit, the target is knocked prone.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/grave-zombie.jpg' | url }}" alt="A snarling zombie with glowing eyes claws its way out of churned earth in a moonlit graveyard, embers and rubble flying." loading="lazy">
     </div>
-    <p><strong>Slow</strong> The zombie is permanently slowed 1 and can't use reactions.</p>
-    <p><strong>Melee</strong> {% actionIcon "one" %} fist (your spell attack modifier), <strong>Damage</strong> 1d8 bludgeoning plus Toppling Slam</p>
-    <p><strong>Toppling Slam</strong> <strong>Effect</strong> On a critical hit, the target is knocked prone.</p>
   </div>
 </div>
