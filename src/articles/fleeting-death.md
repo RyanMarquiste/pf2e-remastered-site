@@ -17,7 +17,7 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
   <p>You conjure a fleeting, summoned undead creature of your choice in an unoccupied space within range: a charnel rat, a grasping shade, or a grave zombie. The creature immediately acts using its own 2 actions.</p>
-  <p><strong>Heightened (+1)</strong> The damage of the creature's attack increases by 1d4 of its damage type: piercing for the charnel rat, void for the grasping shade, and bludgeoning for the grave zombie.</p>
+  <p><strong>Heightened (+1)</strong> The creature deals an additional 1d4 damage of the same type on its first attack.</p>
   <div class="stat-block creature-block" id="charnel-rat">
     <h5 class="stat-block-title">Charnel Rat <span class="stat-block-action">Summoned Creature</span></h5>
     <div class="stat-block-body">
