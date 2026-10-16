@@ -14,7 +14,7 @@ summary: "A cantrip that bursts a fleeting zombie from the terrain to slam a foe
     <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
-  <p>A zombie bursts from the terrain beneath or next to a creature of your choice within range. It is a fleeting, summoned creature, and unlike other summoned creatures it immediately acts using only 1 action, as its shambling, undead form is too slow to muster the usual two.</p>
+  <p>A zombie bursts from the terrain beneath or next to a creature of your choice within range. It is a fleeting, summoned creature that immediately acts using its own 2 actions, but its permanent slowed condition leaves it only 1 of them.</p>
   <p><strong>Heightened (+2)</strong> The damage increases by 1d8.</p>
   <div class="stat-block creature-block">
     <h5 class="stat-block-title">Grave Zombie <span class="stat-block-action">Summoned Creature</span></h5>
@@ -25,7 +25,8 @@ summary: "A cantrip that bursts a fleeting zombie from the terrain to slam a foe
       <span class="trait">Summoned</span>
       <span class="trait">Undead</span>
     </div>
-    <p><strong>Actions</strong> 1</p>
+    <p><strong>Actions</strong> 2 (1 while slowed)</p>
+    <p><strong>Slow</strong> The zombie is permanently slowed 1 and can't use reactions.</p>
     <p><strong>Melee</strong> {% actionIcon "one" %} fist (your spell attack modifier), <strong>Damage</strong> 1d8 bludgeoning plus Toppling Slam</p>
     <p><strong>Toppling Slam</strong> <strong>Effect</strong> On a critical hit, the target is knocked prone.</p>
   </div>
