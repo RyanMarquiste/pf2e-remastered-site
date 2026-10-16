@@ -14,7 +14,7 @@ summary: "A cantrip that conjures a fleeting shred of unlife to strike a foe wit
     <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
-  <p>You conjure a writhing shred of unlife in an unoccupied space within range. It is a fleeting, summoned creature and immediately acts using its own 2 actions, typically one to fly toward a creature and one to Strike it.</p>
+  <p>You conjure a writhing shred of unlife in an unoccupied space within range. It is a fleeting, summoned creature and immediately acts using its own 2 actions, typically one to fly toward a creature and one to Strike it. Being incorporeal, it can fly through walls and creatures, but it can't end its movement inside them.</p>
   <p><strong>Heightened (+1)</strong> The damage increases by 1d4.</p>
   <div class="stat-block creature-block">
     <h5 class="stat-block-title">Grasping Shade <span class="stat-block-action">Summoned Creature</span></h5>
@@ -22,6 +22,7 @@ summary: "A cantrip that conjures a fleeting shred of unlife to strike a foe wit
       <div class="stat-block-main">
         <div class="stat-block-traits">
           <span class="trait">Fleeting</span>
+          <span class="trait">Incorporeal</span>
           <span class="trait">Medium</span>
           <span class="trait">Minion</span>
           <span class="trait">Summoned</span>
