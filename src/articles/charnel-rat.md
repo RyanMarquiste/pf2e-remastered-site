@@ -14,7 +14,7 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
     <span class="trait">Void</span>
   </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
-  <p>You conjure a small skeletal rat in an unoccupied space within range. It is a fleeting, summoned creature and immediately acts using its own 2 actions, each spent on a Bite or a Scurry.</p>
+  <p>You conjure a small skeletal rat in an unoccupied space within range. It is a fleeting, summoned creature and immediately acts using its own 2 actions, which it can spend on two Bites or a single Scurry.</p>
   <p><strong>Heightened (+1)</strong> The bite's damage increases by 1d4.</p>
   <div class="stat-block creature-block">
     <h5 class="stat-block-title">Charnel Rat <span class="stat-block-action">Summoned Creature</span></h5>
@@ -30,7 +30,7 @@ summary: "A cantrip that conjures a fleeting skeletal rat to bite a foe or scurr
         <p><strong>Actions</strong> 2</p>
         <p><strong>Speed</strong> 20 feet, climb 10 feet</p>
         <p><strong>Melee</strong> {% actionIcon "one" %} bite (your spell attack modifier), <strong>Damage</strong> 1d4 piercing plus Minor Grave Rot</p>
-        <p><strong>Scurry</strong> {% actionIcon "one" %} (move) The rat moves up to its Speed, climbing as needed, squeezing through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice. It can use this movement to position itself for a bite, or to retrieve an unattended object of L bulk or less.</p>
+        <p><strong>Scurry</strong> {% actionIcon "two" %} (move) The rat moves up to twice its Speed, climbing as needed, squeezing through any gap a real rat could fit through &mdash; under a door, through bars, into a narrow crevice. It can carry an unattended object of L bulk or less along with it during this movement.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/charnel-rat.jpg' | url }}" alt="A skeletal rat with a glowing green eye and venomous green slime dripping from its fangs stalks across a dungeon floor." loading="lazy">
     </div>
