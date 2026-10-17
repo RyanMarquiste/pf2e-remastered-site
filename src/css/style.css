@@ -1,22 +1,58 @@
 :root {
-  --color-bg: #fbf8f3;
-  --color-text: #262019;
-  --color-muted: #6b5f52;
-  --color-accent: #8c2f2f;
-  --color-accent-dark: #6e2222;
-  --color-border: #e2d9cc;
+  color-scheme: light dark;
+
+  /* Light theme: cool slate neutrals with an indigo accent. */
+  --color-bg: #f8fafc;
+  --color-text: #0f172a;
+  --color-muted: #475569;
+  --color-accent: #4338ca;
+  --color-accent-dark: #3730a3;
+  --color-border: #cbd5e1;
+
+  /* Stat block "cards". */
+  --card-bg: #ffffff;
+  --card-nested-bg: #f1f5f9;
+  --card-text: #0f172a;
+  --card-muted: #475569;
+  --card-border: #64748b;
+  --card-nested-border: #6366f1;
+  --card-divider: #cbd5e1;
+  --card-link: #3730a3;
+  --card-label: #3730a3;
+  --card-title-bg: #3730a3;
+  --card-title-text: #ffffff;
+  --card-section-bg: #0f766e;
+  --card-section-text: #ffffff;
+  --trait-bg: #1e1b4b;
+  --trait-border: #a5b4fc;
+  --trait-text: #ffffff;
+
   --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
   --font-heading: "Trajan Pro", Georgia, serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #1b1713;
-    --color-text: #ece5d8;
-    --color-muted: #b3a693;
-    --color-accent: #d1745f;
-    --color-accent-dark: #e69784;
-    --color-border: #3a3128;
+    --color-bg: #0b1120;
+    --color-text: #e2e8f0;
+    --color-muted: #94a3b8;
+    --color-accent: #a5b4fc;
+    --color-accent-dark: #c7d2fe;
+    --color-border: #26334a;
+
+    --card-bg: #111a2e;
+    --card-nested-bg: #18233d;
+    --card-text: #e2e8f0;
+    --card-muted: #94a3b8;
+    --card-border: #64748b;
+    --card-nested-border: #818cf8;
+    --card-divider: #334155;
+    --card-link: #a5b4fc;
+    --card-label: #a5b4fc;
+    --card-title-bg: #4338ca;
+    --card-title-text: #ffffff;
+    --card-section-bg: #0f766e;
+    --card-section-text: #ffffff;
   }
 }
 
@@ -285,20 +321,20 @@ h1, h2, h3 {
   color: var(--color-muted);
 }
 
-/* Stat block: styled like Archives of Nethys item/feat cards, colors fixed
-   regardless of site theme so quoted rules text reads as a distinct "card". */
+/* Stat block: modeled on Archives of Nethys item/feat cards, themed with the
+   --card-* tokens so rules text reads as a distinct card in light and dark. */
 .stat-block {
-  background: #333333;
-  border: 1px solid #ffffff;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   padding: 10px 14px;
   margin: 20px 0;
-  color: #e8e8e8;
+  color: var(--card-text);
   display: flow-root;
 }
 
 .stat-block-title {
-  background: #806e45;
-  color: #0f0f0f;
+  background: var(--card-title-bg);
+  color: var(--card-title-text);
   padding: 4px 9px;
   border-radius: 3px;
   font-family: var(--font-heading);
@@ -326,9 +362,10 @@ h1, h2, h3 {
 
 .stat-block .trait {
   display: inline-block;
-  background: #531004;
-  border: 2px double #d5c489;
-  color: #ffffff;
+  background: var(--trait-bg);
+  border: 2px double var(--trait-border);
+  border-radius: 4px;
+  color: var(--trait-text);
   font-variant: small-caps;
   font-weight: bold;
   font-size: 0.85rem;
@@ -338,15 +375,15 @@ h1, h2, h3 {
 
 .stat-block p {
   margin: 8px 0;
-  color: #e8e8e8;
+  color: var(--card-text);
 }
 
 .stat-block-section {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  background: #627d62;
-  color: #0f0f0f;
+  background: var(--card-section-bg);
+  color: var(--card-section-text);
   padding: 2px 8px;
   border-radius: 3px;
   font-weight: 700;
@@ -357,13 +394,13 @@ h1, h2, h3 {
 .stat-block-source {
   margin-top: 12px;
   padding-top: 8px;
-  border-top: 1px solid #555555;
+  border-top: 1px solid var(--card-divider);
   font-size: 0.8rem;
-  color: #b3b3b3;
+  color: var(--card-muted);
 }
 
 .stat-block-source a {
-  color: #d5c489;
+  color: var(--card-link);
 }
 
 .stat-block-body {
@@ -380,19 +417,20 @@ h1, h2, h3 {
 .stat-block.creature-block,
 .stat-block.effect-block {
   margin: 14px 0 0;
-  background: #2a2a2a;
-  border: 1px solid #806e45;
+  background: var(--card-nested-bg);
+  border: 1px solid var(--card-nested-border);
 }
 
 .creature-block > .stat-block-title {
-  background: #627d62;
+  background: var(--card-section-bg);
+  color: var(--card-section-text);
 }
 
 .stat-block.appearance-block {
   margin: 10px 0;
   padding: 6px 12px;
-  background: #2a2a2a;
-  border: 1px solid #806e45;
+  background: var(--card-nested-bg);
+  border: 1px solid var(--card-nested-border);
 }
 
 .stat-block.appearance-block p {
@@ -401,7 +439,7 @@ h1, h2, h3 {
 }
 
 .stat-block.appearance-block .appearance-label {
-  color: #d5c489;
+  color: var(--card-label);
   font-style: normal;
   font-variant: small-caps;
   font-weight: bold;
