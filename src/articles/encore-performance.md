@@ -1,14 +1,14 @@
 ---
 layout: article.njk
-title: "Echoing Performance"
+title: "Encore Performance"
 category: Classes
 class: bard
 date: 2026-10-16
 summary: "A Bard class feature that lets an instrument, voice, or dance carry on performing beside the Bard, freeing their hands and body."
 ---
 
-<div class="stat-block" id="echoing-performance">
-  <h4 class="stat-block-title">Echoing Performance <span class="stat-block-action">{% actionIcon "free" %} Feature 3</span></h4>
+<div class="stat-block" id="encore-performance">
+  <h4 class="stat-block-title">Encore Performance <span class="stat-block-action">{% actionIcon "free" %} Feature 3</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Bard</span>
     <span class="trait">Concentrate</span>
