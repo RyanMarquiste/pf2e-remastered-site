@@ -9,7 +9,7 @@ summary: "A Bard class feature that creates a figment of the Bard to carry on th
 ---
 
 <div class="stat-block" id="encore-performance">
-  <h4 class="stat-block-title">Encore Performance <span class="stat-block-action">{% actionIcon "free" %} Feature 3</span></h4>
+  <h4 class="stat-block-title">Encore Performance <span class="stat-block-action">Feature 3</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Bard</span>
     <span class="trait">Concentrate</span>
