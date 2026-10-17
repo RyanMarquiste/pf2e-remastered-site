@@ -1,22 +1,22 @@
 :root {
   color-scheme: light dark;
 
-  /* Light theme: cool slate neutrals with an indigo accent. */
-  --color-bg: #f8fafc;
-  --color-text: #0f172a;
-  --color-muted: #475569;
+  /* Light theme: off-white "old paper" background, near-black ink, indigo accent. */
+  --color-bg: #f7f4ec;
+  --color-text: #1a1c20;
+  --color-muted: #4a4f57;
   --color-accent: #4338ca;
   --color-accent-dark: #3730a3;
-  --color-border: #cbd5e1;
+  --color-border: #d9d3c5;
 
   /* Stat block "cards". */
-  --card-bg: #ffffff;
-  --card-nested-bg: #f1f5f9;
-  --card-text: #0f172a;
-  --card-muted: #475569;
-  --card-border: #64748b;
+  --card-bg: #fdfbf6;
+  --card-nested-bg: #f0ece1;
+  --card-text: #1a1c20;
+  --card-muted: #4a4f57;
+  --card-border: #6b6f76;
   --card-nested-border: #6366f1;
-  --card-divider: #cbd5e1;
+  --card-divider: #d9d3c5;
   --card-link: #3730a3;
   --card-label: #3730a3;
   --card-title-bg: #3730a3;
@@ -33,20 +33,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0b1120;
-    --color-text: #e2e8f0;
-    --color-muted: #94a3b8;
+    /* Dark theme: charcoal grey background. */
+    --color-bg: #26282c;
+    --color-text: #e8e9eb;
+    --color-muted: #a7acb4;
     --color-accent: #a5b4fc;
     --color-accent-dark: #c7d2fe;
-    --color-border: #26334a;
+    --color-border: #3b3e44;
 
-    --card-bg: #111a2e;
-    --card-nested-bg: #18233d;
-    --card-text: #e2e8f0;
-    --card-muted: #94a3b8;
-    --card-border: #64748b;
+    --card-bg: #2f3237;
+    --card-nested-bg: #393d43;
+    --card-text: #e8e9eb;
+    --card-muted: #a7acb4;
+    --card-border: #6e737b;
     --card-nested-border: #818cf8;
-    --card-divider: #334155;
+    --card-divider: #4a4e55;
     --card-link: #a5b4fc;
     --card-label: #a5b4fc;
     --card-title-bg: #4338ca;
