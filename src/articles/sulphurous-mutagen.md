@@ -17,9 +17,13 @@ summary: "A mutagen that lets the drinker exhale volatile sulphur clouds that fl
     <span class="trait">Mutagen</span>
     <span class="trait">Polymorph</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A vial of pungent, sulphur-yellow slurry that reeks of struck matches and rotten eggs. A drinker's skin weeps volatile sulphur compounds.</p>
+  </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>This vial holds a pungent, sulphur-yellow slurry that reeks of struck matches and rotten eggs. While under the effects of this mutagen, your skin weeps volatile sulphur compounds that you can exhale as a thick yellow cloud.</p>
+  <p>While under the effects of this mutagen, you can exhale the volatile sulphur compounds your skin weeps as a thick yellow cloud.</p>
   <p>You gain resistance to fire, scaled by tier below, as the compounds in your blood soak up heat.</p>
   <p><strong>Activate</strong> {% actionIcon "one" %} Sulphur Cloud</p>
   <p>You exhale a cloud of sulphur fumes that fills a 5-foot emanation around you (10 feet at Greater and Major). The cloud stays where it forms, so you can move out of it, and it disperses at the start of your next turn. Only one cloud can exist at a time; creating a new one disperses the previous one. The cloud has no effect on its own.</p>

@@ -22,9 +22,9 @@ summary: "A new Appearance block for items, effects, spells, abilities, and crea
     <p><strong>After</strong></p>
     <div class="stat-block appearance-block">
       <p class="appearance-label">Appearance</p>
-      <p>A small vial of cloudy, brine-scented liquid, flecked with tiny pearlescent scales that drift and glitter when the glass is tilted.</p>
+      <p>A small vial of cloudy, brine-scented liquid, flecked with tiny pearlescent scales that drift and glitter when the glass is tilted. A drinker's body slims and sleeks into a fish-like form, gills opening along the neck and faint scales rippling across the skin.</p>
     </div>
-    <p>While under the effects of this mutagen, your body slims and sleeks into a fish-like form, gills opening along your neck and faint scales rippling across your skin. You gain a swim Speed equal to your land Speed, and you can breathe water&hellip;</p>
+    <p>You gain a swim Speed equal to your land Speed, and you can breathe water&hellip;</p>
   </div>
 
   <div class="stat-block effect-block" id="appearance-example-spell">

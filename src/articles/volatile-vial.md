@@ -20,9 +20,13 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial."
     <span class="trait">Infused</span>
     <span class="trait">Splash</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A tiny glass flask of faintly fuming, sharp-smelling chemicals that shift and roil whenever the glass is jostled.</p>
+  </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p>This tiny glass flask contains volatile chemicals that can be used offensively in a pinch.</p>
+  <p>The volatile chemicals in this flask can be used offensively in a pinch.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>The bomb deals 1d6 acid damage and 1 acid splash damage.</p>

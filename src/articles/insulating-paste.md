@@ -14,9 +14,13 @@ summary: "An alchemical paste that grants resistance to one energy type for a li
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A small jar of thick, gritty, mineral-laced paste with a dull, chalky sheen.</p>
+  </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "three" %} Interact</p>
-  <p>This small jar holds a thick, mineral-laced paste. When prepared, Insulating Paste is attuned to one damage type: acid, cold, electricity, or fire.</p>
+  <p>When prepared, Insulating Paste is attuned to one damage type: acid, cold, electricity, or fire.</p>
   <p>Slather Insulating Paste over a willing or unconscious creature's exposed skin. Once applied, it remains as a thin film on the creature's skin, granting the creature resistance to the attuned damage type.</p>
   <p>Insulating Paste grants 5 instances of protection, regardless of tier. Each time this resistance reduces damage from an attack, the paste loses one instance of protection, wearing away a little more. Once it has no instances of protection remaining, the film wears away completely and the effect ends immediately, even mid-combat. The effect also ends if its duration runs out, whichever happens first.</p>
 

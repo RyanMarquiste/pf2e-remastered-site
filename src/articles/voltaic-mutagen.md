@@ -17,9 +17,13 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
     <span class="trait">Mutagen</span>
     <span class="trait">Polymorph</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A vial of faintly glowing, oily fluid. A drinker's body is wreathed in tiny arcs of electricity that crackle out of and back into them, and their hair stands on end as though charged with static.</p>
+  </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>This vial holds a faintly glowing, oily fluid modeled after the bio-electric organs of certain eels. While under the effects of this mutagen, tiny arcs of electricity crackle out of and back into your body, and your hair stands on end as though charged with static.</p>
+  <p>This mutagen is modeled after the bio-electric organs of certain eels.</p>
   <p>You gain resistance to electricity equal to half this mutagen's level (minimum 1), and while wielding a metal weapon, your attacks with it deal a small amount of additional electricity damage.</p>
   <p>At the end of each of your turns while under its effects, you gain the tier of static charge effect noted below for this mutagen's tier.</p>
   <p>You gain an item bonus to saves against effects that would leave you paralyzed or stunned, scaled by tier below, as the current running through you resists outside attempts to seize control of your nerves. You also gain a +1 item bonus to your recovery checks while dying, as your internal bio-electric currents attempt to jump start your body and organs back to life.</p>
@@ -43,8 +47,12 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   <div class="stat-block-traits">
     <span class="trait">Electricity</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>Bright sparks crackle across your skin and snap at the air around you.</p>
+  </div>
   <p><strong>Saving Throw</strong> basic Reflex</p>
-  <p>You crackle with electricity, ready to discharge into whatever strikes you next.</p>
+  <p>You are ready to discharge into whatever strikes you next.</p>
   <p>The first time you're hit by a melee or unarmed attack, hit a creature with a melee or unarmed Strike, or succeed at a grapple against a creature, while you have this effect, you lose it, and the other creature takes electricity damage, as noted below for your tier. For this purpose, a touch effect that targets you, friendly or not, counts as an attack.</p>
   <p>This effect doesn't stack with itself; if you would gain it again while you already have it, you instead take the stronger of the two effects.</p>
   <p><strong>Duration</strong> 1 round</p>

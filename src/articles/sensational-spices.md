@@ -16,9 +16,13 @@ summary: "A spice blend that makes any food or drink it's added to compellingly 
     <span class="trait">Mental</span>
     <span class="trait">Olfactory</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A small pouch holding a richly colored, deeply fragrant spice blend, its aroma warm and complex.</p>
+  </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>This small pouch holds a fragrant, potent spice blend. You sprinkle Sensational Spices over any unattended food or drink you can reach, infusing it with an irresistible aroma and flavor.</p>
+  <p>You sprinkle Sensational Spices over any unattended food or drink you can reach, infusing it with an irresistible aroma and flavor.</p>
   <p>The first time a creature becomes aware of the treated food or drink, such as by seeing it, smelling it, or being offered it, it must attempt a Will save against DC 18, modified by its hunger:</p>
   <ul>
     <li><strong>Well-fed</strong> +2 circumstance bonus to the save.</li>
