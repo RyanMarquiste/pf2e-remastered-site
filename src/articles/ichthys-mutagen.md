@@ -19,7 +19,7 @@ summary: "A mutagen that reshapes the drinker into a gilled, razor-clawed swimme
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>This vial holds a cloudy, brine-scented liquid flecked with tiny, pearlescent scales. While under the effects of this mutagen, your body slims and sleeks into a fish-like form, gills opening along your neck and faint scales rippling across your skin.</p>
   <p>You gain a swim Speed equal to your land Speed, and you can breathe water. Your unarmed attacks grow razor-edged: you gain an item bonus to unarmed attack rolls, and your unarmed attacks deal the slashing damage listed below instead of their normal damage and lose the nonlethal trait. Striking runes don't modify this damage. While you are underwater, you also gain an item bonus to Perception checks and to Wisdom-based skill checks (Medicine, Nature, Religion, and Survival).</p>
-  <p><strong>Drawback</strong> You can't breathe air. While you are out of water you suffocate as normal, though you can hold your breath as usual. Your wet, conductive body gives you weakness 5 to electricity, and your lithe, less bulky frame gives you a &minus;2 item penalty to Strength ability checks and a &minus;1 item penalty to Strength-based skill checks, such as Athletics.</p>
+  <p><strong>Drawback</strong> You can't breathe air. While you are out of water you suffocate as normal, though you can hold your breath as usual. Your wet, conductive body gives you weakness 5 to electricity, and your lithe, less bulky frame gives you a &minus;1 item penalty to Strength-based skill checks, such as Athletics.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>Item bonus +1, unarmed damage 1d6 slashing, duration 1 minute.</p>
