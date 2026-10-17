@@ -388,6 +388,25 @@ h1, h2, h3 {
   background: #627d62;
 }
 
+.stat-block.appearance-block {
+  margin: 10px 0;
+  padding: 6px 12px;
+  background: #2a2a2a;
+  border: 1px solid #806e45;
+}
+
+.stat-block.appearance-block p {
+  margin: 4px 0;
+  font-style: italic;
+}
+
+.stat-block.appearance-block .appearance-label {
+  color: #d5c489;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
 .stat-block-art {
   flex: 0 0 20%;
   min-width: 80px;
