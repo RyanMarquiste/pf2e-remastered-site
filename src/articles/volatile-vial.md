@@ -21,8 +21,13 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Splash</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A tiny glass flask of faintly fuming, sharp-smelling chemicals that shift and roil whenever the glass is jostled.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A tiny corked glass flask, its neck bound in rope and a studded leather collar, holding layers of green, yellow, and amber chemicals that shift and roil whenever the glass is jostled, with a pale vapor curling inside and a sharp smell leaking from the cork.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/volatile-vial.png' | url }}" alt="A tilted, squat glass flask with a cork stopper and a rope-bound, studded leather collar, holding swirling green, yellow, and amber liquid with a pale vapor curling above it." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
