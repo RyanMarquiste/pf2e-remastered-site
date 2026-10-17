@@ -14,6 +14,10 @@ summary: "A Bard class feature that creates a figment of the Bard to carry on th
     <span class="trait">Bard</span>
     <span class="trait">Concentrate</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A translucent, softly shimmering double of the performer steps free of them and carries on the performance in their place, matching every note, step, line, or flourish.</p>
+  </div>
   <p><strong>Frequency</strong> at will; <strong>Trigger</strong> You perform with your instrument, voice, or body as part of a Performance check or as part of casting a composition; <strong>Duration</strong> 10 minutes</p>
   <p>You infuse your performance with a measure of your magic, bringing it to life. A nonsubstantial visual figment of yourself separates from you and takes up the performance. It can take any instrument, script, prop, or other item you were using for the performance, or it can simply be a presentation without one. It follows you as you move, always remaining in your space, and continues to perform at your direction. It can only make Performance checks and cast compositions, using your Performance modifier and spellcasting statistics as though you were performing yourself. It can't speak, take other actions, or produce any other effects, and it has no actions of its own.</p>
   <p>The figment is easy to distinguish as a visual effect and provides no combat or movement benefits. It doesn't block movement or vision, and creatures and objects pass through it unaffected.</p>
