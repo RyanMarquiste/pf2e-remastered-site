@@ -8,6 +8,7 @@
   --color-accent: #4338ca;
   --color-accent-dark: #3730a3;
   --color-border: #d9d3c5;
+  --color-hover-bg: #ffffff;
 
   /* Stat block "cards". */
   --card-bg: #fdfbf6;
@@ -40,6 +41,7 @@
     --color-accent: #a5b4fc;
     --color-accent-dark: #c7d2fe;
     --color-border: #3b3e44;
+    --color-hover-bg: #33363c;
 
     --card-bg: #2f3237;
     --card-nested-bg: #393d43;
@@ -264,7 +266,7 @@ h1, h2, h3 {
 .article-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 24px;
+  gap: 0 32px;
   margin-top: 20px;
 }
 
@@ -272,12 +274,38 @@ h1, h2, h3 {
   margin-top: 40px;
 }
 
+/* Cards get horizontal padding balanced by a negative margin so the text stays
+   aligned with the page content while the hover background has room to breathe. */
 .article-card {
+  position: relative;
   display: block;
-  flex: 0 1 calc(50% - 12px);
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
+  flex: 0 1 calc(50% + 12px);
+  margin: 0 -14px;
+  padding: 16px 14px;
+  border-radius: 10px;
   color: var(--color-text);
+  transition: background-color 0.15s ease;
+}
+
+.article-card::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.article-card:hover,
+.article-card:focus-visible {
+  background: var(--color-hover-bg);
+  text-decoration: none;
+}
+
+.article-card:hover::after,
+.article-card:focus-visible::after {
+  opacity: 0;
 }
 
 .article-card h3 {
@@ -473,7 +501,7 @@ h1, h2, h3 {
   }
 
   .article-card {
-    flex-basis: 100%;
+    flex-basis: calc(100% + 28px);
   }
 }
 
