@@ -10,6 +10,8 @@ summary: "A mutagen that reshapes the drinker into a gilled, razor-clawed swimme
 
 <div class="stat-block" id="ichthys-mutagen">
   <h4 class="stat-block-title">Ichthys Mutagen</h4>
+  <div class="stat-block-body">
+  <div class="stat-block-main">
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
@@ -24,6 +26,9 @@ summary: "A mutagen that reshapes the drinker into a gilled, razor-clawed swimme
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>You gain a swim Speed equal to your land Speed, and you can breathe water. Your unarmed attacks grow razor-edged: you gain an item bonus to unarmed attack rolls, and your unarmed attacks deal the slashing damage listed below instead of their normal damage, gain the agile trait, and lose the nonlethal trait. Striking runes don't modify this damage. While you are underwater, you also gain an item bonus to Perception checks and to Wisdom-based skill checks (Medicine, Nature, Religion, and Survival).</p>
   <p><strong>Drawback</strong> You can't breathe air. While you are out of water you suffocate as normal, though you can hold your breath as usual. Your wet, conductive body gives you weakness 5 to electricity, and your lithe, less bulky frame gives you a &minus;1 item penalty to Strength-based skill checks, such as Athletics.</p>
+  </div>
+  <img class="stat-block-art" src="{{ '/images/ichthys-mutagen.png' | url }}" alt="A round glass flask with brass wave-work scrollwork, a leather-banded neck, a metal stopper, and a small anchor charm hanging from a rope, holding cloudy liquid flecked with iridescent scales." loading="lazy">
+  </div>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>Item bonus +1, unarmed damage 1d6 slashing, duration 1 minute.</p>
