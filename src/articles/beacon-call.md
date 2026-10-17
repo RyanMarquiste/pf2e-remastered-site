@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: general-spells
 title: "Beacon Call"
 category: Spells
 date: 2026-10-14

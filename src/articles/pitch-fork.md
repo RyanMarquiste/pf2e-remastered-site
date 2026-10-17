@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: general-spells
 title: "Pitch Fork"
 category: Spells
 date: 2026-10-16

@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: general-spells
 title: "Fleeting Death"
 category: Spells
 date: 2026-10-16

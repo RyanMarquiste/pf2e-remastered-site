@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Sulphurous Mutagen"
 category: Equipment
 class: alchemist

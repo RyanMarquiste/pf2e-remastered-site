@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Voltaic Mutagen"
 category: Equipment
 class: alchemist

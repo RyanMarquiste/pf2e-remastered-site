@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: general-traits
 title: "Antitoxin"
 category: Traits
 date: 2026-10-13

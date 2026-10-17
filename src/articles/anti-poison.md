@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-feats
 title: "Anti-Poison"
 category: Classes
 class: alchemist

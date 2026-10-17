@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-feats
 title: "Compounding Poisons"
 category: Classes
 class: alchemist

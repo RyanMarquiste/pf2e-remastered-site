@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Volatile Vial"
 category: Classes
 class: alchemist

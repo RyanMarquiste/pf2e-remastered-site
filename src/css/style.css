@@ -153,10 +153,45 @@ a:hover {
   white-space: nowrap;
 }
 
+.breadcrumbs {
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: "\203A";
+  margin-left: 8px;
+}
+
+.breadcrumbs a {
+  color: var(--color-muted);
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
 main {
   flex: 1 0 auto;
   width: 100%;
   padding: 40px 20px 60px;
+}
+
+.breadcrumbs + main {
+  padding-top: 24px;
 }
 
 .hero h1 {

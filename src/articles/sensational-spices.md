@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Sensational Spices"
 category: Equipment
 class: alchemist

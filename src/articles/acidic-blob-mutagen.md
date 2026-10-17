@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Acidic Blob Mutagen"
 category: Equipment
 class: alchemist

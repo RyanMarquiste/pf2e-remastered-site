@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Slick"
 category: Equipment
 class: alchemist

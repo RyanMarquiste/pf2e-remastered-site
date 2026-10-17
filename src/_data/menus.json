@@ -1,0 +1,41 @@
+{
+  "classes": [
+    { "title": "Classes", "url": "/classes/" }
+  ],
+  "alchemist-feats": [
+    { "title": "Classes", "url": "/classes/" },
+    { "title": "Alchemist", "url": "/classes/alchemist/" },
+    { "title": "Feats", "url": "/classes/alchemist/feats/" }
+  ],
+  "alchemist-items": [
+    { "title": "Classes", "url": "/classes/" },
+    { "title": "Alchemist", "url": "/classes/alchemist/" },
+    { "title": "Items", "url": "/classes/alchemist/items/" }
+  ],
+  "bard-features": [
+    { "title": "Classes", "url": "/classes/" },
+    { "title": "Bard", "url": "/classes/bard/" },
+    { "title": "Features", "url": "/classes/bard/features/" }
+  ],
+  "general-terminology": [
+    { "title": "General" },
+    { "title": "Terminology", "url": "/general/terminology/" }
+  ],
+  "general-traits": [
+    { "title": "General" },
+    { "title": "Traits", "url": "/general/traits/" }
+  ],
+  "general-spells": [
+    { "title": "General" },
+    { "title": "Spells", "url": "/general/spells/" }
+  ],
+  "general-items": [
+    { "title": "General" },
+    { "title": "Items", "url": "/general/items/" }
+  ],
+  "general-consumables": [
+    { "title": "General" },
+    { "title": "Items", "url": "/general/items/" },
+    { "title": "Consumables", "url": "/general/items/consumables/" }
+  ]
+}

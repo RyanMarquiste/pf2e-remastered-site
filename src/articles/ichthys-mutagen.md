@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Ichthys Mutagen"
 category: Equipment
 class: alchemist

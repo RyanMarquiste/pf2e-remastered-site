@@ -57,6 +57,27 @@
     </div>
   </header>
 
+  {% if page.url != "/" %}
+  {% set crumbs = menus[menu] if menu else [] %}
+  <nav class="breadcrumbs wrap" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="{{ '/' | url }}">Home</a></li>
+      {% for crumb in crumbs %}
+      {% if crumb.url and crumb.url != page.url %}
+      <li><a href="{{ crumb.url | url }}">{{ crumb.title }}</a></li>
+      {% elif crumb.url %}
+      <li aria-current="page">{{ crumb.title }}</li>
+      {% else %}
+      <li>{{ crumb.title }}</li>
+      {% endif %}
+      {% endfor %}
+      {% if not crumbs.length or (crumbs | last).url != page.url %}
+      <li aria-current="page">{{ title }}</li>
+      {% endif %}
+    </ol>
+  </nav>
+  {% endif %}
+
   <main class="wrap">
     {{ content | safe }}
   </main>

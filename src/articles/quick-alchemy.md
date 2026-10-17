@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-feats
 title: "Quick Alchemy"
 category: Classes
 class: alchemist

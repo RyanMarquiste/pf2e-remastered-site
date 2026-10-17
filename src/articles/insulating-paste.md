@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: alchemist-items
 title: "Insulating Paste"
 category: Equipment
 class: alchemist

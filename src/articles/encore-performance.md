@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: bard-features
 title: "Encore Performance"
 category: Classes
 class: bard

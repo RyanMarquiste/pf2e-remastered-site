@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: general-traits
 title: "Fleeting"
 category: Traits
 date: 2026-09-18

@@ -1,5 +1,6 @@
 ---
 layout: article.njk
+menu: general-spells
 title: "Spirit Hand"
 category: Spells
 date: 2026-10-14
