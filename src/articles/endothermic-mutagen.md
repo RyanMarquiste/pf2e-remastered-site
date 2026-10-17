@@ -19,11 +19,11 @@ summary: "A mutagen that draws ambient heat into the drinker's body, chilling th
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A vial of frigid, slowly swirling fluid. The air around a drinker chills, and their skin turns cold to the touch.</p>
+    <p>A vial of frigid, slowly swirling fluid.</p>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>While under the effects of this mutagen, your body draws in the ambient heat of your surroundings.</p>
+  <p>While under the effects of this mutagen, your body draws in the ambient heat of your surroundings, chilling the air around you and leaving your skin cold to the touch.</p>
   <p><strong>Aura</strong> cold 5 feet</p>
   <p>Each other creature that starts its turn in your aura takes cold damage, as noted below for your tier. If you are grappling a creature when the aura deals it this damage, it also takes additional cold damage, as noted below for your tier, as your physical contact draws out even more of its heat.</p>
   <p>You gain resistance to cold equal to half this mutagen's level (minimum 1), as the heat you've drawn in buffers you against the same cold you channel outward.</p>

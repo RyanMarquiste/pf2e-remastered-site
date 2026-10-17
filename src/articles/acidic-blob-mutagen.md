@@ -19,10 +19,11 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A vial of viscous, faintly bubbling fluid. A drinker's body loses its definition, limbs and features sloughing into a more undefined, amoeba-like mass, similar to an ooze or slime.</p>
+    <p>A vial of viscous, faintly bubbling fluid.</p>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
+  <p>While under the effects of this mutagen, your body loses its definition, limbs and features sloughing into a more undefined, amoeba-like mass, similar to an ooze or slime.</p>
   <p>You gain resistance to acid and resistance to precision damage, scaled by tier below, as your body no longer has fixed vital points to target or a fixed shape for the acid to harm.</p>
   <p><strong>Activate</strong> {% actionIcon "one" %}; <strong>Frequency</strong> once per round</p>
   <p>You generate a glob of acid from within your own body and detonate it against yourself. This is an attack, made as if with a thrown alchemical bomb with the splash trait, triggering anything that keys off bombs or splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed below for this mutagen's tier, though your resistance to acid from this same mutagen normally negates your own share of it.</p>

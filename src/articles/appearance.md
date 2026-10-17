@@ -12,6 +12,7 @@ summary: "A new Appearance block for items, effects, spells, abilities, and crea
   <p>Adventurers encounter many strange and wonderful things. The <strong>Appearance</strong> block gives the GM text to read aloud that says what an item, effect, spell, ability, or creature looks like, without giving any detail about how it works or what it does. It allows for more immersive, descriptive storytelling at the moment characters first meet something new.</p>
   <p>The Appearance is its own bordered block inside an entry's stat block, in addition to what entries contain today. It appears directly below the traits line, before the rules text. The main text of the entry then describes the function and purpose of the thing, which is revealed once characters have identified it.</p>
   <p><strong>What belongs in an Appearance</strong> What a character can perceive without knowing what the thing does: how it looks, sounds, smells, and feels, and how it moves. It never states a mechanical effect, a number, a condition, a damage type, or any wording that explains its purpose.</p>
+  <p><strong>Items and the effects they create</strong> An item's Appearance describes the item itself. What happens once it is used, such as a drinker's body changing, can't be known from looking at the item, so it belongs in the main text or in the Appearance of the effect the item generates.</p>
   <p><strong>Separating form and function</strong> Many current entries blend both in one passage. When updating an entry, move the sensory text into the Appearance block and leave the function and purpose in the main text. If a sentence describes both, split it, keeping only what is seen, heard, smelled, or felt in the Appearance.</p>
   <p><strong>When it is read</strong> Read the Appearance when characters first encounter the item, effect, spell, ability, or creature: when they find the item, see the spell cast, witness the effect, or watch the creature use the ability. The main text is for the GM and for characters who have identified it, by whatever means your table uses to identify things.</p>
   <p><strong>Special</strong> Not every entry needs an Appearance block. Add one to anything players are likely to meet without knowing what it is. One or two sentences is usually enough.</p>
@@ -22,9 +23,9 @@ summary: "A new Appearance block for items, effects, spells, abilities, and crea
     <p><strong>After</strong></p>
     <div class="stat-block appearance-block">
       <p class="appearance-label">Appearance</p>
-      <p>A small vial of cloudy, brine-scented liquid, flecked with tiny pearlescent scales that drift and glitter when the glass is tilted. A drinker's body slims and sleeks into a fish-like form, gills opening along the neck and faint scales rippling across the skin.</p>
+      <p>A small vial of cloudy, brine-scented liquid, flecked with tiny pearlescent scales that drift and glitter when the glass is tilted.</p>
     </div>
-    <p>You gain a swim Speed equal to your land Speed, and you can breathe water&hellip;</p>
+    <p>While under the effects of this mutagen, your body slims and sleeks into a fish-like form, gills opening along your neck and faint scales rippling across your skin. You gain a swim Speed equal to your land Speed, and you can breathe water&hellip;</p>
   </div>
 
   <div class="stat-block effect-block" id="appearance-example-spell">

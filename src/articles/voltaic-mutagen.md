@@ -19,11 +19,11 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A vial of faintly glowing, oily fluid. A drinker's body is wreathed in tiny arcs of electricity that crackle out of and back into them, and their hair stands on end as though charged with static.</p>
+    <p>A vial of faintly glowing, oily fluid.</p>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>This mutagen is modeled after the bio-electric organs of certain eels.</p>
+  <p>This mutagen is modeled after the bio-electric organs of certain eels. While under its effects, tiny arcs of electricity crackle out of and back into your body, and your hair stands on end as though charged with static.</p>
   <p>You gain resistance to electricity equal to half this mutagen's level (minimum 1), and while wielding a metal weapon, your attacks with it deal a small amount of additional electricity damage.</p>
   <p>At the end of each of your turns while under its effects, you gain the tier of static charge effect noted below for this mutagen's tier.</p>
   <p>You gain an item bonus to saves against effects that would leave you paralyzed or stunned, scaled by tier below, as the current running through you resists outside attempts to seize control of your nerves. You also gain a +1 item bonus to your recovery checks while dying, as your internal bio-electric currents attempt to jump start your body and organs back to life.</p>

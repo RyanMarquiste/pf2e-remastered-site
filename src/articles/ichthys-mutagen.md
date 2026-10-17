@@ -20,14 +20,14 @@ summary: "A mutagen that reshapes the drinker into a gilled, razor-clawed swimme
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A small vial of cloudy, brine-scented liquid, flecked with tiny pearlescent scales that drift and glitter when the glass is tilted. A drinker's body slims and sleeks into a fish-like form, gills opening along the neck and faint scales rippling across the skin.</p>
+        <p>A small vial of cloudy, brine-scented liquid, flecked with tiny pearlescent scales that drift and glitter when the glass is tilted.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/ichthys-mutagen.png' | url }}" alt="A round glass flask with brass wave-work scrollwork, a leather-banded neck, a metal stopper, and a small anchor charm hanging from a rope, holding cloudy liquid flecked with iridescent scales." loading="lazy">
     </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>You gain a swim Speed equal to your land Speed, and you can breathe water. Your unarmed attacks grow razor-edged: you gain an item bonus to unarmed attack rolls, and your unarmed attacks deal the slashing damage listed below instead of their normal damage, gain the agile trait, and lose the nonlethal trait. Striking runes don't modify this damage. While you are underwater, you also gain an item bonus to Perception checks and to Wisdom-based skill checks (Medicine, Nature, Religion, and Survival).</p>
+  <p>While under the effects of this mutagen, your body slims and sleeks into a fish-like form, gills opening along your neck and faint scales rippling across your skin. You gain a swim Speed equal to your land Speed, and you can breathe water. Your unarmed attacks grow razor-edged: you gain an item bonus to unarmed attack rolls, and your unarmed attacks deal the slashing damage listed below instead of their normal damage, gain the agile trait, and lose the nonlethal trait. Striking runes don't modify this damage. While you are underwater, you also gain an item bonus to Perception checks and to Wisdom-based skill checks (Medicine, Nature, Religion, and Survival).</p>
   <p><strong>Drawback</strong> You can't breathe air. While you are out of water you suffocate as normal, though you can hold your breath as usual. Your wet, conductive body gives you weakness 5 to electricity, and your lithe, less bulky frame gives you a &minus;1 item penalty to Strength-based skill checks, such as Athletics.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
