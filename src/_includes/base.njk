@@ -23,9 +23,11 @@
               <summary>{{ cls.name }}</summary>
               <div class="dropdown-submenu">
                 <a href="{{ ('/classes/' ~ cls.slug ~ '/') | url }}">Overview</a>
-                <a href="{{ ('/classes/' ~ cls.slug ~ '/feats/') | url }}">Feats</a>
                 {% if cls.slug == "alchemist" %}
+                <a href="{{ ('/classes/' ~ cls.slug ~ '/feats/') | url }}">Feats</a>
                 <a href="{{ ('/classes/' ~ cls.slug ~ '/items/') | url }}">Items</a>
+                {% elif cls.slug == "bard" %}
+                <a href="{{ ('/classes/' ~ cls.slug ~ '/features/') | url }}">Features</a>
                 {% endif %}
               </div>
             </details>
