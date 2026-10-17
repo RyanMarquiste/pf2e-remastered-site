@@ -32,5 +32,5 @@ summary: "A mutagen that reshapes the drinker into a gilled, razor-clawed swimme
   <p>Item bonus +3, unarmed damage 3d8 slashing, duration 1 hour.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
-  <p>Item bonus +4, unarmed damage 4d8 slashing, duration 1 hour. You also gain weapon specialization with your unarmed attacks.</p>
+  <p>Item bonus +4, unarmed damage 4d8 slashing, duration 1 hour.</p>
 </div>
