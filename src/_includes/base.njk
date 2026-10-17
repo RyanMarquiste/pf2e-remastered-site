@@ -18,13 +18,15 @@
           <div class="dropdown-menu">
             <a href="{{ '/classes/' | url }}">All Classes</a>
             {% for cls in classes %}
-            {% if cls.slug == "alchemist" %}
+            {% if cls.slug == "alchemist" or cls.slug == "bard" %}
             <details class="nav-subdropdown">
               <summary>{{ cls.name }}</summary>
               <div class="dropdown-submenu">
                 <a href="{{ ('/classes/' ~ cls.slug ~ '/') | url }}">Overview</a>
                 <a href="{{ ('/classes/' ~ cls.slug ~ '/feats/') | url }}">Feats</a>
+                {% if cls.slug == "alchemist" %}
                 <a href="{{ ('/classes/' ~ cls.slug ~ '/items/') | url }}">Items</a>
+                {% endif %}
               </div>
             </details>
             {% else %}

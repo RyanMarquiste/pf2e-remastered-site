@@ -1,3 +1,4 @@
 [
-  { "name": "Alchemist", "slug": "alchemist" }
+  { "name": "Alchemist", "slug": "alchemist" },
+  { "name": "Bard", "slug": "bard" }
 ]
