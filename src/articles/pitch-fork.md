@@ -19,5 +19,5 @@ summary: "A cantrip that captures a sound in a reflective orb and splits it into
   <p><strong>Attack</strong> your spell attack modifier (single roll) against Reflex DC (compared against each target)</p>
   <p><strong>Damage</strong> 2d4 sonic damage to each target hit plus, on a critical hit, the target is stupefied 1 for 1 round</p>
   <p>You emit a sound by playing an instrument, vocalizing, or drawing on a sound from your surroundings. The magic of the spell snatches the sound inside a minuscule reflective orb. The sound bounces thousands of times off the inner walls of the orb, the magic amplifying its pitch and loudness. Finally, as the spell concludes, the sound rips into opposing waves that tear across the space and ground themselves in the body of the target, reverberating through them in bone-shattering waves.</p>
-  <p><strong>Heightened (+2)</strong> The damage increases by 2d4.</p>
+  <p><strong>Heightened (+1)</strong> The spell deals an additional 1d4 sonic damage.</p>
 </div>
