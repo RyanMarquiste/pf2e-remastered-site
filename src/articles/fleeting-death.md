@@ -16,6 +16,10 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
     <span class="trait">Fleeting</span>
     <span class="trait">Occult</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>The air twists, and an undead creature, whether a charnel rat, a grasping shade, or a grave zombie, lurches into being with glowing eyes.</p>
+  </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}; <strong>Range</strong> 30 feet</p>
   <p>You conjure a fleeting, summoned undead creature of your choice in an unoccupied space within range: a charnel rat, a grasping shade, or a grave zombie. The creature immediately acts using its own 2 actions.</p>
   <p><strong>Heightened (+1)</strong> The creature's attack deals an additional 1d4 damage of the same type.</p>
@@ -29,6 +33,10 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
           <span class="trait">Summoned</span>
           <span class="trait">Tiny</span>
           <span class="trait">Undead</span>
+        </div>
+        <div class="stat-block appearance-block">
+          <p class="appearance-label">Appearance</p>
+          <p>A skeletal rat with a single glowing green eye, venomous green slime dripping from its fangs.</p>
         </div>
         <p><strong>Speed</strong> 20 feet, climb 10 feet</p>
         <p><strong>Melee</strong> {% actionIcon "one" %} (attack) bite (your spell attack modifier), <strong>Damage</strong> 1d6 piercing plus the target is sickened 1 if they fail a Fortitude save against your spell DC (the sickened condition is a disease effect)</p>
@@ -49,6 +57,10 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
           <span class="trait">Summoned</span>
           <span class="trait">Undead</span>
         </div>
+        <div class="stat-block appearance-block">
+          <p class="appearance-label">Appearance</p>
+          <p>A dark, clawed shade with glowing eyes, embers drifting around it as it reaches out.</p>
+        </div>
         <p><strong>Speed</strong> fly 30 feet</p>
         <p><strong>Incorporeal</strong> The shade can fly through walls and creatures, but it can't end its movement inside them.</p>
         <p><strong>Melee</strong> {% actionIcon "one" %} (attack, void) grasp (your spell attack modifier), <strong>Damage</strong> 1d8 void plus the target is enfeebled 1 (enfeebled 2 on crit) for 1 round</p>
@@ -66,6 +78,10 @@ summary: "A cantrip that conjures a fleeting undead creature, a charnel rat, gra
           <span class="trait">Minion</span>
           <span class="trait">Summoned</span>
           <span class="trait">Undead</span>
+        </div>
+        <div class="stat-block appearance-block">
+          <p class="appearance-label">Appearance</p>
+          <p>A snarling zombie with glowing eyes, clawing its way free of churned earth as embers and rubble fly.</p>
         </div>
         <p><strong>Slow</strong> The zombie is permanently slowed 1 and can't use reactions.</p>
         <p><strong>Melee</strong> {% actionIcon "one" %} (attack) fist (your spell attack modifier), <strong>Damage</strong> 1d10 bludgeoning plus on a critical hit the target is knocked prone</p>

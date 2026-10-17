@@ -18,6 +18,10 @@ summary: "A cantrip that alerts chosen allies that you've called and shows them 
     <span class="trait">Occult</span>
     <span class="trait">Primal</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>The caster stills, lips parting as though calling out to someone far away, but no sound is made and nothing can be seen leaving them.</p>
+  </div>
   <p><strong>Cast</strong> {% actionIcon "two" %}</p>
   <p><strong>Range</strong> 120 feet; <strong>Targets</strong> up to 4 creatures you know; <strong>Duration</strong> 8 hours</p>
   <p>You call out silently, designating creatures you know as you cast. Each designated creature within range learns that the spell was cast and senses the direction to you, updating as you move, for as long as it remains within range for the duration. The spell doesn't compel anyone to follow it. A new casting ends your previous Beacon Call.</p>

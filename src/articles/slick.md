@@ -16,7 +16,7 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A flask of thin, oily liquid that clings to the glass in lazy streaks and carries a strong alcohol scent.</p>
+    <p>A flask of thin, oily liquid that clings to the glass in lazy streaks and carries a strong scent of oil and petroleum.</p>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>

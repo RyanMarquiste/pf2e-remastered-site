@@ -31,7 +31,7 @@ summary: "A new Appearance block for items, effects, spells, abilities, and crea
     <h5 class="stat-block-title">Example: Pitch Fork <span class="stat-block-action">Spell</span></h5>
     <div class="stat-block appearance-block">
       <p class="appearance-label">Appearance</p>
-      <p>A sound is captured inside a minuscule reflective orb, bouncing thousands of times off its inner walls and growing sharper and louder, until it rips apart into two opposing waves that tear across the space.</p>
+      <p>A sound is snatched inside a minuscule reflective orb, bouncing thousands of times off its inner walls as its pitch and loudness build. Finally, the sound rips into opposing waves that tear across the space and ground themselves in the body of the target, reverberating through them in bone-shattering waves.</p>
     </div>
     <p><strong>Cast</strong> two actions; <strong>Range</strong> 30 feet; <strong>Targets</strong> 1 or 2 creatures adjacent to each other</p>
     <p><strong>Attack</strong> your spell attack modifier (single roll) against Reflex DC (compared against each target)</p>
