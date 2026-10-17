@@ -127,29 +127,32 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
   <h4 class="stat-block-title">Toxicologist Field Vial <span class="stat-block-action">Toxicologist</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
+    <span class="trait">Bomb</span>
     <span class="trait">Consumable</span>
     <span class="trait">Infused</span>
-    <span class="trait">Injury</span>
     <span class="trait">Poison</span>
+    <span class="trait">Splash</span>
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
     <p>A tiny glass flask of an oily, black-green liquid that clings to the glass in slow strands and carries a bitter, acrid smell.</p>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
-  <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>The vial's chemicals become poison instead of acid, and its damage becomes poison damage. You apply the vial to a weapon or a piece of ammunition as an injury poison. The vial's initial damage is added to the first successful Strike with that weapon or ammunition. The substance becomes inert at the end of your current turn.</p>
+  <strong>Activate</strong> {% actionIcon "one" %} Strike (thrown) or {% actionIcon "one" %} Interact (apply as an injury poison)</p>
+  <p>The vial's chemicals become poison instead of acid: it has the poison trait in place of the acid trait, and its initial and splash damage are poison damage. You can use it in either of two ways.</p>
+  <p><strong>Thrown</strong> Strike with the vial as a bomb, as normal for a Volatile Vial. It deals its initial poison damage and its poison splash damage.</p>
+  <p><strong>Injury Poison</strong> Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial's initial damage is added to the first successful Strike with that weapon or ammunition, and the substance becomes inert at the end of your current turn. In this use the vial has the injury trait, deals no splash damage, and doesn't use its item bonus to attack rolls.</p>
   <p><strong>Advanced Vial (11th level)</strong> When you damage a creature with the vial applied as an injury poison, the creature also takes persistent poison damage equal to the vial's splash damage.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>Adds 1d6 poison damage. Persistent poison damage 1.</p>
+  <p>Thrown: 1d6 poison damage and 1 poison splash damage. Injury poison: adds 1d6 poison damage, with persistent poison damage 1 from the Advanced Vial.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 4</span></div>
-  <p>Adds 2d6 poison damage. Persistent poison damage 2.</p>
+  <p>Thrown: +1 item bonus to attack rolls, 2d6 poison damage and 2 poison splash damage. Injury poison: adds 2d6 poison damage, with persistent poison damage 2 from the Advanced Vial.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 12</span></div>
-  <p>Adds 3d6 poison damage. Persistent poison damage 3.</p>
+  <p>Thrown: +2 item bonus to attack rolls, 3d6 poison damage and 3 poison splash damage. Injury poison: adds 3d6 poison damage, with persistent poison damage 3 from the Advanced Vial.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 18</span></div>
-  <p>Adds 4d6 poison damage. Persistent poison damage 4.</p>
+  <p>Thrown: +3 item bonus to attack rolls, 4d6 poison damage and 4 poison splash damage. Injury poison: adds 4d6 poison damage, with persistent poison damage 4 from the Advanced Vial.</p>
 </div>
