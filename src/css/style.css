@@ -467,6 +467,10 @@ h1, h2, h3 {
   font-style: italic;
 }
 
+.appearance-block .stat-block-art {
+  margin-top: 4px;
+}
+
 .stat-block.appearance-block .appearance-label {
   color: var(--card-label);
   font-style: normal;
