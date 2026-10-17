@@ -141,18 +141,44 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
   <strong>Activate</strong> {% actionIcon "one" %} Strike (thrown) or {% actionIcon "one" %} Interact (apply as an injury poison)</p>
   <p>The vial's chemicals become poison instead of acid: it has the poison trait in place of the acid trait, and its initial and splash damage are poison damage. You can use it in either of two ways.</p>
   <p><strong>Thrown</strong> Strike with the vial as a bomb, as normal for a Volatile Vial. It deals its initial poison damage and its poison splash damage.</p>
-  <p><strong>Injury Poison</strong> Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial's initial damage is added to the first successful Strike with that weapon or ammunition, and the substance becomes inert at the end of your current turn. In this use the vial has the injury trait, deals no splash damage, and doesn't use its item bonus to attack rolls.</p>
-  <p><strong>Advanced Vial (11th level)</strong> When you damage a creature with the vial applied as an injury poison, the creature also takes persistent poison damage equal to the vial's splash damage.</p>
+  <p><strong>Applied</strong> Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial is used up, and the weapon or ammunition gains the Toxic Coating effect below.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>Thrown: 1d6 poison damage and 1 poison splash damage. Injury poison: adds 1d6 poison damage, with persistent poison damage 1 from the Advanced Vial.</p>
+  <p>1d6 poison damage and 1 poison splash damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 4</span></div>
-  <p>Thrown: +1 item bonus to attack rolls, 2d6 poison damage and 2 poison splash damage. Injury poison: adds 2d6 poison damage, with persistent poison damage 2 from the Advanced Vial.</p>
+  <p>You gain a +1 item bonus to attack rolls. The bomb deals 2d6 poison damage and 2 poison splash damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 12</span></div>
-  <p>Thrown: +2 item bonus to attack rolls, 3d6 poison damage and 3 poison splash damage. Injury poison: adds 3d6 poison damage, with persistent poison damage 3 from the Advanced Vial.</p>
+  <p>You gain a +2 item bonus to attack rolls. The bomb deals 3d6 poison damage and 3 poison splash damage.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 18</span></div>
-  <p>Thrown: +3 item bonus to attack rolls, 4d6 poison damage and 4 poison splash damage. Injury poison: adds 4d6 poison damage, with persistent poison damage 4 from the Advanced Vial.</p>
+  <p>You gain a +3 item bonus to attack rolls. The bomb deals 4d6 poison damage and 4 poison splash damage.</p>
+</div>
+
+<div class="stat-block" id="toxic-coating">
+  <h4 class="stat-block-title">Toxic Coating <span class="stat-block-action">Effect</span></h4>
+  <div class="stat-block-traits">
+    <span class="trait">Injury</span>
+    <span class="trait">Poison</span>
+  </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A thin, oily black-green film clings to the weapon's edge or tip in slow, beading strands, giving off a bitter, acrid smell.</p>
+  </div>
+  <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. The vial's initial damage, as noted below for its tier, is added to the first successful Strike with the coated weapon or ammunition, and the coating is then used up. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
+  <p><strong>Advanced Vial (11th level)</strong> When the coating damages a creature, the creature also takes persistent poison damage equal to the vial's splash damage, as noted below for its tier.</p>
+  <p><strong>Duration</strong> until the end of your current turn</p>
+
+  <div class="stat-block-section"><span>Lesser</span></div>
+  <p>Adds 1d6 poison damage. Persistent poison damage 1.</p>
+
+  <div class="stat-block-section"><span>Moderate</span></div>
+  <p>Adds 2d6 poison damage. Persistent poison damage 2.</p>
+
+  <div class="stat-block-section"><span>Greater</span></div>
+  <p>Adds 3d6 poison damage. Persistent poison damage 3.</p>
+
+  <div class="stat-block-section"><span>Major</span></div>
+  <p>Adds 4d6 poison damage. Persistent poison damage 4.</p>
 </div>
