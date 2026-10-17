@@ -122,8 +122,13 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Infused</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A tiny glass flask of a pale, milky liquid that swirls slowly on its own, with a faint, clean scent like rain on warm stone.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding a pale, pearly liquid that swirls slowly on its own beneath a faint haze of vapor, with a clean scent like rain on warm stone.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/mutagenist-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a pale, pearly, slowly swirling liquid." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
