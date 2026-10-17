@@ -17,8 +17,13 @@ summary: "A spice blend that makes any food or drink it's added to compellingly 
     <span class="trait">Olfactory</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A small pouch holding a richly colored, deeply fragrant spice blend, its aroma warm and complex.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A small, squat jar stoppered with a cork and bound in leather and rope, a brass mortar-and-pestle charm dangling from its neck. Through its glass band, layers of vividly colored spices glitter, giving off a warm, complex aroma.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/sensational-spices.png' | url }}" alt="A squat, tilted jar with a cork stopper, leather and brass fittings, and rope wrapping, holding layers of red, orange, and golden spices, with a mortar-and-pestle charm hanging from its neck and loose piles of spice spilled beside it." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
