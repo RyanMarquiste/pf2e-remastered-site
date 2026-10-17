@@ -65,12 +65,15 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A tiny glass flask of fuming, sharp-smelling chemicals whose color shifts with the mix: corrosive green, frost-pale blue, crackling yellow-white, or ember red.</p>
+    <p>A tiny corked glass flask, its neck bound in rope and a studded leather collar, holding swirling chemicals whose color shows the chosen mix: corrosive green with a curl of green vapor, frost-pale blue with icy mist, pale gold laced with crackling lightning, or glowing orange trailing ember-smoke.</p>
+    <img class="stat-block-art-wide" src="{{ '/images/bomber-field-vial.png' | url }}" alt="Four tilted glass flasks with cork stoppers and rope-bound, studded leather collars, filled with swirling green, pale blue, pale gold, and orange liquid, each with a curl of vapor, icy mist, lightning, or ember-smoke above the cork." loading="lazy">
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
   <p>When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type, and it gains the matching trait in place of the acid trait.</p>
   <p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your choice: adamantine, cold iron, or dawnsilver. If you are wearing or wielding an item made of a different precious material when you create it, you can choose that material instead.</p>
+
+  <p class="stat-block-source">Adapted from Pathfinder Player Core 2, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
 
 <div class="stat-block" id="chirurgeon-field-vial">
@@ -105,6 +108,8 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
 
   <div class="stat-block-section"><span>Major</span><span>Item 18</span></div>
   <p>Heals 4d6 Hit Points.</p>
+
+  <p class="stat-block-source">Adapted from Pathfinder Player Core 2, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
 
 <div class="stat-block" id="mutagenist-field-vial">
@@ -125,6 +130,8 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
   <p>You drink this vial to suppress the drawback of one mutagen currently affecting you for 1 minute. It loses the acid, bomb, and splash traits and gains the elixir trait, and it deals no damage.</p>
   <p>If you have more than one drawback from separate sources, such as from Combine Elixirs or a similar ability, you suppress one of your choice. A mutagen's Drawback entry counts as a single drawback, so suppressing it ends all of its listed penalties and weaknesses for the duration.</p>
   <p><strong>Advanced Vial (11th level)</strong> When you drink a field vial, you also gain resistance to physical damage equal to half your level for the same duration.</p>
+
+  <p class="stat-block-source">Adapted from Pathfinder Player Core 2, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
 
 <div class="stat-block" id="toxicologist-field-vial">
@@ -159,6 +166,8 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
 
   <div class="stat-block-section"><span>Major</span><span>Item 18</span></div>
   <p>You gain a +3 item bonus to attack rolls. The bomb deals 4d6 poison damage and 4 poison splash damage.</p>
+
+  <p class="stat-block-source">Adapted from Pathfinder Player Core 2, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
 
 <div class="stat-block" id="toxic-coating">
@@ -186,4 +195,6 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
 
   <div class="stat-block-section"><span>Major</span></div>
   <p>Adds 4d6 poison damage. Persistent poison damage 4.</p>
+
+  <p class="stat-block-source">Adapted from Pathfinder Player Core 2, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>

@@ -471,6 +471,14 @@ h1, h2, h3 {
   margin-top: 4px;
 }
 
+.appearance-block .stat-block-art-wide {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 8px auto 2px;
+}
+
 .stat-block.appearance-block .appearance-label {
   color: var(--card-label);
   font-style: normal;
