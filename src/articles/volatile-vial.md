@@ -88,8 +88,13 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Infused</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A tiny glass flask of a thick, rust-red liquid that clings and clots at the glass when tipped, smelling of iron and crushed herbs.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding a thick, rust-red liquid flecked with bits of green herb that clings and clots at the glass, with a thin curl of vapor rising from the cork and a smell of iron and crushed herbs.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/chirurgeon-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a thick, rust-red liquid flecked with green herbs." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
