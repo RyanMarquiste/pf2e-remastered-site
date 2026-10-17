@@ -19,7 +19,7 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A vial of faintly glowing, oily fluid.</p>
+    <p>A vial of faintly glowing, milky fluid that sparks occasionally with internal currents of electricity.</p>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
