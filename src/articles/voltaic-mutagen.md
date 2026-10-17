@@ -18,8 +18,13 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
     <span class="trait">Polymorph</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A vial of faintly glowing, milky fluid that sparks occasionally with internal currents of electricity, giving off the sharp odor of ozone.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A vial of faintly glowing, milky fluid that sparks occasionally with internal currents of electricity, giving off the sharp odor of ozone.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/voltaic-mutagen.png' | url }}" alt="A round glass flask wrapped in jagged brass lightning-bolt framework, with a metal stopper and a small lightning-bolt charm on a cord, holding swirling milky liquid threaded with crackling blue and gold electricity." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
