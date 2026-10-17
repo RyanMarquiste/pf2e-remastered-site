@@ -164,7 +164,6 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
 <div class="stat-block" id="toxic-coating">
   <h4 class="stat-block-title">Toxic Coating <span class="stat-block-action">Effect</span></h4>
   <div class="stat-block-traits">
-    <span class="trait">Fleeting</span>
     <span class="trait">Injury</span>
     <span class="trait">Poison</span>
   </div>
@@ -174,6 +173,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
   </div>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. The vial's initial damage, as noted below for its tier, is added to the first successful Strike with the coated weapon or ammunition, and the coating is then used up. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
   <p><strong>Advanced Vial (11th level)</strong> When the coating damages a creature, the creature also takes persistent poison damage equal to the vial's splash damage, as noted below for its tier.</p>
+  <p><strong>Duration</strong> until the first successful Strike with the coated weapon or ammunition, or 1 minute</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
   <p>Adds 1d6 poison damage. Persistent poison damage 1.</p>
