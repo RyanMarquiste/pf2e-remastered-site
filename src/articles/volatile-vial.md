@@ -17,6 +17,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Alchemical</span>
     <span class="trait">Bomb</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Fleeting</span>
     <span class="trait">Infused</span>
     <span class="trait">Splash</span>
   </div>
@@ -50,7 +51,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
 
 ## Field Vials
 
-<p>An Alchemist's research field changes what their volatile vials can do. Each field vial below uses the Volatile Vial's tier values for its item level, initial damage, splash damage, and item bonus to attack rolls, unless the entry says otherwise. A vial counts as a field vial only for an Alchemist with the matching research field, and an <strong>Advanced Vial</strong> upgrade applies from 11th level.</p>
+<p>An Alchemist's research field changes what their volatile vials can do. Each field vial below uses the Volatile Vial's tier values for its item level, initial damage, splash damage, and item bonus to attack rolls, unless the entry says otherwise. A vial counts as a field vial only for an Alchemist with the matching research field, and an <strong>Advanced Vial</strong> upgrade applies from 11th level. Volatile vials and field vials are fleeting, unless their entry says otherwise.</p>
 
 <div class="stat-block" id="bomber-field-vial">
   <h4 class="stat-block-title">Bomber Field Vial <span class="stat-block-action">Bomber</span></h4>
@@ -58,6 +59,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Alchemical</span>
     <span class="trait">Bomb</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Fleeting</span>
     <span class="trait">Infused</span>
     <span class="trait">Splash</span>
   </div>
@@ -78,6 +80,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Bomb</span>
     <span class="trait">Coagulant</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Fleeting</span>
     <span class="trait">Healing</span>
     <span class="trait">Infused</span>
   </div>
@@ -110,6 +113,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
     <span class="trait">Elixir</span>
+    <span class="trait">Fleeting</span>
     <span class="trait">Infused</span>
   </div>
   <div class="stat-block appearance-block">
@@ -129,6 +133,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Alchemical</span>
     <span class="trait">Bomb</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Fleeting</span>
     <span class="trait">Infused</span>
     <span class="trait">Poison</span>
     <span class="trait">Splash</span>
@@ -159,6 +164,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
 <div class="stat-block" id="toxic-coating">
   <h4 class="stat-block-title">Toxic Coating <span class="stat-block-action">Effect</span></h4>
   <div class="stat-block-traits">
+    <span class="trait">Fleeting</span>
     <span class="trait">Injury</span>
     <span class="trait">Poison</span>
   </div>
@@ -168,7 +174,6 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
   </div>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. The vial's initial damage, as noted below for its tier, is added to the first successful Strike with the coated weapon or ammunition, and the coating is then used up. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
   <p><strong>Advanced Vial (11th level)</strong> When the coating damages a creature, the creature also takes persistent poison damage equal to the vial's splash damage, as noted below for its tier.</p>
-  <p><strong>Duration</strong> until the end of your current turn</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
   <p>Adds 1d6 poison damage. Persistent poison damage 1.</p>
