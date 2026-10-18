@@ -25,7 +25,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial."
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A tiny corked flask holding layers of green, yellow, and amber liquid that never quite mix. The thin, watery chemicals shift and roil whenever the glass is jostled, with a pale vapor curling above them and a sharp, stinging smell leaking from the cork.</p>
+        <p>A corked flask holding layers of green, yellow, and amber liquid that never quite mix. The thin, watery chemicals shift and roil whenever the glass is jostled, with a pale vapor curling above them and a sharp, stinging smell leaking from the cork.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/volatile-vial.png' | url }}" alt="A tilted, squat glass flask with a cork stopper and a rope-bound, studded leather collar, holding swirling green, yellow, and amber liquid with a pale vapor curling above it." loading="lazy">
     </div>
