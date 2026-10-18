@@ -139,7 +139,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   </div>
   <p><strong>Field Benefit</strong> The Toxicologist research field's benefit of interchanging acid and poison damage still applies to this vial. Applying the vial to your own weapon or ammunition as a single action also uses the Toxicologist's field benefit.</p>
 
-  <p><strong>Applied</strong> {% actionIcon "one" %} Interact. Apply the vial as an injury poison to a weapon or a piece of ammunition that you are wearing or holding. The vial is used up, and the weapon or ammunition gains one of these effects:</p>
+  <p><strong>Applied</strong> {% actionIcon "one" %} Interact. Apply the vial as an injury poison to a weapon you're holding, or to a piece of ammunition on your person or loaded in a weapon you're holding. The vial is used up, and the weapon or ammunition gains one of these effects:</p>
   <ul>
     <li><a href="#toxic-coating"><strong>Toxic Coating</strong></a> The vial's initial damage is added to the first successful Strike with the coated weapon or ammunition.</li>
     <li><a href="#advanced-toxic-coating"><strong>Advanced Toxic Coating</strong></a> (Advanced Vial, 11th level) As Toxic Coating, and the creature also takes persistent poison damage equal to the vial's splash damage.</li>
