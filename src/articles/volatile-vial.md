@@ -163,7 +163,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
   <strong>Activate</strong> {% actionIcon "one" %} Strike (thrown) or {% actionIcon "one" %} Interact (apply as an injury poison)</p>
   <p>The vial's chemicals become poison instead of acid: it has the poison trait in place of the acid trait, and its initial and splash damage are poison damage. You can use it in either of two ways.</p>
   <p><strong>Thrown</strong> Strike with the vial as a bomb, as normal for a Volatile Vial. It deals its initial poison damage and its poison splash damage.</p>
-  <p><strong>Applied</strong> Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial is used up, and the weapon or ammunition gains the Toxic Coating effect below.</p>
+  <p><strong>Applied</strong> Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial is used up, and the weapon or ammunition gains the Toxic Coating effect below, or the Advanced Toxic Coating effect if you have the Advanced Vial upgrade.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>1d6 poison damage and 1 poison splash damage.</p>
@@ -191,7 +191,35 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <p>A thin, oily black-green film clings to the weapon's edge or tip in slow, beading strands, giving off a bitter, acrid smell.</p>
   </div>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. The vial's initial damage, as noted below for its tier, is added to the first successful Strike with the coated weapon or ammunition, and the coating is then used up. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
-  <p><strong>Advanced Vial (11th level)</strong> When the coating damages a creature, the creature also takes persistent poison damage equal to the vial's splash damage, as noted below for its tier.</p>
+  <p><strong>Duration</strong> until the first successful Strike with the coated weapon or ammunition, or 1 minute</p>
+
+  <div class="stat-block-section"><span>Lesser</span></div>
+  <p>Adds 1d6 poison damage.</p>
+
+  <div class="stat-block-section"><span>Moderate</span></div>
+  <p>Adds 2d6 poison damage.</p>
+
+  <div class="stat-block-section"><span>Greater</span></div>
+  <p>Adds 3d6 poison damage.</p>
+
+  <div class="stat-block-section"><span>Major</span></div>
+  <p>Adds 4d6 poison damage.</p>
+
+  <p class="stat-block-source">Adapted from Pathfinder Player Core 2, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
+</div>
+
+<div class="stat-block" id="advanced-toxic-coating">
+  <h4 class="stat-block-title">Advanced Toxic Coating <span class="stat-block-action">Effect</span></h4>
+  <div class="stat-block-traits">
+    <span class="trait">Injury</span>
+    <span class="trait">Poison</span>
+  </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>The oily black-green film is thicker and darker, threaded with slow-bubbling black veins that cling to the weapon's edge or tip and give off a harsher, more acrid smell.</p>
+  </div>
+  <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison, as with Toxic Coating, and the vial's initial damage is added to the first successful Strike in the same way. When the coating damages a creature, the creature also takes persistent poison damage equal to the vial's splash damage, as noted below for its tier. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
+  <p><strong>Requirements</strong> Advanced Vial (11th level) from the Toxicologist research field. An Alchemist with this upgrade gains this effect in place of Toxic Coating.</p>
   <p><strong>Duration</strong> until the first successful Strike with the coated weapon or ammunition, or 1 minute</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
