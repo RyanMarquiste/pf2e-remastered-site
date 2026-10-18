@@ -51,7 +51,7 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
 
 ## Field Vials
 
-<p>An Alchemist's research field changes what their volatile vials can do. Each field vial below uses the Volatile Vial's tier values for its item level, initial damage, splash damage, and item bonus to attack rolls, unless the entry says otherwise. A vial counts as a field vial only for an Alchemist with the matching research field, and an <strong>Advanced Vial</strong> upgrade applies from 11th level. Volatile vials and field vials are fleeting, unless their entry says otherwise.</p>
+<p>An Alchemist's research field changes what their volatile vials can do. Each field vial below uses the Volatile Vial's tier values for its item level, initial damage, splash damage, and item bonus to attack rolls, unless the entry says otherwise. A vial counts as a field vial only for an Alchemist with the matching research field, and an <strong>Advanced Vial</strong> upgrade applies from 11th level. Field vials are volatile vials created with Quick Vial. They don't expend a versatile vial, and, like all volatile vials, they are fleeting unless their entry says otherwise.</p>
 
 <div class="stat-block" id="bomber-field-vial">
   <h4 class="stat-block-title">Bomber Field Vial <span class="stat-block-action">Bomber</span></h4>
