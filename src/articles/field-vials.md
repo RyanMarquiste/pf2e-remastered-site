@@ -35,16 +35,16 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   <p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your choice: adamantine, cold iron, or dawnsilver. If you are wearing or wielding an item made of a different precious material when you create it, you can choose that material instead.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>The bomb deals 1d6 (acid, cold, electricity, fire) damage and 1 (acid, cold, electricity, fire) splash damage.</p>
+  <p>The bomb deals 1d6 (acid, cold, electricity, or fire) damage and 1 (acid, cold, electricity, or fire) splash damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 4</span></div>
-  <p>You gain a +1 item bonus to attack rolls. The bomb deals 2d6 (acid, cold, electricity, fire) damage and 2 (acid, cold, electricity, fire) splash damage.</p>
+  <p>You gain a +1 item bonus to attack rolls. The bomb deals 2d6 (acid, cold, electricity, or fire) damage and 2 (acid, cold, electricity, or fire) splash damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 12</span></div>
-  <p>You gain a +2 item bonus to attack rolls. The bomb deals 3d6 (acid, cold, electricity, fire) damage and 3 (acid, cold, electricity, fire) splash damage.</p>
+  <p>You gain a +2 item bonus to attack rolls. The bomb deals 3d6 (acid, cold, electricity, or fire) damage and 3 (acid, cold, electricity, or fire) splash damage.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 18</span></div>
-  <p>You gain a +3 item bonus to attack rolls. The bomb deals 4d6 (acid, cold, electricity, fire) damage and 4 (acid, cold, electricity, fire) splash damage.</p>
+  <p>You gain a +3 item bonus to attack rolls. The bomb deals 4d6 (acid, cold, electricity, or fire) damage and 4 (acid, cold, electricity, or fire) splash damage.</p>
 
   <p class="stat-block-source">Adapted from Pathfinder Player Core 2, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
