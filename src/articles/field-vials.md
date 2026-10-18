@@ -110,7 +110,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>You drink this vial to suppress the drawback of one mutagen currently affecting you for 1 minute. It deals no damage.</p>
+  <p>You drink this vial to suppress the drawback of one mutagen currently affecting you for 1 minute.</p>
   <p>If you have more than one drawback from separate sources, such as from Combine Elixirs or a similar ability, you suppress one of your choice. A mutagen's Drawback entry counts as a single drawback, so suppressing it ends all of its listed penalties and weaknesses for the duration.</p>
   <p><strong>Advanced Vial (11th level)</strong> When you drink a field vial, you also gain resistance to physical damage equal to half your level for the same duration.</p>
 
