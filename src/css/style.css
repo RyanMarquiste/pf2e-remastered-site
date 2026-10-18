@@ -521,6 +521,23 @@ h1, h2, h3 {
   font-size: 0.85rem;
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--color-muted);
+}
+
+h2[id] {
+  scroll-margin-top: 16px;
+}
+
 @media (max-width: 640px) {
   .article-list {
     gap: 0;
