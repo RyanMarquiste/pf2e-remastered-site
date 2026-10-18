@@ -8,7 +8,7 @@ date: 2026-10-17
 summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chirurgeon, Mutagenist, and Toxicologist."
 ---
 
-<p>An Alchemist's research field changes what their volatile vials can do. Each field vial below uses the <a href="{{ '/articles/volatile-vial/' | url }}">Volatile Vial</a>'s tier values for its item level, initial damage, splash damage, and item bonus to attack rolls, unless the entry says otherwise. A vial counts as a field vial only for an Alchemist with the matching research field, and an <strong>Advanced Vial</strong> upgrade applies from 11th level. Field vials are volatile vials created with Quick Vial. They don't expend a versatile vial, and, like all volatile vials, they are fleeting unless their entry says otherwise.</p>
+<p>An Alchemist's research field changes what their volatile vials can do. A vial counts as a field vial only for an Alchemist with the matching research field, and an <strong>Advanced Vial</strong> upgrade applies from 11th level. Field vials are volatile vials created with Quick Vial. They don't expend a versatile vial, and, like all volatile vials, they are fleeting unless their entry says otherwise.</p>
 
 <div class="stat-block" id="bomber-field-vial">
   <h4 class="stat-block-title">Bomber Field Vial <span class="stat-block-action">Bomber</span></h4>
