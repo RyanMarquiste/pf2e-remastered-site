@@ -137,11 +137,17 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
       <img class="stat-block-art" src="{{ '/images/toxicologist-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a dark, oily green-black liquid that drips in strands down the inside of the glass." loading="lazy">
     </div>
   </div>
+  <p><strong>Field Benefit</strong> The Toxicologist research field's benefit of interchanging acid and poison damage still applies to this vial.</p>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike (thrown) or {% actionIcon "one" %} Interact (apply as an injury poison)</p>
-  <p><strong>Thrown</strong> Strike with the vial as a bomb, as normal for a Volatile Vial. It deals its initial poison damage and its poison splash damage.</p>
-  <p><strong>Applied</strong> Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial is used up, and the weapon or ammunition gains the Toxic Coating effect below, or the Advanced Toxic Coating effect if you have the Advanced Vial upgrade.</p>
-  <p><strong>Field Benefit</strong> The Toxicologist research field's benefit of interchanging acid and poison damage still applies to this vial.</p>
+
+  <p><strong>Applied</strong> {% actionIcon "one" %} Interact. Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial is used up, and the weapon or ammunition gains one of these effects:</p>
+  <ul>
+    <li><a href="#toxic-coating"><strong>Toxic Coating</strong></a> The vial's initial damage is added to the first successful Strike with the coated weapon or ammunition.</li>
+    <li><a href="#advanced-toxic-coating"><strong>Advanced Toxic Coating</strong></a> (Advanced Vial, 11th level) As Toxic Coating, and the creature also takes persistent poison damage equal to the vial's splash damage.</li>
+  </ul>
+
+  <p><strong>Thrown</strong> {% actionIcon "one" %} Strike. Strike with the vial as a bomb. It deals its initial poison damage and its poison splash damage, as listed below.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>1d6 poison damage and 1 poison splash damage.</p>
