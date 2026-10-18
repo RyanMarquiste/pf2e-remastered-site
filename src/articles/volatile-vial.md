@@ -156,8 +156,13 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial, with a Field V
     <span class="trait">Splash</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A tiny glass flask of an oily, black-green liquid that clings to the glass in slow strands and carries a bitter, acrid smell.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding an oily, black-green liquid that clings to the glass in slow, dripping strands and carries a bitter, acrid smell.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/toxicologist-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a dark, oily green-black liquid that drips in strands down the inside of the glass." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike (thrown) or {% actionIcon "one" %} Interact (apply as an injury poison)</p>
