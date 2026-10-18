@@ -16,7 +16,7 @@ summary: "An alchemical paste that grants resistance to one energy type for a li
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A small jar of thick, gritty, mineral-laced paste with a dull, chalky sheen.</p>
+    <p>A small jar of thick, gritty paste in a dull, chalky grey, flecked with glittering mineral grains. It is smooth enough to spread and smells faintly of stone dust and metal.</p>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "three" %} Interact</p>

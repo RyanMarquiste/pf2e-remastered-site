@@ -18,7 +18,7 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A corked flask of dark, oily liquid that clings to the glass in slow, dripping streaks, its surface shimmering with a rainbow sheen, and carries a strong scent of oil and petroleum.</p>
+        <p>A corked flask of thick, dark, oily liquid that clings to the glass in slow, dripping streaks. Its surface shimmers with a rainbow sheen, and it carries a strong scent of oil and petroleum.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/slick.png' | url }}" alt="A round glass flask with a cork stopper and a rope-wrapped leather neck banded in brass, holding dark, iridescent oil that drips down the inside of the glass." loading="lazy">
     </div>
