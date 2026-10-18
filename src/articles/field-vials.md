@@ -31,7 +31,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p>When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type, and the vial has the matching damage trait.</p>
+  <p><strong>Special</strong> When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type, and the vial has the matching damage trait.</p>
   <p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your choice: adamantine, cold iron, or dawnsilver. If you are wearing or wielding an item made of a different precious material when you create it, you can choose that material instead.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
