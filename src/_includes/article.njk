@@ -5,10 +5,13 @@ layout: base.njk
   <header class="article-header">
     <p class="article-category">{{ category }}</p>
     <h1>{{ title }}</h1>
-    <p class="article-meta">{{ date | readableDate }}{% if author %} · {{ author }}{% endif %}</p>
   </header>
 
   <div class="article-body">
     {{ content | safe }}
   </div>
+
+  <footer class="article-footer">
+    <p class="article-meta">Published {{ date | readableDate }}{% if author %} · {{ author }}{% endif %}</p>
+  </footer>
 </article>
