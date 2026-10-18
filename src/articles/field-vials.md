@@ -24,9 +24,9 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A tiny corked glass flask, its neck bound in rope and a studded leather collar, holding a chaotic, swirling mixture of four chemicals that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange. Wisps of green vapor, frosty mist, sparks of lightning, and ember-smoke curl together from the cork.</p>
+        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding a chaotic, swirling mixture of four chemicals that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange.</p>
       </div>
-      <img class="stat-block-art" src="{{ '/images/bomber-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a rope-bound, studded leather collar, holding a swirling mixture of green, light blue, gold, and orange liquids, with wisps of colored vapor, mist, lightning, and smoke rising from the cork." loading="lazy">
+      <img class="stat-block-art" src="{{ '/images/bomber-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a swirling mixture of green, light blue, gold, and orange liquids." loading="lazy">
     </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
