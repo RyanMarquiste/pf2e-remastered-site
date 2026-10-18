@@ -71,7 +71,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>This vial restores Hit Points to a living creature instead of dealing damage. A creature can drink it, or you can throw it at a willing creature within 20 feet. The creature recovers Hit Points equal to the vial's initial damage for its tier. If a creature drinks it, the vial also gains the elixir trait.</p>
+  <p>Instead of dealing damage, this vial restores Hit Points to one living creature. You can either have the creature drink the vial, or throw it to a willing creature within 20 feet. The creature regains Hit Points equal to the vial's initial damage for its tier. If the vial is drunk, it also has the elixir trait.</p>
   <p><strong>Coagulant</strong> A creature that recovers Hit Points from a coagulant item can't recover Hit Points from another coagulant item for 10 minutes, though it still gains their other effects.</p>
   <p><strong>Advanced Vial (11th level)</strong> When the vial heals a creature with half its maximum Hit Points or fewer, the coagulant trait doesn't apply to that healing.</p>
 
