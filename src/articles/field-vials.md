@@ -24,7 +24,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding a chaotic, swirling mixture of four chemicals that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange.</p>
+        <p>A tiny corked flask holding a chaotic mixture of four thin liquids that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange. Each swirls in its own current, and together they smell sharply of acid, frost, ozone, and hot ash.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/bomber-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a swirling mixture of green, light blue, gold, and orange liquids." loading="lazy">
     </div>
@@ -64,7 +64,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding a thick, rust-red liquid flecked with bits of green herb that clings and clots at the glass, with a thin curl of vapor rising from the cork and a smell of iron and crushed herbs.</p>
+        <p>A tiny corked flask of thick, rust-red liquid that clings and clots at the glass when tipped, flecked with bits of green herb and smelling of iron and crushed herbs.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/chirurgeon-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a thick, rust-red liquid flecked with green herbs." loading="lazy">
     </div>
@@ -103,7 +103,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding a pale, pearly liquid that swirls slowly on its own beneath a faint haze of vapor, with a clean scent like rain on warm stone.</p>
+        <p>A tiny corked flask of pale, pearly liquid that swirls slowly on its own beneath a faint haze of vapor, smooth as cream, with a clean scent like rain on warm stone.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/mutagenist-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a pale, pearly, slowly swirling liquid." loading="lazy">
     </div>
@@ -132,7 +132,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A tiny corked glass flask, its neck bound in dark rope and a studded leather collar, holding an oily, black-green liquid that clings to the glass in slow, dripping strands and carries a bitter, acrid smell.</p>
+        <p>A tiny corked flask of oily, black-green liquid that clings to the glass in slow, dripping strands, with a bitter, acrid smell.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/toxicologist-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a dark-rope-wrapped, studded leather collar, holding a dark, oily green-black liquid that drips in strands down the inside of the glass." loading="lazy">
     </div>
