@@ -21,9 +21,13 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <span class="trait">Splash</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A tiny corked glass flask, its neck bound in rope and a studded leather collar, holding swirling chemicals whose color shows the chosen mix: corrosive green with a curl of green vapor, frost-pale blue with icy mist, pale gold laced with crackling lightning, or glowing orange trailing ember-smoke.</p>
-    <img class="stat-block-art-wide" src="{{ '/images/bomber-field-vial.png' | url }}" alt="Four tilted glass flasks with cork stoppers and rope-bound, studded leather collars, filled with swirling green, pale blue, pale gold, and orange liquid, each with a curl of vapor, icy mist, lightning, or ember-smoke above the cork." loading="lazy">
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A tiny corked glass flask, its neck bound in rope and a studded leather collar, holding a chaotic, swirling mixture of four chemicals that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange. Wisps of green vapor, frosty mist, sparks of lightning, and ember-smoke curl together from the cork.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/bomber-field-vial.png' | url }}" alt="A tilted glass flask with a cork stopper and a rope-bound, studded leather collar, holding a swirling mixture of green, light blue, gold, and orange liquids, with wisps of colored vapor, mist, lightning, and smoke rising from the cork." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
