@@ -167,6 +167,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
 <div class="stat-block" id="toxic-coating">
   <h4 class="stat-block-title">Toxic Coating <span class="stat-block-action">Effect</span></h4>
   <div class="stat-block-traits">
+    <span class="trait">Fleeting</span>
     <span class="trait">Injury</span>
     <span class="trait">Poison</span>
   </div>
@@ -175,7 +176,6 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <p>A thin, oily black-green film clings to the weapon's edge or tip in slow, beading strands, giving off a bitter, acrid smell.</p>
   </div>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. The vial's initial damage, as noted below for its tier, is added to the first successful Strike with the coated weapon or ammunition, and the coating is then used up. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
-  <p><strong>Duration</strong> until the first successful Strike with the coated weapon or ammunition, or 1 minute</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
   <p>Adds 1d6 poison damage.</p>
@@ -195,6 +195,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
 <div class="stat-block" id="advanced-toxic-coating">
   <h4 class="stat-block-title">Advanced Toxic Coating <span class="stat-block-action">Effect</span></h4>
   <div class="stat-block-traits">
+    <span class="trait">Fleeting</span>
     <span class="trait">Injury</span>
     <span class="trait">Poison</span>
   </div>
@@ -204,7 +205,6 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   </div>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison, as with Toxic Coating, and the vial's initial damage is added to the first successful Strike in the same way. When the coating damages a creature, the creature also takes persistent poison damage equal to the vial's splash damage, as noted below for its tier. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
   <p><strong>Requirements</strong> Advanced Vial (11th level) from the Toxicologist research field. An Alchemist with this upgrade gains this effect in place of Toxic Coating.</p>
-  <p><strong>Duration</strong> until the first successful Strike with the coated weapon or ammunition, or 1 minute</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
   <p>Adds 1d6 poison damage. Persistent poison damage 1.</p>
