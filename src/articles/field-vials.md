@@ -144,7 +144,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <li><a href="#toxic-coating"><strong>Toxic Coating</strong></a> The vial's initial damage is added to the first successful Strike with the coated weapon or ammunition.</li>
     <li><a href="#advanced-toxic-coating"><strong>Advanced Toxic Coating</strong></a> (Advanced Vial, 11th level) As Toxic Coating, and the creature also takes persistent poison damage equal to the vial's splash damage.</li>
   </ul>
-  <p><strong>Special</strong> If your previous action was to create this vial with Quick Alchemy, applying it to a weapon you're holding, or to ammunition on your person or loaded in a weapon you're holding, costs no action.</p>
+  <p><strong>Special</strong> If your previous action was to create this vial with Quick Alchemy, applying it to a weapon you're holding, or to ammunition on your person or loaded in a weapon you're holding, costs no action. This is a feature of the Toxicologist's Field Benefit.</p>
 
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
