@@ -138,8 +138,8 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     </div>
   </div>
   <p><strong>Field Benefit</strong> The Toxicologist research field's benefit of interchanging acid and poison damage still applies to this vial.</p>
-  <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
-  <strong>Activate</strong> {% actionIcon "one" %} Strike (thrown) or {% actionIcon "one" %} Interact (apply as an injury poison)</p>
+  <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;</p>
+  <p>Choose one of the below two actions to use this item:</p>
 
   <p><strong>Applied</strong> {% actionIcon "one" %} Interact. Apply the vial to a weapon or a piece of ammunition as an injury poison. The vial is used up, and the weapon or ammunition gains one of these effects:</p>
   <ul>
