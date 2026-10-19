@@ -37,8 +37,8 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   <p>Slick coats a 10-foot square. If ignited, creatures in the area take 1d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>Slick coats a 15-foot square. If ignited, creatures in the area take 2d6 fire damage.</p>
+  <p>You gain a +1 item bonus to attack rolls. Slick coats a 15-foot square. If ignited, creatures in the area take 2d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>Slick coats a 20-foot square. If ignited, creatures in the area take 3d6 fire damage.</p>
+  <p>You gain a +2 item bonus to attack rolls. Slick coats a 20-foot square. If ignited, creatures in the area take 3d6 fire damage.</p>
 </div>
