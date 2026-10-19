@@ -18,8 +18,13 @@ summary: "A mutagen that lets the drinker exhale volatile sulphur clouds that fl
     <span class="trait">Polymorph</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A vial of pungent, sulphur-yellow slurry that reeks of struck matches and rotten eggs.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A vial of pungent, sulphur-yellow slurry that bubbles and sloshes like thick amber, with crusts of bright yellow sulphur crystals clinging to the outside of the glass. It reeks of struck matches and rotten eggs.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/sulphurous-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, holding bubbling amber-yellow liquid, wrapped in a net of dark roots and crusted with yellow sulphur crystals, with a small metal tag marked with a flame hanging from its neck." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
