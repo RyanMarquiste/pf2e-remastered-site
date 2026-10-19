@@ -28,11 +28,11 @@ summary: "A thrown alchemical consumable that coats an area in a metallic gel th
   <p><strong>Special</strong> The area is conductive. Whenever an effect with the electricity trait, such as an electricity attack or area effect, is applied to Conductive Gel (including attacks or effects against the squares it covers), each creature in the area takes electricity damage, as noted below for its tier, with a basic Reflex save. The gel isn't consumed. It can deal this damage only once per round.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>Conductive Gel coats a 10-foot square. Creatures in the area take 1d4 electricity damage when it is energized.</p>
+  <p>Conductive Gel coats a 10-foot square. Creatures in the area take 2d4 electricity damage when it is energized.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>You gain a +1 item bonus to attack rolls. Conductive Gel coats a 15-foot square. Creatures in the area take 2d4 electricity damage when it is energized.</p>
+  <p>You gain a +1 item bonus to attack rolls. Conductive Gel coats a 15-foot square. Creatures in the area take 4d4 electricity damage when it is energized.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>You gain a +2 item bonus to attack rolls. Conductive Gel coats a 20-foot square. Creatures in the area take 3d4 electricity damage when it is energized.</p>
+  <p>You gain a +2 item bonus to attack rolls. Conductive Gel coats a 20-foot square. Creatures in the area take 6d4 electricity damage when it is energized.</p>
 </div>
