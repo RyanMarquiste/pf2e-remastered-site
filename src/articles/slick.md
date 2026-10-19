@@ -26,7 +26,7 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p>Throw the flask at a square within 20 feet. This Strike targets the square instead of a creature, makes no attack roll, and deals no damage. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber. The flask coats an area that includes that square with its contents, turning the surface slick and slippery, as noted below for its tier.</p>
+  <p>Throw the flask at a square within 20 feet. This Strike targets the square instead of a creature, makes no attack roll, and deals no damage. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty. The flask coats an area with that square at its center or corner, turning the surface slick and slippery, as noted below for its tier.</p>
   <p>Any creature entering the area must succeed at an Acrobatics or Athletics check against the item's DC or fall prone, ending its movement for the turn. Creatures may crawl through the area normally without attempting this check.</p>
   <p>If Slick is applied to a wall or ceiling, a creature that fails the check loses its purchase and falls.</p>
   <p><strong>Special</strong> The effect or area is flammable. Any fire damage applied to Slick (such as area attacks or attacks against the squares that Slick is in) will ignite the Slick. This consumes the Slick effect, ending it immediately, but creatures in the area take fire damage, as noted below for its tier, with a basic Reflex save.</p>
