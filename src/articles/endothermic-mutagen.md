@@ -18,8 +18,13 @@ summary: "A mutagen that draws ambient heat into the drinker's body, chilling th
     <span class="trait">Polymorph</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A vial of frigid, slowly swirling fluid.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A vial of frigid, pale blue fluid that swirls slowly, flecked with drifting shards of ice. Frost clings to the outside of the glass.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/endothermic-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, holding pale blue liquid flecked with ice shards, with silvery snowflake patterns wrapped around the glass, frost on its surface, and a small metal tag marked with a snowflake hanging from its neck." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
