@@ -15,8 +15,13 @@ summary: "An alchemical paste that grants resistance to one energy type for a li
     <span class="trait">Consumable</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A small jar of thick, gritty paste in a dull, chalky grey, flecked with glittering mineral grains. It is smooth enough to spread and smells faintly of stone dust and metal.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A small jar of thick, gritty paste in a dull, chalky grey, flecked with glittering mineral grains. It is smooth enough to spread and smells faintly of stone dust and metal.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/insulating-paste.png' | url }}" alt="A tilted glass jar with a cork stopper and a twisted rope band at its neck, filled with thick grey paste flecked with glittering mineral grains and swirled into a peak on top." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "three" %} Interact</p>
