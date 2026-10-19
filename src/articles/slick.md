@@ -31,14 +31,14 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: 5 feet smaller on each side than noted below for its tier, but always including the target square.</p>
   <p>Any creature entering the area must succeed at an Acrobatics or Athletics check against the item's DC or fall prone, ending its movement for the turn. Creatures may crawl through the area normally without attempting this check.</p>
   <p>If Slick is applied to a wall or ceiling, a creature that fails the check loses its purchase and falls.</p>
-  <p><strong>Special</strong> The effect or area is flammable. Any fire damage applied to Slick (such as area attacks or attacks against the squares that Slick is in) will ignite the Slick. This consumes the Slick effect, ending it immediately, but creatures in the area take fire damage, as noted below for its tier, with a basic Reflex save.</p>
+  <p><strong>Special</strong> The effect or area is flammable. Any fire damage applied to Slick (such as area attacks or attacks against the squares that Slick is in) will ignite the Slick. This consumes the Slick effect, ending it immediately, but creatures in the area take fire damage, as noted below for its tier, with a basic Reflex save. If a creature in the area is also taking fire damage from the effect that ignited Slick, add this damage to that damage. The two are combined into a single instance of damage, sharing the creature's saving throw result against the igniting effect, with resistances applied to the total once.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
   <p>Slick coats a 10-foot square. If ignited, creatures in the area take 2d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>You gain a +1 item bonus to attack rolls. Slick coats a 15-foot square. If ignited, creatures in the area take 4d6 fire damage.</p>
+  <p>You gain a +1 item bonus to attack rolls. Slick coats a 15-foot square. If ignited, creatures in the area take 5d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>You gain a +2 item bonus to attack rolls. Slick coats a 20-foot square. If ignited, creatures in the area take 6d6 fire damage.</p>
+  <p>You gain a +2 item bonus to attack rolls. Slick coats a 20-foot square. If ignited, creatures in the area take 10d6 fire damage.</p>
 </div>
