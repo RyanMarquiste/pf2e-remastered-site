@@ -1,0 +1,41 @@
+---
+layout: article.njk
+menu: alchemist-items
+title: "Freezing Fluid"
+category: Equipment
+class: alchemist
+date: 2026-10-19
+summary: "A thrown alchemical consumable that coats an area in a numbing, freezing fluid that slows creatures and sharpens cold attacks against them."
+---
+
+<div class="stat-block" id="freezing-fluid">
+  <h4 class="stat-block-title">Freezing Fluid</h4>
+  <div class="stat-block-traits">
+    <span class="trait">Alchemical</span>
+    <span class="trait">Bomb</span>
+    <span class="trait">Cold</span>
+    <span class="trait">Consumable</span>
+  </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A corked flask of thin, pale blue fluid that steams with cold vapor and grows feathery frost on the glass. Tiny ice crystals drift slowly through it, and it smells of snowmelt and cold metal.</p>
+  </div>
+  <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
+  <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
+  <p>Throw the flask at a square within 20 feet. This Strike targets the square instead of a creature and deals no damage. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. The attack can only succeed or fail; it is never a critical success or critical failure. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
+  <p><strong>Success</strong> The flask coats an area with that square at its center or corner, covering the surface in freezing fluid, as noted below for its tier.</p>
+  <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: 5 feet smaller on each side than noted below for its tier, but always including the target square.</p>
+  <p>The fluid remains for 1 minute, after which it warms and becomes inert. It needs no further activation. A creature that enters the area, or starts its turn in it, must succeed at a Fortitude save against the item's DC or become slowed 1 for 1 round. A creature attempts this save at most once per round, and a creature already in the area when it is coated attempts the save at the start of its next turn.</p>
+  <p><strong>Special</strong> The fluid sharpens cold. Whenever a creature in the area takes cold damage from an attack or effect, it takes additional cold damage as noted below for its tier, added to that damage as a single instance, with resistances applied to the total once. This applies only to the creature taking the cold damage and doesn't spread to other creatures in the area. A creature takes this additional damage at most once per round.</p>
+  <p><strong>Special</strong> The fluid affects only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the slowing effect or the additional cold damage.</p>
+  <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash the fluid away. Treat the fluid as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the fluid from the area it covers.</p>
+
+  <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
+  <p>Freezing Fluid coats a 10-foot square. Cold damage is increased by 1d6.</p>
+
+  <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
+  <p>You gain a +1 item bonus to attack rolls. Freezing Fluid coats a 15-foot square. Cold damage is increased by 2d6.</p>
+
+  <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
+  <p>You gain a +2 item bonus to attack rolls. Freezing Fluid coats a 20-foot square. Cold damage is increased by 4d6.</p>
+</div>
