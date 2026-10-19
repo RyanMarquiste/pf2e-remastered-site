@@ -18,8 +18,13 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
     <span class="trait">Polymorph</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A vial of viscous, faintly bubbling fluid.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A vial of viscous, faintly bubbling green fluid, with strands of thick golden slime clinging to the outside of the glass.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/acidic-blob-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, holding bubbling green liquid, wrapped in a net of dripping golden slime, with a small metal tag hanging from its neck." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
