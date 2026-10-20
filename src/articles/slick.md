@@ -26,7 +26,7 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p>Throw the flask at a square within 20 feet. This Strike targets the square instead of a creature and deals no damage. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
+  <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
   <p><strong>Critical Success</strong> The flask coats an area with the same center or corner, turning the surface slick and slippery, 5 feet wider than noted below for its tier.</p>
   <p><strong>Success</strong> The flask coats an area with that square at its center or corner, turning the surface slick and slippery, as noted below for its tier.</p>
   <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: 5 feet narrower than noted below for its tier, but never smaller than a single square and always including the target square.</p>
