@@ -29,23 +29,23 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
   <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage on its own. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
   <div class="stat-block results-block">
-    <p><strong>Critical Success</strong> The flask coats a wider area, covering the surface in caustic slurry: the radius is 5 feet greater than noted below for its tier.</p>
-    <p><strong>Success</strong> The flask coats the target square and the squares around it, covering the surface in caustic slurry, out to the radius noted below for its tier. A radius of 0 is the target square alone.</p>
-    <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the radius is 5 feet less than noted below for its tier, to a minimum of 0.</p>
-    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier, to a minimum of 0.</p>
+    <p><strong>Critical Success</strong> The flask coats a larger area, covering the surface in caustic slurry: the square is 5 feet wider than noted below for its tier.</p>
+    <p><strong>Success</strong> The flask coats a square area that includes the target square, covering the surface in caustic slurry, as noted below for its tier. The target square can be at the area's center or corner.</p>
+    <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the square is 5 feet narrower than noted below for its tier, but still includes the target square.</p>
+    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the square is 10 feet narrower than noted below for its tier, but still includes the target square. If this leaves no area at all, the flask is a dud and is expended without effect.</p>
   </div>
   <p>The slurry remains for 1 minute, after which it neutralizes and becomes inert. It needs no further activation. A creature that enters the area, or starts its turn in it, takes acid damage as noted below for its tier, with a basic Reflex save. A creature takes this damage at most once per round, and a creature already in the area when it is coated takes the damage at the start of its next turn.</p>
 
   <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The DC of the bomb attack roll is fixed and can't be changed this way.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>DC 16. Acidic Slurry coats only the target square. Creatures take 1d6 acid damage.</p>
+  <p>DC 16. Acidic Slurry coats a 10-foot square. Creatures take 1d6 acid damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>DC 24. You gain a +1 item bonus to attack rolls. Acidic Slurry coats a 5-foot radius around the target square. Creatures take 3d6 acid damage.</p>
+  <p>DC 24. You gain a +1 item bonus to attack rolls. Acidic Slurry coats a 15-foot square. Creatures take 3d6 acid damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>DC 34. You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 10-foot radius around the target square. Creatures take 6d6 acid damage.</p>
+  <p>DC 34. You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 20-foot square. Creatures take 6d6 acid damage.</p>
 
   <div class="stat-block-notes">
     <p><strong>Special</strong> The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>

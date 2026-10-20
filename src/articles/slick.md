@@ -28,10 +28,10 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
   <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
   <div class="stat-block results-block">
-    <p><strong>Critical Success</strong> The flask coats a wider area, turning the surface slick and slippery: the radius is 5 feet greater than noted below for its tier.</p>
-    <p><strong>Success</strong> The flask coats the target square and the squares around it, turning the surface slick and slippery, out to the radius noted below for its tier. A radius of 0 is the target square alone.</p>
-    <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the radius is 5 feet less than noted below for its tier, to a minimum of 0.</p>
-    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier, to a minimum of 0.</p>
+    <p><strong>Critical Success</strong> The flask coats a larger area, turning the surface slick and slippery: the square is 5 feet wider than noted below for its tier.</p>
+    <p><strong>Success</strong> The flask coats a square area that includes the target square, turning the surface slick and slippery, as noted below for its tier. The target square can be at the area's center or corner.</p>
+    <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the square is 5 feet narrower than noted below for its tier, but still includes the target square.</p>
+    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the square is 10 feet narrower than noted below for its tier, but still includes the target square. If this leaves no area at all, the flask is a dud and is expended without effect.</p>
   </div>
   <p>Any creature entering the area must succeed at an Acrobatics or Athletics check against the item's DC or fall prone, ending its movement for the turn. Creatures may crawl through the area normally without attempting this check.</p>
   <p>If Slick is applied to a wall or ceiling, a creature that fails the check loses its purchase and falls.</p>
@@ -40,13 +40,13 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The DC of the bomb attack roll is fixed and can't be changed this way.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>DC 16. Slick coats only the target square. If ignited, creatures in the area take 2d6 fire damage.</p>
+  <p>DC 16. Slick coats a 10-foot square. If ignited, creatures in the area take 2d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>DC 24. You gain a +1 item bonus to attack rolls. Slick coats a 5-foot radius around the target square. If ignited, creatures in the area take 5d6 fire damage.</p>
+  <p>DC 24. You gain a +1 item bonus to attack rolls. Slick coats a 15-foot square. If ignited, creatures in the area take 5d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>DC 34. You gain a +2 item bonus to attack rolls. Slick coats a 10-foot radius around the target square. If ignited, creatures in the area take 10d6 fire damage.</p>
+  <p>DC 34. You gain a +2 item bonus to attack rolls. Slick coats a 20-foot square. If ignited, creatures in the area take 10d6 fire damage.</p>
 
   <div class="stat-block-notes">
     <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash Slick away. Treat Slick as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes Slick from the area it covers.</p>
