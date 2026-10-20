@@ -32,7 +32,7 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
     <p><strong>Critical Success</strong> The flask coats a wider area, covering the surface in caustic slurry: the radius is 5 feet greater than noted below for its tier.</p>
     <p><strong>Success</strong> The flask coats the target square and the squares around it, covering the surface in caustic slurry, out to the radius noted below for its tier. A radius of 0 is the target square alone.</p>
     <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the radius is 5 feet less than noted below for its tier, to a minimum of 0.</p>
-    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier. If this would reduce the radius below 0, the flask is a dud and is expended without effect.</p>
+    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier, to a minimum of 0.</p>
   </div>
   <p>The slurry remains for 1 minute, after which it neutralizes and becomes inert. It needs no further activation. A creature that enters the area, or starts its turn in it, takes acid damage as noted below for its tier, with a basic Reflex save. A creature takes this damage at most once per round, and a creature already in the area when it is coated takes the damage at the start of its next turn.</p>
 

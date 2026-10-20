@@ -31,7 +31,7 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
     <p><strong>Critical Success</strong> The flask coats a wider area, turning the surface slick and slippery: the radius is 5 feet greater than noted below for its tier.</p>
     <p><strong>Success</strong> The flask coats the target square and the squares around it, turning the surface slick and slippery, out to the radius noted below for its tier. A radius of 0 is the target square alone.</p>
     <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the radius is 5 feet less than noted below for its tier, to a minimum of 0.</p>
-    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier. If this would reduce the radius below 0, the flask is a dud and is expended without effect.</p>
+    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier, to a minimum of 0.</p>
   </div>
   <p>Any creature entering the area must succeed at an Acrobatics or Athletics check against the item's DC or fall prone, ending its movement for the turn. Creatures may crawl through the area normally without attempting this check.</p>
   <p>If Slick is applied to a wall or ceiling, a creature that fails the check loses its purchase and falls.</p>
