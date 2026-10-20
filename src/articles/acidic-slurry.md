@@ -17,8 +17,13 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
     <span class="trait">Consumable</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A corked flask of thick, sickly green slurry that bubbles sluggishly, with pale clumps of foam rising and popping on its surface. It hisses faintly against the glass and smells sharply of vinegar and singed hair.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A corked flask of thick, sickly yellow-green slurry streaked with muddy brown, topped with a froth of pale foam that bubbles sluggishly and leaves ropy smears up the glass. It hisses faintly and smells sharply of vinegar and singed hair.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/acidic-slurry.png' | url }}" alt="A round glass flask with a cork stopper and a rope-wrapped leather neck banded in brass, holding thick yellow-green slurry streaked with brown and topped with pale, bubbling foam that clings in drips to the inside of the glass." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
