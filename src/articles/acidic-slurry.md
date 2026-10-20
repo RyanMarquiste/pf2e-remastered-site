@@ -36,14 +36,16 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
   </div>
   <p>The slurry remains for 1 minute, after which it neutralizes and becomes inert. It needs no further activation. A creature that enters the area, or starts its turn in it, takes acid damage as noted below for its tier, with a basic Reflex save. A creature takes this damage at most once per round, and a creature already in the area when it is coated takes the damage at the start of its next turn.</p>
 
+  <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The DC of the bomb attack roll is fixed and can't be changed this way.</p>
+
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>Acidic Slurry coats only the target square. Creatures take 1d6 acid damage.</p>
+  <p>DC 16. Acidic Slurry coats only the target square. Creatures take 1d6 acid damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>You gain a +1 item bonus to attack rolls. Acidic Slurry coats a 5-foot radius around the target square. Creatures take 3d6 acid damage.</p>
+  <p>DC 24. You gain a +1 item bonus to attack rolls. Acidic Slurry coats a 5-foot radius around the target square. Creatures take 3d6 acid damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 10-foot radius around the target square. Creatures take 6d6 acid damage.</p>
+  <p>DC 34. You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 10-foot radius around the target square. Creatures take 6d6 acid damage.</p>
 
   <div class="stat-block-notes">
     <p><strong>Special</strong> The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>

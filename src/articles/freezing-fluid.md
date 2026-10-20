@@ -37,14 +37,16 @@ summary: "A thrown alchemical consumable that coats an area in a numbing, freezi
   <p>The fluid remains for 1 minute, after which it warms and becomes inert. It needs no further activation. When the fluid coats the area, each creature in it must succeed at a Fortitude save against the item's DC or become slowed 1 for 1 round. After that, a creature that enters the area, or starts its turn in it, must succeed at the same save or become slowed 1 for 1 round. A creature attempts this save at most once per round.</p>
   <p><strong>Special</strong> The fluid sharpens cold. Whenever a creature in the area takes cold damage from an attack or effect, it takes additional cold damage as noted below for its tier, added to that damage as a single instance, with resistances applied to the total once. This applies only to the creature taking the cold damage and doesn't spread to other creatures in the area. A creature takes this additional damage at most once per round.</p>
 
+  <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The DC of the bomb attack roll is fixed and can't be changed this way.</p>
+
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>Freezing Fluid coats only the target square. Cold damage is increased by 1d6.</p>
+  <p>DC 16. Freezing Fluid coats only the target square. Cold damage is increased by 1d6.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>You gain a +1 item bonus to attack rolls. Freezing Fluid coats a 5-foot radius around the target square. Cold damage is increased by 2d6.</p>
+  <p>DC 24. You gain a +1 item bonus to attack rolls. Freezing Fluid coats a 5-foot radius around the target square. Cold damage is increased by 2d6.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>You gain a +2 item bonus to attack rolls. Freezing Fluid coats a 10-foot radius around the target square. Cold damage is increased by 4d6.</p>
+  <p>DC 34. You gain a +2 item bonus to attack rolls. Freezing Fluid coats a 10-foot radius around the target square. Cold damage is increased by 4d6.</p>
 
   <div class="stat-block-notes">
     <p><strong>Special</strong> The fluid affects only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the slowing effect or the additional cold damage.</p>

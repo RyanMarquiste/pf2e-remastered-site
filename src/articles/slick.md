@@ -37,14 +37,16 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   <p>If Slick is applied to a wall or ceiling, a creature that fails the check loses its purchase and falls.</p>
   <p><strong>Special</strong> The effect or area is flammable. Any fire damage applied to Slick (such as area attacks or attacks against the squares that Slick is in) will ignite the Slick. This consumes the Slick effect, ending it immediately, but creatures in the area take fire damage, as noted below for its tier, with a basic Reflex save. If a creature in the area is also taking fire damage from the effect that ignited Slick, add this damage to that damage. The two are combined into a single instance of damage, sharing the creature's saving throw result against the igniting effect, with resistances applied to the total once.</p>
 
+  <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The DC of the bomb attack roll is fixed and can't be changed this way.</p>
+
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>Slick coats only the target square. If ignited, creatures in the area take 2d6 fire damage.</p>
+  <p>DC 16. Slick coats only the target square. If ignited, creatures in the area take 2d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>You gain a +1 item bonus to attack rolls. Slick coats a 5-foot radius around the target square. If ignited, creatures in the area take 5d6 fire damage.</p>
+  <p>DC 24. You gain a +1 item bonus to attack rolls. Slick coats a 5-foot radius around the target square. If ignited, creatures in the area take 5d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>You gain a +2 item bonus to attack rolls. Slick coats a 10-foot radius around the target square. If ignited, creatures in the area take 10d6 fire damage.</p>
+  <p>DC 34. You gain a +2 item bonus to attack rolls. Slick coats a 10-foot radius around the target square. If ignited, creatures in the area take 10d6 fire damage.</p>
 
   <div class="stat-block-notes">
     <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash Slick away. Treat Slick as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes Slick from the area it covers.</p>
