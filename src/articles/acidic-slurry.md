@@ -28,10 +28,12 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
   <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage on its own. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
-  <p><strong>Critical Success</strong> The flask coats a wider area, covering the surface in caustic slurry: the radius is 5 feet greater than noted below for its tier.</p>
-  <p><strong>Success</strong> The flask coats the target square and the squares around it, covering the surface in caustic slurry, out to the radius noted below for its tier. A radius of 0 is the target square alone.</p>
-  <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the radius is 5 feet less than noted below for its tier, to a minimum of 0.</p>
-  <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier. If this would reduce the radius below 0, the flask is a dud and is expended without effect.</p>
+  <div class="stat-block results-block">
+    <p><strong>Critical Success</strong> The flask coats a wider area, covering the surface in caustic slurry: the radius is 5 feet greater than noted below for its tier.</p>
+    <p><strong>Success</strong> The flask coats the target square and the squares around it, covering the surface in caustic slurry, out to the radius noted below for its tier. A radius of 0 is the target square alone.</p>
+    <p><strong>Failure</strong> The flask lands poorly and coats a smaller area: the radius is 5 feet less than noted below for its tier, to a minimum of 0.</p>
+    <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier. If this would reduce the radius below 0, the flask is a dud and is expended without effect.</p>
+  </div>
   <p>The slurry remains for 1 minute, after which it neutralizes and becomes inert. It needs no further activation. A creature that enters the area, or starts its turn in it, takes acid damage as noted below for its tier, with a basic Reflex save. A creature takes this damage at most once per round, and a creature already in the area when it is coated takes the damage at the start of its next turn.</p>
   <p><strong>Special</strong> The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>
   <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash the slurry away. Treat the slurry as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the slurry from the area it covers.</p>
