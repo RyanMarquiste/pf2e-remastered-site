@@ -518,6 +518,12 @@ h1, h2, h3 {
 .stat-block.results-block p:last-child {
   margin-bottom: 4px;
 }
+.stat-block-notes {
+  margin-top: 12px;
+  padding-top: 4px;
+  border-top: 1px solid var(--card-nested-border);
+}
+
 .stat-block-art {
   flex: 0 0 20%;
   min-width: 80px;

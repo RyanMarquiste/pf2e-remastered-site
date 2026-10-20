@@ -35,7 +35,6 @@ summary: "A thrown alchemical consumable that coats an area in a metallic gel th
   </div>
   <p>The gel doesn't hinder movement or make footing treacherous. It remains for 1 minute, after which it dries and becomes inert.</p>
   <p><strong>Special</strong> The area is conductive. Whenever an effect with the electricity trait, such as an electricity attack or area effect, is applied to Conductive Gel (including attacks or effects against the squares it covers), each creature in the area takes electricity damage, as noted below for its tier, with a basic Reflex save. The gel isn't consumed. It can deal this damage only once per round. If a creature in the area is also taking electricity damage from the effect that energized the gel, add this damage to that damage. The two are combined into a single instance of damage, sharing the creature's saving throw result against the energizing effect, with resistances applied to the total once.</p>
-  <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash the gel away. Treat the gel as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the gel from the area it covers.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
   <p>Conductive Gel coats only the target square. Creatures in the area take 2d4 electricity damage when it is energized.</p>
@@ -45,4 +44,8 @@ summary: "A thrown alchemical consumable that coats an area in a metallic gel th
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
   <p>You gain a +2 item bonus to attack rolls. Conductive Gel coats a 10-foot radius around the target square. Creatures in the area take 10d4 electricity damage when it is energized.</p>
+
+  <div class="stat-block-notes">
+    <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash the gel away. Treat the gel as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the gel from the area it covers.</p>
+  </div>
 </div>

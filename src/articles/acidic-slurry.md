@@ -35,8 +35,6 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
     <p><strong>Critical Failure</strong> The flask shatters badly and coats an even smaller area: the radius is 10 feet less than noted below for its tier. If this would reduce the radius below 0, the flask is a dud and is expended without effect.</p>
   </div>
   <p>The slurry remains for 1 minute, after which it neutralizes and becomes inert. It needs no further activation. A creature that enters the area, or starts its turn in it, takes acid damage as noted below for its tier, with a basic Reflex save. A creature takes this damage at most once per round, and a creature already in the area when it is coated takes the damage at the start of its next turn.</p>
-  <p><strong>Special</strong> The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>
-  <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash the slurry away. Treat the slurry as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the slurry from the area it covers.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
   <p>Acidic Slurry coats only the target square. Creatures take 1d6 acid damage.</p>
@@ -46,4 +44,9 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
   <p>You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 10-foot radius around the target square. Creatures take 6d6 acid damage.</p>
+
+  <div class="stat-block-notes">
+    <p><strong>Special</strong> The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>
+    <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash the slurry away. Treat the slurry as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the slurry from the area it covers.</p>
+  </div>
 </div>
