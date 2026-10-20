@@ -17,8 +17,13 @@ summary: "A thrown alchemical consumable that coats an area in a numbing, freezi
     <span class="trait">Consumable</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A corked flask of thin, pale blue fluid that steams with cold vapor and grows feathery frost on the glass. Tiny ice crystals drift slowly through it, and it smells of snowmelt and cold metal.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A corked flask of thin, pale blue fluid that steams with cold vapor and grows feathery frost on the glass. Tiny ice crystals drift slowly through it, and it smells of snowmelt and cold metal.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/freezing-fluid.png' | url }}" alt="A round, slightly lopsided glass flask with a cork stopper, a rope-and-leather neck with brass bands, and two small metal tags, holding pale blue liquid, with white vapor curling above it and feathery frost patterns on the glass." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
