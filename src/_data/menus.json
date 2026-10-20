@@ -12,6 +12,11 @@
     { "title": "Alchemist", "url": "/classes/alchemist/" },
     { "title": "Items", "url": "/classes/alchemist/items/" }
   ],
+  "investigator-feats": [
+    { "title": "Classes", "url": "/classes/" },
+    { "title": "Investigator", "url": "/classes/investigator/" },
+    { "title": "Feats", "url": "/classes/investigator/feats/" }
+  ],
   "bard-features": [
     { "title": "Classes", "url": "/classes/" },
     { "title": "Bard", "url": "/classes/bard/" },
