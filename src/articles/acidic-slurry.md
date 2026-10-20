@@ -27,7 +27,7 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage on its own. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
+  <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage on its own. The Strike is made against the Strike DC listed below for the item's tier. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
   <div class="stat-block results-block">
     <p><strong>Critical Success</strong> The flask coats a larger area, covering the surface in caustic slurry: the square is 5 feet wider than noted below for its tier.</p>
     <p><strong>Success</strong> The flask coats a square area that includes the target square, covering the surface in caustic slurry, as noted below for its tier. The target square can be at the area's center or corner.</p>
@@ -36,16 +36,16 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
   </div>
   <p>The slurry remains for 1 minute, after which it neutralizes and becomes inert. It needs no further activation. A creature that enters the area, or starts its turn in it, takes acid damage as noted below for its tier, with a basic Reflex save. A creature takes this damage at most once per round, and a creature already in the area when it is coated takes the damage at the start of its next turn.</p>
 
-  <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The DC of the bomb attack roll is fixed and can't be changed this way.</p>
+  <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The Strike DC, which is 2 less than the item's DC, is fixed and can't be changed this way.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>DC 16. Acidic Slurry coats a 10-foot square. Creatures take 1d6 acid damage.</p>
+  <p>Strike DC 14; Item DC 16. Acidic Slurry coats a 10-foot square. Creatures take 1d6 acid damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>DC 24. You gain a +1 item bonus to attack rolls. Acidic Slurry coats a 15-foot square. Creatures take 3d6 acid damage.</p>
+  <p>Strike DC 22; Item DC 24. You gain a +1 item bonus to attack rolls. Acidic Slurry coats a 15-foot square. Creatures take 3d6 acid damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>DC 34. You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 20-foot square. Creatures take 6d6 acid damage.</p>
+  <p>Strike DC 32; Item DC 34. You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 20-foot square. Creatures take 6d6 acid damage.</p>
 
   <div class="stat-block-notes">
     <p><strong>Special</strong> The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>

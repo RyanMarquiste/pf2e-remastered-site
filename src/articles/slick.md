@@ -26,7 +26,7 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage. Make a bomb attack roll against a DC equal to the standard DC for your level (from the level-based DC table in GM Core) minus 2. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
+  <p>Throw the flask at a square, with a range increment of 20 feet. This Strike targets the square instead of a creature and deals no damage. The Strike is made against the Strike DC listed below for the item's tier. It counts as a Strike with a bomb for abilities that key off bombs, such as Quick Bomber, and it counts toward your multiple attack penalty.</p>
   <div class="stat-block results-block">
     <p><strong>Critical Success</strong> The flask coats a larger area, turning the surface slick and slippery: the square is 5 feet wider than noted below for its tier.</p>
     <p><strong>Success</strong> The flask coats a square area that includes the target square, turning the surface slick and slippery, as noted below for its tier. The target square can be at the area's center or corner.</p>
@@ -37,16 +37,16 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   <p>If Slick is applied to a wall or ceiling, a creature that fails the check loses its purchase and falls.</p>
   <p><strong>Special</strong> The effect or area is flammable. Any fire damage applied to Slick (such as area attacks or attacks against the squares that Slick is in) will ignite the Slick. Once ignited, Slick burns for the rest of its duration and remains slippery. A creature that enters the area, or starts its turn in it, takes persistent fire damage as noted below for its tier.</p>
 
-  <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The DC of the bomb attack roll is fixed and can't be changed this way.</p>
+  <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The Strike DC, which is 2 less than the item's DC, is fixed and can't be changed this way.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
-  <p>DC 16. Slick coats a 10-foot square. Ignited Slick deals 1d6 persistent fire damage.</p>
+  <p>Strike DC 14; Item DC 16. Slick coats a 10-foot square. Ignited Slick deals 1d6 persistent fire damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 8</span></div>
-  <p>DC 24. You gain a +1 item bonus to attack rolls. Slick coats a 15-foot square. Ignited Slick deals 2d6 persistent fire damage.</p>
+  <p>Strike DC 22; Item DC 24. You gain a +1 item bonus to attack rolls. Slick coats a 15-foot square. Ignited Slick deals 2d6 persistent fire damage.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
-  <p>DC 34. You gain a +2 item bonus to attack rolls. Slick coats a 20-foot square. Ignited Slick deals 4d6 persistent fire damage.</p>
+  <p>Strike DC 32; Item DC 34. You gain a +2 item bonus to attack rolls. Slick coats a 20-foot square. Ignited Slick deals 4d6 persistent fire damage.</p>
 
   <div class="stat-block-notes">
     <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash Slick away. Treat Slick as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes Slick from the area it covers.</p>
