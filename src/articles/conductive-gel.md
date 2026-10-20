@@ -16,8 +16,13 @@ summary: "A thrown alchemical consumable that coats an area in a metallic gel th
     <span class="trait">Consumable</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A corked flask of thick, translucent gel the color of pale silver, suspended with fine flecks of metallic grit that glint when the glass is tilted. Faint static makes the surface prickle, and it carries a sharp scent of ozone and wet metal.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A corked flask of thick, translucent gel the color of pale silver, suspended with fine flecks of metallic grit that glitter when the glass is tilted. It sloshes slowly in heavy, rolling waves, its surface prickling faintly with static, and it carries a sharp scent of ozone and wet metal.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/conductive-gel.png' | url }}" alt="A round glass flask with a cork stopper and a rope-wrapped leather neck banded in brass, holding thick, translucent silver gel flecked with glittering metallic grit, sloshed into a heavy wave." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
