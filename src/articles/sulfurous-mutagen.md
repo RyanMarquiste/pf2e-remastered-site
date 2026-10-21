@@ -23,7 +23,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A vial of pungent, sulfur-yellow slurry that bubbles and sloshes like thick amber, with crusts of bright yellow sulfur crystals clinging to the outside of the glass. It reeks of struck matches and rotten eggs.</p>
+        <p>A vial of pungent, sulfur-yellow slurry that bubbles and sloshes like thick amber. It reeks of struck matches and rotten eggs.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/sulfurous-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, holding bubbling amber-yellow liquid, wrapped in a net of dark roots and crusted with yellow sulfur crystals, with a small metal tag marked with a flame hanging from its neck." loading="lazy">
     </div>
