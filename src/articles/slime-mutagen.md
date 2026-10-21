@@ -3,7 +3,7 @@ layout: article.njk
 uuid: 266ae9a5-cab8-467b-b159-7613542357f3
 aliases: ["slime-mutagen", "acidic-blob-mutagen"]
 menu: alchemist-items
-title: "Slime Mutagen"
+title: "Acidic Slime Mutagen"
 category: Equipment
 class: alchemist
 date: 2026-10-13
@@ -11,7 +11,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
 ---
 
 <div class="stat-block" id="slime-mutagen">
-  <h4 class="stat-block-title">Slime Mutagen</h4>
+  <h4 class="stat-block-title">Acidic Slime Mutagen</h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
     <span class="trait">Acid</span>
@@ -70,7 +70,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
     <p class="appearance-label">Appearance</p>
     <p>A globule of caustic green acid forms within your body, then bursts, splashing outwards.</p>
   </div>
-  <p><strong>Requirements</strong> You are under the effects of a Slime Mutagen; <strong>Frequency</strong> once per round</p>
-  <p>You generate a glob of acid from within your own body and detonate it. This is an attack with the splash trait, triggering anything that keys off splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed for your Slime Mutagen's tier, though your resistance to acid from that mutagen normally negates your own share of it.</p>
+  <p><strong>Requirements</strong> You are under the effects of an Acidic Slime Mutagen; <strong>Frequency</strong> once per round</p>
+  <p>You generate a glob of acid from within your own body and detonate it. This is an attack with the splash trait, triggering anything that keys off splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed for your Acidic Slime Mutagen's tier, though your resistance to acid from that mutagen normally negates your own share of it.</p>
   <p><strong>Special</strong> A Bomber's research field benefits that affect splash damage and splash area apply to this attack as though it were a bomb: the field discovery that sets splash damage equal to your Intelligence modifier, and the greater field discovery that widens the splash to 10 feet. Other abilities and feats that key off bombs, including Calculated Splash, Expanded Splash, and Directional Bombs, don't apply, so the splash reaches no farther than 10 feet.</p>
 </div>
