@@ -27,6 +27,9 @@
   --card-penalty-bg: #fdeedd;
   --card-penalty-border: #ea580c;
   --card-penalty-label: #9a3412;
+  --card-feat-bg: #f1ecfb;
+  --card-feat-border: #7c3aed;
+  --card-feat-label: #5b21b6;
   --trait-bg: #1e1b4b;
   --trait-border: #a5b4fc;
   --trait-text: #ffffff;
@@ -62,6 +65,9 @@
     --card-penalty-bg: #43352b;
     --card-penalty-border: #fb923c;
     --card-penalty-label: #fdba74;
+    --card-feat-bg: #3a3550;
+    --card-feat-border: #a78bfa;
+    --card-feat-label: #c4b5fd;
   }
 }
 
@@ -543,6 +549,22 @@ h1, h2, h3 {
 
 .stat-block.drawback-block .drawback-label {
   color: var(--card-penalty-label);
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.stat-block.feat-block {
+  margin: 10px 0;
+  padding: 6px 12px;
+  background: var(--card-feat-bg);
+  border: 1px solid var(--card-feat-border);
+}
+
+.stat-block.feat-block p {
+  margin: 4px 0;
+}
+
+.stat-block.feat-block .feat-label {
+  color: var(--card-feat-label);
   font-variant: small-caps;
   font-weight: bold;
 }
