@@ -31,7 +31,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>While under the effects of this mutagen, several pore-like structures form in your skin, emitting wisps of vapor that contain sulfur dust. You can use them to expel a cloud of ignitable sulfur dust.</p>
-  <p>The mutagen also alters your body in ways that make it fire-resistant, giving you resistance to fire, scaled by tier below, as the compounds in your blood soak up heat.</p>
+  <p>The mutagen also alters your body in ways that make it fire-resistant, giving you resistance to fire, scaled by tier below.</p>
   <p>While you are under the effects of this mutagen, you can use the Sulfur Cloud action, described below.</p>
   <div class="stat-block drawback-block">
     <p class="drawback-label">Drawback</p>
