@@ -1,15 +1,15 @@
 ---
 layout: article.njk
 menu: alchemist-items
-title: "Acidic Blob Mutagen"
+title: "Slime Mutagen"
 category: Equipment
 class: alchemist
 date: 2026-10-13
 summary: "A mutagen that dissolves the drinker's body into an unstable, acidic ooze, able to detonate caustic bursts at will."
 ---
 
-<div class="stat-block" id="acidic-blob-mutagen">
-  <h4 class="stat-block-title">Acidic Blob Mutagen</h4>
+<div class="stat-block" id="slime-mutagen">
+  <h4 class="stat-block-title">Slime Mutagen</h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
     <span class="trait">Acid</span>
@@ -23,7 +23,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
         <p class="appearance-label">Appearance</p>
         <p>A vial of viscous, faintly bubbling green fluid, with strands of thick golden slime clinging to the outside of the glass.</p>
       </div>
-      <img class="stat-block-art" src="{{ '/images/acidic-blob-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, holding bubbling green liquid, wrapped in a net of dripping golden slime, with a small metal tag hanging from its neck." loading="lazy">
+      <img class="stat-block-art" src="{{ '/images/slime-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, holding bubbling green liquid, wrapped in a net of dripping golden slime, with a small metal tag hanging from its neck." loading="lazy">
     </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
