@@ -31,7 +31,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>While under the effects of this mutagen, your body loses its definition, limbs and features sloughing into a more undefined, amoeba-like mass, similar to an ooze or slime.</p>
-  <p>You gain resistance to acid and a separate resistance to precision damage, each scaled by tier below, as your body no longer has fixed vital points to target or a fixed shape for the acid to harm.</p>
+  <p>You gain resistance to acid and a separate resistance to precision damage, each scaled by tier below, as your body no longer has fixed vital points to target and now shares the same acidic properties as acid itself, making acid less effective against it.</p>
   <p>While you are under the effects of this mutagen, you can use the Acidic Body Burst action, described below.</p>
   <p><strong>Drawback</strong> Your blob-like form is unusually vulnerable to extreme temperatures, giving you weakness 5 to fire and weakness 5 to cold. Without a rigid skeleton or defined musculature to generate leverage, you also take a &minus;1 item penalty to Strength-based skill checks and Strength-based attack rolls.</p>
 
