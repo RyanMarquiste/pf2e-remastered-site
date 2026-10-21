@@ -31,21 +31,21 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>While under the effects of this mutagen, your body loses its definition, limbs and features sloughing into a more undefined, amoeba-like mass, similar to an ooze or slime.</p>
-  <p>You gain resistance to acid and resistance to precision damage, scaled by tier below, as your body no longer has fixed vital points to target or a fixed shape for the acid to harm.</p>
+  <p>You gain resistance to acid and a separate resistance to precision damage, each scaled by tier below, as your body no longer has fixed vital points to target or a fixed shape for the acid to harm.</p>
   <p>While you are under the effects of this mutagen, you can use the Acidic Body Burst action, described below.</p>
   <p><strong>Drawback</strong> Your blob-like form is unusually vulnerable to extreme temperatures, giving you weakness 5 to fire and weakness 5 to cold. Without a rigid skeleton or defined musculature to generate leverage, you also take a &minus;1 item penalty to Strength-based skill checks and Strength-based attack rolls.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>Resistance 2, acid splash damage 1, duration 1 minute.</p>
+  <p>Acid resistance 5, precision resistance 2, acid splash damage 1, duration 1 minute.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 4</span></div>
-  <p>Resistance 3, acid splash damage 2, duration 10 minutes.</p>
+  <p>Acid resistance 10, precision resistance 3, acid splash damage 2, duration 10 minutes.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 8</span></div>
-  <p>Resistance 5, acid splash damage 3, duration 1 hour.</p>
+  <p>Acid resistance 15, precision resistance 5, acid splash damage 3, duration 1 hour.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 12</span></div>
-  <p>Resistance 7, acid splash damage 4, duration 1 hour.</p>
+  <p>Acid resistance 20, precision resistance 7, acid splash damage 4, duration 1 hour.</p>
 </div>
 
 <div class="stat-block" id="acidic-body-burst">
@@ -62,4 +62,5 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <p><strong>Requirements</strong> You are under the effects of a Slime Mutagen; <strong>Frequency</strong> once per round</p>
   <p>You generate a glob of acid from within your own body and detonate it against yourself. This is an attack with the splash trait, triggering anything that keys off splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed for your Slime Mutagen's tier, though your resistance to acid from that mutagen normally negates your own share of it.</p>
   <p><strong>Special</strong> You are the only creature this attack can target. It can't be thrown at another creature or at a square.</p>
+  <p><strong>Special</strong> A Bomber's research field benefits that affect splash damage and splash area apply to this attack as though it were a bomb: the field discovery that sets splash damage equal to your Intelligence modifier, and the greater field discovery that widens the splash to 10 feet. Other abilities and feats that key off bombs, including Calculated Splash, Expanded Splash, and Directional Bombs, don't apply, so the splash reaches no farther than 10 feet.</p>
 </div>
