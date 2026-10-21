@@ -42,8 +42,9 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <div class="stat-block feat-block">
     <p class="feat-label">Mutant Physique</p>
     <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
-    <p>The splash from your Acidic Body Burst reaches every creature within 10 feet of you, centered on you.</p>
-    <p>If your Intelligence modifier is higher than the acid splash damage listed for this mutagen's tier, the splash damage equals your Intelligence modifier instead.</p>
+    <p>These benefits apply only to the Acidic Body Burst attack granted by this mutagen. They don't apply to any other attack or effect.</p>
+    <p>The splash from Acidic Body Burst reaches every creature within 10 feet of you, centered on you.</p>
+    <p>If your Intelligence modifier is higher than the acid splash damage listed for this mutagen's tier, the splash damage from Acidic Body Burst equals your Intelligence modifier instead.</p>
   </div>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
