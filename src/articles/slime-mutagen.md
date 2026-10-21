@@ -47,16 +47,16 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   </div>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>Acid resistance 5, precision resistance 2, acid splash damage 3, duration 1 minute.</p>
+  <p>Acid resistance 5, precision resistance 2, acid splash damage 1, duration 1 minute.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 3</span></div>
-  <p>Acid resistance 5, precision resistance 3, acid splash damage 4, duration 10 minutes.</p>
+  <p>Acid resistance 5, precision resistance 3, acid splash damage 2, duration 10 minutes.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 11</span></div>
-  <p>Acid resistance 10, precision resistance 5, acid splash damage 7, duration 1 hour.</p>
+  <p>Acid resistance 10, precision resistance 5, acid splash damage 3, duration 1 hour.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
-  <p>Acid resistance 15, precision resistance 7, acid splash damage 11, duration 1 hour.</p>
+  <p>Acid resistance 15, precision resistance 7, acid splash damage 4, duration 1 hour.</p>
 </div>
 
 <div class="stat-block" id="acidic-body-burst">
