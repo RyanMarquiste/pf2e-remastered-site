@@ -24,6 +24,9 @@
   --card-title-text: #ffffff;
   --card-section-bg: #0f766e;
   --card-section-text: #ffffff;
+  --card-penalty-bg: #fdeedd;
+  --card-penalty-border: #ea580c;
+  --card-penalty-label: #9a3412;
   --trait-bg: #1e1b4b;
   --trait-border: #a5b4fc;
   --trait-text: #ffffff;
@@ -56,6 +59,9 @@
     --card-title-text: #ffffff;
     --card-section-bg: #0f766e;
     --card-section-text: #ffffff;
+    --card-penalty-bg: #43352b;
+    --card-penalty-border: #fb923c;
+    --card-penalty-label: #fdba74;
   }
 }
 
@@ -524,6 +530,22 @@ h1, h2, h3 {
   border-top: 1px solid var(--card-nested-border);
 }
 
+.stat-block.drawback-block {
+  margin: 10px 0;
+  padding: 6px 12px;
+  background: var(--card-penalty-bg);
+  border: 1px solid var(--card-penalty-border);
+}
+
+.stat-block.drawback-block p {
+  margin: 4px 0;
+}
+
+.stat-block.drawback-block .drawback-label {
+  color: var(--card-penalty-label);
+  font-variant: small-caps;
+  font-weight: bold;
+}
 .stat-block-art {
   flex: 0 0 20%;
   min-width: 80px;
