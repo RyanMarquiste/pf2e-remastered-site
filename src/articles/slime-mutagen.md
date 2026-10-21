@@ -57,7 +57,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A globule of caustic green acid forms within the body, then bursts, splashing outwards.</p>
+    <p>A globule of caustic green acid forms within your body, then bursts, splashing outwards.</p>
   </div>
   <p><strong>Requirements</strong> You are under the effects of a Slime Mutagen; <strong>Frequency</strong> once per round</p>
   <p>You generate a glob of acid from within your own body and detonate it against yourself. This is an attack with the splash trait, triggering anything that keys off splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed for your Slime Mutagen's tier, though your resistance to acid from that mutagen normally negates your own share of it.</p>
