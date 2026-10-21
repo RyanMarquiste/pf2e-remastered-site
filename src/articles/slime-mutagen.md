@@ -32,8 +32,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>While under the effects of this mutagen, your body loses its definition, limbs and features sloughing into a more undefined, amoeba-like mass, similar to an ooze or slime.</p>
   <p>You gain resistance to acid and resistance to precision damage, scaled by tier below, as your body no longer has fixed vital points to target or a fixed shape for the acid to harm.</p>
-  <p><strong>Activate</strong> {% actionIcon "one" %}; <strong>Frequency</strong> once per round</p>
-  <p>You generate a glob of acid from within your own body and detonate it against yourself. This is an attack, made as if with a thrown alchemical bomb with the splash trait, triggering anything that keys off bombs or splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed below for this mutagen's tier, though your resistance to acid from this same mutagen normally negates your own share of it.</p>
+  <p>While you are under the effects of this mutagen, you can use the Acid Burst action, described below.</p>
   <p><strong>Drawback</strong> Your blob-like form is unusually vulnerable to extreme temperatures, giving you weakness 5 to fire and weakness 5 to cold. Without a rigid skeleton or defined musculature to generate leverage, you also take a &minus;1 item penalty to Strength-based skill checks and Strength-based attack rolls.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
@@ -47,4 +46,14 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
 
   <div class="stat-block-section"><span>Major</span><span>Item 12</span></div>
   <p>Resistance 7, acid splash damage 4, duration 1 hour.</p>
+</div>
+
+<div class="stat-block" id="acid-burst">
+  <h4 class="stat-block-title">Acid Burst <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
+  <div class="stat-block-traits">
+    <span class="trait">Acid</span>
+    <span class="trait">Attack</span>
+  </div>
+  <p><strong>Requirements</strong> You are under the effects of a Slime Mutagen; <strong>Frequency</strong> once per round</p>
+  <p>You generate a glob of acid from within your own body and detonate it against yourself. This is an attack, made as if with a thrown alchemical bomb with the splash trait, triggering anything that keys off bombs or splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed for your Slime Mutagen's tier, though your resistance to acid from that mutagen normally negates your own share of it.</p>
 </div>
