@@ -56,6 +56,10 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
     <span class="trait">Bomb</span>
     <span class="trait">Splash</span>
   </div>
+  <div class="stat-block appearance-block">
+    <p class="appearance-label">Appearance</p>
+    <p>A globule of caustic green acid forms within the body, then bursts, splashing outwards.</p>
+  </div>
   <p><strong>Requirements</strong> You are under the effects of a Slime Mutagen; <strong>Frequency</strong> once per round</p>
   <p>You generate a glob of acid from within your own body and detonate it against yourself. This is a bomb attack, triggering anything that keys off bombs or splash attacks, and it's affected by your multiple attack penalty as normal. Because the attack can only ever target you, it automatically succeeds, even if the result would normally be a failure. You and each creature adjacent to you when it detonates take the acid splash damage listed for your Slime Mutagen's tier, though your resistance to acid from that mutagen normally negates your own share of it.</p>
   <p><strong>Special</strong> You are the only creature this attack can target. Unlike a normal bomb, it can't be thrown at another creature or at a square.</p>
