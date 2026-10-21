@@ -43,6 +43,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
     <p class="feat-label">Mutant Physique</p>
     <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
     <p>Your Acidic Body Burst splashes every creature within 10 feet of you, and its splash damage equals your Intelligence modifier when that is higher than this mutagen's acid splash damage. This applies only to Acidic Body Burst, not to other attacks or effects.</p>
+    <p>You shift and hide your vital organs within your slime-like body, so your precision resistance from this mutagen equals its acid resistance instead: 5 at Lesser and Moderate, 10 at Greater and Major.</p>
   </div>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
