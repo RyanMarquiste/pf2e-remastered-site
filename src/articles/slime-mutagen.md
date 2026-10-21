@@ -32,7 +32,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>While under the effects of this mutagen, your body loses its definition, limbs and features sloughing into a more undefined, amoeba-like mass, similar to an ooze or slime.</p>
   <p>You gain resistance to acid and resistance to precision damage, scaled by tier below, as your body no longer has fixed vital points to target or a fixed shape for the acid to harm.</p>
-  <p>While you are under the effects of this mutagen, you can use the Acid Burst action, described below.</p>
+  <p>While you are under the effects of this mutagen, you can use the Acidic Body Burst action, described below.</p>
   <p><strong>Drawback</strong> Your blob-like form is unusually vulnerable to extreme temperatures, giving you weakness 5 to fire and weakness 5 to cold. Without a rigid skeleton or defined musculature to generate leverage, you also take a &minus;1 item penalty to Strength-based skill checks and Strength-based attack rolls.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
@@ -48,8 +48,8 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <p>Resistance 7, acid splash damage 4, duration 1 hour.</p>
 </div>
 
-<div class="stat-block" id="acid-burst">
-  <h4 class="stat-block-title">Acid Burst <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
+<div class="stat-block" id="acidic-body-burst">
+  <h4 class="stat-block-title">Acidic Body Burst <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Acid</span>
     <span class="trait">Attack</span>
