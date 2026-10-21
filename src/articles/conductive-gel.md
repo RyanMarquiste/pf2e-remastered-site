@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 411508f1-7fc5-4449-beab-0cf1682e3435
+aliases: ["conductive-gel"]
 menu: alchemist-items
 title: "Conductive Gel"
 category: Equipment

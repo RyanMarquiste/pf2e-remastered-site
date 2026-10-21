@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: d8657a73-d624-4e45-8042-4eb238519488
+aliases: ["evidence"]
 menu: investigator-feats
 title: "Evidence"
 category: Classes

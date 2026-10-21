@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: f3051c23-75fa-4768-9291-d77603d43c2f
+aliases: ["acidic-slurry"]
 menu: alchemist-items
 title: "Acidic Slurry"
 category: Equipment

@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 6bbf967d-344d-4f73-b34a-06504e0579c7
+aliases: ["encore-performance"]
 menu: bard-features
 title: "Encore Performance"
 category: Classes

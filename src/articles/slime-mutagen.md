@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 266ae9a5-cab8-467b-b159-7613542357f3
+aliases: ["slime-mutagen", "acidic-blob-mutagen"]
 menu: alchemist-items
 title: "Slime Mutagen"
 category: Equipment

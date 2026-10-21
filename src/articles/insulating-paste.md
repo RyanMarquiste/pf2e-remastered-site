@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 9f443e4e-7bb4-4a83-97b6-e1497dc2f159
+aliases: ["insulating-paste"]
 menu: alchemist-items
 title: "Insulating Paste"
 category: Equipment

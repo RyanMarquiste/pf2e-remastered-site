@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 95a0f920-c116-43fe-b3ac-98d8c61a5a1b
+aliases: ["fleeting"]
 menu: general-traits
 title: "Fleeting"
 category: Traits

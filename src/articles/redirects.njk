@@ -1,0 +1,22 @@
+---
+pagination:
+  data: collections.articleRedirects
+  size: 1
+  alias: redirect
+permalink: "{{ redirect.from }}"
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ redirect.title }} · {{ site.title }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ redirect.to | url }}">
+  <meta http-equiv="refresh" content="0; url={{ redirect.to | url }}">
+  <script>window.location.replace({{ redirect.to | url | dump | safe }} + window.location.search + window.location.hash);</script>
+</head>
+<body>
+  <p>Moved to <a href="{{ redirect.to | url }}">{{ redirect.title }}</a>.</p>
+</body>
+</html>

@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 8fb464dd-9e71-4db7-8177-698c4ba53f4d
+aliases: ["field-vials"]
 menu: alchemist-items
 title: "Field Vials"
 category: Classes

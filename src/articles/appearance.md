@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 94e2bb88-b49b-4214-a31b-68464c7eb506
+aliases: ["appearance"]
 menu: general-terminology
 title: "Appearance"
 category: House Rules

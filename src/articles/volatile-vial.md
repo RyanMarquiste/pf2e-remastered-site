@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: f24f4066-0bae-443c-b8b5-a331271be641
+aliases: ["volatile-vial"]
 menu: alchemist-items
 title: "Volatile Vial"
 category: Classes
@@ -49,4 +51,4 @@ summary: "House-rule revisions to the Alchemist's Versatile Vial."
   <p class="stat-block-source">Adapted from Pathfinder Player Core, &copy; Paizo Inc., used under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
 
-<p>Alchemists with a research field can use volatile vials in new ways. See <a href="{{ '/articles/field-vials/' | url }}">Field Vials</a> for the Bomber, Chirurgeon, Mutagenist, and Toxicologist versions.</p>
+<p>Alchemists with a research field can use volatile vials in new ways. See <a href="{{ 'field-vials' | articleUrl(collections.articles) | url }}">Field Vials</a> for the Bomber, Chirurgeon, Mutagenist, and Toxicologist versions.</p>

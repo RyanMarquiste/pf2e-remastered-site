@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 3d01f1ac-8ad0-401a-85c1-82b395942f94
+aliases: ["sensational-spices"]
 menu: alchemist-items
 title: "Sensational Spices"
 category: Equipment

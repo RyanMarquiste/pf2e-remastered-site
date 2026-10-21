@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 53cc5c2b-1a54-4505-9da6-ee09225c611a
+aliases: ["fleeting-death"]
 menu: general-spells
 title: "Fleeting Death"
 category: Spells

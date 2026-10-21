@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 0cd3eb2b-00e3-402f-b511-0d9bdfa5f866
+aliases: ["antitoxin"]
 menu: general-traits
 title: "Antitoxin"
 category: Traits

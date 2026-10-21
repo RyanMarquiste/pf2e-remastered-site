@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Page not found
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+<h1>Page not found</h1>
+<p>That address doesn't match a page here. <a href="{{ '/articles/' | url }}">Browse all articles</a> or <a href="{{ '/' | url }}">return home</a>.</p>
+
+<script>
+  // An article's address is /articles/<uuid>/<title>/. Only the UUID identifies the article, so an
+  // outdated or mistyped title (for example after a rename) still finds it.
+  (function () {
+    var articles = {
+      {%- for article in collections.articles %}
+      {{ article.data.uuid | dump | safe }}: {{ article.url | url | dump | safe }}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    };
+    var match = window.location.pathname.match(/\/articles\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:\/|$)/i);
+    var target = match && articles[match[1].toLowerCase()];
+    if (target) {
+      window.location.replace(target + window.location.search + window.location.hash);
+    }
+  })();
+</script>

@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 9350f223-96bd-4c51-90f3-7b49a19c66ff
+aliases: ["beacon-call"]
 menu: general-spells
 title: "Beacon Call"
 category: Spells

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "eleventy",
     "build:pages": "eleventy --pathprefix /pf2e-remastered-site/",
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve",
+    "add-uuids": "node scripts/add-uuids.js"
   },
   "keywords": [],
   "author": "",

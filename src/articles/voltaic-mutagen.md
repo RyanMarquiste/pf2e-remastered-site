@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: b6b2cc7b-451a-4584-b5e8-9387e9ef50c9
+aliases: ["voltaic-mutagen"]
 menu: alchemist-items
 title: "Voltaic Mutagen"
 category: Equipment

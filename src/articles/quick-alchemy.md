@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 2350aced-48be-4031-9cd5-5c0f86dc38f4
+aliases: ["quick-alchemy"]
 menu: alchemist-feats
 title: "Quick Alchemy"
 category: Classes

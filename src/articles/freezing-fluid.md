@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 4f4e45d5-1691-4d86-bf88-c986a6fe7de0
+aliases: ["freezing-fluid"]
 menu: alchemist-items
 title: "Freezing Fluid"
 category: Equipment

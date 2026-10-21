@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 61757683-718b-4678-9791-665d0bbaeebf
+aliases: ["anti-poison"]
 menu: alchemist-feats
 title: "Anti-Poison"
 category: Classes

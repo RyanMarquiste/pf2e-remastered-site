@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: d46571e5-ab6b-4d6c-98a5-28a311997c0b
+aliases: ["slick"]
 menu: alchemist-items
 title: "Slick"
 category: Equipment

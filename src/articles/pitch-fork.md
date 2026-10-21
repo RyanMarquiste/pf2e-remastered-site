@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 2196b84c-1ba9-44ea-a67a-0bfe08ccd810
+aliases: ["pitch-fork"]
 menu: general-spells
 title: "Pitch Fork"
 category: Spells

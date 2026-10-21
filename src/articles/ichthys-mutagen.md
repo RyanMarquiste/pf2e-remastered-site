@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 1b648ab5-b57e-4ec6-8e09-3313fb54ad3e
+aliases: ["ichthys-mutagen"]
 menu: alchemist-items
 title: "Ichthys Mutagen"
 category: Equipment

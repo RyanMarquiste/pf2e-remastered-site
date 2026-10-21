@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: dc8bd0f4-345d-40c0-8776-fa42b07b54f7
+aliases: ["endothermic-mutagen"]
 menu: alchemist-items
 title: "Endothermic Mutagen"
 category: Equipment

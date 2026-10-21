@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: adafc814-e12a-4356-8a8a-39c2364491d6
+aliases: ["compounding-poisons"]
 menu: alchemist-feats
 title: "Compounding Poisons"
 category: Classes

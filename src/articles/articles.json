@@ -1,0 +1,3 @@
+{
+  "permalink": "/articles/{{ uuid }}/{{ title | articleSlug }}/"
+}

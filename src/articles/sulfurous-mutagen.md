@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 07ce2264-905b-4e85-b173-a93738b90f43
+aliases: ["sulfurous-mutagen", "sulphurous-mutagen"]
 menu: alchemist-items
 title: "Sulfurous Mutagen"
 category: Equipment

@@ -1,5 +1,7 @@
 ---
 layout: article.njk
+uuid: 1a8856e0-5abf-446f-9bb4-20c7d3dc9732
+aliases: ["spirit-hand"]
 menu: general-spells
 title: "Spirit Hand"
 category: Spells
