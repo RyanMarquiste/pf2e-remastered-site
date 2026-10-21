@@ -39,6 +39,13 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
     <p>Without a rigid skeleton or defined musculature to generate leverage, you take a &minus;1 item penalty to Strength-based skill checks and Strength-based attack rolls.</p>
   </div>
 
+  <div class="stat-block feat-block">
+    <p class="feat-label">Mutant Physique</p>
+    <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
+    <p>The splash from your Acidic Body Burst reaches every creature within 10 feet of you, centered on you.</p>
+    <p>If your Intelligence modifier is higher than the acid splash damage listed for this mutagen's tier, the splash damage equals your Intelligence modifier instead.</p>
+  </div>
+
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>Acid resistance 5, precision resistance 2, acid splash damage 1, duration 1 minute.</p>
 
