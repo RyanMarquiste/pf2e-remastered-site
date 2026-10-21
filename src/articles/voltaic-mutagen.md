@@ -31,7 +31,7 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>This mutagen is modeled after the bio-electric organs of creatures able to generate electric pulses or blasts. While under its effects, tiny arcs of electricity crackle out of and back into your body, and your hair stands on end as though charged with static.</p>
-  <p>You gain resistance to electricity equal to half this mutagen's level (minimum 1), and while wielding a metal weapon, your attacks with it deal a small amount of additional electricity damage.</p>
+  <p>You gain resistance to electricity, scaled by tier below, and while wielding a metal weapon, your attacks with it deal a small amount of additional electricity damage.</p>
   <p>At the end of each of your turns while under its effects, you gain the tier of static charge effect noted below for this mutagen's tier.</p>
   <p>You gain an item bonus to saves against effects that would leave you paralyzed or stunned, scaled by tier below, as the current running through you resists outside attempts to seize control of your nerves. You also gain a +1 item bonus to your recovery checks while dying, as your internal bio-electric currents attempt to jump start your body and organs back to life.</p>
   <p><strong>Drawback</strong> The current running through you disrupts your own precision. You take a &minus;1 item penalty to Reflex saves, Dexterity-based skill checks, and Dexterity-based attack rolls.</p>
@@ -39,13 +39,13 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>Resistance 1, Lesser Static Charge, metal weapons deal +1 electricity, +1 item bonus vs. paralyzed or stunned, duration 1 minute.</p>
 
-  <div class="stat-block-section"><span>Moderate</span><span>Item 4</span></div>
+  <div class="stat-block-section"><span>Moderate</span><span>Item 3</span></div>
   <p>Resistance 2, Moderate Static Charge, metal weapons deal +2 electricity, +1 item bonus vs. paralyzed or stunned, duration 10 minutes.</p>
 
-  <div class="stat-block-section"><span>Greater</span><span>Item 8</span></div>
+  <div class="stat-block-section"><span>Greater</span><span>Item 11</span></div>
   <p>Resistance 4, Greater Static Charge, metal weapons deal +3 electricity, +2 item bonus vs. paralyzed or stunned, duration 1 hour.</p>
 
-  <div class="stat-block-section"><span>Major</span><span>Item 12</span></div>
+  <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
   <p>Resistance 6, Major Static Charge, metal weapons deal +4 electricity, +2 item bonus vs. paralyzed or stunned, duration 1 hour.</p>
 </div>
 
