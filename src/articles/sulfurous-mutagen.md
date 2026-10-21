@@ -32,9 +32,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>While under the effects of this mutagen, several pore-like structures form in your skin, emitting wisps of vapor that contain sulfur dust. You can use them to expel a cloud of ignitable sulfur dust.</p>
   <p>The mutagen also alters your body in ways that make it fire-resistant, giving you resistance to fire, scaled by tier below, as the compounds in your blood soak up heat.</p>
-  <p><strong>Activate</strong> {% actionIcon "one" %} Sulfur Cloud</p>
-  <p>You expel a cloud of sulfur dust that fills a 5-foot emanation around you (10 feet at Greater and Major). The cloud stays where it forms, so you can move out of it, and it disperses at the start of your next turn. Only one cloud can exist at a time; creating a new one disperses the previous one. The cloud has no effect on its own.</p>
-  <p><strong>Ignition</strong> If a creature or object in the cloud takes fire or electricity damage, or an attack or effect with the fire or electricity trait is made into or through the cloud, the cloud ignites, as sparks and flame both set sulfur off. Any source of fire or electricity counts, including your enemies', and readying a fire or electricity attack for when a creature enters the cloud is a classic way to spring the trap. When the cloud ignites, each creature in it takes fire damage as noted below for this mutagen's tier, and the cloud disperses. Creatures other than you attempt a basic Reflex save against the item's DC; you attempt none, as your fire resistance from this mutagen always covers the damage. It affects allies and enemies alike.</p>
+  <p>While you are under the effects of this mutagen, you can use the Sulfur Cloud action, described below.</p>
   <div class="stat-block drawback-block">
     <p class="drawback-label">Drawback</p>
     <p>The compounds building up in your body are easily overpowered by caustic and toxic substances, giving you weakness 5 to acid and weakness 5 to poison.</p>
@@ -44,14 +42,36 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   </div>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
-  <p>Resistance 5, ignition damage 1d4, cloud 5 feet, duration 1 minute.</p>
+  <p>Resistance 5, duration 1 minute.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 3</span></div>
-  <p>Resistance 10, ignition damage 2d4, cloud 5 feet, duration 10 minutes.</p>
+  <p>Resistance 10, duration 10 minutes.</p>
 
   <div class="stat-block-section"><span>Greater</span><span>Item 11</span></div>
-  <p>Resistance 15, ignition damage 3d4, cloud 10 feet, duration 1 hour.</p>
+  <p>Resistance 15, duration 1 hour.</p>
 
   <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
-  <p>Resistance 20, ignition damage 4d4, cloud 10 feet, duration 1 hour.</p>
+  <p>Resistance 20, duration 1 hour.</p>
+</div>
+
+<div class="stat-block" id="sulfur-cloud">
+  <h4 class="stat-block-title">Sulfur Cloud <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
+  <div class="stat-block-traits">
+    <span class="trait">Fire</span>
+  </div>
+  <p><strong>Requirements</strong> You are under the effects of a Sulfurous Mutagen</p>
+  <p>You expel a cloud of sulfur dust that fills an emanation around you, of the size noted below for your Sulfurous Mutagen's tier. The cloud stays where it forms, so you can move out of it, and it disperses at the start of your next turn. Only one cloud can exist at a time; creating a new one disperses the previous one. The cloud has no effect on its own.</p>
+  <p><strong>Ignition</strong> If a creature or object in the cloud takes fire or electricity damage, or an attack or effect with the fire or electricity trait is made into or through the cloud, the cloud ignites, as sparks and flame both set sulfur off. Any source of fire or electricity counts, including your enemies', and readying a fire or electricity attack for when a creature enters the cloud is a classic way to spring the trap. When the cloud ignites, each creature in it takes fire damage as noted below for your Sulfurous Mutagen's tier, and the cloud disperses. Creatures other than you attempt a basic Reflex save against the item's DC; you attempt none, as your fire resistance from this mutagen always covers the damage. It affects allies and enemies alike.</p>
+
+  <div class="stat-block-section"><span>Lesser</span></div>
+  <p>Ignition damage 1d4, cloud 5 feet.</p>
+
+  <div class="stat-block-section"><span>Moderate</span></div>
+  <p>Ignition damage 2d4, cloud 5 feet.</p>
+
+  <div class="stat-block-section"><span>Greater</span></div>
+  <p>Ignition damage 3d4, cloud 10 feet.</p>
+
+  <div class="stat-block-section"><span>Major</span></div>
+  <p>Ignition damage 4d4, cloud 10 feet.</p>
 </div>
