@@ -23,7 +23,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A vial of viscous, faintly bubbling green fluid, with strands of thick golden slime clinging to the outside of the glass.</p>
+        <p>A vial of viscous, faintly bubbling green fluid.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/slime-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, holding bubbling green liquid, wrapped in a net of dripping golden slime, with a small metal tag hanging from its neck." loading="lazy">
     </div>
