@@ -89,7 +89,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <p><strong>Trigger</strong> A creature or object in your Sulfur Cloud takes fire or electricity damage, or an attack or effect with the fire or electricity trait is made into or through the cloud<br>
   <strong>Saving Throw</strong> basic Reflex against the item's DC</p>
   <p>The cloud ignites, as sparks and flame both set sulfur off. Any source of fire or electricity counts, including your enemies', and readying a fire or electricity attack for when a creature enters the cloud is a classic way to spring the trap.</p>
-  <p>Each creature in the cloud takes fire damage as noted below for your Sulfurous Mutagen's tier, and the cloud disperses, which ends the concealment it provides. Creatures other than you attempt the saving throw; you attempt none, as your fire resistance from this mutagen always covers the damage. It affects allies and enemies alike.</p>
+  <p>Each creature in the cloud takes fire damage as noted below for your Sulfurous Mutagen's tier, and the cloud disperses, which ends the concealment it provides. It affects allies and enemies alike.</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
   <p>1d4 fire damage.</p>
