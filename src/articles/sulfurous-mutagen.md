@@ -36,7 +36,6 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <div class="stat-block drawback-block">
     <p class="drawback-label">Drawback</p>
     <p>The compounds building up in your body are easily overpowered by caustic and toxic substances, giving you weakness 5 to acid and weakness 5 to poison.</p>
-    <p>Sulfur tarnishes and corrodes metal, giving you a &minus;1 item penalty to attack and damage rolls with metal weapons and a &minus;1 item penalty to AC while you wear metal armor or wield a metal shield (this doesn't strip special material properties, such as silver).</p>
     <p>The odorous, tear-inducing vapors that cling to you make social graces difficult, giving you a &minus;2 item penalty to Charisma-based skill checks.</p>
     <p>The reek is easy to follow: creatures attempting to track you by scent gain a +2 circumstance bonus to Survival checks to Track you and to Perception checks to notice you by smell.</p>
   </div>
