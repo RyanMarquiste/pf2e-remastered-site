@@ -41,6 +41,13 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
     <p>The reek is easy to follow: creatures attempting to track you by scent gain a +2 circumstance bonus to Survival checks to Track you and to Perception checks to notice you by smell.</p>
   </div>
 
+  <div class="stat-block feat-block">
+    <p class="feat-label">Mutant Physique</p>
+    <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
+    <p><strong>Activate</strong> {% actionIcon "one" %} (manipulate); <strong>Frequency</strong> once per round</p>
+    <p>The compositional changes to your body let its chemicals produce the effects of a matchstick. With a snap of your fingers, you generate the same effects as Activating a matchstick: a flame that you can touch to a flammable object, and that stays lit for 1 round. This doesn't require a matchstick, an alchemist's toolkit, or Quick Alchemy.</p>
+  </div>
+
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>Resistance 5, duration 1 minute.</p>
 
