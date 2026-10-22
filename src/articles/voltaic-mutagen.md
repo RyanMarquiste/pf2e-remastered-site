@@ -16,6 +16,7 @@ summary: "A mutagen that turns the drinker's body into a living bio-electric cap
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
     <span class="trait">Electricity</span>
+    <span class="trait">Elixir</span>
     <span class="trait">Mutagen</span>
     <span class="trait">Polymorph</span>
   </div>

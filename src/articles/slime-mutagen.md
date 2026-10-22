@@ -16,6 +16,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
     <span class="trait">Alchemical</span>
     <span class="trait">Acid</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Elixir</span>
     <span class="trait">Mutagen</span>
     <span class="trait">Polymorph</span>
   </div>

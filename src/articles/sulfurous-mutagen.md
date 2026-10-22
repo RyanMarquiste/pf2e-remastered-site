@@ -15,6 +15,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Elixir</span>
     <span class="trait">Mutagen</span>
     <span class="trait">Polymorph</span>
   </div>

@@ -16,6 +16,7 @@ summary: "A mutagen that draws ambient heat into the drinker's body, chilling th
     <span class="trait">Alchemical</span>
     <span class="trait">Cold</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Elixir</span>
     <span class="trait">Mutagen</span>
     <span class="trait">Polymorph</span>
   </div>

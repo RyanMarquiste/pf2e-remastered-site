@@ -15,6 +15,7 @@ summary: "A mutagen that reshapes the drinker into a gilled, razor-clawed swimme
   <div class="stat-block-traits">
     <span class="trait">Alchemical</span>
     <span class="trait">Consumable</span>
+    <span class="trait">Elixir</span>
     <span class="trait">Mutagen</span>
     <span class="trait">Polymorph</span>
   </div>
