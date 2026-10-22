@@ -62,9 +62,6 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
 
 <div class="stat-block" id="sulfur-cloud">
   <h4 class="stat-block-title">Sulfur Cloud <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
-  <div class="stat-block-traits">
-    <span class="trait">Fire</span>
-  </div>
   <p><strong>Requirements</strong> You are under the effects of a Sulfurous Mutagen<br>
   <strong>Frequency</strong> once per round<br>
   <strong>Duration</strong> 1 round</p>
