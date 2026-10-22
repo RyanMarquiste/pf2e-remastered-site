@@ -115,3 +115,15 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <strong>Frequency</strong> once per round</p>
   <p>With a snap of your fingers, your body's chemicals generate the same effects as Activating a matchstick: a flame that you can touch to a flammable object, and that stays lit for 1 round. This doesn't require a matchstick, an alchemist's toolkit, or Quick Alchemy.</p>
 </div>
+
+<div class="stat-block" id="sulfuric-corrosion">
+  <h4 class="stat-block-title">Sulfuric Corrosion <span class="stat-block-action">Effect</span></h4>
+  <p><strong>Duration</strong> as set by the source that applies it</p>
+  <p>Sulfuric dust clings to metal, weakening and corroding it.</p>
+  <p>Metal weapons that you use suffer a &minus;1 circumstance penalty to attack rolls and damage rolls.</p>
+  <p>Metal armor and shields suffer a &minus;1 circumstance penalty to AC.</p>
+  <p>Items composed of metal may also suffer a &minus;1 penalty to the bonuses they provide, at the GM's discretion.</p>
+  <p>Creatures that are mostly composed of metal suffer a &minus;1 circumstance penalty to all of their rolls and damage.</p>
+  <p>This effect doesn't stack. If it is applied again, the effect with the longest duration applies instead.</p>
+  <p>The effect ends at any time if the sulfur is cleansed from the creature or item. Any fire or electricity effect immediately cleanses it with a small, harmless burst of flame as the sulfur combusts, which deals no damage to the item or the creature. Water, oil, or another cleanser can also wash the sulfur away, but this takes three actions of scrubbing.</p>
+</div>
