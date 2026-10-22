@@ -65,7 +65,8 @@ summary: "A mutagen that grants fire resistance and lets the drinker expel a con
   <p><strong>Requirements</strong> You are under the effects of a Sulfurous Mutagen<br>
   <strong>Frequency</strong> once per round<br>
   <strong>Duration</strong> 1 round</p>
-  <p>You expel a cloud of sulfur dust that fills an emanation around you, of the size noted below for your Sulfurous Mutagen's tier. The cloud stays where it forms, so you can move out of it, and it disperses at the start of your next turn. The cloud is thick enough to hide shapes. Creatures within the cloud are concealed, and creatures outside it are concealed to creatures within it.</p>
+  <p>You expel a cloud of sulfur dust that fills an emanation around you, of the size noted below for your Sulfurous Mutagen's tier. The cloud stays where it forms, so you can move out of it, and it disperses at the start of your next turn.</p>
+  <p>The cloud is thick enough to hide shapes. Creatures within the cloud are concealed, and creatures outside it are concealed to creatures within it.</p>
   <p>The cloud ignites when it is exposed to a fire or electricity effect, triggering the Sulfur Cloud Ignition effect, described below.</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
