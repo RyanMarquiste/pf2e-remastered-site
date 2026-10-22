@@ -126,5 +126,5 @@ summary: "A mutagen that grants fire resistance and lets the drinker expel a con
   <p>Items composed of metal may also suffer a &minus;1 penalty to the bonuses they provide, at the GM's discretion.</p>
   <p>Creatures that are mostly composed of metal suffer a &minus;1 circumstance penalty to all of their rolls and damage.</p>
   <p>This effect doesn't stack. If it is applied again, the effect with the longest duration applies instead.</p>
-  <p>The effect ends at any time if the sulfur is cleansed from the creature or item. Any fire or electricity effect immediately cleanses it with a small, harmless burst of flame as the sulfur combusts, which deals no damage to the item or the creature. Water, oil, or another cleanser can also wash the sulfur away, but this takes three actions of scrubbing.</p>
+  <p>The effect ends at any time if the sulfur is cleansed from the creature or item. Any fire or electricity effect immediately cleanses it with a small, harmless burst of flame as the sulfur combusts, which deals no damage to the item or the creature. Water, oil, or another cleanser can also wash the sulfur away, but this takes a full round to scrub the dust away.</p>
 </div>
