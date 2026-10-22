@@ -44,6 +44,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
     <p class="feat-label">Mutant Physique</p>
     <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
     <p>The compositional changes to your body let its chemicals produce the effects of a matchstick. You gain access to the Matchstick Snap action, described below.</p>
+    <p>Your Sulfur Cloud grows stronger, gaining the ability to cling to creatures and items within it. Any creature that enters the cloud or begins its turn in it gains the Sulfuric Corrosion effect for 1 minute. At the GM's discretion, this can also affect unattended objects.</p>
   </div>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
