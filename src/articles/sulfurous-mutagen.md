@@ -93,16 +93,16 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <p>After the fire damage is dealt, the Sulfur Cloud disperses and its effects end.</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
-  <p>Item DC 15. 1d4 fire damage.</p>
+  <p>Item DC 15. 1d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Moderate</span></div>
-  <p>Item DC 18. 2d4 fire damage.</p>
+  <p>Item DC 18. 2d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Greater</span></div>
-  <p>Item DC 28. 3d4 fire damage.</p>
+  <p>Item DC 28. 3d6 fire damage.</p>
 
   <div class="stat-block-section"><span>Major</span></div>
-  <p>Item DC 36. 4d4 fire damage.</p>
+  <p>Item DC 36. 4d6 fire damage.</p>
 </div>
 
 <div class="stat-block" id="matchstick-snap">
