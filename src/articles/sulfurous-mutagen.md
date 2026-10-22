@@ -40,13 +40,6 @@ summary: "A mutagen that grants fire resistance and lets the drinker expel a con
     <p>The reek is easy to follow: creatures attempting to track you by scent gain a +2 circumstance bonus to Survival checks to Track you and to Perception checks to notice you by smell.</p>
   </div>
 
-  <div class="stat-block feat-block">
-    <p class="feat-label">Mutant Physique</p>
-    <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
-    <p>The compositional changes to your body let its chemicals produce the effects of a matchstick. You gain access to the Matchstick Snap action, described below.</p>
-    <p>Your Sulfur Cloud grows stronger, gaining the ability to cling to creatures and items within it. Any creature that enters the cloud or begins its turn in it gains the Sulfuric Corrosion effect for 1 minute. At the GM's discretion, this can also affect unattended objects.</p>
-  </div>
-
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>Resistance 5, duration 1 minute.</p>
 
@@ -58,6 +51,13 @@ summary: "A mutagen that grants fire resistance and lets the drinker expel a con
 
   <div class="stat-block-section"><span>Major</span><span>Item 17</span></div>
   <p>Resistance 20, duration 1 hour.</p>
+
+  <div class="stat-block feat-block">
+    <p class="feat-label">Mutant Physique</p>
+    <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
+    <p>The compositional changes to your body let its chemicals produce the effects of a matchstick. You gain access to the Matchstick Snap action, described below.</p>
+    <p>Your Sulfur Cloud grows stronger, gaining the ability to cling to creatures and items within it. Any creature that enters the cloud or begins its turn in it gains the Sulfuric Corrosion effect for 1 minute. At the GM's discretion, this can also affect unattended objects.</p>
+  </div>
 </div>
 
 <div class="stat-block" id="sulfur-cloud">
