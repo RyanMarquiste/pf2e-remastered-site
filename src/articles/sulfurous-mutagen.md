@@ -44,8 +44,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
   <div class="stat-block feat-block">
     <p class="feat-label">Mutant Physique</p>
     <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
-    <p><strong>Activate</strong> {% actionIcon "one" %} (manipulate); <strong>Frequency</strong> once per round</p>
-    <p>The compositional changes to your body let its chemicals produce the effects of a matchstick. With a snap of your fingers, you generate the same effects as Activating a matchstick: a flame that you can touch to a flammable object, and that stays lit for 1 round. This doesn't require a matchstick, an alchemist's toolkit, or Quick Alchemy.</p>
+    <p>The compositional changes to your body let its chemicals produce the effects of a matchstick. You gain access to the Matchstick Snap action, described below.</p>
   </div>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
@@ -83,4 +82,14 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
 
   <div class="stat-block-section"><span>Major</span></div>
   <p>Ignition damage 4d4, cloud 10 feet.</p>
+</div>
+
+<div class="stat-block" id="matchstick-snap">
+  <h4 class="stat-block-title">Matchstick Snap <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
+  <div class="stat-block-traits">
+    <span class="trait">Manipulate</span>
+  </div>
+  <p><strong>Requirements</strong> You are under the effects of a Sulfurous Mutagen, and you have the Mutant Physique feat<br>
+  <strong>Frequency</strong> once per round</p>
+  <p>With a snap of your fingers, your body's chemicals generate the same effects as Activating a matchstick: a flame that you can touch to a flammable object, and that stays lit for 1 round. This doesn't require a matchstick, an alchemist's toolkit, or Quick Alchemy.</p>
 </div>
