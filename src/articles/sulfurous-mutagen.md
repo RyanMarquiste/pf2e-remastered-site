@@ -7,7 +7,7 @@ title: "Sulfurous Mutagen"
 category: Equipment
 class: alchemist
 date: 2026-10-15
-summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that flash-ignite when fire touches them."
+summary: "A mutagen that grants fire resistance and lets the drinker expel a concealing cloud of sulfur dust that ignites when exposed to fire or electricity."
 ---
 
 <div class="stat-block" id="sulfurous-mutagen">
