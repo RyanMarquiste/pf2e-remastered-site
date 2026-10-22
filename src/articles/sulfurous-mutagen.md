@@ -87,6 +87,7 @@ summary: "A mutagen that lets the drinker exhale volatile sulfur clouds that fla
 <div class="stat-block" id="matchstick-snap">
   <h4 class="stat-block-title">Matchstick Snap <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
   <div class="stat-block-traits">
+    <span class="trait">Fire</span>
     <span class="trait">Manipulate</span>
   </div>
   <p><strong>Requirements</strong> You are under the effects of a Sulfurous Mutagen, and you have the Mutant Physique feat<br>
