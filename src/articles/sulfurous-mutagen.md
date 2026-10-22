@@ -30,7 +30,7 @@ summary: "A mutagen that grants fire resistance and lets the drinker expel a con
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
-  <p>While under the effects of this mutagen, your body transforms to develop a yellowish tone and pallor. Several pore-like structures form in your skin, emitting wisps of vapor that contain sulfur dust. You can use them to expel a cloud of ignitable sulfur dust.</p>
+  <p>While under the effects of this mutagen, your body transforms to develop a yellowish hue with a light dusting of yellow sulfur across your skin. Several pore-like structures form in your skin, emitting wisps of vapor that contain sulfur dust. You can use them to expel a cloud of ignitable sulfur dust.</p>
   <p>The mutagen also alters your body in ways that make it fire-resistant, giving you resistance to fire, scaled by tier below.</p>
   <p>While you are under the effects of this mutagen, you can use the Sulfur Cloud action, described below.</p>
   <div class="stat-block drawback-block">
