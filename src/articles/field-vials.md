@@ -177,7 +177,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <p class="appearance-label">Appearance</p>
     <p>A thin, oily black-green film clings to the weapon's edge or tip in slow, beading strands, giving off a bitter, acrid smell.</p>
   </div>
-  <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. The vial's initial damage, as noted below for its tier, is added to the first successful Strike with the coated weapon or ammunition, and the coating is then used up. This effect deals no splash damage and doesn't use the vial's item bonus to attack rolls.</p>
+  <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. On a successful Strike with the weapon or ammunition, add the below listed poison damage to the damage of the weapon (based on the tier of the Toxicologist's Field Vial that created this effect).</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
   <p>Adds 1d6 poison damage.</p>
