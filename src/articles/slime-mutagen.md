@@ -33,7 +33,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
   <p>While under the effects of this mutagen, your body loses its definition, limbs and features sloughing into a more undefined, amoeba-like green mass, similar to an ooze or slime.</p>
   <p>You gain resistance to acid and a separate resistance to precision damage, each scaled by tier below, as your body no longer has fixed vital points to target and now shares the same acidic properties as acid itself, making acid less effective against it.</p>
-  <p>While you are under the effects of this mutagen, you can use the Acidic Body Burst action, described below.</p>
+  <p>While you are under the effects of this mutagen, you can use the Acidic Belch action, described below.</p>
   <div class="stat-block drawback-block">
     <p class="drawback-label">Drawback</p>
     <p>Your blob-like form is unusually vulnerable to extreme temperatures, giving you weakness 5 to fire and weakness 5 to cold.</p>
@@ -43,7 +43,7 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <div class="stat-block feat-block">
     <p class="feat-label">Mutant Physique</p>
     <p><strong>Prerequisite</strong> You have the Mutant Physique feat</p>
-    <p>Your Acidic Body Burst splashes every creature within 10 feet of you, and its splash damage equals your Intelligence modifier when that is higher than its listed acid splash damage.</p>
+    <p>Your Acidic Belch splashes every creature within 10 feet of you, and its splash damage equals your Intelligence modifier when that is higher than its listed acid splash damage.</p>
     <p>You shift and hide your vital organs within your slime-like body, so your precision resistance from this mutagen equals its acid resistance instead: 5 at Lesser and Moderate, 10 at Greater, and 15 at Major.</p>
   </div>
 
@@ -60,8 +60,8 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <p>Acid resistance 15, precision resistance 7, duration 1 hour.</p>
 </div>
 
-<div class="stat-block" id="acidic-body-burst">
-  <h4 class="stat-block-title">Acidic Body Burst <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
+<div class="stat-block" id="acidic-belch">
+  <h4 class="stat-block-title">Acidic Belch <span class="stat-block-action">{% actionIcon "one" %}</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Acid</span>
     <span class="trait">Attack</span>
