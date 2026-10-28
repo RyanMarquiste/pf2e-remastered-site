@@ -87,5 +87,8 @@ summary: "A mutagen that dissolves the drinker's body into an unstable, acidic o
   <div class="stat-block-section"><span>Major</span></div>
   <p>4 acid splash damage.</p>
 
-  <p><strong>Special</strong> A Bomber's research field benefits that affect splash damage and splash area apply to this attack as though it were a bomb: the field discovery that sets splash damage equal to your Intelligence modifier, and the greater field discovery that widens the splash to 10 feet. Other abilities and feats that key off bombs, including Calculated Splash, Expanded Splash, and Directional Bombs, don't apply, so the splash reaches no farther than 10 feet.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>A Bomber's research field benefits that affect splash damage and splash area apply to this attack as though it were a bomb: the field discovery that sets splash damage equal to your Intelligence modifier, and the greater field discovery that widens the splash to 10 feet. Other abilities and feats that key off bombs, including Calculated Splash, Expanded Splash, and Directional Bombs, don't apply, so the splash reaches no farther than 10 feet.</p>
+  </div>
 </div>

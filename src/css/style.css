@@ -30,6 +30,9 @@
   --card-feat-bg: #f1ecfb;
   --card-feat-border: #7c3aed;
   --card-feat-label: #5b21b6;
+  --card-special-bg: #f3f3f1;
+  --card-special-border: #8a8f98;
+  --card-special-label: #4a4f57;
   --trait-bg: #1e1b4b;
   --trait-border: #a5b4fc;
   --trait-text: #ffffff;
@@ -68,6 +71,9 @@
     --card-feat-bg: #3a3550;
     --card-feat-border: #a78bfa;
     --card-feat-label: #c4b5fd;
+    --card-special-bg: #42454b;
+    --card-special-border: #9aa0a8;
+    --card-special-label: #d1d5db;
   }
 }
 
@@ -565,6 +571,22 @@ h1, h2, h3 {
 
 .stat-block.feat-block .feat-label {
   color: var(--card-feat-label);
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.stat-block.special-block {
+  margin: 10px 0;
+  padding: 6px 12px;
+  background: var(--card-special-bg);
+  border: 1px solid var(--card-special-border);
+}
+
+.stat-block.special-block p {
+  margin: 4px 0;
+}
+
+.stat-block.special-block .special-label {
+  color: var(--card-special-label);
   font-variant: small-caps;
   font-weight: bold;
 }
