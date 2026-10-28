@@ -36,5 +36,8 @@ summary: "An Investigator feat that lets you collect evidence for an investigati
     <p><strong>Failure</strong> You learn nothing new. Any information you receive is trivial or something you have already discovered.</p>
     <p><strong>Critical Failure</strong> Treat this as a failure.</p>
   </div>
-  <p><strong>Special</strong> The GM should rule once, before the roll, on whether the check is about the investigation's question or the subject its Evidence points to. A neutral note such as "your Evidence doesn't help here" is enough for an unrelated check.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>The GM should rule once, before the roll, on whether the check is about the investigation's question or the subject its Evidence points to. A neutral note such as "your Evidence doesn't help here" is enough for an unrelated check.</p>
+  </div>
 </div>

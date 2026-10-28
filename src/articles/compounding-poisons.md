@@ -26,6 +26,9 @@ summary: "An Alchemist Additive feat that makes multiple distinct poisons on the
   </ul>
   <p>This penalty applies only to saves against poisons you're already afflicted by; it doesn't apply to the initial save when you're first exposed to a new poison.</p>
   <p>A creature can be affected by only one compounding poisons effect at a time. If it would be affected by a second, its duration instead resets to 1 minute.</p>
-  <p><strong>Special</strong> This effect does not apply, interact with, or alter persistent poison damage or checks versus persistent poison damage.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>This effect does not apply, interact with, or alter persistent poison damage or checks versus persistent poison damage.</p>
+  </div>
   <p><strong>Duration</strong> 1 minute or until you are no longer under the effect of a unique poison, whichever comes first</p>
 </div>

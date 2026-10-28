@@ -49,8 +49,9 @@ summary: "A thrown alchemical consumable that coats an area in a caustic slurry 
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
   <p>Strike DC 32; Item DC 34. You gain a +2 item bonus to attack rolls. Acidic Slurry coats a 20-foot square. Creatures take 6d6 acid damage.</p>
 
-  <div class="stat-block-notes">
-    <p><strong>Special</strong> The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>
-    <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash the slurry away. Treat the slurry as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the slurry from the area it covers.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>The slurry harms only creatures that touch it. A creature that jumps over the area, flies above it, or otherwise avoids contact with the coated surface doesn't trigger the acid damage.</p>
+    <p>A powerful enough water or cleansing effect that covers the area can wash the slurry away. Treat the slurry as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes the slurry from the area it covers.</p>
   </div>
 </div>

@@ -44,5 +44,8 @@ summary: "A spice blend that makes any food or drink it's added to compellingly 
     <li><strong>Critical Failure</strong> As failure, but if the treated item is already within its reach, the creature consumes it immediately using only a single action.</li>
   </ul>
   <p>This effect ends once the treated food or drink is consumed.</p>
-  <p><strong>Special</strong> Sensational Spices have no effect if added to food or drink that's already treated by another application of Sensational Spices, and their potency fades after 1 hour if the treated item isn't consumed.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>Sensational Spices have no effect if added to food or drink that's already treated by another application of Sensational Spices, and their potency fades after 1 hour if the treated item isn't consumed.</p>
+  </div>
 </div>

@@ -33,7 +33,10 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p><strong>Special</strong> When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type, and the vial has the matching damage trait.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type, and the vial has the matching damage trait.</p>
+  </div>
   <p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your choice: adamantine, cold iron, or dawnsilver. If you are wearing or wielding an item made of a different precious material when you create it, you can choose that material instead.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
@@ -146,7 +149,10 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <li><a href="#toxic-coating"><strong>Toxic Coating</strong></a> The vial's initial damage is added to the first successful Strike with the coated weapon or ammunition.</li>
     <li><a href="#advanced-toxic-coating"><strong>Advanced Toxic Coating</strong></a> (Advanced Vial, 11th level) As Toxic Coating, and the creature also takes persistent poison damage equal to the vial's splash damage.</li>
   </ul>
-  <p><strong>Special</strong> If your previous action was to create this vial with Quick Alchemy, applying it to a weapon you're holding, or to ammunition on your person or loaded in a weapon you're holding, costs no action. This is a feature of the Toxicologist's Field Benefit.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>If your previous action was to create this vial with Quick Alchemy, applying it to a weapon you're holding, or to ammunition on your person or loaded in a weapon you're holding, costs no action. This is a feature of the Toxicologist's Field Benefit.</p>
+  </div>
 
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>

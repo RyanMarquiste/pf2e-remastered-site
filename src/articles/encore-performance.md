@@ -31,5 +31,8 @@ summary: "A Bard class feature that creates a figment of the Bard to carry on th
   <p><strong>Act or Perform Comedy</strong> The figment acts out your scene, drama, pantomime, puppetry, or comic bit in your voice. It can wear or work any prop or item you use, such as a mask or puppet.</p>
   <p><strong>Martial Display</strong> The figment strikes heroic poses and sweeping mock blows to inspire, wielding an illusory weapon or none at all. These are only the appearance of strikes. They aren't Strikes, make no attack rolls, deal no damage, and can't trigger or satisfy effects that depend on a Strike or attack.</p>
   <p><strong>Limits</strong> A bonus to Performance checks from an item the figment holds, such as an instrument or a mask, applies to the Performance checks and compositions the figment performs. Any other ability of that item, including Activate abilities and effects that apply while you are playing, wearing, or holding it, has no effect while the figment holds the item. You can use those abilities only while you are holding or wearing the item yourself.</p>
-  <p><strong>Special</strong> An item held by the figment is an attended item. It can be targeted as though you were holding it, and if it is taken from you or destroyed, the effect ends. The figment isn't an object or a creature and can't be targeted.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>An item held by the figment is an attended item. It can be targeted as though you were holding it, and if it is taken from you or destroyed, the effect ends. The figment isn't an object or a creature and can't be targeted.</p>
+  </div>
 </div>

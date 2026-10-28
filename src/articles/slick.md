@@ -37,7 +37,10 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   </div>
   <p>Any creature entering the area must succeed at an Acrobatics or Athletics check against the item's DC or fall prone, ending its movement for the turn. Creatures may crawl through the area normally without attempting this check.</p>
   <p>If Slick is applied to a wall or ceiling, a creature that fails the check loses its purchase and falls.</p>
-  <p><strong>Special</strong> The effect or area is flammable. Any fire damage applied to Slick (such as area attacks or attacks against the squares that Slick is in) will ignite the Slick. Once ignited, Slick burns for the rest of its duration and remains slippery. A creature that enters the area, or starts its turn in it, takes persistent fire damage as noted below for its tier.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>The effect or area is flammable. Any fire damage applied to Slick (such as area attacks or attacks against the squares that Slick is in) will ignite the Slick. Once ignited, Slick burns for the rest of its duration and remains slippery. A creature that enters the area, or starts its turn in it, takes persistent fire damage as noted below for its tier.</p>
+  </div>
 
   <p><strong>Item DC</strong> Saves and checks against this item use the item's DC, which is the standard DC for the item's level (from the level-based DC table in GM Core), as noted below for each tier. Effects that change an item's save DC, such as an alchemist's Powerful Alchemy, apply to it as normal. The Strike DC, which is 2 less than the item's DC, is fixed and can't be changed this way.</p>
 
@@ -50,7 +53,8 @@ summary: "A thrown alchemical consumable that coats an area in a slick, slippery
   <div class="stat-block-section"><span>Greater</span><span>Item 15</span></div>
   <p>Strike DC 32; Item DC 34. You gain a +2 item bonus to attack rolls. Slick coats a 20-foot square. Ignited Slick deals 4d6 persistent fire damage.</p>
 
-  <div class="stat-block-notes">
-    <p><strong>Special</strong> A powerful enough water or cleansing effect that covers the area can wash Slick away. Treat Slick as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes Slick from the area it covers.</p>
+  <div class="stat-block special-block">
+    <p class="special-label">Special</p>
+    <p>A powerful enough water or cleansing effect that covers the area can wash Slick away. Treat Slick as an effect with a counteract rank equal to half this item's level, rounded up, and a counteract DC equal to the item's DC. A water or cleansing effect that successfully counteracts it removes Slick from the area it covers.</p>
   </div>
 </div>
