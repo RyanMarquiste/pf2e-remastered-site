@@ -33,17 +33,5 @@ summary: "How the Mutant Physique and Mutant Innervation feats work with this si
     </div>
   </div>
 
-  <div class="stat-block-section"><span>Mutant Physique</span><span>Feat 8</span></div>
-  <p>The printed feat grants a benefit for three physical mutagens. Mutagens on this site add their own benefit in a block like the one above.</p>
-  <p><strong>Bestial Mutagen</strong> You add the mutagen's item bonus to Intimidation checks, and your claws and jaws increase their damage die by one step and gain the deadly d10 trait.</p>
-  <p><strong>Juggernaut Mutagen</strong> You gain resistance to all physical damage equal to half your level.</p>
-  <p><strong>Quicksilver Mutagen</strong> You can stretch your legs to Step up to 10 feet, and you can compress your body to fit through tight spaces as if you were one size smaller, in addition to any benefit from Squeezing.</p>
-
-  <div class="stat-block-section"><span>Mutant Innervation</span><span>Feat 14</span></div>
-  <p>The printed feat grants a benefit for three mental mutagens. Mutagens on this site add their own benefit in a block like the one above.</p>
-  <p><strong>Cognitive Mutagen</strong> You add the mutagen's item bonus to Deception, Diplomacy, Intimidation, Medicine, Nature, Performance, Religion, and Survival checks, and you can communicate telepathically with creatures within 60 feet that share a language with you. Once the link is established, it works in both directions.</p>
-  <p><strong>Serene Mutagen</strong> Detection, revelation, and scrying effects of 9th rank or lower, or of 17th level or lower, detect nothing about you, your possessions, or your auras.</p>
-  <p><strong>Silvertongue Mutagen</strong> You ignore circumstance penalties to Deception, Diplomacy, Intimidation, and Performance checks, and everyone listening understands you as if you spoke their language. You don't learn the language, and this doesn't let you understand others.</p>
-
   <p class="stat-block-source">Mutant Physique and Mutant Innervation, Pathfinder Player Core 2, &copy; Paizo Inc., summarized under the <a href="https://paizo.com/licenses/communityuse" target="_blank" rel="noopener">Community Use Policy</a>.</p>
 </div>
