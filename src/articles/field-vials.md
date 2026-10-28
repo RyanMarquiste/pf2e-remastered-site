@@ -176,7 +176,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <p class="appearance-label">Appearance</p>
     <p>A thin, oily black-green film clings to the weapon's edge or tip in slow, beading strands, giving off a bitter, acrid smell.</p>
   </div>
-  <p><strong>Duration</strong> Until a successful Strike is made, a critical miss occurs, or the ammunition is destroyed.</p>
+  <p><strong>Duration</strong> Until a successful Strike is made, a critical miss occurs, or the ammunition is destroyed (standard rules for injury poisons).</p>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. On a successful Strike with the weapon or ammunition, add the below listed poison damage to the damage of the weapon (based on the tier of the Toxicologist's Field Vial that created this effect).</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
@@ -204,7 +204,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <p class="appearance-label">Appearance</p>
     <p>The oily black-green film is thicker and darker, threaded with slow-bubbling black veins that cling to the weapon's edge or tip and give off a harsher, more acrid smell.</p>
   </div>
-  <p><strong>Duration</strong> Until a successful Strike is made, a critical miss occurs, or the ammunition is destroyed.</p>
+  <p><strong>Duration</strong> Until a successful Strike is made, a critical miss occurs, or the ammunition is destroyed (standard rules for injury poisons).</p>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison, as with Toxic Coating. On a successful Strike with the weapon or ammunition, add the below listed poison damage to the damage of the weapon (based on the tier of the Toxicologist's Field Vial that created this effect).</p>
   <p><strong>Requirements</strong> Advanced Vial (11th level) from the Toxicologist research field. An Alchemist with this upgrade gains this effect in place of Toxic Coating.</p>
 
