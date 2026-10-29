@@ -214,8 +214,13 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
     <span class="trait">Poison</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>The oily black-green film is thicker and darker, threaded with slow-bubbling black veins that cling to the weapon's edge or tip and give off a harsher, more acrid smell.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>The oily black-green film is thicker and darker, threaded with slow-bubbling black veins that cling to the weapon's edge or tip and give off a harsher, more acrid smell.</p>
+      </div>
+      <img class="stat-block-art stat-block-art-landscape" src="{{ '/images/advanced-toxic-coating.png' | url }}" alt="A steel dagger with a leather-wrapped grip, its blade smothered in a thick, bubbling dark green-black sludge that hangs in heavy, glossy drips from the edge and tip." loading="lazy">
+    </div>
   </div>
   <p><strong>Duration</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn.</p>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. On a successful Strike with the weapon or ammunition, add the below listed poison damage and persistent poison damage to the damage of the weapon (based on the tier of the Toxicologist's Field Vial that created this effect).</p>
