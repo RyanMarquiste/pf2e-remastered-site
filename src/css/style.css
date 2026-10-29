@@ -503,6 +503,10 @@ h1, h2, h3 {
   margin-top: 4px;
 }
 
+.appearance-block .stat-block-art-landscape {
+  flex-basis: 32%;
+}
+
 .appearance-block .stat-block-art-wide {
   display: block;
   width: 100%;
@@ -648,5 +652,9 @@ h2[id] {
     align-self: center;
     flex: 0 0 auto;
     width: 120px;
+  }
+
+  .appearance-block .stat-block-art-landscape {
+    width: 220px;
   }
 }
