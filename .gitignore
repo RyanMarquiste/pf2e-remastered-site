@@ -1,3 +1,6 @@
 node_modules/
 _site/
 .DS_Store
+
+# Compiled Foundry compendium (built locally from packs/_source)
+foundry/marquiste-additions/packs/corpsecaps-cauldron/

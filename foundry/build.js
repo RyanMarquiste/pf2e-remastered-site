@@ -180,7 +180,9 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 for (const item of items) {
   const file = item.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + ".json";
-  fs.writeFileSync(path.join(OUT, file), JSON.stringify(item, null, 4) + "\n");
+  // The Foundry CLI silently skips source files that have no _key, so every document needs one to be packed.
+  const doc = { _key: `!items!${item._id}`, ...item };
+  fs.writeFileSync(path.join(OUT, file), JSON.stringify(doc, null, 4) + "\n");
 }
 
 const moduleJson = {
