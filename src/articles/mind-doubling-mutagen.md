@@ -23,7 +23,7 @@ summary: "A mutagen that grows the drinker's brain into two full-sized halves, s
     <div class="stat-block-body">
       <div class="stat-block-main">
         <p class="appearance-label">Appearance</p>
-        <p>A round flask cradled in coils of brass filigree that twist like folds of brain, holding a thick pink liquid swirled with ribbons of cream that circle slowly in two separate currents. A small metal tag stamped with a brain hangs from its neck.</p>
+        <p>A thick pink liquid swirled with ribbons of cream that circle slowly in two separate currents. It has no smell at all, not even a faint chemical tang.</p>
       </div>
       <img class="stat-block-art" src="{{ '/images/mind-doubling-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, wrapped in twisting brass coils shaped like brain folds, holding swirling pink and cream liquid, with a small metal tag stamped with a brain hanging from its neck." loading="lazy">
     </div>
