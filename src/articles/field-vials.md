@@ -224,7 +224,6 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   </div>
   <p><strong>Duration</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn.</p>
   <p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. On a successful Strike with the weapon or ammunition, add the below listed poison damage and persistent poison damage to the damage of the weapon (based on the tier of the Toxicologist's Field Vial that created this effect).</p>
-  <p><strong>Requirements</strong> Advanced Vial (11th level) from the Toxicologist research field. An Alchemist with this upgrade gains this effect in place of Toxic Coating.</p>
 
   <div class="stat-block-section"><span>Lesser</span></div>
   <p>Adds 1d6 poison damage. Persistent poison damage 1.</p>
