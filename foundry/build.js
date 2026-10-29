@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const MODULE_ID = "pf2e-remastered-additions";
+const MODULE_ID = "marquiste-additions";
 const PACK = "corpsecaps-cauldron";
 const IMG = `modules/${MODULE_ID}/images/mind-doubling-mutagen.png`;
 const OUT = path.join(__dirname, MODULE_ID, "packs", "_source", PACK);
@@ -16,7 +16,7 @@ const makeId = (seed) => {
 };
 const uuidOf = (id) => `Compendium.${MODULE_ID}.${PACK}.Item.${id}`;
 
-const publication = { license: "ORC", remaster: true, title: "Remastered Additions" };
+const publication = { license: "ORC", remaster: true, title: "Marquiste Additions" };
 
 const tiers = [
   { name: "Lesser", level: 1, bonus: 1, gp: 4, duration: { unit: "minutes", value: 1, text: "1 minute" } },
@@ -185,7 +185,7 @@ for (const item of items) {
 
 const moduleJson = {
   id: MODULE_ID,
-  title: "Remastered Additions",
+  title: "Marquiste Additions",
   description: "Homebrew additions for Pathfinder 2e Remastered from ryanmarquiste.github.io/pf2e-remastered-site.",
   version: "1.0.0",
   authors: [{ name: "Ryan Marquiste" }],

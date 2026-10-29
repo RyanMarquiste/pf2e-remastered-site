@@ -1,6 +1,6 @@
 # Foundry VTT export (PF2e system)
 
-`pf2e-remastered-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains the **Mind Doubling Mutagen**:
+`marquiste-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains the **Mind Doubling Mutagen**:
 
 - 4 consumables (Lesser, Moderate, Greater, Major), priced and levelled like the other mutagens
 - 4 matching `Effect:` items that apply the bonuses, penalties, weakness and the Mutant Innervation re-roll through PF2e rule elements
@@ -13,10 +13,10 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | Path | What it is |
 | --- | --- |
 | `build.js` | Generates the item JSON and `module.json`. Edit this when the item changes, then run `node foundry/build.js`. |
-| `pf2e-remastered-additions/module.json` | Module manifest. |
-| `pf2e-remastered-additions/packs/_source/corpsecaps-cauldron/*.json` | One JSON file per item (the editable source). |
-| `pf2e-remastered-additions/images/` | Item art, referenced as `modules/pf2e-remastered-additions/images/...`. |
-| `pf2e-remastered-additions/packs/corpsecaps-cauldron/` | The compiled compendium. **Not in the repo**: you build it in step 1. |
+| `marquiste-additions/module.json` | Module manifest. |
+| `marquiste-additions/packs/_source/corpsecaps-cauldron/*.json` | One JSON file per item (the editable source). |
+| `marquiste-additions/images/` | Item art, referenced as `modules/marquiste-additions/images/...`. |
+| `marquiste-additions/packs/corpsecaps-cauldron/` | The compiled compendium. **Not in the repo**: you build it in step 1. |
 
 ## Install
 
@@ -25,16 +25,16 @@ Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has t
 1. **Compile the pack.** From the repo root, with Node installed:
 
    ```bash
-   npx @foundryvtt/foundryvtt-cli package pack -n corpsecaps-cauldron --type Module --in foundry/pf2e-remastered-additions/packs/_source/corpsecaps-cauldron --out foundry/pf2e-remastered-additions/packs
+   npx @foundryvtt/foundryvtt-cli package pack -n corpsecaps-cauldron --type Module --in foundry/marquiste-additions/packs/_source/corpsecaps-cauldron --out foundry/marquiste-additions/packs
    ```
 
-   This creates `foundry/pf2e-remastered-additions/packs/corpsecaps-cauldron/`.
+   This creates `foundry/marquiste-additions/packs/corpsecaps-cauldron/`.
 
-2. **Copy the module** folder `foundry/pf2e-remastered-additions` into your Foundry data folder, so you end up with `Data/modules/pf2e-remastered-additions/module.json`. (Foundry's data folder is shown under Configuration in the setup screen. On Windows it's usually `%localappdata%\FoundryVTT\Data`.)
+2. **Copy the module** folder `foundry/marquiste-additions` into your Foundry data folder, so you end up with `Data/modules/marquiste-additions/module.json`. (Foundry's data folder is shown under Configuration in the setup screen. On Windows it's usually `%localappdata%\FoundryVTT\Data`.)
 
-3. In your world, go to **Settings → Manage Modules**, enable **Remastered Additions**, and save.
+3. In your world, go to **Settings → Manage Modules**, enable **Marquiste Additions**, and save.
 
-4. Open the **Compendium Packs** tab. The **CorpseCap's Cauldron** pack appears under Remastered Additions. Drag a Mind Doubling Mutagen onto a character sheet.
+4. Open the **Compendium Packs** tab. The **CorpseCap's Cauldron** pack appears under Marquiste Additions. Drag a Mind Doubling Mutagen onto a character sheet.
 
 `module.json` asks for Foundry v13 as the minimum. If yours is a different version, change `compatibility` in `build.js` and rebuild.
 

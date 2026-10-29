@@ -1,11 +1,11 @@
 {
     "_id": "QUCw240EopcyB19v",
-    "img": "modules/pf2e-remastered-additions/images/mind-doubling-mutagen.png",
+    "img": "modules/marquiste-additions/images/mind-doubling-mutagen.png",
     "name": "Effect: Mind Doubling Mutagen (Moderate)",
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.pf2e-remastered-additions.corpsecaps-cauldron.Item.Yiixd2oa6lbgHtfU]</p><p><strong>Benefit</strong> You gain a +2 item bonus to Perception checks and Intelligence-based skill checks (Arcana, Crafting, Lore, Occultism, and Society), and a +2 item bonus to saving throws against mental and emotion effects. You gain access to the Co-ordinated Thinking action, described below.</p><p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p><p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, your brains have become adept at working together to fend off mental attacks. Whenever you attempt a saving throw against a mental effect, roll twice and take the better of the two results. This is a fortune effect.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.Yiixd2oa6lbgHtfU]</p><p><strong>Benefit</strong> You gain a +2 item bonus to Perception checks and Intelligence-based skill checks (Arcana, Crafting, Lore, Occultism, and Society), and a +2 item bonus to saving throws against mental and emotion effects. You gain access to the Co-ordinated Thinking action, described below.</p><p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p><p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, your brains have become adept at working together to fend off mental attacks. Whenever you attempt a saving throw against a mental effect, roll twice and take the better of the two results. This is a fortune effect.</p>"
         },
         "duration": {
             "expiry": "turn-start",
@@ -19,7 +19,7 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "Remastered Additions"
+            "title": "Marquiste Additions"
         },
         "rules": [
             {
@@ -85,7 +85,7 @@
             },
             {
                 "key": "GrantItem",
-                "uuid": "Compendium.pf2e-remastered-additions.corpsecaps-cauldron.Item.u931vrYIB7ehd4LB"
+                "uuid": "Compendium.marquiste-additions.corpsecaps-cauldron.Item.u931vrYIB7ehd4LB"
             }
         ],
         "start": {
