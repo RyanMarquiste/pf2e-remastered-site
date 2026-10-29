@@ -5,7 +5,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const MODULE_ID = "pf2e-remastered-additions";
-const PACK = "mutagens";
+const PACK = "corpsecaps-cauldron";
 const IMG = `modules/${MODULE_ID}/images/mind-doubling-mutagen.png`;
 const OUT = path.join(__dirname, MODULE_ID, "packs", "_source", PACK);
 
@@ -194,7 +194,7 @@ const moduleJson = {
   packs: [
     {
       name: PACK,
-      label: "Mutagens",
+      label: "CorpseCap's Cauldron",
       path: `packs/${PACK}`,
       type: "Item",
       system: "pf2e",

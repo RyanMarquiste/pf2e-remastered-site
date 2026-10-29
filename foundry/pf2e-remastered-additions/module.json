@@ -22,9 +22,9 @@
     },
     "packs": [
         {
-            "name": "mutagens",
-            "label": "Mutagens",
-            "path": "packs/mutagens",
+            "name": "corpsecaps-cauldron",
+            "label": "CorpseCap's Cauldron",
+            "path": "packs/corpsecaps-cauldron",
             "type": "Item",
             "system": "pf2e",
             "ownership": {
