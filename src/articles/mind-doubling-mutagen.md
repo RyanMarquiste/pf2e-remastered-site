@@ -20,8 +20,13 @@ summary: "A mutagen that grows the drinker's brain into two full-sized halves, s
     <span class="trait">Polymorph</span>
   </div>
   <div class="stat-block appearance-block">
-    <p class="appearance-label">Appearance</p>
-    <p>A vial of liquid that refuses to mix: a cool, pale blue current and a warm, amber one circle each other without blending, and flicker faintly whenever the vial is shaken.</p>
+    <div class="stat-block-body">
+      <div class="stat-block-main">
+        <p class="appearance-label">Appearance</p>
+        <p>A round flask cradled in coils of brass filigree that twist like folds of brain, holding a thick pink liquid swirled with ribbons of cream that circle slowly in two separate currents. A small metal tag stamped with a brain hangs from its neck.</p>
+      </div>
+      <img class="stat-block-art" src="{{ '/images/mind-doubling-mutagen.png' | url }}" alt="A round glass flask with a cork stopper and a studded leather collar, wrapped in twisting brass coils shaped like brain folds, holding swirling pink and cream liquid, with a small metal tag stamped with a brain hanging from its neck." loading="lazy">
+    </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
   <strong>Activate</strong> {% actionIcon "one" %} Interact</p>
