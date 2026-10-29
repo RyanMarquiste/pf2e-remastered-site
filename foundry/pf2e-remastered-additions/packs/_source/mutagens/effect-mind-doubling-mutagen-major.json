@@ -1,0 +1,103 @@
+{
+    "_id": "HD22q7F5MJDLkzmc",
+    "img": "modules/pf2e-remastered-additions/images/mind-doubling-mutagen.png",
+    "name": "Effect: Mind Doubling Mutagen (Major)",
+    "type": "effect",
+    "system": {
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.pf2e-remastered-additions.mutagens.Item.6dmLVzTzNfpoQ6a4]</p><p><strong>Benefit</strong> You gain a +4 item bonus to Perception checks and Intelligence-based skill checks (Arcana, Crafting, Lore, Occultism, and Society), and a +4 item bonus to saving throws against mental and emotion effects. You gain access to the Co-ordinated Thinking action, described below.</p><p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p><p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, your brains have become adept at working together to fend off mental attacks. Whenever you attempt a saving throw against a mental effect, roll twice and take the better of the two results. This is a fortune effect.</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 17
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Remastered Additions"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "perception",
+                    "arcana",
+                    "crafting",
+                    "lore-skill-check",
+                    "occultism",
+                    "society"
+                ],
+                "slug": "mind-doubling-mutagen-bonus",
+                "type": "item",
+                "value": 4
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "saving-throw",
+                "predicate": [
+                    {
+                        "or": [
+                            "item:trait:mental",
+                            "item:trait:emotion"
+                        ]
+                    }
+                ],
+                "slug": "mind-doubling-mutagen-save-bonus",
+                "type": "item",
+                "value": 4
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "acrobatics",
+                    "stealth",
+                    "thievery"
+                ],
+                "slug": "mind-doubling-mutagen-drawback-skills",
+                "type": "item",
+                "value": -1
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "reflex",
+                "slug": "mind-doubling-mutagen-drawback-reflex",
+                "type": "item",
+                "value": -2
+            },
+            {
+                "key": "Weakness",
+                "type": "mental",
+                "value": 5
+            },
+            {
+                "key": "RollTwice",
+                "keep": "higher",
+                "predicate": [
+                    "feat:mutant-innervation",
+                    "item:trait:mental"
+                ],
+                "selector": "saving-throw"
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.pf2e-remastered-additions.mutagens.Item.u931vrYIB7ehd4LB"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

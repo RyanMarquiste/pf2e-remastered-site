@@ -1,0 +1,34 @@
+{
+    "_id": "u931vrYIB7ehd4LB",
+    "img": "systems/pf2e/icons/actions/FreeAction.webp",
+    "name": "Co-ordinated Thinking",
+    "type": "action",
+    "system": {
+        "actionType": {
+            "value": "free"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Requirements</strong> You are under the effects of a Mind Doubling Mutagen</p><hr /><p>On your turn, one of your brains works through a problem while the other keeps hold of the body. You @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]{Recall Knowledge} with a skill in which you are at least trained.</p>"
+        },
+        "frequency": {
+            "max": 1,
+            "per": "round"
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Remastered Additions"
+        },
+        "rules": [],
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "concentrate"
+            ]
+        }
+    }
+}

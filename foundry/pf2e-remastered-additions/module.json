@@ -1,0 +1,36 @@
+{
+    "id": "pf2e-remastered-additions",
+    "title": "Remastered Additions",
+    "description": "Homebrew additions for Pathfinder 2e Remastered from ryanmarquiste.github.io/pf2e-remastered-site.",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Ryan Marquiste"
+        }
+    ],
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13"
+    },
+    "relationships": {
+        "systems": [
+            {
+                "id": "pf2e",
+                "type": "system"
+            }
+        ]
+    },
+    "packs": [
+        {
+            "name": "mutagens",
+            "label": "Mutagens",
+            "path": "packs/mutagens",
+            "type": "Item",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
+        }
+    ]
+}
