@@ -1,38 +1,27 @@
 ---
 layout: article.njk
 uuid: 6bbf967d-344d-4f73-b34a-06504e0579c7
-aliases: ["encore-performance"]
-menu: bard-features
-title: "Encore Performance"
-category: Classes
-class: bard
-date: 2026-10-16
-summary: "A Bard class feature that creates a figment of the Bard to carry on the performance, freeing their hands and body."
+aliases: ["encore-performance", "encore-rune"]
+menu: general-runes
+title: "Encore Rune"
+category: Equipment
+date: 2026-10-30
+summary: "A low-cost magic rune for performance tools such as instruments, batons, puppets, and fans. The tool comes to life and keeps performing on its own, freeing the performer's hands."
 ---
 
-<div class="stat-block" id="encore-performance">
-  <h4 class="stat-block-title">Encore Performance <span class="stat-block-action">Feature 3</span></h4>
+<div class="stat-block" id="encore-rune">
+  <h4 class="stat-block-title">Encore Rune <span class="stat-block-action">Item 2</span></h4>
   <div class="stat-block-traits">
-    <span class="trait">Bard</span>
-    <span class="trait">Concentrate</span>
+    <span class="trait">Magical</span>
+    <span class="trait">Rune</span>
   </div>
   <div class="stat-block appearance-block">
     <p class="appearance-label">Appearance</p>
-    <p>A translucent, softly shimmering double of the performer steps free of them and carries on the performance in their place, matching every note, step, line, or flourish.</p>
+    <p>A small silver glyph of looping notes, etched into the tool, that glimmers faintly whenever the tool is played.</p>
   </div>
-  <p><strong>Frequency</strong> at will; <strong>Trigger</strong> You perform with your instrument, voice, or body as part of a Performance check or as part of casting a composition; <strong>Duration</strong> 10 minutes</p>
-  <p>You infuse your performance with a measure of your magic, bringing it to life. A nonsubstantial visual figment of yourself separates from you and takes up the performance. It can take any instrument, script, prop, or other item you were using for the performance, or it can simply be a presentation without one. It follows you as you move, always remaining in your space, and continues to perform at your direction. It can only make Performance checks and cast compositions, using your Performance modifier and spellcasting statistics as though you were performing yourself. It can't speak, take other actions, or produce any other effects, and it has no actions of its own.</p>
-  <p>The figment is easy to distinguish as a visual effect and provides no combat or movement benefits. It doesn't block movement or vision, and creatures and objects pass through it unaffected.</p>
-  <p>It is bound by the same limits you are. While you couldn't perform that way yourself (for example, if you are silenced), it can't either. You can Dismiss the effect as a free action. When you do, the figment hands back any item it holds. If you have no free hand to take it, the item drops at your feet in your space. You can use this feature again once it ends, including on your next Performance check.</p>
-  <p>Choose the option that matches the type of performance you used to trigger this feature: playing an instrument, orating or singing, dancing, acting or performing comedy, or performing with martial flourishes.</p>
-  <p><strong>Play an Instrument</strong> The figment plays your instrument, whether strings, keys, percussion, or winds, freeing your hands.</p>
-  <p><strong>Orate or Sing</strong> The figment sings or orates in your voice. If you read from a script, scroll, or book, the figment holds it.</p>
-  <p><strong>Dance</strong> The figment dances or performs other visual performances. It can twirl any prop you use, such as a ribbon, fan, or hoop.</p>
-  <p><strong>Act or Perform Comedy</strong> The figment acts out your scene, drama, pantomime, puppetry, or comic bit in your voice. It can wear or work any prop or item you use, such as a mask or puppet.</p>
-  <p><strong>Martial Display</strong> The figment strikes heroic poses and sweeping mock blows to inspire, wielding an illusory weapon or none at all. These are only the appearance of strikes. They aren't Strikes, make no attack rolls, deal no damage, and can't trigger or satisfy effects that depend on a Strike or attack.</p>
-  <p><strong>Limits</strong> A bonus to Performance checks from an item the figment holds, such as an instrument or a mask, applies to the Performance checks and compositions the figment performs. Any other ability of that item, including Activate abilities and effects that apply while you are playing, wearing, or holding it, has no effect while the figment holds the item. You can use those abilities only while you are holding or wearing the item yourself.</p>
-  <div class="stat-block special-block">
-    <p class="special-label">Special</p>
-    <p>An item held by the figment is an attended item. It can be targeted as though you were holding it, and if it is taken from you or destroyed, the effect ends. The figment isn't an object or a creature and can't be targeted.</p>
-  </div>
+  <p><strong>Price</strong> 35 gp; <strong>Usage</strong> etched onto a performance tool; <strong>Bulk</strong> &mdash;</p>
+  <p>This rune can be etched onto any object used in performing, such as a musical instrument, baton, puppet, or fan. It benefits tools that tie up your hands the most.</p>
+  <p>When you use Performance with the tool, such as playing the instrument, waving the baton, working the puppet, or twirling the fan, the tool animates and comes to life. It continues to perform using your Performance skill, so your hands are free for other things. This lasts until the end of your next turn. Each time you use another Performance check through the animated tool, the duration is extended until the end of your next turn.</p>
+  <p>The animated tool is considered held or worn by you, and isn't an unattended item. Enemies can attack it the same way they could attack an item you are holding or wearing.</p>
+  <p>When the effect ends, the tool returns to your hands if you have enough free hands to take it. If you don't, it drops in the space you are in.</p>
 </div>
