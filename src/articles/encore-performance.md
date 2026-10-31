@@ -20,7 +20,7 @@ summary: "A low-cost magic rune for performance tools such as instruments, baton
     <p>A small silver glyph of looping notes, etched into the tool, that glimmers faintly whenever the tool is played.</p>
   </div>
   <p><strong>Price</strong> 35 gp; <strong>Usage</strong> etched onto a performance tool; <strong>Bulk</strong> &mdash;</p>
-  <p>This rune can be etched onto any object used in performing, such as a musical instrument, baton, puppet, or fan. It benefits tools that tie up your hands the most.</p>
+  <p>This rune can be etched onto any object used in performing, such as a musical instrument, baton, puppet, or fan. It benefits tools that tie up your hands the most. This rune doesn't use any of the item's rune slots, and doesn't stop the tool from having its own item bonus or other magical properties.</p>
   <p>When you use Performance with the tool, such as playing the instrument, waving the baton, working the puppet, or twirling the fan, the tool animates and comes to life. It continues to perform using your Performance skill, so your hands are free for other things. This lasts until the end of your next turn. If you take another Performance check action with the animated tool before then, the duration resets and lasts until the end of your next turn, counting from the turn on which you make that check.</p>
   <p>The animated tool is considered worn by you (not an unattended item). Enemies can attack it the same way they could attack an item you are wearing.</p>
   <p>The tool stays in your space while it performs, and it moves with you if you move.</p>
