@@ -39,3 +39,14 @@ Hooks.on("createItem", async (item) => {
   await actor.createEmbeddedDocuments("Item", [data]);
   await item.delete();
 });
+
+// PF2e takes one off a consumable weapon's quantity each time a Strike is made with it. A vial that reaches 0 is used up, so remove it
+// instead of leaving an empty entry behind. Only the user who made the Strike runs this.
+const BOMB_VIALS = new Set(["volatile-vial", "bomber-field-vial", "toxicologist-field-vial"]);
+
+Hooks.on("updateItem", async (item, changes, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (!item.actor || item.type !== "weapon" || !BOMB_VIALS.has(item.slug)) return;
+  if (foundry.utils.getProperty(changes, "system.quantity") !== 0) return;
+  await item.delete();
+});

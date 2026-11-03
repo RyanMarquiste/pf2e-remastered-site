@@ -59,6 +59,8 @@ Open **Settings → Configure Settings → Marquiste Additions** and tick **Use 
 
 ## Notes on how the rules are built
 
+- **Using up bomb vials:** the Volatile Vial, Bomber and Toxicologist vials have PF2e's Consumable trait, so PF2e itself takes one off their quantity whenever you make a Strike with them. When that reaches 0, `scripts/volatile-vial.js` deletes the item so no empty entry is left. Setting a vial's quantity to 0 by hand does the same.
+
 - **Suppressing a drawback:** the Mind Doubling Mutagen Drawback effect and each Ichthys Mutagen effect have a **Drawback suppressed** toggle on the character sheet. Switching it on turns off that mutagen's penalties and weakness without removing the effect; the Mutagenist Field Vial's effect reminds you to do this. Nothing flips the toggle automatically.
 
 - **Quick Vial:** it finds the research field from the character's Bomber, Chirurgeon, Mutagenist or Toxicologist class feature. It checks that the character has a free hand (using PF2e's own hands-free count) and creates nothing if they don't; the new vial goes into that hand. It doesn't check for the alchemist's toolkit. Outside combat nothing removes the vial, so delete it yourself.
