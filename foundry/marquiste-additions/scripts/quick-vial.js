@@ -1,4 +1,5 @@
-// Quick Vial: when an Alchemist uses the Quick Vial action, create a volatile vial or the field vial for their research field.
+// Quick Vial: when an Alchemist with a free hand uses the Quick Vial action, create a volatile vial or the field vial for their research field,
+// held in that hand.
 const MODULE = "marquiste-additions";
 const PACK = `${MODULE}.corpsecaps-cauldron`;
 const FIELD_VIALS = {
@@ -19,6 +20,15 @@ Hooks.on("createChatMessage", async (message) => {
   if (action?.type !== "action" || action.slug !== "quick-vial") return;
   const actor = action.actor;
   if (!actor) return;
+
+  // The vial is created in a hand, so one has to be free.
+  if (!(actor.handsFree > 0)) {
+    ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: `<p>${actor.name} has no free hand, so Quick Vial creates nothing.</p>`,
+    });
+    return ui.notifications.warn(`${actor.name} needs a free hand to use Quick Vial.`);
+  }
 
   const pack = game.packs.get(PACK);
   if (!pack) return ui.notifications.warn("Marquiste Additions: the CorpseCap's Cauldron compendium wasn't found.");
@@ -50,6 +60,7 @@ Hooks.on("createChatMessage", async (message) => {
 
   const data = (await pack.getDocument(entry._id)).toObject();
   delete data._id;
+  data.system.equipped = { carryType: "held", handsHeld: 1 };
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
   data.flags = {
     ...data.flags,
@@ -61,8 +72,8 @@ Hooks.on("createChatMessage", async (message) => {
   ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
     content: combatant
-      ? `<p>${actor.name} creates ${vial.name}. It becomes inert at the end of this turn.</p>`
-      : `<p>${actor.name} creates ${vial.name}. It becomes inert at the end of the turn, so remove it yourself, as there is no combat running.</p>`,
+      ? `<p>${actor.name} creates ${vial.name}, held in a free hand. It becomes inert at the end of this turn.</p>`
+      : `<p>${actor.name} creates ${vial.name}, held in a free hand. It becomes inert at the end of the turn, so remove it yourself, as there is no combat running.</p>`,
   });
 });
 
