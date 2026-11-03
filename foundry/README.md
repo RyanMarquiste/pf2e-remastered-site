@@ -21,7 +21,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `marquiste-additions/packs/_source/corpsecaps-cauldron/*.json` | One JSON file per item (the editable source). |
 | `marquiste-additions/images/` | Item art (square, black background), referenced as `modules/marquiste-additions/images/...`. Regenerate from the site art with `foundry/make-icons.ps1`. |
 | `vials.js` | The Volatile Vial, Field Vials, coatings and Quick Alchemy feat; `build.js` calls it. |
-| `marquiste-additions/scripts/` | Small scripts the module loads: the Insulating Paste counter, the Volatile Vial setting and the Quick Vial action. |
+| `marquiste-additions/scripts/` | Small scripts the module loads: the Insulating Paste counter, the Volatile Vial setting, the Quick Vial action and the Fleeting trait. |
 | `marquiste-additions/packs/corpsecaps-cauldron/` | The compiled compendium. **Not in the repo**: you build it in step 1. |
 
 ## Install
@@ -63,7 +63,7 @@ Open **Settings → Configure Settings → Marquiste Additions** and tick **Use 
 
 - **Quick Vial:** it finds the research field from the character's Bomber, Chirurgeon, Mutagenist or Toxicologist class feature. It doesn't check for the alchemist's toolkit or a free hand. Outside combat nothing removes the vial, so delete it yourself.
 
-- **Vials:** PF2e has no *Fleeting* trait, so each vial lists it in its description and carries it as an "other tag" rather than a real trait. The Field Vials' "only for the matching research field" limit isn't enforced. The Toxic Coating effects add their poison damage to every Strike until the end of the turn, so remove them yourself after the first hit.
+- **Vials:** the vials, coatings and Mutagenist vial carry the **Fleeting** trait, which `scripts/fleeting-trait.js` adds to PF2e's trait lists, but nothing makes them expire; only a vial made with Quick Vial in combat is removed at the end of the turn. The Field Vials' "only for the matching research field" limit isn't enforced. The Toxic Coating effects add their poison damage to every Strike until the end of the turn, so remove them yourself after the first hit.
 
 - **Insulating Paste:** the effect shows a counter badge starting at 5. PF2e doesn't track this itself, so `scripts/insulating-paste.js` (loaded by the module) watches PF2e's "damage taken" chat messages. When the paste's resistance reduced the damage, it posts a chat message with a **Use up one instance of protection** button. Pressing it (the character's owner or a GM) lowers the badge by one and removes the effect at 0. Each message can only be counted once. The prompt is posted from the GM's client, so a GM has to be connected. The duration still runs out on its own.
 

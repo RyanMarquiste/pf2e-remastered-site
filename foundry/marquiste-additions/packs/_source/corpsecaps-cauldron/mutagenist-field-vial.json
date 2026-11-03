@@ -13,7 +13,7 @@
         "containerId": null,
         "damage": null,
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p><hr /><p><em>A corked flask of pale, pearly liquid that swirls slowly on its own beneath a faint haze of vapor, smooth as cream, with a clean scent like rain on warm stone.</em></p><p>You drink this vial to suppress the drawback of one mutagen currently affecting you for 1 minute.</p><p>If you have more than one drawback from separate sources, such as from Combine Elixirs or a similar ability, you suppress one of your choice. A mutagen's Drawback entry counts as a single drawback, so suppressing it ends all of its listed penalties and weaknesses for the duration.</p><p><strong>Advanced Vial (11th level)</strong> When you drink a field vial, you also gain resistance to physical damage equal to half your level for the same duration.</p><p><strong>Fleeting</strong> This item lasts only until the end of the turn it was created on, then becomes inert.</p><p>@UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.9W6jshVDj788M61Y]</p>"
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p><hr /><p><em>A corked flask of pale, pearly liquid that swirls slowly on its own beneath a faint haze of vapor, smooth as cream, with a clean scent like rain on warm stone.</em></p><p>You drink this vial to suppress the drawback of one mutagen currently affecting you for 1 minute.</p><p>If you have more than one drawback from separate sources, such as from Combine Elixirs or a similar ability, you suppress one of your choice. A mutagen's Drawback entry counts as a single drawback, so suppressing it ends all of its listed penalties and weaknesses for the duration.</p><p><strong>Advanced Vial (11th level)</strong> When you drink a field vial, you also gain resistance to physical damage equal to half your level for the same duration.</p><p>@UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.9W6jshVDj788M61Y]</p>"
         },
         "hardness": 0,
         "hp": {
@@ -40,14 +40,12 @@
         "size": "med",
         "slug": "mutagenist-field-vial",
         "traits": {
-            "otherTags": [
-                "fleeting"
-            ],
             "rarity": "common",
             "value": [
                 "alchemical",
                 "consumable",
                 "elixir",
+                "fleeting",
                 "infused"
             ]
         },

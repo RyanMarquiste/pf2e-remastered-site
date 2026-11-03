@@ -24,7 +24,7 @@
             "die": "d6"
         },
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A corked flask holding layers of green, yellow, and amber liquid that never quite mix. The thin, watery chemicals shift and roil whenever the glass is jostled, with a pale vapor curling above them and a sharp, stinging smell leaking from the cork.</em></p><p>The volatile chemicals in this flask can be used offensively in a pinch.</p><p>The bomb deals 2d6 acid damage and 2 acid splash damage. You gain a +1 item bonus to attack rolls.</p><p><strong>Fleeting</strong> This item lasts only until the end of the turn it was created on, then becomes inert.</p>"
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A corked flask holding layers of green, yellow, and amber liquid that never quite mix. The thin, watery chemicals shift and roil whenever the glass is jostled, with a pale vapor curling above them and a sharp, stinging smell leaking from the cork.</em></p><p>The volatile chemicals in this flask can be used offensively in a pinch.</p><p>The bomb deals 2d6 acid damage and 2 acid splash damage. You gain a +1 item bonus to attack rolls.</p>"
         },
         "expend": 1,
         "grade": null,
@@ -98,15 +98,13 @@
             "value": 1
         },
         "traits": {
-            "otherTags": [
-                "fleeting"
-            ],
             "rarity": "common",
             "value": [
                 "acid",
                 "alchemical",
                 "bomb",
                 "consumable",
+                "fleeting",
                 "infused",
                 "splash"
             ]

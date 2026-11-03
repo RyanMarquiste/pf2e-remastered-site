@@ -48,8 +48,9 @@
         "traits": {
             "rarity": "common",
             "value": [
-                "poison",
-                "injury"
+                "fleeting",
+                "injury",
+                "poison"
             ]
         }
     }

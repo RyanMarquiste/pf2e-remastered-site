@@ -8,9 +8,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     { name: "Major", level: 18, dice: 4 },
   ];
 
-  const fleetingNote =
-    "<p><strong>Fleeting</strong> This item lasts only until the end of the turn it was created on, then becomes inert.</p>";
-  const activate = (glyph, text) => `<p><strong>Activate</strong> <span class="action-glyph">${glyph}</span> ${text}</p><hr />`;
+    const activate = (glyph, text) => `<p><strong>Activate</strong> <span class="action-glyph">${glyph}</span> ${text}</p><hr />`;
 
   // The same level-based scaling PF2e's own Versatile Vial uses: attack bonus from level 4 and the dice, with the splash matching.
   const scaling = () => [
@@ -70,7 +68,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       runes: { potency: 0, property: [], striking: 0 },
       size: "med",
       splashDamage: { value: 1 },
-      traits: { otherTags: ["fleeting"], rarity: "common", value: traits },
+      traits: { rarity: "common", value: traits },
       usage: { canBeAmmo: false, value: "held-in-one-hand" },
     },
   });
@@ -82,14 +80,13 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       level: t.level,
       damageType: "acid",
       image: img("volatile-vial"),
-      traits: ["acid", "alchemical", "bomb", "consumable", "infused", "splash"],
+      traits: ["acid", "alchemical", "bomb", "consumable", "fleeting", "infused", "splash"],
       description:
         activate("A", "Strike") +
         "<p><em>A corked flask holding layers of green, yellow, and amber liquid that never quite mix. The thin, watery chemicals shift " +
         "and roil whenever the glass is jostled, with a pale vapor curling above them and a sharp, stinging smell leaking from the cork.</em></p>" +
         "<p>The volatile chemicals in this flask can be used offensively in a pinch.</p>" +
-        `<p>The bomb deals ${t.dice}d6 acid damage and ${t.dice} acid splash damage.${t.level >= 4 ? ` You gain a +${t.level >= 18 ? 3 : t.level >= 12 ? 2 : 1} item bonus to attack rolls.` : ""}</p>` +
-        fleetingNote,
+        `<p>The bomb deals ${t.dice}d6 acid damage and ${t.dice} acid splash damage.${t.level >= 4 ? ` You gain a +${t.level >= 18 ? 3 : t.level >= 12 ? 2 : 1} item bonus to attack rolls.` : ""}</p>`,
       rules: scaling(),
     });
     item.system.slug = "volatile-vial";
@@ -103,7 +100,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       level: t.level,
       damageType: "acid",
       image: img("bomber-field-vial"),
-      traits: ["alchemical", "bomb", "consumable", "infused", "splash"],
+      traits: ["alchemical", "bomb", "consumable", "fleeting", "infused", "splash"],
       description:
         activate("A", "Strike") +
         "<p><em>A corked flask holding a chaotic mixture of four thin liquids that never quite blend: corrosive green, icy blue, pale " +
@@ -112,8 +109,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
         "damage both use the chosen type, and the vial has the matching damage trait.</p>" +
         `<p>The bomb deals ${t.dice}d6 damage of the chosen type and ${t.dice} splash damage of that type.</p>` +
         "<p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your " +
-        "choice: adamantine, cold iron, or dawnsilver.</p>" +
-        fleetingNote,
+        "choice: adamantine, cold iron, or dawnsilver.</p>",
       rules: [
         {
           key: "ChoiceSet",
@@ -163,7 +159,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       level: t.level,
       damageType: "poison",
       image: img("toxicologist-field-vial"),
-      traits: ["alchemical", "bomb", "consumable", "infused", "poison", "splash"],
+      traits: ["alchemical", "bomb", "consumable", "fleeting", "infused", "poison", "splash"],
       description:
         activate("A", "Strike") +
         "<p><em>A corked flask of oily, black-green liquid that clings to the glass in slow, dripping strands, with a bitter, acrid smell.</em></p>" +
@@ -175,8 +171,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
         `<ul><li>@UUID[${uuidOf(coatingIds[t.name].plain)}]{Toxic Coating} The vial's initial damage is added to the first successful Strike with the coated weapon or ammunition.</li>` +
         `<li>@UUID[${uuidOf(coatingIds[t.name].advanced)}]{Advanced Toxic Coating} (Advanced Vial, 11th level) As Toxic Coating, and the creature also takes persistent poison damage equal to the vial's splash damage.</li></ul>` +
         "<p><strong>Special</strong> If your previous action was to create this vial with Quick Alchemy, applying it to a weapon you're holding, or to ammunition on your " +
-        "person or loaded in a weapon you're holding, costs no action. This is a feature of the Toxicologist's Field Benefit.</p>" +
-        fleetingNote,
+        "person or loaded in a weapon you're holding, costs no action. This is a feature of the Toxicologist's Field Benefit.</p>",
       rules: scaling(),
     });
     item.system.slug = "toxicologist-field-vial";
@@ -217,7 +212,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           rules,
           start: { initiative: null, value: 0 },
           tokenIcon: { show: true },
-          traits: { rarity: "common", value: ["poison", "injury"] },
+          traits: { rarity: "common", value: ["fleeting", "injury", "poison"] },
         },
       });
     }
@@ -245,8 +240,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
             `creature within 20 feet. The creature that drinks or is hit by the vial regains @Damage[${t.dice}d6[healing]] Hit Points. If the vial is drunk, it also has the elixir trait.</p>` +
             "<p><strong>Coagulant</strong> A creature that recovers Hit Points from a coagulant item can't recover Hit Points from another coagulant item for 10 minutes, " +
             "though it still gains their other effects.</p>" +
-            "<p><strong>Advanced Vial (11th level)</strong> When the vial heals a creature with half its maximum Hit Points or fewer, the coagulant trait doesn't apply to that healing.</p>" +
-            fleetingNote,
+            "<p><strong>Advanced Vial (11th level)</strong> When the vial heals a creature with half its maximum Hit Points or fewer, the coagulant trait doesn't apply to that healing.</p>",
         },
         hardness: 0,
         hp: { max: 0, value: 0 },
@@ -258,7 +252,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
         rules: [],
         size: "med",
         slug: "chirurgeon-field-vial",
-        traits: { otherTags: ["fleeting"], rarity: "common", value: ["alchemical", "bomb", "coagulant", "consumable", "healing", "infused"] },
+        traits: { rarity: "common", value: ["alchemical", "bomb", "coagulant", "consumable", "fleeting", "healing", "infused"] },
         usage: { value: "held-in-one-hand" },
         uses: { autoDestroy: true, max: 1, value: 1 },
       },
@@ -288,7 +282,6 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           "<p>If you have more than one drawback from separate sources, such as from Combine Elixirs or a similar ability, you suppress one of your choice. A mutagen's " +
           "Drawback entry counts as a single drawback, so suppressing it ends all of its listed penalties and weaknesses for the duration.</p>" +
           "<p><strong>Advanced Vial (11th level)</strong> When you drink a field vial, you also gain resistance to physical damage equal to half your level for the same duration.</p>" +
-          fleetingNote +
           `<p>@UUID[${uuidOf(mutagenistEffectId)}]</p>`,
       },
       hardness: 0,
@@ -301,7 +294,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       rules: [],
       size: "med",
       slug: "mutagenist-field-vial",
-      traits: { otherTags: ["fleeting"], rarity: "common", value: ["alchemical", "consumable", "elixir", "infused"] },
+      traits: { rarity: "common", value: ["alchemical", "consumable", "elixir", "fleeting", "infused"] },
       usage: { value: "held-in-one-hand" },
       uses: { autoDestroy: true, max: 1, value: 1 },
     },

@@ -23,7 +23,8 @@
     "esmodules": [
         "scripts/insulating-paste.js",
         "scripts/volatile-vial.js",
-        "scripts/quick-vial.js"
+        "scripts/quick-vial.js",
+        "scripts/fleeting-trait.js"
     ],
     "packs": [
         {

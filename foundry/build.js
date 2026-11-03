@@ -481,7 +481,7 @@ const moduleJson = {
   authors: [{ name: "Ryan Marquiste" }],
   compatibility: { minimum: "13", verified: "13" },
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
-  esmodules: ["scripts/insulating-paste.js", "scripts/volatile-vial.js", "scripts/quick-vial.js"],
+  esmodules: ["scripts/insulating-paste.js", "scripts/volatile-vial.js", "scripts/quick-vial.js", "scripts/fleeting-trait.js"],
   packs: [
     {
       name: PACK,
