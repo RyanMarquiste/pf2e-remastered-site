@@ -174,7 +174,7 @@ for (const t of tiers) {
   items.push({
     _id: drawbackId,
     img: IMG,
-    name: `Effect: Mind Doubling Mutagen Drawbacks (${t.name})`,
+    name: `Effect: Mind Doubling Mutagen Drawback (${t.name})`,
     type: "effect",
     system: {
       ...common,

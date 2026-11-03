@@ -1,18 +1,18 @@
 {
-    "_key": "!items!A0q75cvKEZCeCtlc",
-    "_id": "A0q75cvKEZCeCtlc",
+    "_key": "!items!21T10xk48ShFkuVN",
+    "_id": "21T10xk48ShFkuVN",
     "img": "modules/marquiste-additions/images/mind-doubling-mutagen.png",
-    "name": "Effect: Mind Doubling Mutagen Drawbacks (Moderate)",
+    "name": "Effect: Mind Doubling Mutagen Drawback (Lesser)",
     "type": "effect",
     "system": {
         "duration": {
             "expiry": "turn-start",
             "sustained": false,
             "unit": "minutes",
-            "value": 10
+            "value": 1
         },
         "level": {
-            "value": 3
+            "value": 1
         },
         "publication": {
             "license": "ORC",
@@ -31,7 +31,7 @@
             "value": []
         },
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.QUCw240EopcyB19v]</p><p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.LiY7soiXYmqVoga4]</p><p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p>"
         },
         "rules": [
             {
