@@ -8,6 +8,7 @@ const MODULE_ID = "marquiste-additions";
 const PACK = "corpsecaps-cauldron";
 const IMG = `modules/${MODULE_ID}/images/mind-doubling-mutagen.png`;
 const ICHTHYS_IMG = `modules/${MODULE_ID}/images/ichthys-mutagen.png`;
+const PASTE_IMG = `modules/${MODULE_ID}/images/insulating-paste.png`;
 const OUT = path.join(__dirname, MODULE_ID, "packs", "_source", PACK);
 
 const ALPHANUM = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -283,6 +284,99 @@ for (const t of ichthysTiers) {
         },
         { key: "FlatModifier", selector: "athletics", slug: "ichthys-mutagen-drawback-athletics", type: "item", value: -1 },
         { key: "Weakness", type: "electricity", value: 5 },
+      ],
+      start: { initiative: null, value: 0 },
+      tokenIcon: { show: true },
+      traits: { rarity: "common", value: [] },
+    },
+  });
+}
+
+const pasteTiers = [
+  { name: "Lesser", level: 1, resistance: 5, gp: 4, duration: { unit: "minutes", value: 10, text: "10 minutes" } },
+  { name: "Moderate", level: 3, resistance: 10, gp: 12, duration: { unit: "hours", value: 1, text: "1 hour" } },
+  { name: "Greater", level: 11, resistance: 15, gp: 300, duration: { unit: "hours", value: 8, text: "8 hours" } },
+  { name: "Major", level: 17, resistance: 20, gp: 3000, duration: { unit: "hours", value: 24, text: "24 hours" } },
+];
+
+for (const t of pasteTiers) {
+  const effectId = makeId(`effect:Paste:${t.name}`);
+  const itemId = makeId(`item:Paste:${t.name}`);
+  const r = t.resistance;
+
+  const body =
+    "<p>When prepared, Insulating Paste is attuned to one damage type: acid, cold, electricity, or fire.</p>" +
+    "<p>Slather Insulating Paste over a willing or unconscious creature's exposed skin. Once applied, it remains as a thin film on the " +
+    `creature's skin, granting the creature resistance ${r} to the attuned damage type.</p>`;
+  const wearing =
+    "<p>Insulating Paste grants 5 instances of protection, regardless of tier. Each time this resistance reduces damage from an attack, " +
+    "the paste loses one instance of protection, wearing away a little more. Once it has no instances of protection remaining, the film " +
+    "wears away completely and the effect ends immediately, even mid-combat. The effect also ends if its duration runs out, whichever " +
+    "happens first.</p>";
+
+  items.push({
+    _id: itemId,
+    img: PASTE_IMG,
+    name: `Insulating Paste (${t.name})`,
+    type: "consumable",
+    system: {
+      baseItem: null,
+      bulk: { value: 0.1 },
+      category: "other",
+      containerId: null,
+      damage: null,
+      description: {
+        value:
+          `<p><strong>Activate</strong> <span class="action-glyph">3</span> (manipulate)</p><hr />` +
+          `<p><em>A small jar of thick, gritty paste in a dull, chalky grey, flecked with glittering mineral grains. It is smooth enough to spread and smells faintly of stone dust and metal.</em></p>` +
+          body +
+          wearing +
+          `<p><strong>Duration</strong> ${t.duration.text}.</p>` +
+          `<p>@UUID[${uuidOf(effectId)}]</p>`,
+      },
+      hardness: 0,
+      hp: { max: 0, value: 0 },
+      level: { value: t.level },
+      material: { grade: null, type: null },
+      price: { value: { gp: t.gp } },
+      publication,
+      quantity: 1,
+      rules: [],
+      size: "med",
+      traits: { rarity: "common", value: ["alchemical", "consumable"] },
+      usage: { value: "held-in-one-hand" },
+      uses: { autoDestroy: true, max: 1, value: 1 },
+    },
+  });
+
+  items.push({
+    _id: effectId,
+    img: PASTE_IMG,
+    name: `Effect: Insulating Paste (${t.name})`,
+    type: "effect",
+    system: {
+      badge: { type: "counter", value: 5 },
+      description: {
+        value:
+          `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` +
+          `<p>Resistance ${r} to the attuned damage type. The badge counts the instances of protection left: lower it by one each time this resistance reduces damage from an attack, and remove the effect when it reaches 0.</p>`,
+      },
+      duration: { expiry: "turn-start", sustained: false, unit: t.duration.unit, value: t.duration.value },
+      level: { value: t.level },
+      publication,
+      rules: [
+        {
+          key: "ChoiceSet",
+          choices: [
+            { label: "Acid", value: "acid" },
+            { label: "Cold", value: "cold" },
+            { label: "Electricity", value: "electricity" },
+            { label: "Fire", value: "fire" },
+          ],
+          flag: "damageType",
+          prompt: "Attuned damage type",
+        },
+        { key: "Resistance", type: "{item|flags.pf2e.rulesSelections.damageType}", value: r },
       ],
       start: { initiative: null, value: 0 },
       tokenIcon: { show: true },

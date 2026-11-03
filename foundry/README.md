@@ -1,8 +1,9 @@
 # Foundry VTT export (PF2e system)
 
-`marquiste-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains two mutagens, each with 4 consumables (Lesser, Moderate, Greater, Major, priced and levelled like the other mutagens) and 4 matching `Effect:` items that apply the numbers through PF2e rule elements:
+`marquiste-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains two mutagens and Insulating Paste, each with 4 consumables (Lesser, Moderate, Greater, Major, priced and levelled like the other mutagens) and 4 matching `Effect:` items that apply the numbers through PF2e rule elements:
 
 - **Mind Doubling Mutagen**: bonuses, penalties, weakness and the Mutant Innervation re-roll, plus the **Co-ordinated Thinking** free action, which the effect grants to the character while it lasts
+- **Insulating Paste**: a choice of acid, cold, electricity or fire when the effect is applied, resistance 5/10/15/20 to that type, and a badge counter of 5 instances of protection
 - **Ichthys Mutagen**: swim Speed equal to land Speed, an item bonus to unarmed attacks, a slashing "Razor Claw" unarmed Strike, a toggleable "Underwater" option for the Perception and Wisdom-skill bonus, the Athletics penalty, and weakness 5 to electricity
 
 The files were written against the PF2e system's own mutagen data (Cognitive Mutagen) but have **not been loaded into a running Foundry yet**, so expect to check them once (see "Check it" below).
@@ -47,6 +48,8 @@ When you first use the item:
 4. If the character has the Mutant Innervation feat, Will saves against mental effects should roll twice and keep the higher result.
 
 ## Notes on how the rules are built
+
+- **Insulating Paste:** the effect shows a counter badge starting at 5. PF2e can't tell when the resistance reduced an attack, so lower the badge by hand each time it does and delete the effect at 0. The duration still runs out on its own.
 
 - **Ichthys Mutagen:** "Breathe water" and "can't breathe air" have no rule element, so they stay as description text. The "Razor Claw" Strike is added next to the character's existing unarmed attacks rather than replacing them (the same way PF2e's Bestial Mutagen adds claws and jaws). The Perception and Wisdom-skill bonus only applies while the **Underwater** toggle on the effect is switched on. The swim Speed uses `@actor.attributes.speed.value`; if it shows 0 on a sheet, check that formula first.
 
