@@ -24,6 +24,14 @@
         },
         "rules": [
             {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "mind-doubling-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
                 "key": "FlatModifier",
                 "selector": [
                     "acrobatics",
@@ -32,19 +40,34 @@
                 ],
                 "slug": "mind-doubling-mutagen-drawback-skills",
                 "type": "item",
-                "value": -1
+                "value": -1,
+                "predicate": [
+                    {
+                        "not": "mind-doubling-drawback-suppressed"
+                    }
+                ]
             },
             {
                 "key": "FlatModifier",
                 "selector": "reflex",
                 "slug": "mind-doubling-mutagen-drawback-reflex",
                 "type": "item",
-                "value": -2
+                "value": -2,
+                "predicate": [
+                    {
+                        "not": "mind-doubling-drawback-suppressed"
+                    }
+                ]
             },
             {
                 "key": "Weakness",
                 "type": "mental",
-                "value": 5
+                "value": 5,
+                "predicate": [
+                    {
+                        "not": "mind-doubling-drawback-suppressed"
+                    }
+                ]
             }
         ],
         "start": {

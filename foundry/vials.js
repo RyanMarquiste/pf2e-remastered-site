@@ -315,7 +315,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       description: {
         value:
           `<p>Granted by @UUID[${uuidOf(mutagenistId)}]</p>` +
-          "<p>The drawback of one mutagen affecting you is suppressed for the duration. Disable that mutagen's drawback effect yourself while this lasts.</p>" +
+          "<p>The drawback of one mutagen affecting you is suppressed for the duration. Switch on the **Drawback suppressed** toggle on that mutagen's effect while this lasts, and switch it off again when it ends.</p>" +
           "<p><strong>Advanced Vial (11th level)</strong> You also have resistance to physical damage equal to half your level.</p>",
       },
       duration: { expiry: "turn-start", sustained: false, unit: "minutes", value: 1 },

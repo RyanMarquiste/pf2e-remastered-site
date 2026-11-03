@@ -81,7 +81,20 @@
                 "value": 4
             },
             {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "ichthys-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
                 "key": "FlatModifier",
+                "predicate": [
+                    {
+                        "not": "ichthys-drawback-suppressed"
+                    }
+                ],
                 "selector": "athletics",
                 "slug": "ichthys-mutagen-drawback-athletics",
                 "type": "item",
@@ -89,6 +102,11 @@
             },
             {
                 "key": "Weakness",
+                "predicate": [
+                    {
+                        "not": "ichthys-drawback-suppressed"
+                    }
+                ],
                 "type": "electricity",
                 "value": 5
             }

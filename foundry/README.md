@@ -59,6 +59,8 @@ Open **Settings → Configure Settings → Marquiste Additions** and tick **Use 
 
 ## Notes on how the rules are built
 
+- **Suppressing a drawback:** the Mind Doubling Mutagen Drawback effect and each Ichthys Mutagen effect have a **Drawback suppressed** toggle on the character sheet. Switching it on turns off that mutagen's penalties and weakness without removing the effect; the Mutagenist Field Vial's effect reminds you to do this. Nothing flips the toggle automatically.
+
 - **Quick Vial:** it finds the research field from the character's Bomber, Chirurgeon, Mutagenist or Toxicologist class feature. It doesn't check for the alchemist's toolkit or a free hand. Outside combat nothing removes the vial, so delete it yourself.
 
 - **Vials:** PF2e has no *Fleeting* trait, so each vial lists it in its description and carries it as an "other tag" rather than a real trait. The Field Vials' "only for the matching research field" limit isn't enforced. The Toxic Coating effects add their poison damage to every Strike until the end of the turn, so remove them yourself after the first hit.
