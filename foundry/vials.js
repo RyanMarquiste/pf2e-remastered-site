@@ -379,17 +379,18 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     },
   });
 
-  // Quick Alchemy as the house rules revise it. It does not change PF2e's built-in Quick Alchemy; swap it onto an Alchemist by hand.
+  // Quick Alchemy as the house rules revise it, as an action so it sits with Quick Vial and Create Consumable. It does not change PF2e's built-in
+  // Quick Alchemy; swap it onto an Alchemist by hand. The module script (scripts/quick-alchemy.js) makes it ask for Quick Vial or Create Consumable.
   items.push({
-    _id: makeId("feat:Quick Alchemy (House Rule)"),
+    _id: makeId("action:Quick Alchemy (House Rule)"),
     img: "systems/pf2e/icons/actions/OneAction.webp",
     name: "Quick Alchemy (House Rule)",
-    type: "feat",
+    type: "action",
     system: {
       slug: "quick-alchemy-house-rule",
       actionType: { value: "action" },
       actions: { value: 1 },
-      category: "class",
+      category: "interaction",
       description: {
         value:
           "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p><hr />" +
@@ -404,14 +405,10 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           "<p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait and must be " +
           "activated by the end of your current turn or else it becomes inert.</p>" +
           "<p>Using Quick Vial does not expend a versatile vial.</p>" +
-          "<hr /><p><strong>Module</strong> With the Volatile Vial house rules switched on in the Marquiste Additions settings, using this feat asks you to choose Quick Vial or Create Consumable. " +
+          "<hr /><p><strong>Module</strong> With the Volatile Vial house rules switched on in the Marquiste Additions settings, using this action asks you to choose Quick Vial or Create Consumable. " +
           "Create Consumable is only offered while you have a versatile vial left.</p>",
       },
       frequency: null,
-      level: { value: 1 },
-      maxTakable: 1,
-      onlyLevel1: false,
-      prerequisites: { value: [] },
       publication,
       rules: [],
       traits: { otherTags: [], rarity: "common", value: ["alchemist", "manipulate"] },
