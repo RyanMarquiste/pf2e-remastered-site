@@ -1,44 +1,45 @@
-// Optional house rule: swap PF2e's Versatile Vial for the Volatile Vial from CorpseCap's Cauldron.
+// Optional house rule: PF2e's Versatile Vial becomes the Volatile Vial.
 const MODULE = "marquiste-additions";
-const PACK = `${MODULE}.corpsecaps-cauldron`;
 const SETTING = "volatileVialRules";
 
 Hooks.once("init", () => {
   game.settings.register(MODULE, SETTING, {
     name: "Use the Volatile Vial house rules",
     hint:
-      "When a Versatile Vial is added to a character, replace it with the matching tier of Volatile Vial from CorpseCap's Cauldron, keeping the quantity. " +
-      "Switching this off does not change vials already swapped. The revised Quick Alchemy is the Quick Alchemy (House Rule) feat in the same compendium.",
+      "Renames each character's Versatile Vial to Volatile Vial and gives it the Fleeting trait, and lets Quick Alchemy (House Rule) offer Quick Vial or Create Consumable. " +
+      "The vial stays the same item, so the character's versatile vial count keeps working. Switching this off does not rename vials already changed.",
     scope: "world",
     config: true,
     type: Boolean,
     default: false,
+    onChange: () => convertAll(),
   });
 });
 
-// The tier follows the old vial's item level (1, 4, 12 or 18), the levels the Volatile Vial tiers use.
-const tierFor = (level) => (level >= 18 ? "Major" : level >= 12 ? "Greater" : level >= 4 ? "Moderate" : "Lesser");
-
-Hooks.on("createItem", async (item) => {
+// The vial is updated in place rather than replaced: PF2e counts an Alchemist's versatile vials from the quantity of the item it created,
+// so a replacement item would stop being counted. Its slug stays versatile-vial so the research field rules still apply to it.
+async function convert(item) {
   if (!game.settings.get(MODULE, SETTING)) return;
-  if (game.users.activeGM?.id !== game.user.id) return; // only one client does the swap
-  const actor = item.actor;
-  if (!actor || item.type !== "weapon" || item.slug !== "versatile-vial") return;
+  if (game.users.activeGM?.id !== game.user.id) return; // only one client does the renaming
+  if (!item.actor || item.type !== "weapon" || item.slug !== "versatile-vial" || item.name === "Volatile Vial") return;
 
-  const pack = game.packs.get(PACK);
-  if (!pack) return ui.notifications.warn("Marquiste Additions: the CorpseCap's Cauldron compendium wasn't found.");
-  const name = `Volatile Vial (${tierFor(item.level)})`;
-  const entry = (await pack.getIndex()).find((e) => e.name === name);
-  if (!entry) return ui.notifications.warn(`Marquiste Additions: couldn't find ${name} in the compendium.`);
+  const traits = new Set(item.system.traits.value);
+  traits.add("fleeting");
+  await item.update({
+    name: "Volatile Vial",
+    img: `modules/${MODULE}/images/volatile-vial.png`,
+    "system.traits.value": [...traits],
+  });
+}
 
-  const data = (await pack.getDocument(entry._id)).toObject();
-  delete data._id;
-  data.system.quantity = item.quantity;
-  if (item.system.equipped) data.system.equipped = foundry.utils.deepClone(item.system.equipped);
+async function convertAll() {
+  const actors = new Set(game.actors.contents);
+  for (const scene of game.scenes) for (const token of scene.tokens) if (token.actor) actors.add(token.actor);
+  for (const actor of actors) for (const item of actor.items) await convert(item);
+}
 
-  await actor.createEmbeddedDocuments("Item", [data]);
-  await item.delete();
-});
+Hooks.on("createItem", (item) => convert(item));
+Hooks.once("ready", () => convertAll());
 
 // PF2e takes one off a consumable weapon's quantity each time a Strike is made with it. A vial that reaches 0 is used up, so remove it
 // instead of leaving an empty entry behind. Only the user who made the Strike runs this.

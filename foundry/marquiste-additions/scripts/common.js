@@ -12,8 +12,8 @@ export async function itemUsed(message) {
   return item?.actor ? item : null;
 }
 
-// PF2e tracks "versatile vials" as the Alchemist's infused reagents.
-export const versatileVials = (actor) => (actor.isOfType?.("character") ? actor.getResource("infused-reagents")?.value ?? 0 : 0);
+// An Alchemist's versatile vials are a special resource PF2e links to the quantity of their Versatile Vial item.
+export const versatileVials = (actor) => actor.getResource?.("versatile-vials")?.value ?? 0;
 
 export const tierFor = (level) => (level >= 18 ? "Major" : level >= 12 ? "Greater" : level >= 4 ? "Moderate" : "Lesser");
 

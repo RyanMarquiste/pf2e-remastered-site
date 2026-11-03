@@ -56,11 +56,11 @@ When you first use the item:
 
 ## Module setting: Volatile Vial house rules
 
-Open **Settings → Configure Settings → Marquiste Additions** and tick **Use the Volatile Vial house rules** (off by default). While it's on, whenever a PF2e **Versatile Vial** is added to a character, the module replaces it with the **Volatile Vial** tier that matches the old vial's item level (1, 4, 12 or 18), keeping the quantity. It runs from the GM's client, so a GM has to be connected. Turning the setting off does not change vials already swapped, and it never touches Quick Alchemy itself: put the **Quick Alchemy (House Rule)** feat on an Alchemist by hand if you use the revised rules.
+Open **Settings → Configure Settings → Marquiste Additions** and tick **Use the Volatile Vial house rules** (off by default). While it's on, each character's PF2e **Versatile Vial** is renamed **Volatile Vial** and given the **Fleeting** trait, both for vials already on characters (when the world loads or the setting is switched on) and for ones added later. It's the same item, so PF2e's versatile vial count, the research field rules and Quick Alchemy keep working. It runs from the GM's client, so a GM has to be connected. Turning the setting off does not rename vials back, and it never touches PF2e's own Quick Alchemy: the **Quick Alchemy (House Rule)** feat is the revised version, and it only does anything while the setting is on.
 
 ## Notes on how the rules are built
 
-- **Create Consumable:** PF2e counts an Alchemist's "versatile vials" as the **infused reagents** on the Crafting tab, so that is what it spends, the same pool PF2e's own Quick Alchemy spends. It reads the formulas on the Crafting tab and only offers alchemical consumables of the character's level or lower. It doesn't check for a toolkit or a free hand.
+- **Create Consumable:** an Alchemist's versatile vials are a PF2e resource tied to the quantity of their Versatile (Volatile) Vial item. Create Consumable uses PF2e's own Quick Alchemy crafting ability, so it spends that resource and builds the infused item exactly as the Crafting tab does, and only offers alchemical consumables of the character's level or lower. It doesn't check for a toolkit or a free hand.
 - **Quick Alchemy chooser:** it works on the **Quick Alchemy (House Rule)** feat. PF2e's own Quick Alchemy button on the Crafting tab is left alone.
 
 - **Using up bomb vials:** the Volatile Vial, Bomber and Toxicologist vials have PF2e's Consumable trait, so PF2e itself takes one off their quantity whenever you make a Strike with them. When that reaches 0, `scripts/volatile-vial.js` deletes the item so no empty entry is left. Setting a vial's quantity to 0 by hand does the same.

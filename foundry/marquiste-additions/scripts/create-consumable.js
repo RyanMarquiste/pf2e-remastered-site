@@ -1,5 +1,4 @@
-// Create Consumable: expend a versatile vial (an infused reagent) to create one alchemical consumable from the Alchemist's formulas,
-// the way PF2e's Quick Alchemy does.
+// Create Consumable: expend a versatile vial to create one alchemical consumable from the Alchemist's formulas, the way PF2e's Quick Alchemy does.
 import { MODULE, itemUsed, versatileVials, say } from "./common.js";
 
 export async function createConsumable(actor) {
@@ -9,9 +8,14 @@ export async function createConsumable(actor) {
     return ui.notifications.warn(`${actor.name} has no versatile vials.`);
   }
 
-  // Alchemical consumables in the formula book at the character's level or lower.
-  const formulas = (await actor.crafting.getFormulas())
-    .filter((f) => f.item.traits.has("alchemical") && f.item.traits.has("consumable") && f.item.level <= actor.level)
+  // PF2e's own Quick Alchemy crafting ability spends the versatile vial and builds the infused item, so use it when the character has it.
+  const ability = actor.crafting?.abilities.get("quick-alchemy");
+  const formulas = (
+    ability
+      ? await ability.getValidFormulas()
+      : (await actor.crafting.getFormulas()).filter((f) => f.item.level <= actor.level)
+  )
+    .filter((f) => f.item.traits.has("alchemical") && f.item.traits.has("consumable"))
     .sort((a, b) => a.item.level - b.item.level || a.item.name.localeCompare(b.item.name));
   if (!formulas.length) {
     return ui.notifications.warn(`${actor.name} has no alchemical consumable formulas of their level or lower.`);
@@ -29,19 +33,26 @@ export async function createConsumable(actor) {
   if (!uuid) return;
 
   const formula = formulas.find((f) => f.item.uuid === uuid);
-  const source = formula.item.toObject();
-  source.system.quantity = 1;
-  source.system.size = actor.size === "tiny" ? "tiny" : "med";
-  source.system.traits.value.push("infused");
-  source.system.temporary = true;
-  const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
-  source.flags = {
-    ...source.flags,
-    [MODULE]: { createConsumable: combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null } },
-  };
+  let created;
+  if (ability) {
+    created = await ability.craft(formula.item, { consume: true });
+  } else {
+    // Without the ability: spend the vial and add the infused, temporary item by hand.
+    const source = formula.item.toObject();
+    source.system.quantity = 1;
+    source.system.size = actor.size === "tiny" ? "tiny" : "med";
+    source.system.traits.value.push("infused");
+    source.system.temporary = true;
+    created = (await actor.createEmbeddedDocuments("Item", [source]))[0] ?? null;
+    if (created) await actor.updateResource("versatile-vials", vials - 1);
+  }
+  if (!created) return;
 
-  if (!(await actor.addToInventory(source))) return ui.notifications.warn("Marquiste Additions: couldn't add the item to the inventory.");
-  await actor.updateResource("infused-reagents", vials - 1);
+  // In combat the item only lasts until the start of the creator's next turn.
+  const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
+  if (created.system.temporary) {
+    await created.setFlag(MODULE, "createConsumable", combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null });
+  }
 
   say(
     actor,
