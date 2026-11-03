@@ -346,6 +346,31 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     },
   });
 
+  // Create Consumable as its own action. The module script (scripts/create-consumable.js) does the work when it is used.
+  items.push({
+    _id: makeId("action:Create Consumable"),
+    img: "systems/pf2e/icons/actions/OneAction.webp",
+    name: "Create Consumable",
+    type: "action",
+    system: {
+      actionType: { value: "action" },
+      actions: { value: 1 },
+      category: "interaction",
+      description: {
+        value:
+          "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit, you have a free hand, and you have at least one versatile vial</p><hr />" +
+          "<p>This is the Create Consumable option of Quick Alchemy. Expend one versatile vial to create a single alchemical consumable item of your level or lower that's " +
+          "in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated " +
+          "before the start of your next turn or else it becomes inert.</p>",
+      },
+      frequency: null,
+      publication,
+      rules: [],
+      slug: "create-consumable",
+      traits: { otherTags: [], rarity: "common", value: ["alchemist", "manipulate"] },
+    },
+  });
+
   // Quick Alchemy as the house rules revise it. It does not change PF2e's built-in Quick Alchemy; swap it onto an Alchemist by hand.
   items.push({
     _id: makeId("feat:Quick Alchemy (House Rule)"),
@@ -353,6 +378,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     name: "Quick Alchemy (House Rule)",
     type: "feat",
     system: {
+      slug: "quick-alchemy-house-rule",
       actionType: { value: "action" },
       actions: { value: 1 },
       category: "class",
@@ -369,7 +395,9 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           "<h2>Quick Vial</h2>" +
           "<p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait and must be " +
           "activated by the end of your current turn or else it becomes inert.</p>" +
-          "<p>Using Quick Vial does not expend a versatile vial.</p>",
+          "<p>Using Quick Vial does not expend a versatile vial.</p>" +
+          "<hr /><p><strong>Module</strong> With the Volatile Vial house rules switched on in the Marquiste Additions settings, using this feat asks you to choose Quick Vial or Create Consumable. " +
+          "Create Consumable is only offered while you have a versatile vial left.</p>",
       },
       frequency: null,
       level: { value: 1 },

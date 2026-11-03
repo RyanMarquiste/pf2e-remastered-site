@@ -1,0 +1,35 @@
+{
+    "_key": "!items!FwMu7c9JuCWiZ4TC",
+    "_id": "FwMu7c9JuCWiZ4TC",
+    "img": "systems/pf2e/icons/actions/OneAction.webp",
+    "name": "Create Consumable",
+    "type": "action",
+    "system": {
+        "actionType": {
+            "value": "action"
+        },
+        "actions": {
+            "value": 1
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit, you have a free hand, and you have at least one versatile vial</p><hr /><p>This is the Create Consumable option of Quick Alchemy. Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert.</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "slug": "create-consumable",
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "alchemist",
+                "manipulate"
+            ]
+        }
+    }
+}

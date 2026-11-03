@@ -7,7 +7,8 @@
 - **Volatile Vial** (Lesser, Moderate, Greater, Major; levels 1/4/12/18): a bomb built from PF2e's own Versatile Vial data, so the attack bonus and dice scale the same way
 - **Field Vials**: **Bomber** (4 tiers; asks for acid, cold, electricity or fire when added to a character), **Toxicologist** (4 poison bombs, each with a **Toxic Coating** and an **Advanced Toxic Coating** effect), **Chirurgeon** (4 healing tiers) and **Mutagenist** (a single item and effect, with the Advanced Vial physical resistance)
 - **Quick Vial**: an action for Alchemists. Using it asks whether to create the Volatile Vial or the Field Vial for the character's research field (tier from the character's level) and puts it in a free hand (nothing is created if no hand is free). In combat the vial is removed when the creator's turn ends
-- **Quick Alchemy (House Rule)**: a feat with the revised Quick Alchemy text (Quick Vial doesn't expend a versatile vial, and items last at most 10 minutes)
+- **Create Consumable**: an action for Alchemists. Using it expends one versatile vial, asks which alchemical consumable formula (your level or lower) to create, and adds the infused item to the character; in combat it is removed when the creator's next turn starts
+- **Quick Alchemy (House Rule)**: a feat with the revised Quick Alchemy text (Quick Vial doesn't expend a versatile vial, and items last at most 10 minutes). With the Volatile Vial setting on, using it asks you to choose **Quick Vial** or **Create Consumable** (only offered while you have a versatile vial left); with the setting off it does nothing
 - **Ichthys Mutagen**: swim Speed equal to land Speed, an item bonus to unarmed attacks, a slashing "Razor Claw" unarmed Strike, a toggleable "Underwater" option for the Perception and Wisdom-skill bonus, the Athletics penalty, and weakness 5 to electricity
 
 The files were written against the PF2e system's own mutagen data (Cognitive Mutagen) but have **not been loaded into a running Foundry yet**, so expect to check them once (see "Check it" below).
@@ -21,7 +22,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `marquiste-additions/packs/_source/corpsecaps-cauldron/*.json` | One JSON file per item (the editable source). |
 | `marquiste-additions/images/` | Item art (square, black background), referenced as `modules/marquiste-additions/images/...`. Regenerate from the site art with `foundry/make-icons.ps1`. |
 | `vials.js` | The Volatile Vial, Field Vials, coatings and Quick Alchemy feat; `build.js` calls it. |
-| `marquiste-additions/scripts/` | Small scripts the module loads: the Insulating Paste counter, the Volatile Vial setting, the Quick Vial action and the Fleeting trait. |
+| `marquiste-additions/scripts/` | Small scripts the module loads: the Insulating Paste counter, the Volatile Vial setting, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Fleeting trait. `common.js` holds helpers the alchemy scripts share. |
 | `marquiste-additions/packs/corpsecaps-cauldron/` | The compiled compendium. **Not in the repo**: you build it in step 1. |
 
 ## Install
@@ -58,6 +59,9 @@ When you first use the item:
 Open **Settings → Configure Settings → Marquiste Additions** and tick **Use the Volatile Vial house rules** (off by default). While it's on, whenever a PF2e **Versatile Vial** is added to a character, the module replaces it with the **Volatile Vial** tier that matches the old vial's item level (1, 4, 12 or 18), keeping the quantity. It runs from the GM's client, so a GM has to be connected. Turning the setting off does not change vials already swapped, and it never touches Quick Alchemy itself: put the **Quick Alchemy (House Rule)** feat on an Alchemist by hand if you use the revised rules.
 
 ## Notes on how the rules are built
+
+- **Create Consumable:** PF2e counts an Alchemist's "versatile vials" as the **infused reagents** on the Crafting tab, so that is what it spends, the same pool PF2e's own Quick Alchemy spends. It reads the formulas on the Crafting tab and only offers alchemical consumables of the character's level or lower. It doesn't check for a toolkit or a free hand.
+- **Quick Alchemy chooser:** it works on the **Quick Alchemy (House Rule)** feat. PF2e's own Quick Alchemy button on the Crafting tab is left alone.
 
 - **Using up bomb vials:** the Volatile Vial, Bomber and Toxicologist vials have PF2e's Consumable trait, so PF2e itself takes one off their quantity whenever you make a Strike with them. When that reaches 0, `scripts/volatile-vial.js` deletes the item so no empty entry is left. Setting a vial's quantity to 0 by hand does the same.
 

@@ -1,0 +1,29 @@
+// The house-rule Quick Alchemy: with the Volatile Vial house rules switched on, using the Quick Alchemy (House Rule) feat asks the
+// character to choose Quick Vial or Create Consumable. Create Consumable is only offered while they have a versatile vial left.
+import { MODULE, SETTING, itemUsed, versatileVials } from "./common.js";
+import { createQuickVial } from "./quick-vial.js";
+import { createConsumable } from "./create-consumable.js";
+
+Hooks.on("createChatMessage", async (message) => {
+  const feat = await itemUsed(message);
+  if (!feat || feat.slug !== "quick-alchemy-house-rule") return;
+  if (!game.settings.get(MODULE, SETTING)) {
+    return ui.notifications.info("The Volatile Vial house rules are switched off in the module settings, so Quick Alchemy (House Rule) does nothing.");
+  }
+  const actor = feat.actor;
+
+  // With no versatile vial left there is nothing to choose: Quick Vial is the only option.
+  if (versatileVials(actor) < 1) return createQuickVial(actor);
+
+  const choice = await foundry.applications.api.DialogV2.wait({
+    window: { title: "Quick Alchemy" },
+    content: `<p>What does ${actor.name} do with Quick Alchemy?</p>`,
+    buttons: [
+      { action: "vial", label: "Quick Vial", default: true },
+      { action: "consumable", label: "Create Consumable" },
+    ],
+    rejectClose: false,
+  });
+  if (choice === "vial") return createQuickVial(actor);
+  if (choice === "consumable") return createConsumable(actor);
+});

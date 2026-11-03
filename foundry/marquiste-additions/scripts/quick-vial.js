@@ -1,7 +1,6 @@
-// Quick Vial: when an Alchemist with a free hand uses the Quick Vial action, create a volatile vial or the field vial for their research field,
-// held in that hand.
-const MODULE = "marquiste-additions";
-const PACK = `${MODULE}.corpsecaps-cauldron`;
+// Quick Vial: an Alchemist with a free hand creates a volatile vial or the field vial for their research field, held in that hand.
+import { MODULE, PACK, itemUsed, tierFor, say } from "./common.js";
+
 const FIELD_VIALS = {
   bomber: { name: "Bomber Field Vial", tiers: true },
   chirurgeon: { name: "Chirurgeon Field Vial", tiers: true },
@@ -9,24 +8,10 @@ const FIELD_VIALS = {
   toxicologist: { name: "Toxicologist Field Vial", tiers: true },
 };
 
-const tierFor = (level) => (level >= 18 ? "Major" : level >= 12 ? "Greater" : level >= 4 ? "Moderate" : "Lesser");
-
-// The Quick Vial action posts a chat card when used; only the user who used it makes the vial.
-Hooks.on("createChatMessage", async (message) => {
-  if (message.author?.id !== game.user.id) return;
-  const originUuid = message.flags?.pf2e?.origin?.uuid;
-  if (!originUuid) return;
-  const action = await fromUuid(originUuid);
-  if (action?.type !== "action" || action.slug !== "quick-vial") return;
-  const actor = action.actor;
-  if (!actor) return;
-
+export async function createQuickVial(actor) {
   // The vial is created in a hand, so one has to be free.
   if (!(actor.handsFree > 0)) {
-    ChatMessage.create({
-      speaker: ChatMessage.getSpeaker({ actor }),
-      content: `<p>${actor.name} has no free hand, so Quick Vial creates nothing.</p>`,
-    });
+    say(actor, `<p>${actor.name} has no free hand, so Quick Vial creates nothing.</p>`);
     return ui.notifications.warn(`${actor.name} needs a free hand to use Quick Vial.`);
   }
 
@@ -69,12 +54,18 @@ Hooks.on("createChatMessage", async (message) => {
   const [vial] = await actor.createEmbeddedDocuments("Item", [data]);
   if (!vial) return;
 
-  ChatMessage.create({
-    speaker: ChatMessage.getSpeaker({ actor }),
-    content: combatant
+  say(
+    actor,
+    combatant
       ? `<p>${actor.name} creates ${vial.name}, held in a free hand. It becomes inert at the end of this turn.</p>`
       : `<p>${actor.name} creates ${vial.name}, held in a free hand. It becomes inert at the end of the turn, so remove it yourself, as there is no combat running.</p>`,
-  });
+  );
+}
+
+// Using the Quick Vial action on its own.
+Hooks.on("createChatMessage", async (message) => {
+  const action = await itemUsed(message);
+  if (action?.type === "action" && action.slug === "quick-vial") await createQuickVial(action.actor);
 });
 
 // A vial made in combat is removed once its creator's turn is over.
@@ -91,10 +82,7 @@ Hooks.on("updateCombat", async (combat, changed) => {
       if (!flag?.combatId || flag.combatId !== combat.id) continue;
       if (combat.round === flag.round && combat.combatant?.id === flag.combatantId) continue;
       await item.delete();
-      ChatMessage.create({
-        speaker: ChatMessage.getSpeaker({ actor }),
-        content: `<p>${item.name} becomes inert and is gone.</p>`,
-      });
+      say(actor, `<p>${item.name} becomes inert and is gone.</p>`);
     }
   }
 });
