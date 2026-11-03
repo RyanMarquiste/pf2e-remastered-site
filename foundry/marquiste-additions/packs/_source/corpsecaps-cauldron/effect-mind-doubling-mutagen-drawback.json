@@ -1,37 +1,26 @@
 {
-    "_key": "!items!A0q75cvKEZCeCtlc",
-    "_id": "A0q75cvKEZCeCtlc",
+    "_key": "!items!ldBpLYkEiC27242k",
+    "_id": "ldBpLYkEiC27242k",
     "img": "modules/marquiste-additions/images/mind-doubling-mutagen.png",
-    "name": "Effect: Mind Doubling Mutagen Drawback (Moderate)",
+    "name": "Effect: Mind Doubling Mutagen Drawback",
     "type": "effect",
     "system": {
+        "description": {
+            "value": "<p>Granted by the Mind Doubling Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p>"
+        },
         "duration": {
-            "expiry": "turn-start",
+            "expiry": null,
             "sustained": false,
-            "unit": "minutes",
-            "value": 10
+            "unit": "unlimited",
+            "value": -1
         },
         "level": {
-            "value": 3
+            "value": 1
         },
         "publication": {
             "license": "ORC",
             "remaster": true,
             "title": "Marquiste Additions"
-        },
-        "start": {
-            "initiative": null,
-            "value": 0
-        },
-        "tokenIcon": {
-            "show": true
-        },
-        "traits": {
-            "rarity": "common",
-            "value": []
-        },
-        "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.QUCw240EopcyB19v]</p><p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p>"
         },
         "rules": [
             {
@@ -57,6 +46,17 @@
                 "type": "mental",
                 "value": 5
             }
-        ]
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
     }
 }

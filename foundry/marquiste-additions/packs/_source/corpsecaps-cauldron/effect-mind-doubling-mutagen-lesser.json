@@ -31,7 +31,7 @@
             "value": []
         },
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.DHYZHJ9FK6BxMLqo]</p><p><strong>Benefit</strong> You gain a +1 item bonus to Perception checks and Intelligence-based skill checks (Arcana, Crafting, Lore, Occultism, and Society), and a +1 item bonus to saving throws against mental and emotion effects. You gain access to the Co-ordinated Thinking action, described below.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.21T10xk48ShFkuVN] and, if you have the Mutant Innervation feat, @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.i94oToDUJ7flRQqA].</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.DHYZHJ9FK6BxMLqo]</p><p><strong>Benefit</strong> You gain a +1 item bonus to Perception checks and Intelligence-based skill checks (Arcana, Crafting, Lore, Occultism, and Society), and a +1 item bonus to saving throws against mental and emotion effects. You gain access to the Co-ordinated Thinking action, described below.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.ldBpLYkEiC27242k] and, if you have the Mutant Innervation feat, @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.i94oToDUJ7flRQqA].</p>"
         },
         "rules": [
             {
@@ -69,7 +69,7 @@
             },
             {
                 "key": "GrantItem",
-                "uuid": "Compendium.marquiste-additions.corpsecaps-cauldron.Item.21T10xk48ShFkuVN"
+                "uuid": "Compendium.marquiste-additions.corpsecaps-cauldron.Item.ldBpLYkEiC27242k"
             },
             {
                 "key": "GrantItem",

@@ -59,6 +59,46 @@ items.push({
   },
 });
 
+// The drawback doesn't change with the mutagen's tier, so one effect serves them all. It is granted by the benefits effect
+// and removed with it, so it has no duration of its own.
+const drawbackId = makeId("effect:drawback");
+const drawbackText =
+  "<p><strong>Drawback</strong> The two brains can interact poorly when handing off control of the body, giving you a –1 item " +
+  "penalty to Dexterity-based skill checks and a –2 item penalty to Reflex saves. Mental damage hits you harder, as your " +
+  "increased brain capacity has more to lose, giving you weakness 5 to mental damage.</p>";
+items.push({
+  _id: drawbackId,
+  img: IMG,
+  name: "Effect: Mind Doubling Mutagen Drawback",
+  type: "effect",
+  system: {
+    description: { value: "<p>Granted by the Mind Doubling Mutagen effect, and removed with it.</p>" + drawbackText },
+    duration: { expiry: null, sustained: false, unit: "unlimited", value: -1 },
+    level: { value: 1 },
+    publication,
+    rules: [
+      {
+        key: "FlatModifier",
+        selector: ["acrobatics", "stealth", "thievery"],
+        slug: "mind-doubling-mutagen-drawback-skills",
+        type: "item",
+        value: -1,
+      },
+      {
+        key: "FlatModifier",
+        selector: "reflex",
+        slug: "mind-doubling-mutagen-drawback-reflex",
+        type: "item",
+        value: -2,
+      },
+      { key: "Weakness", type: "mental", value: 5 },
+    ],
+    start: { initiative: null, value: 0 },
+    tokenIcon: { show: true },
+    traits: { rarity: "common", value: [] },
+  },
+});
+
 for (const t of tiers) {
   const effectId = makeId(`effect:${t.name}`);
   const itemId = makeId(`item:${t.name}`);
@@ -122,7 +162,6 @@ for (const t of tiers) {
     },
   });
 
-  const drawbackId = makeId(`effect:drawback:${t.name}`);
   const featId = makeId(`effect:feat:${t.name}`);
   const expiry = { expiry: "turn-start", sustained: false, unit: dur.unit, value: dur.value };
   const common = {
@@ -167,34 +206,6 @@ for (const t of tiers) {
         { key: "GrantItem", uuid: uuidOf(thinkingId) },
         { key: "GrantItem", uuid: uuidOf(drawbackId) },
         { key: "GrantItem", uuid: uuidOf(featId), predicate: ["feat:mutant-innervation"] },
-      ],
-    },
-  });
-
-  items.push({
-    _id: drawbackId,
-    img: IMG,
-    name: `Effect: Mind Doubling Mutagen Drawback (${t.name})`,
-    type: "effect",
-    system: {
-      ...common,
-      description: { value: `<p>Granted by @UUID[${uuidOf(effectId)}]</p>` + drawback },
-      rules: [
-        {
-          key: "FlatModifier",
-          selector: ["acrobatics", "stealth", "thievery"],
-          slug: "mind-doubling-mutagen-drawback-skills",
-          type: "item",
-          value: -1,
-        },
-        {
-          key: "FlatModifier",
-          selector: "reflex",
-          slug: "mind-doubling-mutagen-drawback-reflex",
-          type: "item",
-          value: -2,
-        },
-        { key: "Weakness", type: "mental", value: 5 },
       ],
     },
   });
