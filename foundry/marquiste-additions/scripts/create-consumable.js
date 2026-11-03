@@ -1,69 +1,50 @@
 // Create Consumable: expend a versatile vial to create one alchemical consumable from the Alchemist's formulas, the way PF2e's Quick Alchemy does.
+// The action item carries a CraftingAbility rule, so PF2e itself shows its formula picker, spends the vial and puts the item in a hand.
+// This script adds the checks and the end-of-turn expiry around that.
 import { MODULE, itemUsed, versatileVials, say } from "./common.js";
 
+const SLUG = "create-consumable";
+
+// Called from the Quick Alchemy chooser: run the Create Consumable action through PF2e's own action flow.
 export async function createConsumable(actor) {
-  const vials = versatileVials(actor);
-  if (vials < 1) {
-    say(actor, `<p>${actor.name} has no versatile vials left, so Create Consumable creates nothing.</p>`);
-    return ui.notifications.warn(`${actor.name} has no versatile vials.`);
+  const action = actor.items.find((i) => i.type === "action" && i.slug === SLUG) ?? actor.items.find((i) => i.type === "action" && i.slug === "quick-alchemy");
+  if (!action) {
+    return ui.notifications.warn(`${actor.name} needs the Create Consumable action from CorpseCap's Cauldron.`);
   }
-
-  // PF2e's own Quick Alchemy crafting ability spends the versatile vial and builds the infused item, so use it when the character has it.
-  const ability = actor.crafting?.abilities.get("quick-alchemy");
-  const formulas = (
-    ability
-      ? await ability.getValidFormulas()
-      : (await actor.crafting.getFormulas()).filter((f) => f.item.level <= actor.level)
-  )
-    .filter((f) => f.item.traits.has("alchemical") && f.item.traits.has("consumable"))
-    .sort((a, b) => a.item.level - b.item.level || a.item.name.localeCompare(b.item.name));
-  if (!formulas.length) {
-    return ui.notifications.warn(`${actor.name} has no alchemical consumable formulas of their level or lower.`);
-  }
-
-  const options = formulas.map((f) => `<option value="${f.item.uuid}">${f.item.name} (level ${f.item.level})</option>`).join("");
-  const uuid = await foundry.applications.api.DialogV2.prompt({
-    window: { title: "Create Consumable" },
-    content:
-      `<p>${actor.name} expends one versatile vial (${vials} left) to create an item.</p>` +
-      `<div class="form-group"><label>Formula</label><div class="form-fields"><select name="formula">${options}</select></div></div>`,
-    ok: { label: "Create", callback: (event, button) => button.form.elements.formula.value },
-    rejectClose: false,
-  });
-  if (!uuid) return;
-
-  const formula = formulas.find((f) => f.item.uuid === uuid);
-  let created;
-  if (ability) {
-    created = await ability.craft(formula.item, { consume: true });
-  } else {
-    // Without the ability: spend the vial and add the infused, temporary item by hand.
-    const source = formula.item.toObject();
-    source.system.quantity = 1;
-    source.system.size = actor.size === "tiny" ? "tiny" : "med";
-    source.system.traits.value.push("infused");
-    source.system.temporary = true;
-    created = (await actor.createEmbeddedDocuments("Item", [source]))[0] ?? null;
-    if (created) await actor.updateResource("versatile-vials", vials - 1);
-  }
-  if (!created) return;
-
-  // In combat the item only lasts until the start of the creator's next turn.
-  const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
-  if (created.system.temporary) {
-    await created.setFlag(MODULE, "createConsumable", combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null });
-  }
-
-  say(
-    actor,
-    `<p>${actor.name} expends a versatile vial to create ${formula.item.name}. It must be activated before the start of their next turn or it becomes inert.</p>`,
-  );
+  await game.pf2e.rollItemMacro(action.uuid);
 }
 
-// Using the Create Consumable action on its own.
+// PF2e opens its formula picker for the action. Refuse to go on without a versatile vial or a free hand.
+Hooks.on("renderApplicationV2", (app) => {
+  if (app.constructor.name !== "FormulaPicker") return;
+  const { actor, item, mode } = app.options;
+  if (mode !== "craft" || item?.slug !== SLUG) return;
+
+  if (versatileVials(actor) < 1) {
+    say(actor, `<p>${actor.name} has no versatile vials left, so Create Consumable creates nothing.</p>`);
+    ui.notifications.warn(`${actor.name} has no versatile vials.`);
+    app.close();
+  } else if (!(actor.handsFree > 0)) {
+    say(actor, `<p>${actor.name} has no free hand, so Create Consumable creates nothing.</p>`);
+    ui.notifications.warn(`${actor.name} needs a free hand to use Create Consumable.`);
+    app.close();
+  }
+});
+
+// After PF2e posts its card for the action, mark the item it created so that it can expire.
 Hooks.on("createChatMessage", async (message) => {
   const action = await itemUsed(message);
-  if (action?.type === "action" && action.slug === "create-consumable") await createConsumable(action.actor);
+  if (action?.type !== "action" || action.slug !== SLUG) return;
+
+  const holder = document.createElement("div");
+  holder.innerHTML = message.content;
+  const uuid = holder.querySelector("a[data-uuid]")?.dataset.uuid;
+  const created = uuid ? await fromUuid(uuid) : null;
+  if (!created?.actor || !created.system.temporary) return;
+
+  const actor = action.actor;
+  const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
+  await created.setFlag(MODULE, "createConsumable", combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null });
 });
 
 // An item made in combat is removed when its creator's next turn begins.

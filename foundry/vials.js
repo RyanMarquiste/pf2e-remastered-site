@@ -365,7 +365,15 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       },
       frequency: null,
       publication,
-      rules: [],
+      rules: [
+        {
+          key: "CraftingAbility",
+          craftableItems: ["item:trait:alchemical", "item:trait:consumable"],
+          priority: 15,
+          resource: "versatile-vials",
+          slug: "create-consumable",
+        },
+      ],
       slug: "create-consumable",
       traits: { otherTags: [], rarity: "common", value: ["alchemist", "manipulate"] },
     },

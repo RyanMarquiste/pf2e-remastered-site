@@ -60,7 +60,7 @@ Open **Settings → Configure Settings → Marquiste Additions** and tick **Use 
 
 ## Notes on how the rules are built
 
-- **Create Consumable:** an Alchemist's versatile vials are a PF2e resource tied to the quantity of their Versatile (Volatile) Vial item. Create Consumable uses PF2e's own Quick Alchemy crafting ability, so it spends that resource and builds the infused item exactly as the Crafting tab does, and only offers alchemical consumables of the character's level or lower. It doesn't check for a toolkit or a free hand.
+- **Create Consumable:** the action carries the same kind of crafting rule as PF2e's own Quick Alchemy, so using it opens PF2e's formula picker (the same window as Quick Alchemy: search box, formulas grouped by level), spends one versatile vial, and puts the infused item in a free hand. `scripts/create-consumable.js` adds the checks around that: it refuses to continue with no versatile vials or no free hand, and in combat it removes the item at the start of the creator's next turn. The vial count is PF2e's versatile vials resource, tied to the quantity of the Versatile (Volatile) Vial item.
 - **Quick Alchemy chooser:** it works on the **Quick Alchemy (House Rule)** feat. PF2e's own Quick Alchemy button on the Crafting tab is left alone.
 
 - **Using up bomb vials:** the Volatile Vial, Bomber and Toxicologist vials have PF2e's Consumable trait, so PF2e itself takes one off their quantity whenever you make a Strike with them. When that reaches 0, `scripts/volatile-vial.js` deletes the item so no empty entry is left. Setting a vial's quantity to 0 by hand does the same.
