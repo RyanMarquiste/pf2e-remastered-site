@@ -50,7 +50,7 @@ When you first use the item:
 
 ## Notes on how the rules are built
 
-- **Insulating Paste:** the effect shows a counter badge starting at 5. PF2e doesn't track this itself, so `scripts/insulating-paste.js` (loaded by the module) watches PF2e's "damage taken" chat messages and lowers the badge by one whenever the paste's resistance reduced the damage, removing the effect at 0. It only runs on the GM's client, so a GM has to be connected. If damage is changed by hand rather than through PF2e's damage buttons, lower the badge yourself. The duration still runs out on its own.
+- **Insulating Paste:** the effect shows a counter badge starting at 5. PF2e doesn't track this itself, so `scripts/insulating-paste.js` (loaded by the module) watches PF2e's "damage taken" chat messages. When the paste's resistance reduced the damage, it posts a chat message with a **Use up one instance of protection** button. Pressing it (the character's owner or a GM) lowers the badge by one and removes the effect at 0. Each message can only be counted once. The prompt is posted from the GM's client, so a GM has to be connected. The duration still runs out on its own.
 
 - **Ichthys Mutagen:** "Breathe water" and "can't breathe air" have no rule element, so they stay as description text. The "Razor Claw" Strike is added next to the character's existing unarmed attacks rather than replacing them (the same way PF2e's Bestial Mutagen adds claws and jaws). The Perception and Wisdom-skill bonus only applies while the **Underwater** toggle on the effect is switched on. The swim Speed uses `@actor.attributes.speed.value`; if it shows 0 on a sheet, check that formula first.
 

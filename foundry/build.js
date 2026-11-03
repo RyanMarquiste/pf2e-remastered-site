@@ -360,7 +360,7 @@ for (const t of pasteTiers) {
       description: {
         value:
           `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` +
-          `<p>Resistance ${r} to the attuned damage type. The badge counts the instances of protection left. Each time this resistance reduces damage from an attack, it drops by one (counted automatically while the Marquiste Additions module is active and a GM is connected), and the effect is removed when it reaches 0.</p>`,
+          `<p>Resistance ${r} to the attuned damage type. The badge counts the instances of protection left. Each time this resistance reduces damage from an attack, lower it by one and remove the effect when it reaches 0. While the Marquiste Additions module is active and a GM is connected, a chat message with a button appears each time the paste blocks damage; press it to lower the count.</p>`,
       },
       duration: { expiry: "turn-start", sustained: false, unit: t.duration.unit, value: t.duration.value },
       level: { value: t.level },
