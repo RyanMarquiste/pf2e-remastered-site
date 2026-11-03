@@ -122,16 +122,32 @@ for (const t of tiers) {
     },
   });
 
+  const drawbackId = makeId(`effect:drawback:${t.name}`);
+  const featId = makeId(`effect:feat:${t.name}`);
+  const expiry = { expiry: "turn-start", sustained: false, unit: dur.unit, value: dur.value };
+  const common = {
+    duration: expiry,
+    level: { value: t.level },
+    publication,
+    start: { initiative: null, value: 0 },
+    tokenIcon: { show: true },
+    traits: { rarity: "common", value: [] },
+  };
+
+  // Benefits: the main effect, which also grants the drawback effect and, for characters with the feat, the feat effect.
   items.push({
     _id: effectId,
     img: IMG,
     name: `Effect: Mind Doubling Mutagen (${t.name})`,
     type: "effect",
     system: {
-      description: { value: `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` + benefit + drawback + featText },
-      duration: { expiry: "turn-start", sustained: false, unit: dur.unit, value: dur.value },
-      level: { value: t.level },
-      publication,
+      ...common,
+      description: {
+        value:
+          `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` + benefit +
+          `<p>This effect also applies @UUID[${uuidOf(drawbackId)}]` +
+          ` and, if you have the Mutant Innervation feat, @UUID[${uuidOf(featId)}].</p>`,
+      },
       rules: [
         {
           key: "FlatModifier",
@@ -148,6 +164,22 @@ for (const t of tiers) {
           type: "item",
           value: b,
         },
+        { key: "GrantItem", uuid: uuidOf(thinkingId) },
+        { key: "GrantItem", uuid: uuidOf(drawbackId) },
+        { key: "GrantItem", uuid: uuidOf(featId), predicate: ["feat:mutant-innervation"] },
+      ],
+    },
+  });
+
+  items.push({
+    _id: drawbackId,
+    img: IMG,
+    name: `Effect: Mind Doubling Mutagen Drawbacks (${t.name})`,
+    type: "effect",
+    system: {
+      ...common,
+      description: { value: `<p>Granted by @UUID[${uuidOf(effectId)}]</p>` + drawback },
+      rules: [
         {
           key: "FlatModifier",
           selector: ["acrobatics", "stealth", "thievery"],
@@ -163,17 +195,19 @@ for (const t of tiers) {
           value: -2,
         },
         { key: "Weakness", type: "mental", value: 5 },
-        {
-          key: "RollTwice",
-          keep: "higher",
-          predicate: ["feat:mutant-innervation", "item:trait:mental"],
-          selector: "saving-throw",
-        },
-        { key: "GrantItem", uuid: uuidOf(thinkingId) },
       ],
-      start: { initiative: null, value: 0 },
-      tokenIcon: { show: true },
-      traits: { rarity: "common", value: [] },
+    },
+  });
+
+  items.push({
+    _id: featId,
+    img: IMG,
+    name: `Effect: Mind Doubling Mutagen, Mutant Innervation (${t.name})`,
+    type: "effect",
+    system: {
+      ...common,
+      description: { value: `<p>Granted by @UUID[${uuidOf(effectId)}] to characters with the Mutant Innervation feat.</p>` + featText },
+      rules: [{ key: "RollTwice", keep: "higher", predicate: ["item:trait:mental"], selector: "saving-throw" }],
     },
   });
 }

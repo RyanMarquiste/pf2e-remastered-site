@@ -1,0 +1,47 @@
+{
+    "_key": "!items!Yen5o0HXzhSDefpK",
+    "_id": "Yen5o0HXzhSDefpK",
+    "img": "modules/marquiste-additions/images/mind-doubling-mutagen.png",
+    "name": "Effect: Mind Doubling Mutagen, Mutant Innervation (Greater)",
+    "type": "effect",
+    "system": {
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 11
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        },
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.EO3OtiRjaQ3Cbvrm] to characters with the Mutant Innervation feat.</p><p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, your brains have become adept at working together to fend off mental attacks. Whenever you attempt a saving throw against a mental effect, roll twice and take the better of the two results. This is a fortune effect.</p>"
+        },
+        "rules": [
+            {
+                "key": "RollTwice",
+                "keep": "higher",
+                "predicate": [
+                    "item:trait:mental"
+                ],
+                "selector": "saving-throw"
+            }
+        ]
+    }
+}
