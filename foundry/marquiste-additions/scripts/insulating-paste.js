@@ -23,11 +23,13 @@ Hooks.on("createChatMessage", async (message) => {
   }
 
   for (const effect of effects) {
-    const type = effect.flags[MODULE]?.damageType;
-    const label = actor.attributes.resistances.find((r) => r.type === type)?.label;
-    if (!label) continue;
+    const type = effect.flags.pf2e?.rulesSelections?.damageType;
+    const resistance = actor.attributes.resistances.find((r) => r.type === type);
+    const labels = [resistance?.applicationLabel, resistance?.label].filter(Boolean);
+    console.debug(`${MODULE} | paste on ${actor.name}: type=${type}, labels=${JSON.stringify(labels)}, applications=${JSON.stringify(applications)}`);
+    if (!labels.length) continue;
 
-    const reduced = applications.some((a) => a.category === "resistance" && !a.ignored && a.adjustment < 0 && a.type === label);
+    const reduced = applications.some((a) => a.category === "resistance" && !a.ignored && a.adjustment < 0 && labels.includes(a.type));
     if (!reduced) continue;
 
     await ChatMessage.create({

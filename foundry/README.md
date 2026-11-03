@@ -3,7 +3,7 @@
 `marquiste-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains two mutagens and Insulating Paste, each with 4 consumables (Lesser, Moderate, Greater, Major, priced and levelled like the other mutagens) and 4 matching `Effect:` items that apply the numbers through PF2e rule elements:
 
 - **Mind Doubling Mutagen**: bonuses, penalties, weakness and the Mutant Innervation re-roll, plus the **Co-ordinated Thinking** free action, which the effect grants to the character while it lasts
-- **Insulating Paste**: one set of items for each of acid, cold, electricity and fire (the type is picked by choosing the item, e.g. "Insulating Paste (Fire, Lesser)"), resistance 5/10/15/20 to that type, and a badge counter of 5 instances of protection
+- **Insulating Paste**: a choice of acid, cold, electricity or fire when the effect is applied (the same way PF2e's Energy Mutagen does it), resistance 5/10/15/20 to that type, and a badge counter of 5 instances of protection
 - **Ichthys Mutagen**: swim Speed equal to land Speed, an item bonus to unarmed attacks, a slashing "Razor Claw" unarmed Strike, a toggleable "Underwater" option for the Perception and Wisdom-skill bonus, the Athletics penalty, and weakness 5 to electricity
 
 The files were written against the PF2e system's own mutagen data (Cognitive Mutagen) but have **not been loaded into a running Foundry yet**, so expect to check them once (see "Check it" below).

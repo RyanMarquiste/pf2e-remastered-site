@@ -299,22 +299,15 @@ const pasteTiers = [
   { name: "Major", level: 17, resistance: 20, gp: 3000, duration: { unit: "hours", value: 24, text: "24 hours" } },
 ];
 
-const pasteTypes = [
-  { value: "acid", label: "Acid" },
-  { value: "cold", label: "Cold" },
-  { value: "electricity", label: "Electricity" },
-  { value: "fire", label: "Fire" },
-];
-
-for (const ty of pasteTypes) for (const t of pasteTiers) {
-  const effectId = makeId(`effect:Paste:${ty.value}:${t.name}`);
-  const itemId = makeId(`item:Paste:${ty.value}:${t.name}`);
+for (const t of pasteTiers) {
+  const effectId = makeId(`effect:Paste:${t.name}`);
+  const itemId = makeId(`item:Paste:${t.name}`);
   const r = t.resistance;
 
   const body =
-    `<p>This Insulating Paste is attuned to ${ty.value} damage.</p>` +
+    "<p>When created, Insulating Paste is attuned to one damage type: acid, cold, electricity, or fire.</p>" +
     "<p>Slather Insulating Paste over a willing or unconscious creature's exposed skin. Once applied, it remains as a thin film on the " +
-    `creature's skin, granting the creature resistance ${r} to ${ty.value} damage.</p>`;
+    `creature's skin, granting the creature resistance ${r} to the attuned damage type.</p>`;
   const wearing =
     "<p>Insulating Paste grants 5 instances of protection, regardless of tier. Each time this resistance reduces damage from an attack, " +
     "the paste loses one instance of protection, wearing away a little more. Once it has no instances of protection remaining, the film " +
@@ -324,7 +317,7 @@ for (const ty of pasteTypes) for (const t of pasteTiers) {
   items.push({
     _id: itemId,
     img: PASTE_IMG,
-    name: `Insulating Paste (${ty.label}, ${t.name})`,
+    name: `Insulating Paste (${t.name})`,
     type: "consumable",
     system: {
       baseItem: null,
@@ -359,21 +352,33 @@ for (const ty of pasteTypes) for (const t of pasteTiers) {
   items.push({
     _id: effectId,
     img: PASTE_IMG,
-    name: `Effect: Insulating Paste (${ty.label}, ${t.name})`,
+    name: `Effect: Insulating Paste (${t.name})`,
     type: "effect",
-    flags: { [MODULE_ID]: { damageType: ty.value } },
     system: {
       slug: "insulating-paste",
       badge: { type: "counter", value: 5 },
       description: {
         value:
           `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` +
-          `<p>Resistance ${r} to ${ty.value} damage. The badge counts the instances of protection left. Each time this resistance reduces damage from an attack, lower it by one and remove the effect when it reaches 0. While the Marquiste Additions module is active and a GM is connected, a chat message with a button appears each time the paste blocks damage; press it to lower the count.</p>`,
+          `<p>Resistance ${r} to the attuned damage type. The badge counts the instances of protection left. Each time this resistance reduces damage from an attack, lower it by one and remove the effect when it reaches 0. While the Marquiste Additions module is active and a GM is connected, a chat message with a button appears each time the paste blocks damage; press it to lower the count.</p>`,
       },
       duration: { expiry: "turn-start", sustained: false, unit: t.duration.unit, value: t.duration.value },
       level: { value: t.level },
       publication,
-      rules: [{ key: "Resistance", type: ty.value, value: r }],
+      rules: [
+        {
+          key: "ChoiceSet",
+          choices: [
+            { label: "PF2E.TraitAcid", value: "acid" },
+            { label: "PF2E.TraitCold", value: "cold" },
+            { label: "PF2E.TraitElectricity", value: "electricity" },
+            { label: "PF2E.TraitFire", value: "fire" },
+          ],
+          flag: "damageType",
+          prompt: "Attuned damage type",
+        },
+        { key: "Resistance", type: "{item|flags.pf2e.rulesSelections.damageType}", value: r },
+      ],
       start: { initiative: null, value: 0 },
       tokenIcon: { show: true },
       traits: { rarity: "common", value: [] },
