@@ -21,7 +21,8 @@
         ]
     },
     "esmodules": [
-        "scripts/insulating-paste.js"
+        "scripts/insulating-paste.js",
+        "scripts/volatile-vial.js"
     ],
     "packs": [
         {

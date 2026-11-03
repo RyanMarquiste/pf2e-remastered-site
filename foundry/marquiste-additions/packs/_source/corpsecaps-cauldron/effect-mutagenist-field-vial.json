@@ -1,0 +1,52 @@
+{
+    "_key": "!items!9W6jshVDj788M61Y",
+    "_id": "9W6jshVDj788M61Y",
+    "img": "modules/marquiste-additions/images/mutagenist-field-vial.png",
+    "name": "Effect: Mutagenist Field Vial",
+    "type": "effect",
+    "system": {
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.5m8cH2wkVHarCRV7]</p><p>The drawback of one mutagen affecting you is suppressed for the duration. Disable that mutagen's drawback effect yourself while this lasts.</p><p><strong>Advanced Vial (11th level)</strong> You also have resistance to physical damage equal to half your level.</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "Resistance",
+                "type": "physical",
+                "value": "floor(@actor.level/2)",
+                "predicate": [
+                    {
+                        "gte": [
+                            "self:level",
+                            11
+                        ]
+                    }
+                ]
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

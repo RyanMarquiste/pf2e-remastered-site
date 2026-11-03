@@ -431,6 +431,14 @@ for (const t of pasteTiers) {
   });
 }
 
+require("./vials")({
+  items,
+  publication,
+  makeId,
+  uuidOf,
+  img: (name) => `modules/${MODULE_ID}/images/${name}.png`,
+});
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 for (const item of items) {
@@ -448,7 +456,7 @@ const moduleJson = {
   authors: [{ name: "Ryan Marquiste" }],
   compatibility: { minimum: "13", verified: "13" },
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
-  esmodules: ["scripts/insulating-paste.js"],
+  esmodules: ["scripts/insulating-paste.js", "scripts/volatile-vial.js"],
   packs: [
     {
       name: PACK,

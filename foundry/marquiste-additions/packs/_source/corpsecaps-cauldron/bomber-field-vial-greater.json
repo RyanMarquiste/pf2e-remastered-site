@@ -1,0 +1,162 @@
+{
+    "_key": "!items!vXtAGgyqU7DCIvWu",
+    "_id": "vXtAGgyqU7DCIvWu",
+    "img": "modules/marquiste-additions/images/bomber-field-vial.png",
+    "name": "Bomber Field Vial (Greater)",
+    "type": "weapon",
+    "system": {
+        "ammo": null,
+        "baseItem": "alchemical-bomb",
+        "bonus": {
+            "value": 0
+        },
+        "bonusDamage": {
+            "value": 0
+        },
+        "bulk": {
+            "value": 0
+        },
+        "category": "martial",
+        "containerId": null,
+        "damage": {
+            "damageType": "acid",
+            "dice": 1,
+            "die": "d6"
+        },
+        "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A corked flask holding a chaotic mixture of four thin liquids that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange.</em></p><p>When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type, and the vial has the matching damage trait.</p><p>The bomb deals 3d6 damage of the chosen type and 3 splash damage of that type.</p><p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your choice: adamantine, cold iron, or dawnsilver.</p><p><strong>Fleeting</strong> This item lasts only until the end of the turn it was created on, then becomes inert.</p>"
+        },
+        "expend": 1,
+        "grade": null,
+        "group": "bomb",
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 12
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {}
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "range": 20,
+        "reload": {
+            "value": "-"
+        },
+        "rules": [
+            {
+                "key": "ChoiceSet",
+                "choices": [
+                    {
+                        "label": "PF2E.TraitAcid",
+                        "value": "acid"
+                    },
+                    {
+                        "label": "PF2E.TraitCold",
+                        "value": "cold"
+                    },
+                    {
+                        "label": "PF2E.TraitElectricity",
+                        "value": "electricity"
+                    },
+                    {
+                        "label": "PF2E.TraitFire",
+                        "value": "fire"
+                    }
+                ],
+                "flag": "damageType",
+                "prompt": "Damage type"
+            },
+            {
+                "hideIfDisabled": true,
+                "key": "FlatModifier",
+                "predicate": [
+                    {
+                        "gte": [
+                            "parent:level",
+                            4
+                        ]
+                    }
+                ],
+                "selector": "{item|id}-attack",
+                "type": "item",
+                "value": "ternary(gte(@item.level,18),3,ternary(gte(@item.level,12),2,1))"
+            },
+            {
+                "key": "DamageAlteration",
+                "mode": "upgrade",
+                "property": "dice-number",
+                "selectors": [
+                    "{item|id}-damage"
+                ],
+                "slug": "base",
+                "value": "ternary(gte(@item.level,18),4,ternary(gte(@item.level,12),3,ternary(gte(@item.level,4),2,1)))"
+            },
+            {
+                "key": "AdjustModifier",
+                "mode": "upgrade",
+                "selector": "{item|id}-damage",
+                "slug": "splash",
+                "value": "ternary(gte(@item.level,18),4,ternary(gte(@item.level,12),3,ternary(gte(@item.level,4),2,1)))"
+            },
+            {
+                "key": "DamageAlteration",
+                "mode": "override",
+                "property": "damage-type",
+                "selectors": [
+                    "{item|id}-damage"
+                ],
+                "slug": "base",
+                "value": "{item|flags.pf2e.rulesSelections.damageType}"
+            },
+            {
+                "key": "DamageAlteration",
+                "mode": "override",
+                "property": "damage-type",
+                "selectors": [
+                    "{item|id}-damage"
+                ],
+                "slug": "splash",
+                "value": "{item|flags.pf2e.rulesSelections.damageType}"
+            }
+        ],
+        "runes": {
+            "potency": 0,
+            "property": [],
+            "striking": 0
+        },
+        "size": "med",
+        "splashDamage": {
+            "value": 1
+        },
+        "traits": {
+            "otherTags": [
+                "fleeting"
+            ],
+            "rarity": "common",
+            "value": [
+                "alchemical",
+                "bomb",
+                "consumable",
+                "infused",
+                "splash"
+            ]
+        },
+        "usage": {
+            "canBeAmmo": false,
+            "value": "held-in-one-hand"
+        },
+        "slug": "bomber-field-vial"
+    }
+}

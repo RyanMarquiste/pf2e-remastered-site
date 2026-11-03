@@ -2,7 +2,7 @@
 # Usage: powershell -ExecutionPolicy Bypass -File foundry/make-icons.ps1
 Add-Type -AssemblyName System.Drawing
 $root = Split-Path -Parent $PSScriptRoot
-$names = "mind-doubling-mutagen", "ichthys-mutagen", "insulating-paste"
+$names = "mind-doubling-mutagen", "ichthys-mutagen", "insulating-paste", "volatile-vial", "bomber-field-vial", "chirurgeon-field-vial", "mutagenist-field-vial", "toxicologist-field-vial", "toxic-coating", "advanced-toxic-coating"
 $size = 512
 $fit = 460
 foreach ($name in $names) {

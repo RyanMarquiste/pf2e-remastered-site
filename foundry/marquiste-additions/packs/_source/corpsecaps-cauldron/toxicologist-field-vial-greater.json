@@ -1,0 +1,120 @@
+{
+    "_key": "!items!RKR5IRsRyWL7pjWr",
+    "_id": "RKR5IRsRyWL7pjWr",
+    "img": "modules/marquiste-additions/images/toxicologist-field-vial.png",
+    "name": "Toxicologist Field Vial (Greater)",
+    "type": "weapon",
+    "system": {
+        "ammo": null,
+        "baseItem": "alchemical-bomb",
+        "bonus": {
+            "value": 0
+        },
+        "bonusDamage": {
+            "value": 0
+        },
+        "bulk": {
+            "value": 0
+        },
+        "category": "martial",
+        "containerId": null,
+        "damage": {
+            "damageType": "poison",
+            "dice": 1,
+            "die": "d6"
+        },
+        "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A corked flask of oily, black-green liquid that clings to the glass in slow, dripping strands, with a bitter, acrid smell.</em></p><p>The bomb deals 3d6 poison damage and 3 poison splash damage.</p><p><strong>Field Benefit</strong> The Toxicologist research field's benefit of interchanging acid and poison damage still applies to this vial. Applying the vial to your own weapon or ammunition as a single action also uses the Toxicologist's field benefit.</p><p><strong>Applied</strong> <span class=\"action-glyph\">A</span> Interact. Apply the vial as an injury poison to a weapon you're holding, or to a piece of ammunition on your person or loaded in a weapon you're holding. The vial is used up, and the weapon or ammunition gains one of these effects:</p><ul><li>@UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.22j6NKYJVMIj0Q74]{Toxic Coating} The vial's initial damage is added to the first successful Strike with the coated weapon or ammunition.</li><li>@UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.ZVuQW8Bzfdpxbizu]{Advanced Toxic Coating} (Advanced Vial, 11th level) As Toxic Coating, and the creature also takes persistent poison damage equal to the vial's splash damage.</li></ul><p><strong>Special</strong> If your previous action was to create this vial with Quick Alchemy, applying it to a weapon you're holding, or to ammunition on your person or loaded in a weapon you're holding, costs no action. This is a feature of the Toxicologist's Field Benefit.</p><p><strong>Fleeting</strong> This item lasts only until the end of the turn it was created on, then becomes inert.</p>"
+        },
+        "expend": 1,
+        "grade": null,
+        "group": "bomb",
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 12
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {}
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "range": 20,
+        "reload": {
+            "value": "-"
+        },
+        "rules": [
+            {
+                "hideIfDisabled": true,
+                "key": "FlatModifier",
+                "predicate": [
+                    {
+                        "gte": [
+                            "parent:level",
+                            4
+                        ]
+                    }
+                ],
+                "selector": "{item|id}-attack",
+                "type": "item",
+                "value": "ternary(gte(@item.level,18),3,ternary(gte(@item.level,12),2,1))"
+            },
+            {
+                "key": "DamageAlteration",
+                "mode": "upgrade",
+                "property": "dice-number",
+                "selectors": [
+                    "{item|id}-damage"
+                ],
+                "slug": "base",
+                "value": "ternary(gte(@item.level,18),4,ternary(gte(@item.level,12),3,ternary(gte(@item.level,4),2,1)))"
+            },
+            {
+                "key": "AdjustModifier",
+                "mode": "upgrade",
+                "selector": "{item|id}-damage",
+                "slug": "splash",
+                "value": "ternary(gte(@item.level,18),4,ternary(gte(@item.level,12),3,ternary(gte(@item.level,4),2,1)))"
+            }
+        ],
+        "runes": {
+            "potency": 0,
+            "property": [],
+            "striking": 0
+        },
+        "size": "med",
+        "splashDamage": {
+            "value": 1
+        },
+        "traits": {
+            "otherTags": [
+                "fleeting"
+            ],
+            "rarity": "common",
+            "value": [
+                "alchemical",
+                "bomb",
+                "consumable",
+                "infused",
+                "poison",
+                "splash"
+            ]
+        },
+        "usage": {
+            "canBeAmmo": false,
+            "value": "held-in-one-hand"
+        },
+        "slug": "toxicologist-field-vial"
+    }
+}

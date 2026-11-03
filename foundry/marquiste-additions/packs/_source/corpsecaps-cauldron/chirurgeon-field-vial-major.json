@@ -1,0 +1,69 @@
+{
+    "_key": "!items!xs7uSHs1QPDlEb3x",
+    "_id": "xs7uSHs1QPDlEb3x",
+    "img": "modules/marquiste-additions/images/chirurgeon-field-vial.png",
+    "name": "Chirurgeon Field Vial (Major)",
+    "type": "consumable",
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "category": "other",
+        "containerId": null,
+        "damage": {
+            "formula": "4d6",
+            "kind": "healing",
+            "type": "untyped"
+        },
+        "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p><hr /><p><em>A corked flask of thick, rust-red liquid that clings and clots at the glass when tipped, flecked with bits of green herb and smelling of iron and crushed herbs.</em></p><p>Instead of dealing damage, this vial restores Hit Points to one living creature. You can either drink the vial yourself, or throw it at a willing creature within 20 feet. The creature that drinks or is hit by the vial regains @Damage[4d6[healing]] Hit Points. If the vial is drunk, it also has the elixir trait.</p><p><strong>Coagulant</strong> A creature that recovers Hit Points from a coagulant item can't recover Hit Points from another coagulant item for 10 minutes, though it still gains their other effects.</p><p><strong>Advanced Vial (11th level)</strong> When the vial heals a creature with half its maximum Hit Points or fewer, the coagulant trait doesn't apply to that healing.</p><p><strong>Fleeting</strong> This item lasts only until the end of the turn it was created on, then becomes inert.</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 18
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {}
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "chirurgeon-field-vial",
+        "traits": {
+            "otherTags": [
+                "fleeting"
+            ],
+            "rarity": "common",
+            "value": [
+                "alchemical",
+                "bomb",
+                "coagulant",
+                "consumable",
+                "healing",
+                "infused"
+            ]
+        },
+        "usage": {
+            "value": "held-in-one-hand"
+        },
+        "uses": {
+            "autoDestroy": true,
+            "max": 1,
+            "value": 1
+        }
+    }
+}
