@@ -23,7 +23,7 @@ Hooks.on("createChatMessage", async (message) => {
   }
 
   for (const effect of effects) {
-    const type = effect.flags.pf2e?.rulesSelections?.damageType;
+    const type = effect.flags[MODULE]?.damageType;
     const label = actor.attributes.resistances.find((r) => r.type === type)?.label;
     if (!label) continue;
 
