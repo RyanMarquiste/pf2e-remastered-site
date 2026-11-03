@@ -20,6 +20,9 @@
             }
         ]
     },
+    "esmodules": [
+        "scripts/insulating-paste.js"
+    ],
     "packs": [
         {
             "name": "corpsecaps-cauldron",

@@ -15,7 +15,8 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `build.js` | Generates the item JSON and `module.json`. Edit this when the item changes, then run `node foundry/build.js`. |
 | `marquiste-additions/module.json` | Module manifest. |
 | `marquiste-additions/packs/_source/corpsecaps-cauldron/*.json` | One JSON file per item (the editable source). |
-| `marquiste-additions/images/` | Item art, referenced as `modules/marquiste-additions/images/...`. |
+| `marquiste-additions/images/` | Item art (square, black background), referenced as `modules/marquiste-additions/images/...`. Regenerate from the site art with `foundry/make-icons.ps1`. |
+| `marquiste-additions/scripts/` | Small scripts the module loads (currently the Insulating Paste counter). |
 | `marquiste-additions/packs/corpsecaps-cauldron/` | The compiled compendium. **Not in the repo**: you build it in step 1. |
 
 ## Install
@@ -49,14 +50,14 @@ When you first use the item:
 
 ## Notes on how the rules are built
 
-- **Insulating Paste:** the effect shows a counter badge starting at 5. PF2e can't tell when the resistance reduced an attack, so lower the badge by hand each time it does and delete the effect at 0. The duration still runs out on its own.
+- **Insulating Paste:** the effect shows a counter badge starting at 5. PF2e doesn't track this itself, so `scripts/insulating-paste.js` (loaded by the module) watches PF2e's "damage taken" chat messages and lowers the badge by one whenever the paste's resistance reduced the damage, removing the effect at 0. It only runs on the GM's client, so a GM has to be connected. If damage is changed by hand rather than through PF2e's damage buttons, lower the badge yourself. The duration still runs out on its own.
 
 - **Ichthys Mutagen:** "Breathe water" and "can't breathe air" have no rule element, so they stay as description text. The "Razor Claw" Strike is added next to the character's existing unarmed attacks rather than replacing them (the same way PF2e's Bestial Mutagen adds claws and jaws). The Perception and Wisdom-skill bonus only applies while the **Underwater** toggle on the effect is switched on. The swim Speed uses `@actor.attributes.speed.value`; if it shows 0 on a sheet, check that formula first.
 
 - Mental and emotion saves use the predicate `item:trait:mental` or `item:trait:emotion`, the same pattern PF2e's own effects use. A save against something that isn't tagged with those traits won't get the bonus.
 - "Intelligence-based skill checks" is expressed as the skills Arcana, Crafting, Lore, Occultism and Society, plus Perception.
 - The re-roll needs the character to own a feat with the slug `mutant-innervation`. If the system names that feat differently, edit the `RollTwice` predicate in `build.js`.
-- The item art is the site's flask image. Foundry shows it as the item and effect icon.
+- The item art is the site's image on a square black background. Foundry shows it as the item and effect icon.
 
 ## Changing or adding items
 

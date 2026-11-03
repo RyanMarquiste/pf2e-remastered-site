@@ -355,11 +355,12 @@ for (const t of pasteTiers) {
     name: `Effect: Insulating Paste (${t.name})`,
     type: "effect",
     system: {
+      slug: "insulating-paste",
       badge: { type: "counter", value: 5 },
       description: {
         value:
           `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` +
-          `<p>Resistance ${r} to the attuned damage type. The badge counts the instances of protection left: lower it by one each time this resistance reduces damage from an attack, and remove the effect when it reaches 0.</p>`,
+          `<p>Resistance ${r} to the attuned damage type. The badge counts the instances of protection left. Each time this resistance reduces damage from an attack, it drops by one (counted automatically while the Marquiste Additions module is active and a GM is connected), and the effect is removed when it reaches 0.</p>`,
       },
       duration: { expiry: "turn-start", sustained: false, unit: t.duration.unit, value: t.duration.value },
       level: { value: t.level },
@@ -402,6 +403,7 @@ const moduleJson = {
   authors: [{ name: "Ryan Marquiste" }],
   compatibility: { minimum: "13", verified: "13" },
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
+  esmodules: ["scripts/insulating-paste.js"],
   packs: [
     {
       name: PACK,
