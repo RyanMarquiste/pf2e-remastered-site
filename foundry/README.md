@@ -1,10 +1,9 @@
 # Foundry VTT export (PF2e system)
 
-`marquiste-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains the **Mind Doubling Mutagen**:
+`marquiste-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains two mutagens, each with 4 consumables (Lesser, Moderate, Greater, Major, priced and levelled like the other mutagens) and 4 matching `Effect:` items that apply the numbers through PF2e rule elements:
 
-- 4 consumables (Lesser, Moderate, Greater, Major), priced and levelled like the other mutagens
-- 4 matching `Effect:` items that apply the bonuses, penalties, weakness and the Mutant Innervation re-roll through PF2e rule elements
-- the **Co-ordinated Thinking** free action, which the effect grants to the character while it lasts
+- **Mind Doubling Mutagen**: bonuses, penalties, weakness and the Mutant Innervation re-roll, plus the **Co-ordinated Thinking** free action, which the effect grants to the character while it lasts
+- **Ichthys Mutagen**: swim Speed equal to land Speed, an item bonus to unarmed attacks, a slashing "Razor Claw" unarmed Strike, a toggleable "Underwater" option for the Perception and Wisdom-skill bonus, the Athletics penalty, and weakness 5 to electricity
 
 The files were written against the PF2e system's own mutagen data (Cognitive Mutagen) but have **not been loaded into a running Foundry yet**, so expect to check them once (see "Check it" below).
 
@@ -34,7 +33,7 @@ Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has t
 
 3. In your world, go to **Settings → Manage Modules**, enable **Marquiste Additions**, and save.
 
-4. Open the **Compendium Packs** tab. The **CorpseCap's Cauldron** pack appears under Marquiste Additions. Drag a Mind Doubling Mutagen onto a character sheet.
+4. Open the **Compendium Packs** tab. The **CorpseCap's Cauldron** pack appears under Marquiste Additions. Drag a mutagen onto a character sheet.
 
 `module.json` asks for Foundry v13 as the minimum. If yours is a different version, change `compatibility` in `build.js` and rebuild.
 
@@ -48,6 +47,8 @@ When you first use the item:
 4. If the character has the Mutant Innervation feat, Will saves against mental effects should roll twice and keep the higher result.
 
 ## Notes on how the rules are built
+
+- **Ichthys Mutagen:** "Breathe water" and "can't breathe air" have no rule element, so they stay as description text. The "Razor Claw" Strike is added next to the character's existing unarmed attacks rather than replacing them (the same way PF2e's Bestial Mutagen adds claws and jaws). The Perception and Wisdom-skill bonus only applies while the **Underwater** toggle on the effect is switched on. The swim Speed uses `@actor.attributes.speed.value`; if it shows 0 on a sheet, check that formula first.
 
 - Mental and emotion saves use the predicate `item:trait:mental` or `item:trait:emotion`, the same pattern PF2e's own effects use. A save against something that isn't tagged with those traits won't get the bonus.
 - "Intelligence-based skill checks" is expressed as the skills Arcana, Crafting, Lore, Occultism and Society, plus Perception.

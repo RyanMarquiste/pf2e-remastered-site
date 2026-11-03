@@ -1,4 +1,4 @@
-// Generates the Foundry VTT (PF2e system) source files for the Mind Doubling Mutagen.
+// Generates the Foundry VTT (PF2e system) source files for the alchemical items in CorpseCap's Cauldron.
 // Usage: node foundry/build.js   (then see foundry/README.md to compile the compendium pack)
 const fs = require("fs");
 const path = require("path");
@@ -7,6 +7,7 @@ const crypto = require("crypto");
 const MODULE_ID = "marquiste-additions";
 const PACK = "corpsecaps-cauldron";
 const IMG = `modules/${MODULE_ID}/images/mind-doubling-mutagen.png`;
+const ICHTHYS_IMG = `modules/${MODULE_ID}/images/ichthys-mutagen.png`;
 const OUT = path.join(__dirname, MODULE_ID, "packs", "_source", PACK);
 
 const ALPHANUM = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -168,6 +169,120 @@ for (const t of tiers) {
           selector: "saving-throw",
         },
         { key: "GrantItem", uuid: uuidOf(thinkingId) },
+      ],
+      start: { initiative: null, value: 0 },
+      tokenIcon: { show: true },
+      traits: { rarity: "common", value: [] },
+    },
+  });
+}
+
+const ichthysTiers = [
+  { name: "Lesser", level: 1, bonus: 1, die: 6, dice: 1, gp: 4, duration: { unit: "minutes", value: 1, text: "1 minute" } },
+  { name: "Moderate", level: 3, bonus: 2, die: 6, dice: 2, gp: 12, duration: { unit: "minutes", value: 10, text: "10 minutes" } },
+  { name: "Greater", level: 11, bonus: 3, die: 8, dice: 3, gp: 300, duration: { unit: "hours", value: 1, text: "1 hour" } },
+  { name: "Major", level: 17, bonus: 4, die: 8, dice: 4, gp: 3000, duration: { unit: "hours", value: 1, text: "1 hour" } },
+];
+
+for (const t of ichthysTiers) {
+  const effectId = makeId(`effect:Ichthys:${t.name}`);
+  const itemId = makeId(`item:Ichthys:${t.name}`);
+  const b = t.bonus;
+  const dur = t.duration;
+  const damage = `${t.dice}d${t.die}`;
+
+  const body =
+    "<p>While under the effects of this mutagen, your body slims and sleeks into a fish-like form, gills opening along your neck " +
+    "and faint scales rippling across your skin.</p>";
+  const benefit =
+    `<p><strong>Benefit</strong> You gain a swim Speed equal to your land Speed, and you can breathe water. Your unarmed attacks grow ` +
+    `razor-edged: you gain a +${b} item bonus to unarmed attack rolls, and your unarmed attacks deal ${damage} slashing damage instead of ` +
+    `their normal damage, gain the agile trait, and lose the nonlethal trait. Striking runes don't modify this damage. While you are ` +
+    `underwater, you also gain a +${b} item bonus to Perception checks and to Wisdom-based skill checks (Medicine, Nature, Religion, and Survival).</p>`;
+  const drawback =
+    "<p><strong>Drawback</strong> You can't breathe air. While you are out of water you suffocate as normal, though you can hold your " +
+    "breath as usual. Your wet, conductive body gives you weakness 5 to electricity, and your lithe, less bulky frame gives you a " +
+    "–1 item penalty to Strength-based skill checks, such as Athletics.</p>";
+
+  items.push({
+    _id: itemId,
+    img: ICHTHYS_IMG,
+    name: `Ichthys Mutagen (${t.name})`,
+    type: "consumable",
+    system: {
+      baseItem: null,
+      bulk: { value: 0.1 },
+      category: "mutagen",
+      containerId: null,
+      damage: null,
+      description: {
+        value:
+          `<p><strong>Activate</strong> <span class="action-glyph">A</span> (manipulate)</p><hr />` +
+          `<p><em>A small vial of cloudy, brine-scented liquid, flecked with tiny pearlescent scales that drift and glitter when the glass is tilted.</em></p>` +
+          body +
+          benefit +
+          drawback +
+          `<p><strong>Duration</strong> ${dur.text}.</p>` +
+          `<p>@UUID[${uuidOf(effectId)}]</p>`,
+      },
+      hardness: 0,
+      hp: { max: 0, value: 0 },
+      level: { value: t.level },
+      material: { grade: null, type: null },
+      price: { value: { gp: t.gp } },
+      publication,
+      quantity: 1,
+      rules: [],
+      size: "med",
+      traits: { rarity: "common", value: ["alchemical", "consumable", "elixir", "mutagen", "polymorph"] },
+      usage: { value: "held-in-one-hand" },
+      uses: { autoDestroy: true, max: 1, value: 1 },
+    },
+  });
+
+  items.push({
+    _id: effectId,
+    img: ICHTHYS_IMG,
+    name: `Effect: Ichthys Mutagen (${t.name})`,
+    type: "effect",
+    system: {
+      description: { value: `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` + benefit + drawback },
+      duration: { expiry: "turn-start", sustained: false, unit: dur.unit, value: dur.value },
+      level: { value: t.level },
+      publication,
+      rules: [
+        { key: "BaseSpeed", selector: "swim", value: "@actor.attributes.speed.value" },
+        { key: "FlatModifier", selector: "unarmed-attack-roll", slug: "ichthys-mutagen-attack", type: "item", value: b },
+        {
+          key: "Strike",
+          baseType: "claw",
+          category: "unarmed",
+          damage: { base: { damageType: "slashing", dice: t.dice, die: `d${t.die}` } },
+          group: "brawling",
+          img: "icons/commodities/claws/claw-bear-brown-grey.webp",
+          label: "Razor Claw",
+          range: null,
+          slug: "ichthys-razor-claw",
+          traits: ["unarmed", "agile"],
+        },
+        {
+          key: "RollOption",
+          domain: "all",
+          option: "ichthys-underwater",
+          label: "Underwater",
+          toggleable: true,
+          value: false,
+        },
+        {
+          key: "FlatModifier",
+          predicate: ["ichthys-underwater"],
+          selector: ["perception", "medicine", "nature", "religion", "survival"],
+          slug: "ichthys-mutagen-underwater",
+          type: "item",
+          value: b,
+        },
+        { key: "FlatModifier", selector: "athletics", slug: "ichthys-mutagen-drawback-athletics", type: "item", value: -1 },
+        { key: "Weakness", type: "electricity", value: 5 },
       ],
       start: { initiative: null, value: 0 },
       tokenIcon: { show: true },
