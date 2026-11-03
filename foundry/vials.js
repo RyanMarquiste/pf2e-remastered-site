@@ -328,6 +328,31 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     },
   });
 
+  // Quick Vial as its own action. The module script (scripts/quick-vial.js) creates the vial when the action is used.
+  items.push({
+    _id: makeId("action:Quick Vial"),
+    img: "systems/pf2e/icons/actions/OneAction.webp",
+    name: "Quick Vial",
+    type: "action",
+    system: {
+      actionType: { value: "action" },
+      actions: { value: 1 },
+      category: "interaction",
+      description: {
+        value:
+          "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p><hr />" +
+          "<p>This is the Quick Vial option of Quick Alchemy. Create either a volatile vial or the field vial for your research field. The vial can be used only as a bomb or " +
+          "for the volatile vial option from your research field. It has the infused trait and must be activated by the end of your current turn or else it becomes inert.</p>" +
+          "<p>Using Quick Vial does not expend a versatile vial. The vial's tier matches your level: Lesser at 1st, Moderate at 4th, Greater at 12th, and Major at 18th.</p>",
+      },
+      frequency: null,
+      publication,
+      rules: [],
+      slug: "quick-vial",
+      traits: { otherTags: [], rarity: "common", value: ["alchemist", "manipulate"] },
+    },
+  });
+
   // Quick Alchemy as the house rules revise it. It does not change PF2e's built-in Quick Alchemy; swap it onto an Alchemist by hand.
   items.push({
     _id: makeId("feat:Quick Alchemy (House Rule)"),

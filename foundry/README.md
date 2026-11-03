@@ -6,6 +6,7 @@
 - **Insulating Paste**: a choice of acid, cold, electricity or fire when the effect is applied (the same way PF2e's Energy Mutagen does it), resistance 5/10/15/20 to that type, and a badge counter of 5 instances of protection
 - **Volatile Vial** (Lesser, Moderate, Greater, Major; levels 1/4/12/18): a bomb built from PF2e's own Versatile Vial data, so the attack bonus and dice scale the same way
 - **Field Vials**: **Bomber** (4 tiers; asks for acid, cold, electricity or fire when added to a character), **Toxicologist** (4 poison bombs, each with a **Toxic Coating** and an **Advanced Toxic Coating** effect), **Chirurgeon** (4 healing tiers) and **Mutagenist** (a single item and effect, with the Advanced Vial physical resistance)
+- **Quick Vial**: an action for Alchemists. Using it asks whether to create the Volatile Vial or the Field Vial for the character's research field (tier from the character's level) and adds it to the character. In combat the vial is removed when the creator's turn ends
 - **Quick Alchemy (House Rule)**: a feat with the revised Quick Alchemy text (Quick Vial doesn't expend a versatile vial, and items last at most 10 minutes)
 - **Ichthys Mutagen**: swim Speed equal to land Speed, an item bonus to unarmed attacks, a slashing "Razor Claw" unarmed Strike, a toggleable "Underwater" option for the Perception and Wisdom-skill bonus, the Athletics penalty, and weakness 5 to electricity
 
@@ -20,7 +21,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `marquiste-additions/packs/_source/corpsecaps-cauldron/*.json` | One JSON file per item (the editable source). |
 | `marquiste-additions/images/` | Item art (square, black background), referenced as `modules/marquiste-additions/images/...`. Regenerate from the site art with `foundry/make-icons.ps1`. |
 | `vials.js` | The Volatile Vial, Field Vials, coatings and Quick Alchemy feat; `build.js` calls it. |
-| `marquiste-additions/scripts/` | Small scripts the module loads: the Insulating Paste counter and the Volatile Vial setting. |
+| `marquiste-additions/scripts/` | Small scripts the module loads: the Insulating Paste counter, the Volatile Vial setting and the Quick Vial action. |
 | `marquiste-additions/packs/corpsecaps-cauldron/` | The compiled compendium. **Not in the repo**: you build it in step 1. |
 
 ## Install
@@ -57,6 +58,8 @@ When you first use the item:
 Open **Settings → Configure Settings → Marquiste Additions** and tick **Use the Volatile Vial house rules** (off by default). While it's on, whenever a PF2e **Versatile Vial** is added to a character, the module replaces it with the **Volatile Vial** tier that matches the old vial's item level (1, 4, 12 or 18), keeping the quantity. It runs from the GM's client, so a GM has to be connected. Turning the setting off does not change vials already swapped, and it never touches Quick Alchemy itself: put the **Quick Alchemy (House Rule)** feat on an Alchemist by hand if you use the revised rules.
 
 ## Notes on how the rules are built
+
+- **Quick Vial:** it finds the research field from the character's Bomber, Chirurgeon, Mutagenist or Toxicologist class feature. It doesn't check for the alchemist's toolkit or a free hand. Outside combat nothing removes the vial, so delete it yourself.
 
 - **Vials:** PF2e has no *Fleeting* trait, so each vial lists it in its description and carries it as an "other tag" rather than a real trait. The Field Vials' "only for the matching research field" limit isn't enforced. The Toxic Coating effects add their poison damage to every Strike until the end of the turn, so remove them yourself after the first hit.
 

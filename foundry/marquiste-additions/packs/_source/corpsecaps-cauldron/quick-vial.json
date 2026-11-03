@@ -1,0 +1,35 @@
+{
+    "_key": "!items!bAA8Zc3Qju2qCXLY",
+    "_id": "bAA8Zc3Qju2qCXLY",
+    "img": "systems/pf2e/icons/actions/OneAction.webp",
+    "name": "Quick Vial",
+    "type": "action",
+    "system": {
+        "actionType": {
+            "value": "action"
+        },
+        "actions": {
+            "value": 1
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p><hr /><p>This is the Quick Vial option of Quick Alchemy. Create either a volatile vial or the field vial for your research field. The vial can be used only as a bomb or for the volatile vial option from your research field. It has the infused trait and must be activated by the end of your current turn or else it becomes inert.</p><p>Using Quick Vial does not expend a versatile vial. The vial's tier matches your level: Lesser at 1st, Moderate at 4th, Greater at 12th, and Major at 18th.</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "slug": "quick-vial",
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "alchemist",
+                "manipulate"
+            ]
+        }
+    }
+}
