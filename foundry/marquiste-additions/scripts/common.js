@@ -1,6 +1,6 @@
 // Shared helpers for the alchemy scripts.
 export const MODULE = "marquiste-additions";
-export const PACK = `${MODULE}.corpsecaps-cauldron`;
+export const PACK = `${MODULE}.marquiste-alchemist-class`;
 export const SETTING = "volatileVialRules";
 
 // The item (action or feat) a chat card came from, but only on the client of the user who used it, so each use is handled once.

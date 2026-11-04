@@ -1,6 +1,6 @@
 # Foundry VTT export (PF2e system)
 
-`marquiste-additions/` is a Foundry module that holds a compendium of this site's alchemical items, named **CorpseCap's Cauldron**. New alchemical items are added to this same pack. Right now it contains two mutagens and Insulating Paste, each with 4 consumables (Lesser, Moderate, Greater, Major, priced and levelled like the other mutagens) and 4 matching `Effect:` items that apply the numbers through PF2e rule elements:
+`marquiste-additions/` is a Foundry module with two compendiums. **CorpseCap's Cauldron** holds this site's general alchemical items (the mutagens and Insulating Paste). **Marquiste: Alchemist Class** holds the Alchemist-only items: the Volatile Vial, the Field Vials, the Toxic Coatings, and the Quick Vial, Create Consumable and Quick Alchemy (House Rule) actions. Both are built by `build.js` (the Alchemist pack from `vials.js`). Right now it contains two mutagens and Insulating Paste, each with 4 consumables (Lesser, Moderate, Greater, Major, priced and levelled like the other mutagens) and 4 matching `Effect:` items that apply the numbers through PF2e rule elements:
 
 - **Mind Doubling Mutagen**: per tier, a main `Effect: Mind Doubling Mutagen` and a `... Mutant Innervation` effect, plus one shared `Effect: Mind Doubling Mutagen Drawback` that doesn't change with tier. The main effect carries the benefits (item bonuses) and grants the **Co-ordinated Thinking** free action, the shared Drawback (the penalties and weakness 5 to mental) and, only for characters with the Mutant Innervation feat, the Mutant Innervation effect (the saving throw re-roll)
 - **Insulating Paste**: a choice of acid, cold, electricity or fire when the effect is applied (the same way PF2e's Energy Mutagen does it), resistance 5/10/15/20 to that type, and a badge counter of 5 instances of protection
@@ -19,23 +19,27 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | --- | --- |
 | `build.js` | Generates the item JSON and `module.json`. Edit this when the item changes, then run `node foundry/build.js`. |
 | `marquiste-additions/module.json` | Module manifest. |
-| `marquiste-additions/packs/_source/corpsecaps-cauldron/*.json` | One JSON file per item (the editable source). |
+| `marquiste-additions/packs/_source/<pack>/*.json` | One JSON file per item, for each pack (the editable source). |
 | `marquiste-additions/images/` | Item art (square, black background), referenced as `modules/marquiste-additions/images/...`. Regenerate from the site art with `foundry/make-icons.ps1`. |
 | `vials.js` | The Volatile Vial, Field Vials, coatings and Quick Alchemy action; `build.js` calls it. |
 | `marquiste-additions/scripts/` | Small scripts the module loads: the Insulating Paste counter, the Volatile Vial setting, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Fleeting trait. `common.js` holds helpers the alchemy scripts share. |
-| `marquiste-additions/packs/corpsecaps-cauldron/` | The compiled compendium. **Not in the repo**: you build it in step 1. |
+| `marquiste-additions/packs/<pack>/` | The compiled compendiums. **Not in the repo**: you build them in step 1. |
 
 ## Install
 
 Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has to be compiled once.
 
-1. **Compile the pack.** From the repo root, with Node installed:
+1. **Compile the packs.** From the repo root, with Node installed, run both commands:
 
    ```bash
    npx @foundryvtt/foundryvtt-cli package pack -n corpsecaps-cauldron --type Module --in foundry/marquiste-additions/packs/_source/corpsecaps-cauldron --out foundry/marquiste-additions/packs
    ```
 
-   This creates `foundry/marquiste-additions/packs/corpsecaps-cauldron/`.
+   ```bash
+   npx @foundryvtt/foundryvtt-cli package pack -n marquiste-alchemist-class --type Module --in foundry/marquiste-additions/packs/_source/marquiste-alchemist-class --out foundry/marquiste-additions/packs
+   ```
+
+   This creates `foundry/marquiste-additions/packs/corpsecaps-cauldron/` and `foundry/marquiste-additions/packs/marquiste-alchemist-class/`.
 
 2. **Copy the module** folder `foundry/marquiste-additions` into your Foundry data folder, so you end up with `Data/modules/marquiste-additions/module.json`. (Foundry's data folder is shown under Configuration in the setup screen. On Windows it's usually `%localappdata%\FoundryVTT\Data`.)
 
@@ -53,6 +57,10 @@ When you first use the item:
 2. While the effect is active, the sheet should list **Co-ordinated Thinking**, and it should go away when the effect ends.
 3. Check the numbers on the sheet: +1 to Perception and Intelligence-based skills, +1 to Will saves against mental effects, −1 to Acrobatics, Stealth and Thievery, −2 to Reflex, and weakness 5 to mental damage.
 4. If the character has the Mutant Innervation feat, Will saves against mental effects should roll twice and keep the higher result.
+
+## Keeping the Alchemist items out of the equipment list
+
+PF2e can't hide single items; its Compendium Browser lists whole packs per tab. So the Alchemist-only items are in their own pack, and `scripts/compendium-browser.js` switches that pack off for the Compendium Browser's **Equipment** tab the first time the module runs (it stays on for the Actions tab). To change it, open the Compendium Browser's settings and tick the pack for the Equipment tab. The module only sets this once, so your choice sticks. The pack is still in the Compendium sidebar.
 
 ## Module setting: Volatile Vial house rules
 

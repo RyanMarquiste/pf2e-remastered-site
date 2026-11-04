@@ -26,13 +26,25 @@
         "scripts/quick-vial.js",
         "scripts/create-consumable.js",
         "scripts/quick-alchemy.js",
-        "scripts/fleeting-trait.js"
+        "scripts/fleeting-trait.js",
+        "scripts/compendium-browser.js"
     ],
     "packs": [
         {
             "name": "corpsecaps-cauldron",
             "label": "CorpseCap's Cauldron",
             "path": "packs/corpsecaps-cauldron",
+            "type": "Item",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
+        },
+        {
+            "name": "marquiste-alchemist-class",
+            "label": "Marquiste: Alchemist Class",
+            "path": "packs/marquiste-alchemist-class",
             "type": "Item",
             "system": "pf2e",
             "ownership": {

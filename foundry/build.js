@@ -6,10 +6,11 @@ const crypto = require("crypto");
 
 const MODULE_ID = "marquiste-additions";
 const PACK = "corpsecaps-cauldron";
+const CLASS_PACK = "marquiste-alchemist-class";
 const IMG = `modules/${MODULE_ID}/images/mind-doubling-mutagen.png`;
 const ICHTHYS_IMG = `modules/${MODULE_ID}/images/ichthys-mutagen.png`;
 const PASTE_IMG = `modules/${MODULE_ID}/images/insulating-paste.png`;
-const OUT = path.join(__dirname, MODULE_ID, "packs", "_source", PACK);
+const sourceDir = (pack) => path.join(__dirname, MODULE_ID, "packs", "_source", pack);
 
 const ALPHANUM = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 const makeId = (seed) => {
@@ -17,6 +18,7 @@ const makeId = (seed) => {
   return Array.from({ length: 16 }, (_, i) => ALPHANUM[hash[i] % ALPHANUM.length]).join("");
 };
 const uuidOf = (id) => `Compendium.${MODULE_ID}.${PACK}.Item.${id}`;
+const classUuidOf = (id) => `Compendium.${MODULE_ID}.${CLASS_PACK}.Item.${id}`;
 
 const publication = { license: "ORC", remaster: true, title: "Marquiste Additions" };
 
@@ -456,22 +458,30 @@ for (const t of pasteTiers) {
   });
 }
 
+// The Alchemist-only items go in their own pack, so they can be kept out of the general equipment lists.
+const classItems = [];
 require("./vials")({
-  items,
+  items: classItems,
   publication,
   makeId,
-  uuidOf,
+  uuidOf: classUuidOf,
   img: (name) => `modules/${MODULE_ID}/images/${name}.png`,
 });
 
-fs.rmSync(OUT, { recursive: true, force: true });
-fs.mkdirSync(OUT, { recursive: true });
-for (const item of items) {
-  const file = item.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + ".json";
-  // The Foundry CLI silently skips source files that have no _key, so every document needs one to be packed.
-  const doc = { _key: `!items!${item._id}`, ...item };
-  fs.writeFileSync(path.join(OUT, file), JSON.stringify(doc, null, 4) + "\n");
+function writePack(pack, list) {
+  const out = sourceDir(pack);
+  fs.rmSync(out, { recursive: true, force: true });
+  fs.mkdirSync(out, { recursive: true });
+  for (const item of list) {
+    const file = item.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + ".json";
+    // The Foundry CLI silently skips source files that have no _key, so every document needs one to be packed.
+    const doc = { _key: `!items!${item._id}`, ...item };
+    fs.writeFileSync(path.join(out, file), JSON.stringify(doc, null, 4) + "\n");
+  }
+  console.log(`Wrote ${list.length} items to ${path.relative(process.cwd(), out)}`);
 }
+writePack(PACK, items);
+writePack(CLASS_PACK, classItems);
 
 const moduleJson = {
   id: MODULE_ID,
@@ -488,6 +498,7 @@ const moduleJson = {
     "scripts/create-consumable.js",
     "scripts/quick-alchemy.js",
     "scripts/fleeting-trait.js",
+    "scripts/compendium-browser.js",
   ],
   packs: [
     {
@@ -498,7 +509,14 @@ const moduleJson = {
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
     },
+    {
+      name: CLASS_PACK,
+      label: "Marquiste: Alchemist Class",
+      path: `packs/${CLASS_PACK}`,
+      type: "Item",
+      system: "pf2e",
+      ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
+    },
   ],
 };
 fs.writeFileSync(path.join(__dirname, MODULE_ID, "module.json"), JSON.stringify(moduleJson, null, 4) + "\n");
-console.log(`Wrote ${items.length} items to ${path.relative(process.cwd(), OUT)}`);

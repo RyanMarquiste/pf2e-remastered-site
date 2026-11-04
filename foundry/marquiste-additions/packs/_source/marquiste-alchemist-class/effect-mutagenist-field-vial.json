@@ -6,7 +6,7 @@
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.corpsecaps-cauldron.Item.5m8cH2wkVHarCRV7]</p><p>The drawback of one mutagen affecting you is suppressed for the duration. Switch on the **Drawback suppressed** toggle on that mutagen's effect while this lasts, and switch it off again when it ends.</p><p><strong>Advanced Vial (11th level)</strong> You also have resistance to physical damage equal to half your level.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-alchemist-class.Item.5m8cH2wkVHarCRV7]</p><p>The drawback of one mutagen affecting you is suppressed for the duration. Switch on the **Drawback suppressed** toggle on that mutagen's effect while this lasts, and switch it off again when it ends.</p><p><strong>Advanced Vial (11th level)</strong> You also have resistance to physical damage equal to half your level.</p>"
         },
         "duration": {
             "expiry": "turn-start",
