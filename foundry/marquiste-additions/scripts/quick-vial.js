@@ -1,6 +1,9 @@
 // Quick Vial: an Alchemist with a free hand creates a volatile vial or the field vial for their research field, held in that hand.
 import { MODULE, PACK, itemUsed, say } from "./common.js";
 
+// The Toxicologist's coatings are effects in the same pack; their names start with this.
+const EFFECT_PREFIX = "Effect: ";
+
 const TIERS = [
   { name: "Lesser", level: 1 },
   { name: "Moderate", level: 4 },
@@ -23,13 +26,13 @@ async function pickVial(actor, pack, index, names) {
     const doc = entry ? await pack.getDocument(entry._id) : null;
     if (!doc) continue;
     const traits = doc.system.traits.value
-      .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? t))
+      .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? CONFIG.PF2E.effectTraits?.[t] ?? t))
       .map((label) => `<span style="display: inline-block; background: #5a0505; color: #fff; border: 1px solid #e1d4a6; padding: 0 4px; font-size: 10px; font-weight: 700; line-height: 1.5; text-transform: uppercase; letter-spacing: .02em;">${label}</span>`)
       .join("");
     rows.push(`
       <li style="display: flex; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid rgba(128, 128, 128, .3);">
         <img src="${doc.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none; border-radius: 3px;">
-        <div style="flex: 1;"><strong style="display: block; font-size: 14px; line-height: 1.25;">${doc.name}</strong><div style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 1px;">${traits}</div></div>
+        <div style="flex: 1;"><strong style="display: block; font-size: 14px; line-height: 1.25;">${doc.name.replace(EFFECT_PREFIX, "")}</strong><div style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 1px;">${traits}</div></div>
         <button type="button" data-choice="${doc.name}" data-tooltip="Create" style="flex: none; width: 30px; height: 30px; margin: 0 2px 0 0; padding: 0; line-height: 1; border-radius: 4px;"><i class="fa-solid fa-check"></i></button>
       </li>`);
   }
@@ -60,12 +63,6 @@ async function pickVial(actor, pack, index, names) {
 }
 
 export async function createQuickVial(actor) {
-  // The vial is created in a hand, so one has to be free.
-  if (!(actor.handsFree > 0)) {
-    say(actor, `<p>${actor.name} has no free hand, so Quick Vial creates nothing.</p>`);
-    return ui.notifications.warn(`${actor.name} needs a free hand to use Quick Vial.`);
-  }
-
   const pack = game.packs.get(PACK);
   if (!pack) return ui.notifications.warn("Marquiste Additions: the CorpseCap's Cauldron compendium wasn't found.");
   const index = await pack.getIndex();
@@ -80,6 +77,14 @@ export async function createQuickVial(actor) {
     : tiers.map((t) => `Volatile Vial (${t.name})`);
   if (fieldVial && !fieldVial.tiers) names.push(fieldVial.name);
 
+  // A Toxicologist can also coat a weapon instead of making a vial: Toxic Coating, and Advanced Toxic Coating from 11th level.
+  if (field?.slug === "toxicologist") {
+    for (const t of tiers) {
+      names.push(`${EFFECT_PREFIX}Toxic Coating (${t.name})`);
+      if (actor.level >= 11) names.push(`${EFFECT_PREFIX}Advanced Toxic Coating (${t.name})`);
+    }
+  }
+
   const name = names.length > 1 ? await pickVial(actor, pack, index, names) : names[0];
   if (!name) return;
 
@@ -88,6 +93,19 @@ export async function createQuickVial(actor) {
 
   const data = (await pack.getDocument(entry._id)).toObject();
   delete data._id;
+
+  // A coating is an effect on the character, not an item to hold.
+  if (name.startsWith(EFFECT_PREFIX)) {
+    const [coating] = await actor.createEmbeddedDocuments("Item", [data]);
+    if (coating) say(actor, `<p>${actor.name} applies ${name.replace(EFFECT_PREFIX, "")} to their weapon. It lasts until the end of this turn.</p>`);
+    return;
+  }
+
+  // A vial is created in a hand, so one has to be free.
+  if (!(actor.handsFree > 0)) {
+    say(actor, `<p>${actor.name} has no free hand, so Quick Vial creates nothing.</p>`);
+    return ui.notifications.warn(`${actor.name} needs a free hand to use Quick Vial.`);
+  }
   data.system.equipped = { carryType: "held", handsHeld: 1 };
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
   data.flags = {
