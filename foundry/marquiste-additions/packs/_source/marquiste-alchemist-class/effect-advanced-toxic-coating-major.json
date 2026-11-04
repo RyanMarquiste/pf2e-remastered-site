@@ -6,7 +6,7 @@
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-alchemist-class.Item.tvauupG4H3pFxqJv]</p><p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn.</p><p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. On a successful Strike with the weapon or ammunition, add 4d6 poison damage and 4 persistent poison damage to the damage of the weapon. The effect applies to every Strike until it ends, so remove it yourself after the first hit.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-alchemist-class.Item.tvauupG4H3pFxqJv]</p><p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit.</p><p>Choose a weapon you are holding or wearing that deals piercing or slashing damage. It is tagged as poisoned and, on a successful Strike with it, adds 4d6 poison damage and 4 persistent poison damage until the effect ends. Ammunition can't be chosen.</p>"
         },
         "duration": {
             "expiry": "turn-end",
@@ -24,15 +24,71 @@
         },
         "rules": [
             {
+                "key": "ChoiceSet",
+                "adjustName": false,
+                "choices": {
+                    "ownedItems": true,
+                    "types": [
+                        "weapon"
+                    ],
+                    "predicate": [
+                        {
+                            "or": [
+                                "item:damage:type:piercing",
+                                "item:damage:type:slashing"
+                            ]
+                        }
+                    ]
+                },
+                "flag": "weapon",
+                "prompt": "Weapon to coat"
+            },
+            {
                 "key": "DamageDice",
-                "selector": "strike-damage",
+                "selector": "{item|flags.pf2e.rulesSelections.weapon}-damage",
                 "diceNumber": 4,
                 "dieSize": "d6",
                 "damageType": "poison"
             },
             {
+                "key": "ItemAlteration",
+                "itemType": "weapon",
+                "mode": "add",
+                "predicate": [
+                    "item:id:{item|flags.pf2e.rulesSelections.weapon}"
+                ],
+                "property": "other-tags",
+                "value": "poisoned"
+            },
+            {
+                "key": "ItemAlteration",
+                "itemType": "weapon",
+                "mode": "add",
+                "predicate": [
+                    "item:id:{item|flags.pf2e.rulesSelections.weapon}"
+                ],
+                "property": "other-tags",
+                "value": "toxic-coating"
+            },
+            {
+                "key": "ItemAlteration",
+                "itemType": "weapon",
+                "label": "Advanced Toxic Coating",
+                "mode": "add",
+                "predicate": [
+                    "item:id:{item|flags.pf2e.rulesSelections.weapon}"
+                ],
+                "property": "description",
+                "value": [
+                    {
+                        "title": "Advanced Toxic Coating",
+                        "text": "Coated with a Toxicologist's poison until the end of the turn: 4d6 poison damage on a successful Strike and 4 persistent poison damage."
+                    }
+                ]
+            },
+            {
                 "key": "FlatModifier",
-                "selector": "strike-damage",
+                "selector": "{item|flags.pf2e.rulesSelections.weapon}-damage",
                 "damageCategory": "persistent",
                 "damageType": "poison",
                 "value": 4

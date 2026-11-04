@@ -177,20 +177,37 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     item.system.slug = "toxicologist-field-vial";
     items.push(item);
 
-    // The coating effects last until the end of the current turn; the first successful Strike is tracked by the player.
+    // The coating effects last until the end of the current turn. Each asks which weapon is coated and adds its poison damage to that weapon only.
     for (const [kind, id, label] of [
       ["plain", coatingIds[t.name].plain, "Toxic Coating"],
       ["advanced", coatingIds[t.name].advanced, "Advanced Toxic Coating"],
     ]) {
-      const rules = [{ key: "DamageDice", selector: "strike-damage", diceNumber: t.dice, dieSize: "d6", damageType: "poison" }];
+      const weapon = "{item|flags.pf2e.rulesSelections.weapon}";
+      const note = `Coated with a Toxicologist's poison until the end of the turn: ${t.dice}d6 poison damage on a successful Strike` + (kind === "advanced" ? ` and ${t.dice} persistent poison damage.` : ".");
+      const tag = (value) => ({ key: "ItemAlteration", itemType: "weapon", mode: "add", predicate: [`item:id:${weapon}`], property: "other-tags", value });
+      const rules = [
+        {
+          key: "ChoiceSet",
+          adjustName: false,
+          choices: { ownedItems: true, types: ["weapon"], predicate: [{ or: ["item:damage:type:piercing", "item:damage:type:slashing"] }] },
+          flag: "weapon",
+          prompt: "Weapon to coat",
+        },
+        { key: "DamageDice", selector: `${weapon}-damage`, diceNumber: t.dice, dieSize: "d6", damageType: "poison" },
+        tag("poisoned"),
+        tag("toxic-coating"),
+        {
+          key: "ItemAlteration",
+          itemType: "weapon",
+          label,
+          mode: "add",
+          predicate: [`item:id:${weapon}`],
+          property: "description",
+          value: [{ title: label, text: note }],
+        },
+      ];
       if (kind === "advanced") {
-        rules.push({
-          key: "FlatModifier",
-          selector: "strike-damage",
-          damageCategory: "persistent",
-          damageType: "poison",
-          value: t.dice,
-        });
+        rules.push({ key: "FlatModifier", selector: `${weapon}-damage`, damageCategory: "persistent", damageType: "poison", value: t.dice });
       }
       items.push({
         _id: id,
@@ -201,10 +218,10 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           description: {
             value:
               `<p>Granted by @UUID[${uuidOf(item._id)}]</p>` +
-              "<p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn.</p>" +
-              `<p>The weapon or ammunition is coated with the Toxicologist Field Vial's poison. On a successful Strike with the weapon or ammunition, add ${t.dice}d6 poison damage` +
+              "<p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit.</p>" +
+              `<p>Choose a weapon you are holding or wearing that deals piercing or slashing damage. It is tagged as poisoned and, on a successful Strike with it, adds ${t.dice}d6 poison damage` +
               (kind === "advanced" ? ` and ${t.dice} persistent poison damage` : "") +
-              " to the damage of the weapon. The effect applies to every Strike until it ends, so remove it yourself after the first hit.</p>",
+              " until the effect ends. Ammunition can't be chosen.</p>",
           },
           duration: { expiry: "turn-end", sustained: false, unit: "rounds", value: 0 },
           level: { value: t.level },

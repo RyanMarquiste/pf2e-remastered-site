@@ -18,37 +18,29 @@ const FIELD_VIALS = {
   toxicologist: { name: "Toxicologist Field Vial", tiers: true },
 };
 
-// A picker styled like PF2e's formula picker: an icon, the vial's name and traits, and a button to choose it. The best tier of each group is
-// shown first and the lower tiers are behind a button at the bottom. Returns the chosen name.
-async function pickVial(actor, pack, index, groups) {
-  const rows = [];
-  for (const group of groups) {
-    for (const [position, name] of group.names.entries()) {
-      const entry = index.find((e) => e.name === name);
-      const doc = entry ? await pack.getDocument(entry._id) : null;
-      if (!doc) continue;
-      const traits = doc.system.traits.value
-        .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? CONFIG.PF2E.effectTraits?.[t] ?? t))
-        .map((label) => `<span style="display: inline-block; background: #5a0505; color: #fff; border: 1px solid #e1d4a6; padding: 0 4px; font-size: 10px; font-weight: 700; line-height: 1.5; text-transform: uppercase; letter-spacing: .02em;">${label}</span>`)
-        .join("");
-      rows.push({
-        extra: position > 0,
-        html: `
-      <li ${position > 0 ? "data-extra " : ""}style="display: ${position > 0 ? "none" : "flex"}; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid rgba(128, 128, 128, .3);">
-        <img src="${doc.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none; border-radius: 3px;">
-        <div style="flex: 1;"><strong style="display: block; font-size: 14px; line-height: 1.25;">${doc.name.replace(EFFECT_PREFIX, "")}</strong><div style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 1px;">${traits}</div></div>
-        <button type="button" data-choice="${doc.name}" data-tooltip="Create" style="flex: none; width: 30px; height: 30px; margin: 0 2px 0 0; padding: 0; line-height: 1; border-radius: 4px;"><i class="fa-solid fa-check"></i></button>
-      </li>`,
-      });
-    }
-  }
-  // The best tier of each group first, then the rest.
+const traitLabel = (t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? CONFIG.PF2E.effectTraits?.[t] ?? t);
+
+// A picker styled like PF2e's formula picker: an icon, a name and traits, and a button to choose each row. Rows marked "extra" are behind a
+// button at the bottom. Each row is { value, name, img, traits, extra }. Returns the chosen row's value.
+async function pickRow({ prompt, rows }) {
+  const html = (row) => {
+    const tags = row.traits
+      .map((t) => `<span style="display: inline-block; background: #5a0505; color: #fff; border: 1px solid #e1d4a6; padding: 0 4px; font-size: 10px; font-weight: 700; line-height: 1.5; text-transform: uppercase; letter-spacing: .02em;">${traitLabel(t)}</span>`)
+      .join("");
+    return `
+      <li ${row.extra ? "data-extra " : ""}style="display: ${row.extra ? "none" : "flex"}; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid rgba(128, 128, 128, .3);">
+        <img src="${row.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none; border-radius: 3px;">
+        <div style="flex: 1;"><strong style="display: block; font-size: 14px; line-height: 1.25;">${row.name}</strong><div style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 1px;">${tags}</div></div>
+        <button type="button" data-choice="${row.value}" data-tooltip="Choose" style="flex: none; width: 30px; height: 30px; margin: 0 2px 0 0; padding: 0; line-height: 1; border-radius: 4px;"><i class="fa-solid fa-check"></i></button>
+      </li>`;
+  };
+  // The main rows first, then the extra ones.
   const ordered = [...rows.filter((r) => !r.extra), ...rows.filter((r) => r.extra)];
   const hasExtras = ordered.some((r) => r.extra);
 
   const content = `
-    <p style="margin: 0 0 .6em; font-size: 12px; opacity: .6;">Select a vial for ${actor.name} to create with Quick Vial.</p>
-    <ul style="list-style: none; margin: 0; padding: 0;">${ordered.map((r) => r.html).join("")}</ul>
+    <p style="margin: 0 0 .6em; font-size: 12px; opacity: .6;">${prompt}</p>
+    <ul style="list-style: none; margin: 0; padding: 0;">${ordered.map(html).join("")}</ul>
     ${hasExtras ? '<button type="button" data-expand style="width: 100%; margin-top: .6em;"><i class="fa-solid fa-chevron-down"></i> Show all tiers</button>' : ""}`;
 
   let chosen = null;
@@ -78,6 +70,36 @@ async function pickVial(actor, pack, index, groups) {
     rejectClose: false,
   });
   return chosen;
+}
+
+// The vials and coatings the character can make, from compendium names grouped by entry (best tier first within a group).
+async function pickVial(actor, pack, index, groups) {
+  const rows = [];
+  for (const group of groups) {
+    for (const [position, name] of group.names.entries()) {
+      const entry = index.find((e) => e.name === name);
+      const doc = entry ? await pack.getDocument(entry._id) : null;
+      if (!doc) continue;
+      rows.push({ value: doc.name, name: doc.name.replace(EFFECT_PREFIX, ""), img: doc.img, traits: doc.system.traits.value, extra: position > 0 });
+    }
+  }
+  return pickRow({ prompt: `Select a vial for ${actor.name} to create with Quick Vial.`, rows });
+}
+
+// The weapons a coating can go on: held or worn by the character, and dealing piercing or slashing damage.
+function coatableWeapons(actor) {
+  return actor.itemTypes.weapon.filter((w) => {
+    if (!["held", "worn"].includes(w.system.equipped?.carryType)) return false;
+    const types = [w.system.damage?.damageType, ...w.system.traits.value.map((t) => ({ "versatile-p": "piercing", "versatile-s": "slashing" })[t])];
+    return types.some((type) => type === "piercing" || type === "slashing");
+  });
+}
+
+async function pickWeapon(actor, weapons) {
+  if (weapons.length === 1) return weapons[0];
+  const rows = weapons.map((w) => ({ value: w.id, name: w.name, img: w.img, traits: w.system.traits.value, extra: false }));
+  const id = await pickRow({ prompt: `Select the weapon ${actor.name} coats.`, rows });
+  return weapons.find((w) => w.id === id) ?? null;
 }
 
 export async function createQuickVial(actor) {
@@ -112,8 +134,19 @@ export async function createQuickVial(actor) {
 
   // A coating is an effect on the character, not an item to hold.
   if (name.startsWith(EFFECT_PREFIX)) {
+    const weapons = coatableWeapons(actor);
+    if (!weapons.length) {
+      say(actor, `<p>${actor.name} has no weapon they are holding or wearing that deals piercing or slashing damage, so there is nothing to coat.</p>`);
+      return ui.notifications.warn(`${actor.name} has no held or worn weapon that deals piercing or slashing damage.`);
+    }
+    const weapon = await pickWeapon(actor, weapons);
+    if (!weapon) return;
+
+    // Choose the weapon in the effect's own prompt for the character, so PF2e doesn't ask again.
+    const choice = data.system.rules.find((r) => r.key === "ChoiceSet");
+    if (choice) choice.selection = weapon.id;
     const [coating] = await actor.createEmbeddedDocuments("Item", [data]);
-    if (coating) say(actor, `<p>${actor.name} applies ${name.replace(EFFECT_PREFIX, "")} to their weapon. It lasts until the end of this turn.</p>`);
+    if (coating) say(actor, `<p>${actor.name} applies ${name.replace(EFFECT_PREFIX, "")} to ${weapon.name}. It lasts until the end of this turn.</p>`);
     return;
   }
 
