@@ -5,19 +5,40 @@
 // whether the target's immunities and resistances make the other type the better choice.
 const PREFIX = "mutable-";
 
-Hooks.once("init", () => {
+// Every list a trait can be shown from: items, effects, actions, and the list a Strike row reads (npcAttackTraits).
+const LISTS = [
+  "actionTraits",
+  "armorTraits",
+  "consumableTraits",
+  "creatureTraits",
+  "effectTraits",
+  "equipmentTraits",
+  "featTraits",
+  "npcAttackTraits",
+  "shieldTraits",
+  "spellTraits",
+  "weaponTraits",
+];
+
+// "Mutable Acid" and so on. PF2e's damage type names are translation keys that may not be loaded yet when the module starts, so fall back to the
+// capitalised type, and set the labels again once the translations are ready.
+function registerTraits() {
   CONFIG.PF2E.traitsDescriptions ??= {};
   for (const [type, key] of Object.entries(CONFIG.PF2E.damageTypes ?? {})) {
-    const name = game.i18n.localize(key);
+    const localized = game.i18n.localize(key);
+    const name = localized && localized !== key ? localized : type.charAt(0).toUpperCase() + type.slice(1);
     const slug = `${PREFIX}${type}`;
-    for (const list of ["consumableTraits", "effectTraits", "equipmentTraits", "weaponTraits"]) {
+    for (const list of LISTS) {
       if (CONFIG.PF2E[list]) CONFIG.PF2E[list][slug] = `Mutable ${name}`;
     }
     CONFIG.PF2E.traitsDescriptions[slug] =
       `Damage from this item, or from an effect it creates, can change to ${type} damage against a creature for which that is the better type. ` +
       `A creature immune to the original damage type takes ${type} damage instead, and one that resists the original type more than ${type} takes ${type} damage.`;
   }
-});
+}
+
+Hooks.once("init", registerTraits);
+Hooks.once("i18nInit", registerTraits);
 
 const mutableTypes = (traits) => traits.filter((t) => t.startsWith(PREFIX)).map((t) => t.slice(PREFIX.length));
 
