@@ -27,7 +27,8 @@
         "scripts/create-consumable.js",
         "scripts/quick-alchemy.js",
         "scripts/fleeting-trait.js",
-        "scripts/compendium-browser.js"
+        "scripts/compendium-browser.js",
+        "scripts/toxicologist.js"
     ],
     "packs": [
         {

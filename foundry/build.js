@@ -499,6 +499,7 @@ const moduleJson = {
     "scripts/quick-alchemy.js",
     "scripts/fleeting-trait.js",
     "scripts/compendium-browser.js",
+    "scripts/toxicologist.js",
   ],
   packs: [
     {

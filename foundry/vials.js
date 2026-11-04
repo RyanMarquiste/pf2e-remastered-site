@@ -218,6 +218,42 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     }
   }
 
+  // The Toxicologist's Field Benefit as an effect, so it can be applied to the character. The module script (scripts/toxicologist.js) reads it.
+  items.push({
+    _id: makeId("effect:Toxicologist Field Benefit"),
+    img: img("toxicologist-field-vial"),
+    name: "Effect: Toxicologist Field Benefit",
+    type: "effect",
+    system: {
+      slug: "toxicologist-field-benefit-auto",
+      description: {
+        value:
+          "<p>You flexibly mix acidic and poisonous alchemical compounds. Your infused items and infused effects with the poison trait can affect creatures immune to poison, " +
+          "and the damage becomes acid or poison, whichever the target is better affected by.</p>" +
+          "<p>While this effect is on you, any damage you roll from an infused attack, or while you have an infused effect such as a Toxic Coating, can switch between acid and poison " +
+          "for each target: if a target is immune to one, it takes the other, and if it resists one of them, it takes whichever it resists less. Weaknesses are not compared.</p>" +
+          "<p>Turn off PF2e's own <strong>Toxicologist field benefit</strong> toggle while this effect is on, because that toggle forces all such damage to acid. Use the " +
+          "<strong>Toxicologist field benefit (acid/poison swap)</strong> toggle on this effect to switch the automatic swap off.</p>",
+      },
+      duration: { expiry: null, sustained: false, unit: "unlimited", value: -1 },
+      level: { value: 1 },
+      publication,
+      rules: [
+        {
+          key: "RollOption",
+          domain: "all",
+          label: "Toxicologist field benefit (acid/poison swap)",
+          option: "toxicologist-field-benefit-auto",
+          toggleable: true,
+          value: true,
+        },
+      ],
+      start: { initiative: null, value: 0 },
+      tokenIcon: { show: true },
+      traits: { rarity: "common", value: [] },
+    },
+  });
+
   // Chirurgeon Field Vial: heals instead of damaging.
   for (const t of tiers) {
     items.push({
