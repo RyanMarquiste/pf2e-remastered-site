@@ -1,4 +1,4 @@
-// Optional house rule: PF2e's Versatile Vial becomes the Volatile Vial.
+// Optional house rule setting, and the upkeep for the bomb vials.
 const MODULE = "marquiste-additions";
 const SETTING = "volatileVialRules";
 
@@ -6,40 +6,31 @@ Hooks.once("init", () => {
   game.settings.register(MODULE, SETTING, {
     name: "Use the Volatile Vial house rules",
     hint:
-      "Renames each character's Versatile Vial to Volatile Vial and gives it the Fleeting trait, and lets Quick Alchemy (House Rule) offer Quick Vial or Create Consumable. " +
-      "The vial stays the same item, so the character's versatile vial count keeps working. Switching this off does not rename vials already changed.",
+      "Turns on the revised Quick Alchemy: using the Quick Alchemy (House Rule) action asks you to choose Quick Vial or Create Consumable. " +
+      "An Alchemist's versatile vials stay as PF2e's resource; a Volatile Vial, the throwable bomb, is only created by Quick Vial.",
     scope: "world",
     config: true,
     type: Boolean,
     default: false,
-    onChange: () => convertAll(),
   });
 });
 
-// The vial is updated in place rather than replaced: PF2e counts an Alchemist's versatile vials from the quantity of the item it created,
-// so a replacement item would stop being counted. Its slug stays versatile-vial so the research field rules still apply to it.
-async function convert(item) {
-  if (!game.settings.get(MODULE, SETTING)) return;
-  if (game.users.activeGM?.id !== game.user.id) return; // only one client does the renaming
-  if (!item.actor || item.type !== "weapon" || item.slug !== "versatile-vial" || item.name === "Volatile Vial") return;
-
-  const traits = new Set(item.system.traits.value);
-  traits.add("fleeting");
-  await item.update({
-    name: "Volatile Vial",
-    img: `modules/${MODULE}/images/volatile-vial.png`,
-    "system.traits.value": [...traits],
-  });
-}
-
-async function convertAll() {
+// An earlier version renamed each Versatile Vial to Volatile Vial. The Versatile Vial is the resource, so put any such item back.
+Hooks.once("ready", async () => {
+  if (game.users.activeGM?.id !== game.user.id) return;
   const actors = new Set(game.actors.contents);
   for (const scene of game.scenes) for (const token of scene.tokens) if (token.actor) actors.add(token.actor);
-  for (const actor of actors) for (const item of actor.items) await convert(item);
-}
-
-Hooks.on("createItem", (item) => convert(item));
-Hooks.once("ready", () => convertAll());
+  for (const actor of actors) {
+    for (const item of actor.items) {
+      if (item.type !== "weapon" || item.slug !== "versatile-vial" || item.img !== `modules/${MODULE}/images/volatile-vial.png`) continue;
+      await item.update({
+        name: "Versatile Vial",
+        img: "icons/consumables/potions/potion-tube-corked-green.webp",
+        "system.traits.value": item.system.traits.value.filter((t) => t !== "fleeting"),
+      });
+    }
+  }
+});
 
 // PF2e takes one off a consumable weapon's quantity each time a Strike is made with it. A vial that reaches 0 is used up, but the chat card's
 // damage buttons still need the item, so it is only marked as spent here and removed later: shortly after its damage is rolled, or when the turn changes.
