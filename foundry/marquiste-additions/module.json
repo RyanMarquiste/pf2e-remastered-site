@@ -30,6 +30,7 @@
         "scripts/alchemist/create-consumable.js",
         "scripts/alchemist/quick-alchemy.js",
         "scripts/alchemist/toxicologist.js",
+        "scripts/alchemist/daily-preparations.js",
         "scripts/cauldron/insulating-paste.js"
     ],
     "packs": [

@@ -508,6 +508,7 @@ const moduleJson = {
     "scripts/alchemist/create-consumable.js",
     "scripts/alchemist/quick-alchemy.js",
     "scripts/alchemist/toxicologist.js",
+    "scripts/alchemist/daily-preparations.js",
     // CorpseCap's Cauldron
     "scripts/cauldron/insulating-paste.js",
   ],

@@ -41,9 +41,12 @@ Hooks.on("createChatMessage", async (message) => {
     return;
   }
 
-  const spent = weapon.system.ammo
-    ? "It is on the ammunition, so it is used up when the weapon is fired."
-    : "It is used up by the first successful Strike or a critical failure.";
+  // An infused poison (one made by an alchemist) keeps the infused trait on the weapon, and the Alchemist scripts end it at daily preparations.
+  const infused = poison.system.traits.value.includes("infused");
+  const spent =
+    (weapon.system.ammo
+      ? "It is on the ammunition, so it is used up when the weapon is fired."
+      : "It is used up by the first successful Strike or a critical failure.") + (infused ? " It is infused, so it also ends at your next daily preparations." : "");
   const note = `Poisoned with ${poison.name}. ${spent}`;
   const tag = (value) => ({ key: "ItemAlteration", itemType: "weapon", mode: "add", predicate: [`item:id:${weapon.id}`], property: "other-tags", value });
   await actor.createEmbeddedDocuments("Item", [
@@ -51,7 +54,7 @@ Hooks.on("createChatMessage", async (message) => {
       name: `Poisoned Weapon: ${poison.name}`,
       type: "effect",
       img: poison.img,
-      flags: { [MODULE]: { injuryPoison: { weapon: weapon.id, poison: poison.uuid } } },
+      flags: { [MODULE]: { injuryPoison: { weapon: weapon.id, poison: poison.uuid, infused } } },
       system: {
         description: { value: `<p>${weapon.name} is poisoned with @UUID[${poison.uuid}]{${poison.name}}. ${spent}</p>` },
         duration: { expiry: null, sustained: false, unit: "unlimited", value: -1 },
@@ -63,7 +66,7 @@ Hooks.on("createChatMessage", async (message) => {
         ],
         start: { initiative: null, value: 0 },
         tokenIcon: { show: true },
-        traits: { rarity: "common", value: ["injury", "poison"] },
+        traits: { rarity: "common", value: infused ? ["infused", "injury", "poison"] : ["injury", "poison"] },
       },
     },
   ]);
