@@ -37,3 +37,25 @@ Hooks.on("preCreateChatMessage", (message) => {
   });
   message.updateSource({ rolls });
 });
+
+// A Toxic Coating is used up by the first successful Strike with the coated weapon. A damage roll is only made on a hit, so when the coated
+// weapon's damage is rolled, take the coating off. (It also ends on its own at the end of the turn.)
+Hooks.on("createChatMessage", async (message) => {
+  if (message.author?.id !== game.user.id) return;
+  if (message.flags?.pf2e?.context?.type !== "damage-roll") return;
+  const weaponUuid = message.flags.pf2e.origin?.uuid;
+  if (!weaponUuid) return;
+  const weapon = await fromUuid(weaponUuid);
+  const actor = weapon?.actor;
+  if (!actor) return;
+
+  const coatings = actor.itemTypes.effect.filter(
+    (e) => /^Effect: (Advanced )?Toxic Coating/.test(e.name) && e.flags.pf2e?.rulesSelections?.weapon === weapon.id,
+  );
+  if (!coatings.length) return;
+  await actor.deleteEmbeddedDocuments("Item", coatings.map((e) => e.id));
+  ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content: `<p>The Toxic Coating on ${weapon.name} is used up by the hit.</p>`,
+  });
+});

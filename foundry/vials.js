@@ -183,7 +183,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       ["advanced", coatingIds[t.name].advanced, "Advanced Toxic Coating"],
     ]) {
       const weapon = "{item|flags.pf2e.rulesSelections.weapon}";
-      const note = `Coated with a Toxicologist's poison until the end of the turn: ${t.dice}d6 poison damage on a successful Strike` + (kind === "advanced" ? ` and ${t.dice} persistent poison damage.` : ".");
+      const note = `Coated with a Toxicologist's poison until the end of the turn or the first successful Strike: ${t.dice}d6 poison damage` + (kind === "advanced" ? ` and ${t.dice} persistent poison damage.` : ".");
       const tag = (value) => ({ key: "ItemAlteration", itemType: "weapon", mode: "add", predicate: [`item:id:${weapon}`], property: "other-tags", value });
       const rules = [
         {
@@ -218,7 +218,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           description: {
             value:
               `<p>Granted by @UUID[${uuidOf(item._id)}]</p>` +
-              "<p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit.</p>" +
+              "<p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit. It is also used up by the first successful Strike with the coated weapon.</p>" +
               `<p>Choose a weapon you are holding or wearing that deals piercing or slashing damage. It is tagged as poisoned and, on a successful Strike with it, adds ${t.dice}d6 poison damage` +
               (kind === "advanced" ? ` and ${t.dice} persistent poison damage` : "") +
               " until the effect ends. Ammunition can't be chosen.</p>",
