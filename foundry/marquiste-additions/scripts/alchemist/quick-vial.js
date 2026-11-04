@@ -2,6 +2,7 @@
 import { MODULE, itemUsed, say } from "../common/shared.js";
 import { PACK } from "./alchemist.js";
 import { pickRow, coatableWeapons, pickWeapon } from "../common/weapon-picker.js";
+import { claimWeapon } from "../common/weapon-poison.js";
 
 // The Toxicologist's coatings are effects in the same pack; their names start with this.
 const EFFECT_PREFIX = "Effect: ";
@@ -73,6 +74,8 @@ export async function createQuickVial(actor) {
     }
     const weapon = await pickWeapon(actor, weapons, { verb: "coats", title: "Quick Vial" });
     if (!weapon) return;
+    // A weapon carries one poison at a time: if it already has one, ask before replacing it.
+    if (!(await claimWeapon(actor, weapon, name.replace(EFFECT_PREFIX, "")))) return;
 
     // Choose the weapon in the effect's own prompt for the character, so PF2e doesn't ask again.
     const choice = data.system.rules.find((r) => r.key === "ChoiceSet");

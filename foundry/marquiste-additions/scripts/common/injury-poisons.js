@@ -5,6 +5,7 @@
 // poison's description and saving throw, which the GM resolves.
 import { MODULE } from "./shared.js";
 import { coatableWeapons, pickWeapon } from "./weapon-picker.js";
+import { poisonsOn, claimWeapon } from "./weapon-poison.js";
 
 const enrich = (html) => (foundry.applications.ux?.TextEditor?.implementation ?? TextEditor).enrichHTML(html);
 
@@ -31,9 +32,14 @@ Hooks.on("createChatMessage", async (message) => {
   const weapon = await pickWeapon(actor, weapons);
   if (!weapon) return;
 
-  // A weapon carries one poison at a time: a new one replaces any older one.
-  const old = actor.itemTypes.effect.filter((e) => e.getFlag(MODULE, "injuryPoison")?.weapon === weapon.id);
-  if (old.length) await actor.deleteEmbeddedDocuments("Item", old.map((e) => e.id));
+  // A weapon carries one poison at a time: if it already has one, ask before replacing it. PF2e has already used this poison up, so declining wastes it.
+  if (!(await claimWeapon(actor, weapon, poison.name))) {
+    ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: `<p>${weapon.name} is already poisoned, so ${actor.name} keeps the current poison and the ${poison.name} is wasted.</p>`,
+    });
+    return;
+  }
 
   const spent = weapon.system.ammo
     ? "It is on the ammunition, so it is used up when the weapon is fired."
@@ -63,16 +69,6 @@ Hooks.on("createChatMessage", async (message) => {
   ]);
   ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: `<p>${actor.name} poisons ${weapon.name} with ${poison.name}. ${spent}</p>` });
 });
-
-// What is on a weapon: an injury poison applied by this script, or any effect with the Injury and Poison traits whose weapon choice is this
-// weapon (the Alchemist's Toxic Coatings are like that).
-function poisonsOn(actor, weapon) {
-  return actor.itemTypes.effect.filter((e) => {
-    if (e.getFlag(MODULE, "injuryPoison")?.weapon === weapon.id) return true;
-    const traits = e.system.traits.value;
-    return traits.includes("injury") && traits.includes("poison") && e.flags.pf2e?.rulesSelections?.weapon === weapon.id;
-  });
-}
 
 async function spend(actor, weapon, effects, reason, hit = null) {
   await actor.deleteEmbeddedDocuments("Item", effects.map((e) => e.id));
