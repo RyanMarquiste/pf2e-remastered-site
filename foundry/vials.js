@@ -199,7 +199,8 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
         {
           key: "ItemAlteration",
           itemType: "weapon",
-          label,
+          // PF2e always draws the rule's label as a large heading above the note; a space keeps it empty, since the note has its own bold title.
+          label: " ",
           mode: "add",
           predicate: [`item:id:${weapon}`],
           property: "description",

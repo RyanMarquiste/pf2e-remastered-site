@@ -52,7 +52,7 @@ Hooks.on("createChatMessage", async (message) => {
         rules: [
           tag("poisoned"),
           tag("injury-poison"),
-          { key: "ItemAlteration", itemType: "weapon", label: poison.name, mode: "add", predicate: [`item:id:${weapon.id}`], property: "description", value: [{ title: poison.name, text: note }] },
+          { key: "ItemAlteration", itemType: "weapon", label: " ", mode: "add", predicate: [`item:id:${weapon.id}`], property: "description", value: [{ title: poison.name, text: note }] },
         ],
         start: { initiative: null, value: 0 },
         tokenIcon: { show: true },
