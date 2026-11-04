@@ -49,6 +49,7 @@
             "rarity": "common",
             "value": [
                 "fleeting",
+                "infused",
                 "injury",
                 "poison"
             ]

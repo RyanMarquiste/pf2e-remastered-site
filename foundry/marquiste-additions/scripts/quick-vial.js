@@ -18,28 +18,38 @@ const FIELD_VIALS = {
   toxicologist: { name: "Toxicologist Field Vial", tiers: true },
 };
 
-// A picker styled like PF2e's formula picker: an icon, the vial's name and traits, and a button to choose it. Returns the chosen name.
-async function pickVial(actor, pack, index, names) {
+// A picker styled like PF2e's formula picker: an icon, the vial's name and traits, and a button to choose it. The best tier of each group is
+// shown first and the lower tiers are behind a button at the bottom. Returns the chosen name.
+async function pickVial(actor, pack, index, groups) {
   const rows = [];
-  for (const name of names) {
-    const entry = index.find((e) => e.name === name);
-    const doc = entry ? await pack.getDocument(entry._id) : null;
-    if (!doc) continue;
-    const traits = doc.system.traits.value
-      .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? CONFIG.PF2E.effectTraits?.[t] ?? t))
-      .map((label) => `<span style="display: inline-block; background: #5a0505; color: #fff; border: 1px solid #e1d4a6; padding: 0 4px; font-size: 10px; font-weight: 700; line-height: 1.5; text-transform: uppercase; letter-spacing: .02em;">${label}</span>`)
-      .join("");
-    rows.push(`
-      <li style="display: flex; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid rgba(128, 128, 128, .3);">
+  for (const group of groups) {
+    for (const [position, name] of group.names.entries()) {
+      const entry = index.find((e) => e.name === name);
+      const doc = entry ? await pack.getDocument(entry._id) : null;
+      if (!doc) continue;
+      const traits = doc.system.traits.value
+        .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? CONFIG.PF2E.effectTraits?.[t] ?? t))
+        .map((label) => `<span style="display: inline-block; background: #5a0505; color: #fff; border: 1px solid #e1d4a6; padding: 0 4px; font-size: 10px; font-weight: 700; line-height: 1.5; text-transform: uppercase; letter-spacing: .02em;">${label}</span>`)
+        .join("");
+      rows.push({
+        extra: position > 0,
+        html: `
+      <li ${position > 0 ? "data-extra " : ""}style="display: ${position > 0 ? "none" : "flex"}; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid rgba(128, 128, 128, .3);">
         <img src="${doc.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none; border-radius: 3px;">
         <div style="flex: 1;"><strong style="display: block; font-size: 14px; line-height: 1.25;">${doc.name.replace(EFFECT_PREFIX, "")}</strong><div style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 1px;">${traits}</div></div>
         <button type="button" data-choice="${doc.name}" data-tooltip="Create" style="flex: none; width: 30px; height: 30px; margin: 0 2px 0 0; padding: 0; line-height: 1; border-radius: 4px;"><i class="fa-solid fa-check"></i></button>
-      </li>`);
+      </li>`,
+      });
+    }
   }
+  // The best tier of each group first, then the rest.
+  const ordered = [...rows.filter((r) => !r.extra), ...rows.filter((r) => r.extra)];
+  const hasExtras = ordered.some((r) => r.extra);
 
   const content = `
     <p style="margin: 0 0 .6em; font-size: 12px; opacity: .6;">Select a vial for ${actor.name} to create with Quick Vial.</p>
-    <ul style="list-style: none; margin: 0; padding: 0;">${rows.join("")}</ul>`;
+    <ul style="list-style: none; margin: 0; padding: 0;">${ordered.map((r) => r.html).join("")}</ul>
+    ${hasExtras ? '<button type="button" data-expand style="width: 100%; margin-top: .6em;"><i class="fa-solid fa-chevron-down"></i> Show all tiers</button>' : ""}`;
 
   let chosen = null;
   await foundry.applications.api.DialogV2.wait({
@@ -56,6 +66,14 @@ async function pickVial(actor, pack, index, names) {
           dialog.close();
         });
       }
+      const expand = dialog.element.querySelector("[data-expand]");
+      expand?.addEventListener("click", () => {
+        const extras = dialog.element.querySelectorAll("[data-extra]");
+        const show = extras[0]?.style.display === "none";
+        for (const row of extras) row.style.display = show ? "flex" : "none";
+        expand.innerHTML = show ? '<i class="fa-solid fa-chevron-up"></i> Show fewer' : '<i class="fa-solid fa-chevron-down"></i> Show all tiers';
+        dialog.setPosition({ height: "auto" });
+      });
     },
     rejectClose: false,
   });
@@ -70,22 +88,20 @@ export async function createQuickVial(actor) {
   const field = actor.itemTypes.feat.find((f) => f.category === "classfeature" && f.slug in FIELD_VIALS);
   const fieldVial = field ? FIELD_VIALS[field.slug] : null;
 
-  // Every vial the character can make at their level: a volatile vial, and the research field's vial, for each tier up to their own.
+  // Every vial the character can make at their level, grouped so each group lists its tiers from the best down.
   const tiers = TIERS.filter((t) => t.level <= actor.level).reverse();
-  const names = fieldVial?.tiers
-    ? tiers.flatMap((t) => [`Volatile Vial (${t.name})`, `${fieldVial.name} (${t.name})`])
-    : tiers.map((t) => `Volatile Vial (${t.name})`);
-  if (fieldVial && !fieldVial.tiers) names.push(fieldVial.name);
+  const groups = [{ names: tiers.map((t) => `Volatile Vial (${t.name})`) }];
+  if (fieldVial?.tiers) groups.push({ names: tiers.map((t) => `${fieldVial.name} (${t.name})`) });
+  else if (fieldVial) groups.push({ names: [fieldVial.name] });
 
   // A Toxicologist can also coat a weapon instead of making a vial: Toxic Coating, and Advanced Toxic Coating from 11th level.
   if (field?.slug === "toxicologist") {
-    for (const t of tiers) {
-      names.push(`${EFFECT_PREFIX}Toxic Coating (${t.name})`);
-      if (actor.level >= 11) names.push(`${EFFECT_PREFIX}Advanced Toxic Coating (${t.name})`);
-    }
+    groups.push({ names: tiers.map((t) => `${EFFECT_PREFIX}Toxic Coating (${t.name})`) });
+    if (actor.level >= 11) groups.push({ names: tiers.map((t) => `${EFFECT_PREFIX}Advanced Toxic Coating (${t.name})`) });
   }
+  const names = groups.flatMap((g) => g.names);
 
-  const name = names.length > 1 ? await pickVial(actor, pack, index, names) : names[0];
+  const name = names.length > 1 ? await pickVial(actor, pack, index, groups) : names[0];
   if (!name) return;
 
   const entry = index.find((e) => e.name === name);

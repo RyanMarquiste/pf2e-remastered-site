@@ -212,7 +212,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           rules,
           start: { initiative: null, value: 0 },
           tokenIcon: { show: true },
-          traits: { rarity: "common", value: ["fleeting", "injury", "poison"] },
+          traits: { rarity: "common", value: ["fleeting", "infused", "injury", "poison"] },
         },
       });
     }

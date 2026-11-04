@@ -25,6 +25,8 @@ Hooks.once("init", () => {
   for (const key of LISTS) {
     if (CONFIG.PF2E[key]) CONFIG.PF2E[key][TRAIT] = LABEL;
   }
+  // The Toxic Coating effects carry the Infused trait, which PF2e only lists for items.
+  if (CONFIG.PF2E.effectTraits) CONFIG.PF2E.effectTraits.infused ??= CONFIG.PF2E.equipmentTraits?.infused ?? "PF2E.TraitInfused";
   CONFIG.PF2E.traitsDescriptions ??= {};
   CONFIG.PF2E.traitsDescriptions[TRAIT] = DESCRIPTION;
 });
