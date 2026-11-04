@@ -106,7 +106,8 @@
                 "fleeting",
                 "infused",
                 "poison",
-                "splash"
+                "splash",
+                "toxinfused"
             ]
         },
         "usage": {

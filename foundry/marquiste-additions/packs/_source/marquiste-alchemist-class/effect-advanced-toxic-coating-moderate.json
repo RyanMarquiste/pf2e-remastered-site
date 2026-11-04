@@ -107,7 +107,8 @@
                 "fleeting",
                 "infused",
                 "injury",
-                "poison"
+                "poison",
+                "toxinfused"
             ]
         }
     }
