@@ -38,12 +38,12 @@ Hooks.on("preCreateChatMessage", (message) => {
   message.updateSource({ rolls });
 });
 
-// A Toxic Coating is used up by the first successful Strike with the coated weapon. A damage roll is only made on a hit, so when the coated
-// weapon's damage is rolled, take the coating off. (It also ends on its own at the end of the turn.)
-Hooks.on("createChatMessage", async (message) => {
+// Toxic Coatings follow the Injury trait: the first successful Strike with the coated weapon uses the coating up, and so does a critical failure.
+// A miss leaves it on. (It also ends on its own at the end of the turn.) A damage roll is only made on a hit, so rolling the coated weapon's
+// damage means it hit.
+async function spendCoatings(message, reason) {
   if (message.author?.id !== game.user.id) return;
-  if (message.flags?.pf2e?.context?.type !== "damage-roll") return;
-  const weaponUuid = message.flags.pf2e.origin?.uuid;
+  const weaponUuid = message.flags?.pf2e?.origin?.uuid;
   if (!weaponUuid) return;
   const weapon = await fromUuid(weaponUuid);
   const actor = weapon?.actor;
@@ -56,6 +56,12 @@ Hooks.on("createChatMessage", async (message) => {
   await actor.deleteEmbeddedDocuments("Item", coatings.map((e) => e.id));
   ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
-    content: `<p>The Toxic Coating on ${weapon.name} is used up by the hit.</p>`,
+    content: `<p>The Toxic Coating on ${weapon.name} is used up ${reason}.</p>`,
   });
+}
+
+Hooks.on("createChatMessage", async (message) => {
+  const context = message.flags?.pf2e?.context;
+  if (context?.type === "damage-roll") await spendCoatings(message, "by the hit");
+  else if (context?.type === "attack-roll" && context.outcome === "criticalFailure") await spendCoatings(message, "by the critical failure");
 });

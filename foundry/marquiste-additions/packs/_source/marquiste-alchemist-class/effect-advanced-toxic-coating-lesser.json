@@ -6,7 +6,7 @@
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-alchemist-class.Item.Pju8zG0sB5X36JPD]</p><p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit. It is also used up by the first successful Strike with the coated weapon.</p><p>Choose a weapon you are holding or wearing that deals piercing or slashing damage. It is tagged as poisoned and, on a successful Strike with it, adds 1d6 poison damage and 1 persistent poison damage until the effect ends. Ammunition can't be chosen.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-alchemist-class.Item.Pju8zG0sB5X36JPD]</p><p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit. It is also used up, like any injury poison, by the first successful Strike with the coated weapon or by a critical failure on the Strike.</p><p>Choose a weapon you are holding or wearing that deals piercing or slashing damage. It is tagged as poisoned and, on a successful Strike with it, adds 1d6 poison damage and 1 persistent poison damage until the effect ends. Ammunition can't be chosen.</p>"
         },
         "duration": {
             "expiry": "turn-end",
@@ -82,7 +82,7 @@
                 "value": [
                     {
                         "title": "Advanced Toxic Coating",
-                        "text": "Coated with a Toxicologist's poison until the end of the turn or the first successful Strike: 1d6 poison damage and 1 persistent poison damage."
+                        "text": "Coated with a Toxicologist's poison until the end of the turn, the first successful Strike or a critical failure: 1d6 poison damage and 1 persistent poison damage."
                     }
                 ]
             },
