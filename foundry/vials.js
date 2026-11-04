@@ -93,53 +93,24 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     items.push(item);
   }
 
-  // Bomber Field Vial: the damage type is chosen when the vial is added to a character.
+  // Bomber Field Vial: the damage type is chosen on the Strike, through PF2e's Versatile trait (acid is the default).
   for (const t of tiers) {
     const item = bomb({
       name: `Bomber Field Vial (${t.name})`,
       level: t.level,
       damageType: "acid",
       image: img("bomber-field-vial"),
-      traits: ["alchemical", "bomb", "consumable", "fleeting", "infused", "splash"],
+      traits: ["alchemical", "bomb", "consumable", "fleeting", "infused", "splash", "versatile-cold", "versatile-electricity", "versatile-fire"],
       description:
         activate("A", "Strike") +
         "<p><em>A corked flask holding a chaotic mixture of four thin liquids that never quite blend: corrosive green, icy blue, pale " +
         "crackling gold, and glowing orange.</em></p>" +
         "<p>When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash " +
-        "damage both use the chosen type, and the vial has the matching damage trait.</p>" +
+        "damage both use the chosen type.</p>" +
         `<p>The bomb deals ${t.dice}d6 damage of the chosen type and ${t.dice} splash damage of that type.</p>` +
         "<p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your " +
         "choice: adamantine, cold iron, or dawnsilver.</p>",
-      rules: [
-        {
-          key: "ChoiceSet",
-          choices: [
-            { label: "PF2E.TraitAcid", value: "acid" },
-            { label: "PF2E.TraitCold", value: "cold" },
-            { label: "PF2E.TraitElectricity", value: "electricity" },
-            { label: "PF2E.TraitFire", value: "fire" },
-          ],
-          flag: "damageType",
-          prompt: "Damage type",
-        },
-        ...scaling(),
-        {
-          key: "DamageAlteration",
-          mode: "override",
-          property: "damage-type",
-          selectors: ["{item|id}-damage"],
-          slug: "base",
-          value: "{item|flags.pf2e.rulesSelections.damageType}",
-        },
-        {
-          key: "DamageAlteration",
-          mode: "override",
-          property: "damage-type",
-          selectors: ["{item|id}-damage"],
-          slug: "splash",
-          value: "{item|flags.pf2e.rulesSelections.damageType}",
-        },
-      ],
+      rules: scaling(),
     });
     item.system.slug = "bomber-field-vial";
     items.push(item);

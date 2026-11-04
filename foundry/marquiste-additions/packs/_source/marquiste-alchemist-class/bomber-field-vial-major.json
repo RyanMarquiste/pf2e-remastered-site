@@ -24,7 +24,7 @@
             "die": "d6"
         },
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A corked flask holding a chaotic mixture of four thin liquids that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange.</em></p><p>When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type, and the vial has the matching damage trait.</p><p>The bomb deals 4d6 damage of the chosen type and 4 splash damage of that type.</p><p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your choice: adamantine, cold iron, or dawnsilver.</p>"
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A corked flask holding a chaotic mixture of four thin liquids that never quite blend: corrosive green, icy blue, pale crackling gold, and glowing orange.</em></p><p>When you Strike with this vial, you choose its damage type: acid, cold, electricity, or fire. The vial's initial and splash damage both use the chosen type.</p><p>The bomb deals 4d6 damage of the chosen type and 4 splash damage of that type.</p><p><strong>Advanced Vial (11th level)</strong> When you create the vial, you can treat it as made of one special material of your choice: adamantine, cold iron, or dawnsilver.</p>"
         },
         "expend": 1,
         "grade": null,
@@ -56,29 +56,6 @@
         },
         "rules": [
             {
-                "key": "ChoiceSet",
-                "choices": [
-                    {
-                        "label": "PF2E.TraitAcid",
-                        "value": "acid"
-                    },
-                    {
-                        "label": "PF2E.TraitCold",
-                        "value": "cold"
-                    },
-                    {
-                        "label": "PF2E.TraitElectricity",
-                        "value": "electricity"
-                    },
-                    {
-                        "label": "PF2E.TraitFire",
-                        "value": "fire"
-                    }
-                ],
-                "flag": "damageType",
-                "prompt": "Damage type"
-            },
-            {
                 "hideIfDisabled": true,
                 "key": "FlatModifier",
                 "predicate": [
@@ -109,26 +86,6 @@
                 "selector": "{item|id}-damage",
                 "slug": "splash",
                 "value": "ternary(gte(@item.level,18),4,ternary(gte(@item.level,12),3,ternary(gte(@item.level,4),2,1)))"
-            },
-            {
-                "key": "DamageAlteration",
-                "mode": "override",
-                "property": "damage-type",
-                "selectors": [
-                    "{item|id}-damage"
-                ],
-                "slug": "base",
-                "value": "{item|flags.pf2e.rulesSelections.damageType}"
-            },
-            {
-                "key": "DamageAlteration",
-                "mode": "override",
-                "property": "damage-type",
-                "selectors": [
-                    "{item|id}-damage"
-                ],
-                "slug": "splash",
-                "value": "{item|flags.pf2e.rulesSelections.damageType}"
             }
         ],
         "runes": {
@@ -148,7 +105,10 @@
                 "consumable",
                 "fleeting",
                 "infused",
-                "splash"
+                "splash",
+                "versatile-cold",
+                "versatile-electricity",
+                "versatile-fire"
             ]
         },
         "usage": {
