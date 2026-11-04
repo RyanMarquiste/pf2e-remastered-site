@@ -1,6 +1,6 @@
 // The house-rule Quick Alchemy: with the Volatile Vial house rules switched on, using the Quick Alchemy (House Rule) action asks the
 // character to choose Quick Vial or Create Consumable. Create Consumable is only offered while they have a versatile vial left.
-import { MODULE, SETTING, itemUsed, versatileVials } from "./common.js";
+import { MODULE, SETTING, QUICK_VIAL_ICON, CONSUMABLE_ICON, itemUsed, versatileVials } from "./common.js";
 import { createQuickVial } from "./quick-vial.js";
 import { createConsumable } from "./create-consumable.js";
 
@@ -23,6 +23,12 @@ Hooks.on("createChatMessage", async (message) => {
       { action: "vial", label: "Quick Vial", default: true },
       { action: "consumable", label: "Create Consumable" },
     ],
+    render: (event, dialog) => {
+      // Put the small icons in front of the button labels.
+      for (const [action, icon] of [["vial", QUICK_VIAL_ICON], ["consumable", CONSUMABLE_ICON]]) {
+        dialog.element.querySelector(`button[data-action="${action}"]`)?.insertAdjacentHTML("afterbegin", icon);
+      }
+    },
     rejectClose: false,
   });
   if (choice === "vial") return createQuickVial(actor);
