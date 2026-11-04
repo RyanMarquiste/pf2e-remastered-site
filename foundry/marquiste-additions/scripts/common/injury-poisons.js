@@ -1,9 +1,10 @@
 // Injury poisons: using any injury poison asks which weapon to poison, tags that weapon and adds a note, and the poison is used up the way
 // the Injury trait says: by the first successful Strike (when the hit's damage is rolled) or by a critical failure, while a miss leaves it on.
-// On a weapon that fires ammunition the poison is really on the ammunition, so firing the weapon uses it up. The same rules spend the
-// Toxicologist's Toxic Coatings. A hit by a poisoned weapon posts the poison's description and saving throw, which the GM resolves.
-import { MODULE } from "./common.js";
-import { coatableWeapons, pickWeapon } from "./quick-vial.js";
+// On a weapon that fires ammunition the poison is really on the ammunition, so firing the weapon uses it up. The same rules spend
+// any other effect that puts an injury poison on a chosen weapon (such as the Alchemist's Toxic Coatings). A hit by a poisoned weapon posts the
+// poison's description and saving throw, which the GM resolves.
+import { MODULE } from "./shared.js";
+import { coatableWeapons, pickWeapon } from "./weapon-picker.js";
 
 const enrich = (html) => (foundry.applications.ux?.TextEditor?.implementation ?? TextEditor).enrichHTML(html);
 
@@ -63,11 +64,14 @@ Hooks.on("createChatMessage", async (message) => {
   ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content: `<p>${actor.name} poisons ${weapon.name} with ${poison.name}. ${spent}</p>` });
 });
 
-// What is on a weapon: its Toxic Coatings and any injury poison applied to it.
+// What is on a weapon: an injury poison applied by this script, or any effect with the Injury and Poison traits whose weapon choice is this
+// weapon (the Alchemist's Toxic Coatings are like that).
 function poisonsOn(actor, weapon) {
-  return actor.itemTypes.effect.filter(
-    (e) => (/^Effect: (Advanced )?Toxic Coating/.test(e.name) && e.flags.pf2e?.rulesSelections?.weapon === weapon.id) || e.getFlag(MODULE, "injuryPoison")?.weapon === weapon.id,
-  );
+  return actor.itemTypes.effect.filter((e) => {
+    if (e.getFlag(MODULE, "injuryPoison")?.weapon === weapon.id) return true;
+    const traits = e.system.traits.value;
+    return traits.includes("injury") && traits.includes("poison") && e.flags.pf2e?.rulesSelections?.weapon === weapon.id;
+  });
 }
 
 async function spend(actor, weapon, effects, reason, hit = null) {

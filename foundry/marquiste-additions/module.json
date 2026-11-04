@@ -21,21 +21,21 @@
         ]
     },
     "esmodules": [
-        "scripts/insulating-paste.js",
-        "scripts/volatile-vial.js",
-        "scripts/quick-vial.js",
-        "scripts/create-consumable.js",
-        "scripts/quick-alchemy.js",
-        "scripts/fleeting-trait.js",
-        "scripts/compendium-browser.js",
-        "scripts/toxicologist.js",
-        "scripts/injury-poisons.js"
+        "scripts/common/fleeting-trait.js",
+        "scripts/common/compendium-browser.js",
+        "scripts/common/injury-poisons.js",
+        "scripts/alchemist/volatile-vial.js",
+        "scripts/alchemist/quick-vial.js",
+        "scripts/alchemist/create-consumable.js",
+        "scripts/alchemist/quick-alchemy.js",
+        "scripts/alchemist/toxicologist.js",
+        "scripts/cauldron/insulating-paste.js"
     ],
     "packs": [
         {
-            "name": "corpsecaps-cauldron",
-            "label": "CorpseCap's Cauldron",
-            "path": "packs/corpsecaps-cauldron",
+            "name": "marquiste-common-enhancements",
+            "label": "Common Enhancements",
+            "path": "packs/marquiste-common-enhancements",
             "type": "Item",
             "system": "pf2e",
             "ownership": {
@@ -45,8 +45,19 @@
         },
         {
             "name": "marquiste-alchemist-class",
-            "label": "Marquiste: Alchemist Class",
+            "label": "Alchemist Enhancements",
             "path": "packs/marquiste-alchemist-class",
+            "type": "Item",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
+        },
+        {
+            "name": "corpsecaps-cauldron",
+            "label": "CorpseCap's Cauldron",
+            "path": "packs/corpsecaps-cauldron",
             "type": "Item",
             "system": "pf2e",
             "ownership": {

@@ -1,6 +1,7 @@
 // The house-rule Quick Alchemy: with the Volatile Vial house rules switched on, using the Quick Alchemy (House Rule) action asks the
 // character to choose Quick Vial or Create Consumable. Create Consumable is only offered while they have a versatile vial left.
-import { MODULE, SETTING, QUICK_VIAL_ICON, CONSUMABLE_ICON, itemUsed, versatileVials } from "./common.js";
+import { MODULE, itemUsed } from "../common/shared.js";
+import { SETTING, QUICK_VIAL_ICON, CONSUMABLE_ICON, versatileVials } from "./alchemist.js";
 import { createQuickVial } from "./quick-vial.js";
 import { createConsumable } from "./create-consumable.js";
 

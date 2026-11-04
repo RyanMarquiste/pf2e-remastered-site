@@ -6,7 +6,8 @@ const crypto = require("crypto");
 
 const MODULE_ID = "marquiste-additions";
 const PACK = "corpsecaps-cauldron";
-const CLASS_PACK = "marquiste-alchemist-class";
+const CLASS_PACK = "marquiste-alchemist-class"; // labelled "Alchemist Enhancements"; the id stays so existing links keep working
+const COMMON_PACK = "marquiste-common-enhancements";
 const IMG = `modules/${MODULE_ID}/images/mind-doubling-mutagen.png`;
 const ICHTHYS_IMG = `modules/${MODULE_ID}/images/ichthys-mutagen.png`;
 const PASTE_IMG = `modules/${MODULE_ID}/images/insulating-paste.png`;
@@ -480,8 +481,12 @@ function writePack(pack, list) {
   }
   console.log(`Wrote ${list.length} items to ${path.relative(process.cwd(), out)}`);
 }
-writePack(PACK, items);
+// Common Enhancements: items that apply across the whole game. Nothing is needed yet: the injury poison rules work on PF2e's own poisons.
+const commonItems = [];
+
+writePack(COMMON_PACK, commonItems);
 writePack(CLASS_PACK, classItems);
+writePack(PACK, items);
 
 const moduleJson = {
   id: MODULE_ID,
@@ -492,29 +497,40 @@ const moduleJson = {
   compatibility: { minimum: "13", verified: "13" },
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
   esmodules: [
-    "scripts/insulating-paste.js",
-    "scripts/volatile-vial.js",
-    "scripts/quick-vial.js",
-    "scripts/create-consumable.js",
-    "scripts/quick-alchemy.js",
-    "scripts/fleeting-trait.js",
-    "scripts/compendium-browser.js",
-    "scripts/toxicologist.js",
-    "scripts/injury-poisons.js",
+    // Common Enhancements
+    "scripts/common/fleeting-trait.js",
+    "scripts/common/compendium-browser.js",
+    "scripts/common/injury-poisons.js",
+    // Alchemist Enhancements
+    "scripts/alchemist/volatile-vial.js",
+    "scripts/alchemist/quick-vial.js",
+    "scripts/alchemist/create-consumable.js",
+    "scripts/alchemist/quick-alchemy.js",
+    "scripts/alchemist/toxicologist.js",
+    // CorpseCap's Cauldron
+    "scripts/cauldron/insulating-paste.js",
   ],
   packs: [
     {
-      name: PACK,
-      label: "CorpseCap's Cauldron",
-      path: `packs/${PACK}`,
+      name: COMMON_PACK,
+      label: "Common Enhancements",
+      path: `packs/${COMMON_PACK}`,
       type: "Item",
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
     },
     {
       name: CLASS_PACK,
-      label: "Marquiste: Alchemist Class",
+      label: "Alchemist Enhancements",
       path: `packs/${CLASS_PACK}`,
+      type: "Item",
+      system: "pf2e",
+      ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
+    },
+    {
+      name: PACK,
+      label: "CorpseCap's Cauldron",
+      path: `packs/${PACK}`,
       type: "Item",
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },

@@ -1,7 +1,8 @@
 // Create Consumable: expend a versatile vial to create one alchemical consumable from the Alchemist's formulas, the way PF2e's Quick Alchemy does.
 // The action item carries a CraftingAbility rule, so PF2e itself shows its formula picker, spends the vial and puts the item in a hand.
 // This script adds the checks and the end-of-turn expiry around that.
-import { MODULE, itemUsed, versatileVials, say } from "./common.js";
+import { MODULE, itemUsed, say } from "../common/shared.js";
+import { versatileVials } from "./alchemist.js";
 
 const SLUG = "create-consumable";
 
@@ -9,7 +10,7 @@ const SLUG = "create-consumable";
 export async function createConsumable(actor) {
   const action = actor.items.find((i) => i.type === "action" && i.slug === SLUG) ?? actor.items.find((i) => i.type === "action" && i.slug === "quick-alchemy");
   if (!action) {
-    return ui.notifications.warn(`${actor.name} needs the Create Consumable action from CorpseCap's Cauldron.`);
+    return ui.notifications.warn(`${actor.name} needs the Create Consumable action from the Alchemist Enhancements compendium.`);
   }
   await game.pf2e.rollItemMacro(action.uuid);
 }
