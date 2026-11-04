@@ -102,6 +102,8 @@ async function pickWeapon(actor, weapons) {
   return weapons.find((w) => w.id === id) ?? null;
 }
 
+export { coatableWeapons, pickWeapon };
+
 export async function createQuickVial(actor) {
   const pack = game.packs.get(PACK);
   if (!pack) return ui.notifications.warn("Marquiste Additions: the CorpseCap's Cauldron compendium wasn't found.");

@@ -500,6 +500,7 @@ const moduleJson = {
     "scripts/fleeting-trait.js",
     "scripts/compendium-browser.js",
     "scripts/toxicologist.js",
+    "scripts/injury-poisons.js",
   ],
   packs: [
     {
