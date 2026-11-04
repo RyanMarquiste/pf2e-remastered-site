@@ -6,7 +6,7 @@ Hooks.once("init", () => {
   game.settings.register(MODULE, SETTING, {
     name: "Use the Volatile Vial house rules",
     hint:
-      "Turns on the revised Quick Alchemy: using the Quick Alchemy (House Rule) action asks you to choose Quick Vial or Create Consumable. " +
+      "Turns on the revised Quick Alchemy: using the Quick Alchemy (Marquiste) action asks you to choose Quick Vial or Create Consumable. " +
       "An Alchemist's versatile vials stay as PF2e's resource; a Volatile Vial, the throwable bomb, is only created by Quick Vial.",
     scope: "world",
     config: true,

@@ -1,4 +1,4 @@
-// Volatile Vial, the four Field Vials, the Toxic Coating effects, and the house-rule Quick Alchemy feat.
+// Volatile Vial, the four Field Vials, the Toxic Coating effects, and the Quick Alchemy (Marquiste) action.
 // Called from build.js, which supplies the shared helpers.
 module.exports = function buildVials({ items, publication, makeId, uuidOf, img }) {
   const tiers = [
@@ -368,15 +368,16 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     },
   });
 
-  // Quick Alchemy as the house rules revise it, as an action so it sits with Quick Vial and Create Consumable. It does not change PF2e's built-in
-  // Quick Alchemy; swap it onto an Alchemist by hand. The module script (scripts/quick-alchemy.js) makes it ask for Quick Vial or Create Consumable.
+  // Quick Alchemy (Marquiste): Quick Alchemy as the house rules revise it, as an action so it sits with Quick Vial and Create Consumable. It does not change
+  // PF2e's built-in Quick Alchemy; swap it onto an Alchemist by hand. The module script (scripts/alchemist/quick-alchemy.js) makes it ask for Quick Vial or
+  // Create Consumable. The id is still made from the earlier name "Quick Alchemy (House Rule)", so links to it keep working.
   items.push({
     _id: makeId("action:Quick Alchemy (House Rule)"),
     img: "systems/pf2e/icons/actions/OneAction.webp",
-    name: "Quick Alchemy (House Rule)",
+    name: "Quick Alchemy (Marquiste)",
     type: "action",
     system: {
-      slug: "quick-alchemy-house-rule",
+      slug: "quick-alchemy-marquiste",
       actionType: { value: "action" },
       actions: { value: 1 },
       category: "interaction",
@@ -395,7 +396,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           "activated by the end of your current turn or else it becomes inert.</p>" +
           "<p>Using Quick Vial does not expend a versatile vial.</p>" +
           "<hr /><p><strong>Module</strong> With the Volatile Vial house rules switched on in the Marquiste Additions settings, using this action asks you to choose Quick Vial or Create Consumable. Adding this action to a character also adds the Quick Vial and Create Consumable actions. " +
-          "Create Consumable is only offered while you have a versatile vial left.</p>",
+          "Create Consumable is shown but cannot be chosen while you have no versatile vial left.</p>",
       },
       frequency: null,
       publication,
