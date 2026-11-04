@@ -8,6 +8,64 @@ const FIELD_VIALS = {
   toxicologist: { name: "Toxicologist Field Vial", tiers: true },
 };
 
+// A picker styled like PF2e's formula picker: an icon, the vial's name and traits, and a button to choose it.
+async function pickVial(actor, pack, index, choices) {
+  const groups = new Map();
+  for (const choice of choices) {
+    const entry = index.find((e) => e.name === choice.name);
+    const doc = entry ? await pack.getDocument(entry._id) : null;
+    if (!doc) continue;
+    const traits = doc.system.traits.value
+      .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? t))
+      .map((label) => `<span class="tag">${label}</span>`)
+      .join("");
+    const row = `
+      <li class="mqm-row">
+        <img src="${doc.img}" alt="">
+        <div class="mqm-text"><strong>${doc.name}</strong><div class="tags">${traits}</div></div>
+        <button type="button" class="mqm-pick" data-choice="${choice.id}" data-tooltip="Create"><i class="fa-solid fa-check"></i></button>
+      </li>`;
+    const level = doc.system.level.value;
+    groups.set(level, [...(groups.get(level) ?? []), row]);
+  }
+  const rows = [...groups.entries()]
+    .sort(([a], [b]) => b - a)
+    .map(([level, list]) => `<h3 class="mqm-level">Level ${level}</h3><ul class="mqm-list">${list.join("")}</ul>`)
+    .join("");
+
+  const content = `
+    <style>
+      .mqm-prompt { margin: 0 0 .5em; opacity: .8; }
+      .mqm-level { margin: .4em 0 .2em; }
+      .mqm-list { list-style: none; margin: 0; padding: 0; }
+      .mqm-row { display: flex; align-items: center; gap: .6em; padding: .4em .2em; border-bottom: 1px solid rgba(128, 128, 128, .35); }
+      .mqm-row img { width: 36px; height: 36px; object-fit: contain; border: none; flex: none; }
+      .mqm-text { flex: 1; }
+      .mqm-text .tags { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px; }
+      .mqm-pick { flex: none; width: 36px; height: 36px; padding: 0; line-height: 1; }
+    </style>
+    <p class="mqm-prompt">Select a vial for ${actor.name} to create with Quick Vial.</p>
+    ${rows}`;
+
+  let chosen = null;
+  await foundry.applications.api.DialogV2.wait({
+    window: { title: "Quick Vial", icon: "fa-solid fa-toolbox" },
+    position: { width: 480 },
+    content,
+    buttons: [{ action: "cancel", label: "Cancel", icon: "fa-solid fa-xmark" }],
+    render: (event, dialog) => {
+      for (const button of dialog.element.querySelectorAll("[data-choice]")) {
+        button.addEventListener("click", () => {
+          chosen = button.dataset.choice;
+          dialog.close();
+        });
+      }
+    },
+    rejectClose: false,
+  });
+  return chosen;
+}
+
 export async function createQuickVial(actor) {
   // The vial is created in a hand, so one has to be free.
   if (!(actor.handsFree > 0)) {
@@ -27,15 +85,10 @@ export async function createQuickVial(actor) {
 
   let choice = "volatile";
   if (fieldName) {
-    choice = await foundry.applications.api.DialogV2.wait({
-      window: { title: "Quick Vial" },
-      content: `<p>Which vial does ${actor.name} create?</p>`,
-      buttons: [
-        { action: "volatile", label: volatileName, default: true },
-        { action: "field", label: fieldName },
-      ],
-      rejectClose: false,
-    });
+    choice = await pickVial(actor, pack, index, [
+      { id: "volatile", name: volatileName },
+      { id: "field", name: fieldName },
+    ]);
     if (!choice) return;
   }
 
