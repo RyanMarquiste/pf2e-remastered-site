@@ -1,5 +1,12 @@
 // Quick Vial: an Alchemist with a free hand creates a volatile vial or the field vial for their research field, held in that hand.
-import { MODULE, PACK, itemUsed, tierFor, say } from "./common.js";
+import { MODULE, PACK, itemUsed, say } from "./common.js";
+
+const TIERS = [
+  { name: "Lesser", level: 1 },
+  { name: "Moderate", level: 4 },
+  { name: "Greater", level: 12 },
+  { name: "Major", level: 18 },
+];
 
 const FIELD_VIALS = {
   bomber: { name: "Bomber Field Vial", tiers: true },
@@ -8,42 +15,38 @@ const FIELD_VIALS = {
   toxicologist: { name: "Toxicologist Field Vial", tiers: true },
 };
 
-// A picker styled like PF2e's formula picker: an icon, the vial's name and traits, and a button to choose it.
-async function pickVial(actor, pack, index, choices) {
-  const groups = new Map();
-  for (const choice of choices) {
-    const entry = index.find((e) => e.name === choice.name);
+// A picker styled like PF2e's formula picker: an icon, the vial's name and traits, and a button to choose it. Returns the chosen name.
+async function pickVial(actor, pack, index, names) {
+  const rows = [];
+  for (const name of names) {
+    const entry = index.find((e) => e.name === name);
     const doc = entry ? await pack.getDocument(entry._id) : null;
     if (!doc) continue;
     const traits = doc.system.traits.value
       .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? t))
       .map((label) => `<span class="tag">${label}</span>`)
       .join("");
-    const row = `
+    rows.push(`
       <li style="display: flex; align-items: center; gap: .6em; padding: .4em .2em; border-bottom: 1px solid rgba(128, 128, 128, .35);">
         <img src="${doc.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none;">
         <div style="flex: 1;"><strong>${doc.name}</strong><div class="tags" style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px;">${traits}</div></div>
-        <button type="button" data-choice="${choice.id}" data-tooltip="Create" style="flex: none; width: 36px; height: 36px; margin: 0; padding: 0; line-height: 1;"><i class="fa-solid fa-check"></i></button>
-      </li>`;
-    const level = doc.system.level.value;
-    groups.set(level, [...(groups.get(level) ?? []), row]);
+        <button type="button" data-choice="${doc.name}" data-tooltip="Create" style="flex: none; width: 36px; height: 36px; margin: 0; padding: 0; line-height: 1;"><i class="fa-solid fa-check"></i></button>
+      </li>`);
   }
-  const rows = [...groups.entries()]
-    .sort(([a], [b]) => b - a)
-    .map(([level, list]) => `<h3 style="margin: .4em 0 .2em; border: none;">Level ${level}</h3><ul style="list-style: none; margin: 0; padding: 0;">${list.join("")}</ul>`)
-    .join("");
 
   const content = `
     <p style="margin: 0 0 .5em; opacity: .8;">Select a vial for ${actor.name} to create with Quick Vial.</p>
-    ${rows}`;
+    <ul style="list-style: none; margin: 0; padding: 0;">${rows.join("")}</ul>`;
 
   let chosen = null;
   await foundry.applications.api.DialogV2.wait({
     window: { title: "Quick Vial", icon: "fa-solid fa-toolbox" },
     position: { width: 480 },
     content,
-    buttons: [{ action: "cancel", label: "Cancel", icon: "fa-solid fa-xmark" }],
+    buttons: [{ action: "cancel", label: "Cancel" }],
     render: (event, dialog) => {
+      // The list is short and the window can be closed, so the Cancel button is not shown.
+      dialog.element.querySelector(".form-footer")?.remove();
       for (const button of dialog.element.querySelectorAll("[data-choice]")) {
         button.addEventListener("click", () => {
           chosen = button.dataset.choice;
@@ -69,20 +72,17 @@ export async function createQuickVial(actor) {
 
   const field = actor.itemTypes.feat.find((f) => f.category === "classfeature" && f.slug in FIELD_VIALS);
   const fieldVial = field ? FIELD_VIALS[field.slug] : null;
-  const tier = tierFor(actor.level);
-  const volatileName = `Volatile Vial (${tier})`;
-  const fieldName = fieldVial ? (fieldVial.tiers ? `${fieldVial.name} (${tier})` : fieldVial.name) : null;
 
-  let choice = "volatile";
-  if (fieldName) {
-    choice = await pickVial(actor, pack, index, [
-      { id: "volatile", name: volatileName },
-      { id: "field", name: fieldName },
-    ]);
-    if (!choice) return;
-  }
+  // Every vial the character can make at their level: a volatile vial, and the research field's vial, for each tier up to their own.
+  const tiers = TIERS.filter((t) => t.level <= actor.level).reverse();
+  const names = fieldVial?.tiers
+    ? tiers.flatMap((t) => [`Volatile Vial (${t.name})`, `${fieldVial.name} (${t.name})`])
+    : tiers.map((t) => `Volatile Vial (${t.name})`);
+  if (fieldVial && !fieldVial.tiers) names.push(fieldVial.name);
 
-  const name = choice === "field" ? fieldName : volatileName;
+  const name = names.length > 1 ? await pickVial(actor, pack, index, names) : names[0];
+  if (!name) return;
+
   const entry = index.find((e) => e.name === name);
   if (!entry) return ui.notifications.warn(`Marquiste Additions: couldn't find ${name} in the compendium.`);
 
