@@ -176,6 +176,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   <h4 class="stat-block-title">Toxic Coating <span class="stat-block-action">Effect</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Fleeting</span>
+    <span class="trait">Infused</span>
     <span class="trait">Injury</span>
     <span class="trait">Poison</span>
   </div>
@@ -210,6 +211,7 @@ summary: "Volatile vials adapted for each Alchemist research field: Bomber, Chir
   <h4 class="stat-block-title">Advanced Toxic Coating <span class="stat-block-action">Effect</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Fleeting</span>
+    <span class="trait">Infused</span>
     <span class="trait">Injury</span>
     <span class="trait">Poison</span>
   </div>
