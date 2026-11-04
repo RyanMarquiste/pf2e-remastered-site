@@ -130,7 +130,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
       level: t.level,
       damageType: "poison",
       image: img("toxicologist-field-vial"),
-      traits: ["alchemical", "bomb", "consumable", "fleeting", "infused", "poison", "splash", "toxinfused"],
+      traits: ["alchemical", "bomb", "consumable", "fleeting", "infused", "poison", "splash", "mutable-acid"],
       description:
         activate("A", "Strike") +
         "<p><em>A corked flask of oily, black-green liquid that clings to the glass in slow, dripping strands, with a bitter, acrid smell.</em></p>" +
@@ -201,7 +201,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           rules,
           start: { initiative: null, value: 0 },
           tokenIcon: { show: true },
-          traits: { rarity: "common", value: ["fleeting", "infused", "injury", "poison", "toxinfused"] },
+          traits: { rarity: "common", value: ["fleeting", "infused", "injury", "poison", "mutable-acid"] },
         },
       });
     }

@@ -108,7 +108,7 @@
                 "infused",
                 "injury",
                 "poison",
-                "toxinfused"
+                "mutable-acid"
             ]
         }
     }

@@ -107,7 +107,7 @@
                 "infused",
                 "poison",
                 "splash",
-                "toxinfused"
+                "mutable-acid"
             ]
         },
         "usage": {

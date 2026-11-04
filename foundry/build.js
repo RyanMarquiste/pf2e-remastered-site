@@ -499,6 +499,7 @@ const moduleJson = {
   esmodules: [
     // Common Enhancements
     "scripts/common/fleeting-trait.js",
+    "scripts/common/mutable-trait.js",
     "scripts/common/compendium-browser.js",
     "scripts/common/injury-poisons.js",
     // Alchemist Enhancements
