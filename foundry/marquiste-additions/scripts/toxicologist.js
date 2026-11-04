@@ -38,21 +38,26 @@ Hooks.on("preCreateChatMessage", (message) => {
   message.updateSource({ rolls });
 });
 
-// Toxic Coatings follow the Injury trait: the first successful Strike with the coated weapon uses the coating up, and so does a critical failure.
-// A miss leaves it on. (It also ends on its own at the end of the turn.) A damage roll is only made on a hit, so rolling the coated weapon's
-// damage means it hit.
-async function spendCoatings(message, reason) {
-  if (message.author?.id !== game.user.id) return;
+// Toxic Coatings follow the Injury trait. On a weapon that doesn't use ammunition, the first successful Strike uses the coating up (a damage roll
+// is only made on a hit, so rolling the coated weapon's damage means it hit), and so does a critical failure; a miss leaves it on. On a weapon that
+// fires ammunition the poison is really on the ammunition, so firing uses it up: a miss spends it at once, and a hit spends it once that shot's
+// damage has been rolled. (It also ends on its own at the end of the turn.)
+const MODULE = "marquiste-additions";
+
+async function coatedWeapon(message) {
+  if (message.author?.id !== game.user.id) return null;
   const weaponUuid = message.flags?.pf2e?.origin?.uuid;
-  if (!weaponUuid) return;
+  if (!weaponUuid) return null;
   const weapon = await fromUuid(weaponUuid);
   const actor = weapon?.actor;
-  if (!actor) return;
-
+  if (!actor) return null;
   const coatings = actor.itemTypes.effect.filter(
     (e) => /^Effect: (Advanced )?Toxic Coating/.test(e.name) && e.flags.pf2e?.rulesSelections?.weapon === weapon.id,
   );
-  if (!coatings.length) return;
+  return coatings.length ? { actor, weapon, coatings } : null;
+}
+
+async function spend({ actor, weapon, coatings }, reason) {
   await actor.deleteEmbeddedDocuments("Item", coatings.map((e) => e.id));
   ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
@@ -62,6 +67,22 @@ async function spendCoatings(message, reason) {
 
 Hooks.on("createChatMessage", async (message) => {
   const context = message.flags?.pf2e?.context;
-  if (context?.type === "damage-roll") await spendCoatings(message, "by the hit");
-  else if (context?.type === "attack-roll" && context.outcome === "criticalFailure") await spendCoatings(message, "by the critical failure");
+  if (context?.type !== "damage-roll" && context?.type !== "attack-roll") return;
+  const found = await coatedWeapon(message);
+  if (!found) return;
+
+  if (context.type === "damage-roll") return spend(found, "by the hit");
+
+  // An attack roll. A coating left over from an earlier shot of an ammunition weapon is already spent.
+  const stale = found.coatings.filter((e) => e.getFlag(MODULE, "fired"));
+  if (stale.length) await spend({ ...found, coatings: stale }, "with the ammunition it was on");
+  const coatings = found.coatings.filter((e) => !e.getFlag(MODULE, "fired"));
+  if (!coatings.length) return;
+
+  if (found.weapon.system.ammo) {
+    if (["failure", "criticalFailure"].includes(context.outcome)) return spend({ ...found, coatings }, "with the ammunition it was on, which missed");
+    for (const coating of coatings) await coating.setFlag(MODULE, "fired", true); // spent once this shot's damage is rolled
+  } else if (context.outcome === "criticalFailure") {
+    return spend({ ...found, coatings }, "by the critical failure");
+  }
 });

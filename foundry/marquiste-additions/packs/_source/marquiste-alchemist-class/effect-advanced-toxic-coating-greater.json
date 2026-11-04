@@ -6,7 +6,7 @@
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-alchemist-class.Item.RKR5IRsRyWL7pjWr]</p><p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit. It is also used up, like any injury poison, by the first successful Strike with the coated weapon or by a critical failure on the Strike.</p><p>Choose a weapon you are holding or wearing that deals piercing or slashing damage. It is tagged as poisoned and, on a successful Strike with it, adds 3d6 poison damage and 3 persistent poison damage until the effect ends. Ammunition can't be chosen.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-alchemist-class.Item.RKR5IRsRyWL7pjWr]</p><p><strong>Fleeting</strong> Unlike most injury poisons, this effect is Fleeting and will expire at the end of the current turn, whether or not the weapon has hit. It is also used up, like any injury poison, by the first successful Strike with the coated weapon or by a critical failure on the Strike. On a weapon that fires ammunition it is used up as soon as the weapon is fired.</p><p>Choose a weapon you are holding or wearing that deals piercing or slashing damage. It is tagged as poisoned and, on a successful Strike with it, adds 3d6 poison damage and 3 persistent poison damage until the effect ends. If the weapon fires ammunition, the poison is on the ammunition instead: it is spent when the weapon is fired, hit or miss.</p>"
         },
         "duration": {
             "expiry": "turn-end",
@@ -82,7 +82,7 @@
                 "value": [
                     {
                         "title": "Advanced Toxic Coating",
-                        "text": "Coated with a Toxicologist's poison until the end of the turn, the first successful Strike or a critical failure: 3d6 poison damage and 3 persistent poison damage."
+                        "text": "Coated with a Toxicologist's poison until the end of the turn, the first successful Strike or a critical failure (or, if the weapon fires ammunition, until it is fired): 3d6 poison damage and 3 persistent poison damage."
                     }
                 ]
             },
