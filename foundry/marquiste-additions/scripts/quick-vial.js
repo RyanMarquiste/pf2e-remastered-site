@@ -24,18 +24,18 @@ async function pickVial(actor, pack, index, names) {
     if (!doc) continue;
     const traits = doc.system.traits.value
       .map((t) => game.i18n.localize(CONFIG.PF2E.weaponTraits?.[t] ?? CONFIG.PF2E.consumableTraits?.[t] ?? t))
-      .map((label) => `<span class="tag">${label}</span>`)
+      .map((label) => `<span style="display: inline-block; background: #5a0505; color: #fff; border: 1px solid #e1d4a6; padding: 0 4px; font-size: 10px; font-weight: 700; line-height: 1.5; text-transform: uppercase; letter-spacing: .02em;">${label}</span>`)
       .join("");
     rows.push(`
-      <li style="display: flex; align-items: center; gap: .6em; padding: .4em .2em; border-bottom: 1px solid rgba(128, 128, 128, .35);">
-        <img src="${doc.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none;">
-        <div style="flex: 1;"><strong>${doc.name}</strong><div class="tags" style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px;">${traits}</div></div>
-        <button type="button" data-choice="${doc.name}" data-tooltip="Create" style="flex: none; width: 36px; height: 36px; margin: 0; padding: 0; line-height: 1;"><i class="fa-solid fa-check"></i></button>
+      <li style="display: flex; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid rgba(128, 128, 128, .3);">
+        <img src="${doc.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none; border-radius: 3px;">
+        <div style="flex: 1;"><strong style="display: block; font-size: 14px; line-height: 1.25;">${doc.name}</strong><div style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 1px;">${traits}</div></div>
+        <button type="button" data-choice="${doc.name}" data-tooltip="Create" style="flex: none; width: 30px; height: 30px; margin: 0 2px 0 0; padding: 0; line-height: 1; border-radius: 4px;"><i class="fa-solid fa-check"></i></button>
       </li>`);
   }
 
   const content = `
-    <p style="margin: 0 0 .5em; opacity: .8;">Select a vial for ${actor.name} to create with Quick Vial.</p>
+    <p style="margin: 0 0 .6em; font-size: 12px; opacity: .6;">Select a vial for ${actor.name} to create with Quick Vial.</p>
     <ul style="list-style: none; margin: 0; padding: 0;">${rows.join("")}</ul>`;
 
   let chosen = null;
