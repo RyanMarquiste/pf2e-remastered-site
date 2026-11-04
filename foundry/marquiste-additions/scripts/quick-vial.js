@@ -20,31 +20,21 @@ async function pickVial(actor, pack, index, choices) {
       .map((label) => `<span class="tag">${label}</span>`)
       .join("");
     const row = `
-      <li class="mqm-row">
-        <img src="${doc.img}" alt="">
-        <div class="mqm-text"><strong>${doc.name}</strong><div class="tags">${traits}</div></div>
-        <button type="button" class="mqm-pick" data-choice="${choice.id}" data-tooltip="Create"><i class="fa-solid fa-check"></i></button>
+      <li style="display: flex; align-items: center; gap: .6em; padding: .4em .2em; border-bottom: 1px solid rgba(128, 128, 128, .35);">
+        <img src="${doc.img}" alt="" style="width: 36px; height: 36px; max-width: 36px; flex: none; object-fit: contain; border: none;">
+        <div style="flex: 1;"><strong>${doc.name}</strong><div class="tags" style="display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px;">${traits}</div></div>
+        <button type="button" data-choice="${choice.id}" data-tooltip="Create" style="flex: none; width: 36px; height: 36px; margin: 0; padding: 0; line-height: 1;"><i class="fa-solid fa-check"></i></button>
       </li>`;
     const level = doc.system.level.value;
     groups.set(level, [...(groups.get(level) ?? []), row]);
   }
   const rows = [...groups.entries()]
     .sort(([a], [b]) => b - a)
-    .map(([level, list]) => `<h3 class="mqm-level">Level ${level}</h3><ul class="mqm-list">${list.join("")}</ul>`)
+    .map(([level, list]) => `<h3 style="margin: .4em 0 .2em; border: none;">Level ${level}</h3><ul style="list-style: none; margin: 0; padding: 0;">${list.join("")}</ul>`)
     .join("");
 
   const content = `
-    <style>
-      .mqm-prompt { margin: 0 0 .5em; opacity: .8; }
-      .mqm-level { margin: .4em 0 .2em; }
-      .mqm-list { list-style: none; margin: 0; padding: 0; }
-      .mqm-row { display: flex; align-items: center; gap: .6em; padding: .4em .2em; border-bottom: 1px solid rgba(128, 128, 128, .35); }
-      .mqm-row img { width: 36px; height: 36px; object-fit: contain; border: none; flex: none; }
-      .mqm-text { flex: 1; }
-      .mqm-text .tags { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 2px; }
-      .mqm-pick { flex: none; width: 36px; height: 36px; padding: 0; line-height: 1; }
-    </style>
-    <p class="mqm-prompt">Select a vial for ${actor.name} to create with Quick Vial.</p>
+    <p style="margin: 0 0 .5em; opacity: .8;">Select a vial for ${actor.name} to create with Quick Vial.</p>
     ${rows}`;
 
   let chosen = null;
