@@ -1,0 +1,47 @@
+{
+    "_key": "!items!m6hXQdwDw69SDssR",
+    "_id": "m6hXQdwDw69SDssR",
+    "img": "modules/corpsecaps-cauldron/images/mind-doubling-mutagen.png",
+    "name": "Effect: Mind Doubling Mutagen, Mutant Innervation (Moderate)",
+    "type": "effect",
+    "system": {
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 10
+        },
+        "level": {
+            "value": 3
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        },
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.QUCw240EopcyB19v] to characters with the Mutant Innervation feat.</p><p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, your brains have become adept at working together to fend off mental attacks. Whenever you attempt a saving throw against a mental effect, roll twice and take the better of the two results. This is a fortune effect.</p>"
+        },
+        "rules": [
+            {
+                "key": "RollTwice",
+                "keep": "higher",
+                "predicate": [
+                    "item:trait:mental"
+                ],
+                "selector": "saving-throw"
+            }
+        ]
+    }
+}

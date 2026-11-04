@@ -1,0 +1,126 @@
+{
+    "_key": "!items!1Ao2pu4kfIXc0zNh",
+    "_id": "1Ao2pu4kfIXc0zNh",
+    "img": "modules/corpsecaps-cauldron/images/ichthys-mutagen.png",
+    "name": "Effect: Ichthys Mutagen (Major)",
+    "type": "effect",
+    "system": {
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.rQ2nWvNrgFlnXgvM]</p><p><strong>Benefit</strong> You gain a swim Speed equal to your land Speed, and you can breathe water. Your unarmed attacks grow razor-edged: you gain a +4 item bonus to unarmed attack rolls, and your unarmed attacks deal 4d8 slashing damage instead of their normal damage, gain the agile trait, and lose the nonlethal trait. Striking runes don't modify this damage. While you are underwater, you also gain a +4 item bonus to Perception checks and to Wisdom-based skill checks (Medicine, Nature, Religion, and Survival).</p><p><strong>Drawback</strong> You can't breathe air. While you are out of water you suffocate as normal, though you can hold your breath as usual. Your wet, conductive body gives you weakness 5 to electricity, and your lithe, less bulky frame gives you a –1 item penalty to Strength-based skill checks, such as Athletics.</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 17
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "BaseSpeed",
+                "selector": "swim",
+                "value": "@actor.attributes.speed.value"
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "unarmed-attack-roll",
+                "slug": "ichthys-mutagen-attack",
+                "type": "item",
+                "value": 4
+            },
+            {
+                "key": "Strike",
+                "baseType": "claw",
+                "category": "unarmed",
+                "damage": {
+                    "base": {
+                        "damageType": "slashing",
+                        "dice": 4,
+                        "die": "d8"
+                    }
+                },
+                "group": "brawling",
+                "img": "icons/commodities/claws/claw-bear-brown-grey.webp",
+                "label": "Razor Claw",
+                "range": null,
+                "slug": "ichthys-razor-claw",
+                "traits": [
+                    "unarmed",
+                    "agile"
+                ]
+            },
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "option": "ichthys-underwater",
+                "label": "Underwater",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "FlatModifier",
+                "predicate": [
+                    "ichthys-underwater"
+                ],
+                "selector": [
+                    "perception",
+                    "medicine",
+                    "nature",
+                    "religion",
+                    "survival"
+                ],
+                "slug": "ichthys-mutagen-underwater",
+                "type": "item",
+                "value": 4
+            },
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "ichthys-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "FlatModifier",
+                "predicate": [
+                    {
+                        "not": "ichthys-drawback-suppressed"
+                    }
+                ],
+                "selector": "athletics",
+                "slug": "ichthys-mutagen-drawback-athletics",
+                "type": "item",
+                "value": -1
+            },
+            {
+                "key": "Weakness",
+                "predicate": [
+                    {
+                        "not": "ichthys-drawback-suppressed"
+                    }
+                ],
+                "type": "electricity",
+                "value": 5
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "_key": "!items!QUCw240EopcyB19v",
+    "_id": "QUCw240EopcyB19v",
+    "img": "modules/corpsecaps-cauldron/images/mind-doubling-mutagen.png",
+    "name": "Effect: Mind Doubling Mutagen (Moderate)",
+    "type": "effect",
+    "system": {
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 10
+        },
+        "level": {
+            "value": 3
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        },
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.Yiixd2oa6lbgHtfU]</p><p><strong>Benefit</strong> You gain a +2 item bonus to Perception checks and Intelligence-based skill checks (Arcana, Crafting, Lore, Occultism, and Society), and a +2 item bonus to saving throws against mental and emotion effects. You gain access to the Co-ordinated Thinking action, described below.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.ldBpLYkEiC27242k] and, if you have the Mutant Innervation feat, @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.m6hXQdwDw69SDssR].</p>"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "perception",
+                    "arcana",
+                    "crafting",
+                    "lore-skill-check",
+                    "occultism",
+                    "society"
+                ],
+                "slug": "mind-doubling-mutagen-bonus",
+                "type": "item",
+                "value": 2
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "saving-throw",
+                "predicate": [
+                    {
+                        "or": [
+                            "item:trait:mental",
+                            "item:trait:emotion"
+                        ]
+                    }
+                ],
+                "slug": "mind-doubling-mutagen-save-bonus",
+                "type": "item",
+                "value": 2
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.u931vrYIB7ehd4LB"
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.ldBpLYkEiC27242k"
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.m6hXQdwDw69SDssR",
+                "predicate": [
+                    "feat:mutant-innervation"
+                ]
+            }
+        ]
+    }
+}

@@ -1,27 +1,31 @@
-// Generates the Foundry VTT (PF2e system) source files for the alchemical items in CorpseCap's Cauldron.
-// Usage: node foundry/build.js   (then see foundry/README.md to compile the compendium pack)
+// Generates the Foundry VTT (PF2e system) source files for two modules:
+//   - Marquiste Additions (the functional module): the scripts and the Common and Alchemist Enhancements packs.
+//   - CorpseCap's Cauldron (the content module): the custom alchemical items, such as the mutagens and Insulating Paste.
+// Usage: node foundry/build.js   (then see foundry/README.md to compile the compendium packs)
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
 const MODULE_ID = "marquiste-additions";
-const PACK = "corpsecaps-cauldron";
+const CAULDRON_ID = "corpsecaps-cauldron"; // the content module
+const CAULDRON_PACK = "corpsecaps-cauldron";
 const CLASS_PACK = "marquiste-alchemist-class"; // labelled "Alchemist Enhancements"; the id stays so existing links keep working
 const COMMON_PACK = "marquiste-common-enhancements";
-const IMG = `modules/${MODULE_ID}/images/mind-doubling-mutagen.png`;
-const ICHTHYS_IMG = `modules/${MODULE_ID}/images/ichthys-mutagen.png`;
-const PASTE_IMG = `modules/${MODULE_ID}/images/insulating-paste.png`;
-const sourceDir = (pack) => path.join(__dirname, MODULE_ID, "packs", "_source", pack);
+const IMG = `modules/${CAULDRON_ID}/images/mind-doubling-mutagen.png`;
+const ICHTHYS_IMG = `modules/${CAULDRON_ID}/images/ichthys-mutagen.png`;
+const PASTE_IMG = `modules/${CAULDRON_ID}/images/insulating-paste.png`;
+const sourceDir = (moduleId, pack) => path.join(__dirname, moduleId, "packs", "_source", pack);
 
 const ALPHANUM = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 const makeId = (seed) => {
   const hash = crypto.createHash("sha1").update(seed).digest();
   return Array.from({ length: 16 }, (_, i) => ALPHANUM[hash[i] % ALPHANUM.length]).join("");
 };
-const uuidOf = (id) => `Compendium.${MODULE_ID}.${PACK}.Item.${id}`;
+const uuidOf = (id) => `Compendium.${CAULDRON_ID}.${CAULDRON_PACK}.Item.${id}`;
 const classUuidOf = (id) => `Compendium.${MODULE_ID}.${CLASS_PACK}.Item.${id}`;
 
-const publication = { license: "ORC", remaster: true, title: "Marquiste Additions" };
+const publication = { license: "ORC", remaster: true, title: "CorpseCap's Cauldron" }; // the Cauldron's items
+const modulePublication = { license: "ORC", remaster: true, title: "Marquiste Additions" }; // the Alchemist items
 
 const tiers = [
   { name: "Lesser", level: 1, bonus: 1, gp: 4, duration: { unit: "minutes", value: 1, text: "1 minute" } },
@@ -463,14 +467,14 @@ for (const t of pasteTiers) {
 const classItems = [];
 require("./vials")({
   items: classItems,
-  publication,
+  publication: modulePublication,
   makeId,
   uuidOf: classUuidOf,
   img: (name) => `modules/${MODULE_ID}/images/${name}.png`,
 });
 
-function writePack(pack, list) {
-  const out = sourceDir(pack);
+function writePack(moduleId, pack, list) {
+  const out = sourceDir(moduleId, pack);
   fs.rmSync(out, { recursive: true, force: true });
   fs.mkdirSync(out, { recursive: true });
   for (const item of list) {
@@ -484,9 +488,9 @@ function writePack(pack, list) {
 // Common Enhancements: items that apply across the whole game. Nothing is needed yet: the injury poison rules work on PF2e's own poisons.
 const commonItems = [];
 
-writePack(COMMON_PACK, commonItems);
-writePack(CLASS_PACK, classItems);
-writePack(PACK, items);
+writePack(MODULE_ID, COMMON_PACK, commonItems);
+writePack(MODULE_ID, CLASS_PACK, classItems);
+writePack(CAULDRON_ID, CAULDRON_PACK, items);
 
 const moduleJson = {
   id: MODULE_ID,
@@ -509,7 +513,7 @@ const moduleJson = {
     "scripts/alchemist/quick-alchemy.js",
     "scripts/alchemist/toxicologist.js",
     "scripts/alchemist/daily-preparations.js",
-    // CorpseCap's Cauldron
+    // Behaviour for items in the CorpseCap's Cauldron module (the Insulating Paste counter)
     "scripts/cauldron/insulating-paste.js",
   ],
   packs: [
@@ -529,14 +533,32 @@ const moduleJson = {
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
     },
+  ],
+};
+fs.writeFileSync(path.join(__dirname, MODULE_ID, "module.json"), JSON.stringify(moduleJson, null, 4) + "\n");
+
+// The content module. It needs Marquiste Additions for the Insulating Paste counter and the traits its items use.
+const cauldronJson = {
+  id: CAULDRON_ID,
+  title: "CorpseCap's Cauldron",
+  description: "Custom alchemical items from ryanmarquiste.github.io/pf2e-remastered-site: the mutagens and Insulating Paste.",
+  version: "1.0.0",
+  authors: [{ name: "Ryan Marquiste" }],
+  compatibility: { minimum: "13", verified: "13" },
+  relationships: {
+    systems: [{ id: "pf2e", type: "system" }],
+    requires: [{ id: MODULE_ID, type: "module" }],
+  },
+  packs: [
     {
-      name: PACK,
+      name: CAULDRON_PACK,
       label: "CorpseCap's Cauldron",
-      path: `packs/${PACK}`,
+      path: `packs/${CAULDRON_PACK}`,
       type: "Item",
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
     },
   ],
 };
-fs.writeFileSync(path.join(__dirname, MODULE_ID, "module.json"), JSON.stringify(moduleJson, null, 4) + "\n");
+fs.mkdirSync(path.join(__dirname, CAULDRON_ID), { recursive: true });
+fs.writeFileSync(path.join(__dirname, CAULDRON_ID, "module.json"), JSON.stringify(cauldronJson, null, 4) + "\n");

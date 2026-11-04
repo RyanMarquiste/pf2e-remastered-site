@@ -1,0 +1,42 @@
+{
+    "id": "corpsecaps-cauldron",
+    "title": "CorpseCap's Cauldron",
+    "description": "Custom alchemical items from ryanmarquiste.github.io/pf2e-remastered-site: the mutagens and Insulating Paste.",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Ryan Marquiste"
+        }
+    ],
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13"
+    },
+    "relationships": {
+        "systems": [
+            {
+                "id": "pf2e",
+                "type": "system"
+            }
+        ],
+        "requires": [
+            {
+                "id": "marquiste-additions",
+                "type": "module"
+            }
+        ]
+    },
+    "packs": [
+        {
+            "name": "corpsecaps-cauldron",
+            "label": "CorpseCap's Cauldron",
+            "path": "packs/corpsecaps-cauldron",
+            "type": "Item",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
+        }
+    ]
+}

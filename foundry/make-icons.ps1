@@ -1,7 +1,9 @@
-# Builds the square, black-background Foundry icons in foundry/marquiste-additions/images from the site's transparent art.
+# Builds the square, black-background Foundry icons from the site's transparent art. The mutagens and Insulating Paste go in
+# foundry/corpsecaps-cauldron/images, and the Alchemist vials and coatings in foundry/marquiste-additions/images.
 # Usage: powershell -ExecutionPolicy Bypass -File foundry/make-icons.ps1
 Add-Type -AssemblyName System.Drawing
 $root = Split-Path -Parent $PSScriptRoot
+$cauldron = "mind-doubling-mutagen", "ichthys-mutagen", "insulating-paste"
 $names = "mind-doubling-mutagen", "ichthys-mutagen", "insulating-paste", "volatile-vial", "bomber-field-vial", "chirurgeon-field-vial", "mutagenist-field-vial", "toxicologist-field-vial", "toxic-coating", "advanced-toxic-coating"
 $size = 512
 $fit = 460
@@ -17,7 +19,8 @@ foreach ($name in $names) {
   $g.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
   $g.DrawImage($src, [int](($size - $w) / 2), [int](($size - $h) / 2), $w, $h)
   $g.Dispose()
-  $bmp.Save((Join-Path $root "foundry\marquiste-additions\images\$name.png"), [System.Drawing.Imaging.ImageFormat]::Png)
+  $module = if ($cauldron -contains $name) { "corpsecaps-cauldron" } else { "marquiste-additions" }
+  $bmp.Save((Join-Path $root "foundry\$module\images\$name.png"), [System.Drawing.Imaging.ImageFormat]::Png)
   $bmp.Dispose(); $src.Dispose()
   "$name -> ${size}x$size"
 }
