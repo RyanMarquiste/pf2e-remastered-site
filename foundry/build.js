@@ -552,6 +552,8 @@ const moduleJson = {
     "scripts/common/fleeting-trait.js",
     "scripts/common/mutable-trait.js",
     "scripts/common/formula-trait.js",
+    "scripts/common/formula-books.js",
+    "scripts/common/crafting-tab.js",
     "scripts/common/compendium-browser.js",
     "scripts/common/injury-poisons.js",
     // Alchemist Enhancements
