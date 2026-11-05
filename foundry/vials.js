@@ -395,7 +395,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           "<p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait and must be " +
           "activated by the end of your current turn or else it becomes inert.</p>" +
           "<p>Using Quick Vial does not expend a versatile vial.</p>" +
-          "<hr /><p><strong>Module</strong> With the Volatile Vial house rules switched on in the Marquiste Additions settings, using this action asks you to choose Quick Vial or Create Consumable. Adding this action to a character also adds the Quick Vial and Create Consumable actions. " +
+          "<hr /><p><strong>Module</strong> With Quick Alchemy switched on under Alchemist in the Marquiste Additions settings, using this action asks you to choose Quick Vial or Create Consumable. Adding this action to a character also adds the Quick Vial and Create Consumable actions. " +
           "Create Consumable is shown but cannot be chosen while you have no versatile vial left.</p>",
       },
       frequency: null,

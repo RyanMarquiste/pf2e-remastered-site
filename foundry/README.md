@@ -17,7 +17,7 @@ Both modules are built by `build.js`. The Cauldron pack has two mutagens and Ins
 - **Create Consumable**: an action for Alchemists. Using it expends one versatile vial, asks which alchemical consumable formula (your level or lower) to create, and adds the infused item to the character; in combat it is removed when the creator's next turn starts
 - **Formula books** (Common Enhancements; `scripts/common/formula-trait.js`, `formula-books.js`, `crafting-tab.js`): PF2e's own **Formula Book (Blank)** item holds formulas, and its groups show above Known Formulas on the Crafting tab. A book holds two kinds of entry: a **formula item** (an item with the **Formula** trait, one for each tiered family, in the Cauldron Formulas pack), which teaches every tier at or below the character's level, so the next tier arrives on levelling up; and any **plain item**, which teaches just that item. Drop either kind on a book's group, or use the book icon on a formula row to move it between books (or to no book). A formula's book is its only group, a formula no book gives stays in Known Formulas, and formulas a player added by hand are never taken away when a book changes. Deleting a book (or removing a formula from it with the trash icon) makes the character forget what it gave. The alchemist field vials are not formulas: only the Quick Vial action makes them.
 - **Mutable traits** (Common Enhancements; Mutable Acid, Mutable Poison, Mutable Fire and so on, one per damage type): like Versatile, but the target decides. Damage of the item's own type can change to the named type against a creature for which it is better. The Toxicologist Field Vials, the Toxic Coatings and any infused poison item a Toxicologist creates have **Mutable Acid**
-- **Quick Alchemy (Marquiste)**: an action (adding it to a character also adds the Quick Vial and Create Consumable actions, and they are removed with it) with the revised Quick Alchemy text (Quick Vial doesn't expend a versatile vial, and items last at most 10 minutes). With the Volatile Vial setting on, using it asks you to choose **Quick Vial** or **Create Consumable** (shown but unavailable while you have no versatile vial left); with the setting off it does nothing
+- **Quick Alchemy (Marquiste)**: an action (adding it to a character also adds the Quick Vial and Create Consumable actions, and they are removed with it) with the revised Quick Alchemy text (Quick Vial doesn't expend a versatile vial, and items last at most 10 minutes). With the Quick Alchemy setting on, using it asks you to choose **Quick Vial** or **Create Consumable** (shown but unavailable while you have no versatile vial left); with the setting off it does nothing
 - **Ichthys Mutagen**: swim Speed equal to land Speed, an item bonus to unarmed attacks, a slashing "Razor Claw" unarmed Strike, a toggleable "Underwater" option for the Perception and Wisdom-skill bonus, the Athletics penalty, and weakness 5 to electricity
 
 The files were written against the PF2e system's own mutagen data (Cognitive Mutagen) but have **not been loaded into a running Foundry yet**, so expect to check them once (see "Check it" below).
@@ -33,7 +33,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `corpsecaps-cauldron/images/` | The mutagen and Insulating Paste art, referenced as `modules/corpsecaps-cauldron/images/...`. Made by the same script. |
 | `vials.js` | The Alchemist Enhancements items: the Volatile Vial, Field Vials, coatings and the actions; `build.js` calls it. |
 | `marquiste-additions/scripts/common/` | Scripts for every character: injury poisons (`injury-poisons.js`), the Fleeting trait, the Compendium Browser setup, and helpers (`shared.js`, and `weapon-picker.js` for the picker windows). |
-| `marquiste-additions/scripts/alchemist/` | Alchemist scripts: the Volatile Vial setting, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Toxicologist feature that gives Mutable Acid. `common/mutable-trait.js` has the Mutable traits themselves. `alchemist.js` holds the helpers they share. |
+| `marquiste-additions/scripts/alchemist/` | Alchemist scripts: the bomb vial upkeep, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Toxicologist feature that gives Mutable Acid. `common/mutable-trait.js` has the Mutable traits themselves. `alchemist.js` holds the helpers they share. |
 | `marquiste-additions/scripts/cauldron/` | The Insulating Paste counter. |
 | `<module>/packs/<pack>/` | The compiled compendiums. **Not in the repo**: you build them in step 1. |
 
@@ -83,19 +83,23 @@ PF2e can't hide single items; its Compendium Browser lists whole packs per tab. 
 
 Open **Settings → Configure Settings → Marquiste Additions**. The options are world settings, and a change takes effect straight away without a reload. Turning one off stops the module acting; it never deletes what the feature made earlier (poison effects, formula books, known formulas). The traits (Fleeting, Mutable, Formula) are not options: they only add names to PF2e's trait lists and do nothing unless an item carries them.
 
-| Setting | Default | When it is off |
-|---|---|---|
-| **Poisons: apply injury poisons to weapons** | on | Injury poisons work as in PF2e. When on, using one asks which weapon to poison, adds a Poisoned Weapon effect, asks before replacing a poison already on that weapon, and posts the poison's description and save when the weapon hits. The Alchemist's Toxic Coatings are separate. |
-| **Poisons: use up a poison on a weapon** | on | The effect stays on the weapon until you delete it. When on, the first successful Strike or a critical failure uses it up (on ammunition, firing the weapon does). Covers injury poisons and Toxic Coatings. |
-| **Crafting: formula books** | on | The Crafting tab is PF2e's own and nothing is synced. Formulas already learned stay known. Turning it back on brings every character with a book up to date. |
-| **Alchemist: Toxicologist infused poisons are Mutable Acid** | on | Items are left as PF2e creates them. |
-| **Alchemist: infused poisons end at daily preparations** | on | The poison effect stays on the weapon after resting. |
-| **Cauldron: count Insulating Paste protection** | on | No chat message with the "use up one instance" button. |
-| **Use the Volatile Vial house rules** | off | See below. |
+The settings window groups them under headings:
 
-### Volatile Vial house rules
+| Heading | Setting | Default | When it is off |
+|---|---|---|---|
+| **Poisons** | **Application** | on | Injury poisons work as in PF2e. When on, using one asks which weapon to poison, adds a Poisoned Weapon effect, asks before replacing a poison already on that weapon, and posts the poison's description and save when the weapon hits. The Alchemist's Toxic Coatings are separate. |
+| **Poisons** | **Removal** | on | The effect stays on the weapon until you delete it. When on, the first successful Strike or a critical failure uses it up (on ammunition, firing the weapon does). Covers injury poisons and Toxic Coatings. |
+| **Crafting** | **Formula Books** | on | The Crafting tab is PF2e's own and nothing is synced. Formulas already learned stay known. Turning it back on brings every character with a book up to date. |
+| **Alchemist** | **Quick Alchemy** | off | See below. |
+| **Alchemist → Toxicologist** | **Mutable Acid** | on | Items are left as PF2e creates them. |
+| **Alchemist → Toxicologist** | **Infused Poison Expiry** | on | The poison effect stays on the weapon after resting. |
+| **Cauldron** | **Insulating Paste** | on | No chat message with the "use up one instance" button. |
 
-Tick **Use the Volatile Vial house rules**. While it's on, using the **Quick Alchemy (Marquiste)** action asks you to choose **Quick Vial** or **Create Consumable** (Create Consumable is shown but unavailable while the character has no versatile vial left). The setting does not touch PF2e's own Quick Alchemy.
+Foundry's settings window has no headings of its own, so `scripts/common/settings.js` adds them (and puts the settings in this order) when the window opens. If a Foundry update changes the window's markup, the settings still work and just appear in a plain list.
+
+### Quick Alchemy
+
+Tick **Quick Alchemy** under **Alchemist** (it was called "Use the Volatile Vial house rules", and keeps its saved value). While it's on, using the **Quick Alchemy (Marquiste)** action asks you to choose **Quick Vial** or **Create Consumable** (Create Consumable is shown but unavailable while the character has no versatile vial left). The setting does not touch PF2e's own Quick Alchemy.
 
 An Alchemist's **versatile vials** stay exactly as PF2e has them: a resource tied to the Versatile Vial item. The **Volatile Vial** is the separate, throwable bomb version, and it only exists when **Quick Vial** creates one (placed in a free hand). Nothing renames or replaces the Versatile Vial. If a character still has a Versatile Vial that an earlier version of this module renamed to Volatile Vial, it is put back when the world loads.
 

@@ -1,19 +1,5 @@
-// Optional house rule setting, and the upkeep for the bomb vials.
+// The upkeep for the bomb vials. (The Quick Alchemy setting, volatileVialRules, is registered in scripts/common/settings.js.)
 const MODULE = "marquiste-additions";
-const SETTING = "volatileVialRules";
-
-Hooks.once("init", () => {
-  game.settings.register(MODULE, SETTING, {
-    name: "Use the Volatile Vial house rules",
-    hint:
-      "Turns on the revised Quick Alchemy: using the Quick Alchemy (Marquiste) action asks you to choose Quick Vial or Create Consumable. " +
-      "An Alchemist's versatile vials stay as PF2e's resource; a Volatile Vial, the throwable bomb, is only created by Quick Vial.",
-    scope: "world",
-    config: true,
-    type: Boolean,
-    default: false,
-  });
-});
 
 // An earlier version renamed each Versatile Vial to Volatile Vial. The Versatile Vial is the resource, so put any such item back.
 Hooks.once("ready", async () => {

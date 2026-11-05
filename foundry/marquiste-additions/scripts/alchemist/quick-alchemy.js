@@ -1,4 +1,4 @@
-// Quick Alchemy (Marquiste): with the Volatile Vial house rules switched on, using the Quick Alchemy (Marquiste) action asks the character to choose
+// Quick Alchemy (Marquiste): with the Quick Alchemy setting switched on, using the Quick Alchemy (Marquiste) action asks the character to choose
 // Quick Vial or Create Consumable. Create Consumable is shown but cannot be chosen while they have no versatile vial left.
 import { MODULE, itemUsed } from "../common/shared.js";
 import { SETTING, QUICK_VIAL_ICON, CONSUMABLE_ICON, versatileVials } from "./alchemist.js";
@@ -13,7 +13,7 @@ Hooks.on("createChatMessage", async (message) => {
   const feat = await itemUsed(message);
   if (!feat || !(SLUGS.includes(feat.slug) || NAMES.includes(feat.name))) return;
   if (!game.settings.get(MODULE, SETTING)) {
-    return ui.notifications.info("The Volatile Vial house rules are switched off in the module settings, so Quick Alchemy (Marquiste) does nothing.");
+    return ui.notifications.info("Quick Alchemy is switched off in the module settings (Alchemist), so Quick Alchemy (Marquiste) does nothing.");
   }
   const actor = feat.actor;
   const vials = versatileVials(actor);
