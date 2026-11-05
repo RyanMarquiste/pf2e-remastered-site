@@ -1,5 +1,5 @@
 // The Crafting tab of a character sheet, with the formula books on it. Each formula book the character carries gets its own section above Known
-// Formulas, built like PF2e's own sections: the book's name as the title, with a Rename button and a Browse button on the right.
+// Formulas, built like PF2e's own sections: the book's name as the title, with a Rename button and Items and Formulas browse buttons on the right.
 // The formulas a book teaches are PF2e's own rows, moved into the section, so the Craft button, the quantity box and the chat link keep working.
 // A row has a book icon to move it to another book, a formula can be dragged from one book to another, and an item or a formula item dropped on a
 // book goes in that book. Formulas that no book gives stay in Known Formulas. Books with nothing in them are shown, with a note.
@@ -91,6 +91,19 @@ async function renameBook(book) {
   if (name && name !== book.name) await book.update({ name });
 }
 
+// Open the Compendium Browser's equipment tab with the Formula trait chosen. If the trait is not in the browser's list for some reason, search
+// for the "Formula:" the names of the formula items start with instead.
+export async function browseFormulas() {
+  const tab = game.pf2e.compendiumBrowser.tabs.equipment;
+  const filter = await tab.getFilterData();
+  const trait = filter.traits?.options?.find((option) => option.value === "formula");
+  if (trait) {
+    filter.traits.selected = [trait];
+    if (filter.traits.isExpanded !== undefined) filter.traits.isExpanded = true;
+  } else if (filter.search) filter.search.text = "Formula:";
+  await tab.open({ filter });
+}
+
 async function decorate(app, root) {
   const actor = app.actor;
   if (actor?.type !== "character") return;
@@ -108,13 +121,12 @@ async function decorate(app, root) {
   injectStyle();
   const rows = new Map([...known.querySelectorAll("li.formula-item[data-item-uuid]")].map((li) => [li.dataset.itemUuid, li]));
   const levelHeaders = new Map([...known.querySelectorAll("li.formula-level-header")].map((li) => [Number(li.dataset.level), li]));
-  const browseLabel = game.i18n?.localize("PF2E.BrowseLabel");
 
   const wrapper = make("div", "mq-formula-books");
 
   for (const book of books) {
     const mine = [...rows].filter(([uuid]) => map.get(uuid)?.[0]?.book.id === book.id).map(([, li]) => li);
-    mine.sort((a, b) => rowLevel(a) - rowLevel(b) || rowName(a).localeCompare(rowName(b)));
+    mine.sort((a, b) => rowLevel(b) - rowLevel(a) || rowName(a).localeCompare(rowName(b))); // highest level first
 
     const group = make("section", "major item-container mq-book");
     group.dataset.bookId = book.id;
@@ -144,10 +156,16 @@ async function decorate(app, root) {
       });
       controls.append(rename);
     }
-    // PF2e's own Browse button: it opens the Compendium Browser's equipment tab. What is found there can be dragged onto the book.
-    const browse = headerButton("fa-search", "", browseLabel && browseLabel !== "PF2E.BrowseLabel" ? browseLabel : "Browse");
+    // Two ways to find things to put in the book, both from the Compendium Browser's equipment tab: PF2e's own Browse button, which shows
+    // every item, and one that has the Formula trait already chosen. What is found there can be dragged onto the book.
+    const browse = headerButton("fa-search", "Browse items in the Compendium Browser", "Items");
     browse.dataset.action = "browse-equipment";
-    controls.append(browse);
+    const formulas = headerButton("fa-scroll", "Browse formulas in the Compendium Browser", "Formulas");
+    formulas.addEventListener("click", (event) => {
+      event.stopPropagation();
+      browseFormulas().catch((error) => console.error(MODULE, error));
+    });
+    controls.append(browse, formulas);
     header.append(controls);
     header.addEventListener("click", (event) => {
       if (event.target.closest(".controls")) return;
