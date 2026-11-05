@@ -6,6 +6,7 @@
 // The character's real formula list (system.crafting.formulas, which PF2e's Craft button reads) is kept in step with the books. The formulas this
 // script adds are remembered in an actor flag, so a formula a player added by hand is never taken away. The Crafting tab shows the groups (crafting-tab.js).
 import { MODULE } from "./shared.js";
+import { enabled } from "./settings.js";
 
 export const BOOK_SOURCE = "Compendium.pf2e.equipment-srd.Item.qCEOZ6109Yo34tRx"; // PF2e's Formula Book (Blank)
 const ENTRIES = "entries"; // flag on a book: the entries it holds, in order
@@ -215,14 +216,20 @@ async function redirectFormulaItems(actor) {
 
 const mine = (userId) => userId === game.user.id;
 const onBook = (item, userId) => {
-  if (mine(userId) && item.actor && isBook(item)) sync(item.actor);
+  if (enabled("formulaBooks") && mine(userId) && item.actor && isBook(item)) sync(item.actor);
 };
 Hooks.on("createItem", (item, options, userId) => onBook(item, userId));
 Hooks.on("updateItem", (item, changes, options, userId) => onBook(item, userId));
 Hooks.on("deleteItem", (item, options, userId) => onBook(item, userId));
 
 Hooks.on("updateActor", (actor, changes, options, userId) => {
-  if (!mine(userId) || actor.type !== "character") return;
+  if (!enabled("formulaBooks") || !mine(userId) || actor.type !== "character") return;
   if (foundry.utils.hasProperty(changes, "system.details.level.value")) sync(actor);
   if (foundry.utils.hasProperty(changes, "system.crafting.formulas")) redirectFormulaItems(actor).catch((error) => console.error(MODULE, error));
+});
+
+// Switched back on: books and levels may have changed while it was off, so the GM brings every character with a book up to date.
+Hooks.on(`${MODULE}.settingChanged`, (key, value) => {
+  if (key !== "formulaBooks" || !value || game.users.activeGM?.id !== game.user.id) return;
+  for (const actor of game.actors) if (actor.type === "character" && booksOf(actor).length) sync(actor);
 });

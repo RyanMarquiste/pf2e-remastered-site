@@ -568,6 +568,7 @@ const moduleJson = {
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
   esmodules: [
     // Common Enhancements
+    "scripts/common/settings.js",
     "scripts/common/fleeting-trait.js",
     "scripts/common/mutable-trait.js",
     "scripts/common/formula-trait.js",

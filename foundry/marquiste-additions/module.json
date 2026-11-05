@@ -21,6 +21,7 @@
         ]
     },
     "esmodules": [
+        "scripts/common/settings.js",
         "scripts/common/fleeting-trait.js",
         "scripts/common/mutable-trait.js",
         "scripts/common/formula-trait.js",

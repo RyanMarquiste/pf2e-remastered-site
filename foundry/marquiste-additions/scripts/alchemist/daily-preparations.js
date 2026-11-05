@@ -2,6 +2,7 @@
 // scripts/common/injury-poisons.js), and PF2e's Infused trait says non-permanent effects from infused items end at the next daily preparations. PF2e
 // already deletes the infused items themselves then, but it knows nothing about the poison on a weapon, so this removes that effect.
 import { say } from "../common/shared.js";
+import { enabled } from "../common/settings.js";
 import { poisonName } from "../common/weapon-poison.js";
 
 const isInfusedPoison = (effect) => {
@@ -10,6 +11,7 @@ const isInfusedPoison = (effect) => {
 };
 
 async function endInfusedPoisons(actor) {
+  if (!enabled("infusedPoisonsEnd")) return;
   const effects = actor.itemTypes.effect.filter(isInfusedPoison);
   if (!effects.length) return;
   const notes = effects.map((effect) => {

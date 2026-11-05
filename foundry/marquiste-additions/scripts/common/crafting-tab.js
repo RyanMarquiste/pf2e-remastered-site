@@ -4,6 +4,7 @@
 // A row has a book icon to move it to another book, a formula can be dragged from one book to another, and an item or a formula item dropped on a
 // book goes in that book. Formulas that no book gives stay in Known Formulas. Books with nothing in them are shown, with a note.
 import { MODULE } from "./shared.js";
+import { enabled } from "./settings.js";
 import { booksOf, chooseBook, dropOnBook, esc, forgetFormula, moveFormula, supply, sync } from "./formula-books.js";
 
 const STYLE_ID = `${MODULE}-formula-books`;
@@ -245,6 +246,13 @@ async function decorate(app, root) {
 }
 
 Hooks.on("renderCharacterSheetPF2e", (app, html) => {
+  if (!enabled("formulaBooks")) return;
   const root = html instanceof HTMLElement ? html : html?.[0];
   if (root) decorate(app, root).catch((error) => console.error(MODULE, error));
+});
+
+// Switched on or off: open character sheets draw the Crafting tab again so the change shows without closing them.
+Hooks.on(`${MODULE}.settingChanged`, (key) => {
+  if (key !== "formulaBooks") return;
+  for (const app of Object.values(ui.windows ?? {})) if (app.actor?.type === "character") app.render();
 });

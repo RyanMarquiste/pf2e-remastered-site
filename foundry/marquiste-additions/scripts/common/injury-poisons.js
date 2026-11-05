@@ -4,6 +4,7 @@
 // any other effect that puts an injury poison on a chosen weapon (such as the Alchemist's Toxic Coatings). A hit by a poisoned weapon posts the
 // poison's description and saving throw, which the GM resolves.
 import { MODULE } from "./shared.js";
+import { enabled } from "./settings.js";
 import { coatableWeapons, pickWeapon } from "./weapon-picker.js";
 import { poisonsOn, claimWeapon } from "./weapon-poison.js";
 
@@ -11,7 +12,7 @@ const enrich = (html) => (foundry.applications.ux?.TextEditor?.implementation ??
 
 // A chat card for the use of an injury poison from the inventory: PF2e posts it as the poison is used up.
 Hooks.on("createChatMessage", async (message) => {
-  if (message.author?.id !== game.user.id) return;
+  if (message.author?.id !== game.user.id || !enabled("poisonApplication")) return;
   const origin = message.flags?.pf2e?.origin;
   if (origin?.type !== "consumable" || message.flags.pf2e.context) return;
   if (/chat-card|item-card|data-item-id/.test(message.content)) return; // an item sent to chat, not used
@@ -79,7 +80,7 @@ async function spend(actor, weapon, effects, reason, hit = null) {
     const flag = effect.getFlag(MODULE, "injuryPoison");
     const name = flag ? effect.name.replace("Poisoned Weapon: ", "") : effect.name.replace("Effect: ", "");
     let card = "";
-    if (flag && hit) {
+    if (flag && hit && enabled("poisonApplication")) {
       const poison = await fromUuid(flag.poison);
       const target = hit.target?.token ? (await fromUuid(hit.target.token))?.name : null;
       card = `<hr><p><strong>${target ?? "The target"}</strong> is exposed to the poison. The GM resolves it.</p>${poison ? await enrich(poison.system.description.value) : ""}`;
@@ -91,7 +92,7 @@ async function spend(actor, weapon, effects, reason, hit = null) {
 Hooks.on("createChatMessage", async (message) => {
   const context = message.flags?.pf2e?.context;
   if (context?.type !== "damage-roll" && context?.type !== "attack-roll") return;
-  if (message.author?.id !== game.user.id) return;
+  if (message.author?.id !== game.user.id || !enabled("poisonExpiry")) return;
   const weaponUuid = message.flags.pf2e.origin?.uuid;
   const weapon = weaponUuid ? await fromUuid(weaponUuid) : null;
   const actor = weapon?.actor;

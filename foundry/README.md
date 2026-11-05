@@ -79,9 +79,23 @@ When you first use the item:
 
 PF2e can't hide single items; its Compendium Browser lists whole packs per tab. So the Alchemist-only items are in their own pack, and `scripts/common/compendium-browser.js` switches that pack off for the Compendium Browser's **Equipment** tab the first time the module runs (it stays on for the Actions tab). To change it, open the Compendium Browser's settings and tick the pack for the Equipment tab. The module only sets this once, so your choice sticks. The pack is still in the Compendium sidebar. The mutagen formula items are in that pack too, so with the pack switched off they do not appear when you filter the Equipment tab by the Formula trait; open the pack from the Compendium sidebar and drag them onto a formula book from there, or tick the pack for the Equipment tab (which also lists the vials there).
 
-## Module setting: Volatile Vial house rules
+## Module settings
 
-Open **Settings → Configure Settings → Marquiste Additions** and tick **Use the Volatile Vial house rules** (off by default). While it's on, using the **Quick Alchemy (Marquiste)** action asks you to choose **Quick Vial** or **Create Consumable** (Create Consumable is shown but unavailable while the character has no versatile vial left). The setting does not touch PF2e's own Quick Alchemy.
+Open **Settings → Configure Settings → Marquiste Additions**. The options are world settings, and a change takes effect straight away without a reload. Turning one off stops the module acting; it never deletes what the feature made earlier (poison effects, formula books, known formulas). The traits (Fleeting, Mutable, Formula) are not options: they only add names to PF2e's trait lists and do nothing unless an item carries them.
+
+| Setting | Default | When it is off |
+|---|---|---|
+| **Poisons: apply injury poisons to weapons** | on | Injury poisons work as in PF2e. When on, using one asks which weapon to poison, adds a Poisoned Weapon effect, asks before replacing a poison already on that weapon, and posts the poison's description and save when the weapon hits. The Alchemist's Toxic Coatings are separate. |
+| **Poisons: use up a poison on a weapon** | on | The effect stays on the weapon until you delete it. When on, the first successful Strike or a critical failure uses it up (on ammunition, firing the weapon does). Covers injury poisons and Toxic Coatings. |
+| **Crafting: formula books** | on | The Crafting tab is PF2e's own and nothing is synced. Formulas already learned stay known. Turning it back on brings every character with a book up to date. |
+| **Alchemist: Toxicologist infused poisons are Mutable Acid** | on | Items are left as PF2e creates them. |
+| **Alchemist: infused poisons end at daily preparations** | on | The poison effect stays on the weapon after resting. |
+| **Cauldron: count Insulating Paste protection** | on | No chat message with the "use up one instance" button. |
+| **Use the Volatile Vial house rules** | off | See below. |
+
+### Volatile Vial house rules
+
+Tick **Use the Volatile Vial house rules**. While it's on, using the **Quick Alchemy (Marquiste)** action asks you to choose **Quick Vial** or **Create Consumable** (Create Consumable is shown but unavailable while the character has no versatile vial left). The setting does not touch PF2e's own Quick Alchemy.
 
 An Alchemist's **versatile vials** stay exactly as PF2e has them: a resource tied to the Versatile Vial item. The **Volatile Vial** is the separate, throwable bomb version, and it only exists when **Quick Vial** creates one (placed in a free hand). Nothing renames or replaces the Versatile Vial. If a character still has a Versatile Vial that an earlier version of this module renamed to Volatile Vial, it is put back when the world loads.
 
