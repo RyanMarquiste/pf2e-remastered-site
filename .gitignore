@@ -4,5 +4,6 @@ _site/
 
 # Compiled Foundry compendium (built locally from packs/_source)
 foundry/corpsecaps-cauldron/packs/corpsecaps-cauldron/
+foundry/corpsecaps-cauldron/packs/corpsecaps-formulas/
 foundry/marquiste-additions/packs/marquiste-common-enhancements/
 foundry/marquiste-additions/packs/marquiste-alchemist-class/

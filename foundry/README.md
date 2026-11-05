@@ -5,7 +5,7 @@ This folder holds two Foundry modules. **Marquiste Additions** (`marquiste-addit
 - **Common Enhancements** (`scripts/common/`): rules that apply across the whole game. Right now that is the injury poison rules (poisoning a weapon, and using the poison up when a Strike hits or critically fails), the Fleeting trait, the Mutable traits, and the Compendium Browser setup. The pack has no items yet.
 - **Alchemist Enhancements** (`scripts/alchemist/`): features only for Alchemists: the Volatile Vial, the Field Vials, the Toxic Coatings, the Toxicologist's Mutable Acid, and the Quick Vial, Create Consumable and Quick Alchemy (Marquiste) actions. Built by `build.js` from `vials.js`. The pack's id is still `marquiste-alchemist-class`, so links from existing characters keep working.
 
-The **CorpseCap's Cauldron** module has one compendium with this site's custom alchemical items, the mutagens and Insulating Paste. It has no scripts of its own: the Insulating Paste counter is in Marquiste Additions (`scripts/cauldron/`), because it is behaviour, not content.
+The **CorpseCap's Cauldron** module has two compendiums. The first has this site's custom alchemical items, the mutagens and Insulating Paste. The second, **Cauldron Formulas**, has one formula item for each of those families, carrying the Formula trait, so a formula can be found by trait in the Compendium Browser and put in a formula book. It has no scripts of its own: the Insulating Paste counter is in Marquiste Additions (`scripts/cauldron/`), because it is behaviour, not content.
 
 Both modules are built by `build.js`. The Cauldron pack has two mutagens and Insulating Paste, each with 4 consumables (Lesser, Moderate, Greater, Major, priced and levelled like the other mutagens) and 4 matching `Effect:` items that apply the numbers through PF2e rule elements:
 
@@ -40,7 +40,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 
 Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has to be compiled once.
 
-1. **Compile the packs.** From the repo root, with Node installed, run all three commands (the Cauldron pack is in its own module folder):
+1. **Compile the packs.** From the repo root, with Node installed, run all four commands (the Cauldron pack is in its own module folder):
 
    ```bash
    npx @foundryvtt/foundryvtt-cli package pack -n marquiste-common-enhancements --type Module --in foundry/marquiste-additions/packs/_source/marquiste-common-enhancements --out foundry/marquiste-additions/packs
@@ -48,19 +48,20 @@ Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has t
 
    ```bash
    npx @foundryvtt/foundryvtt-cli package pack -n corpsecaps-cauldron --type Module --in foundry/corpsecaps-cauldron/packs/_source/corpsecaps-cauldron --out foundry/corpsecaps-cauldron/packs
+   npx @foundryvtt/foundryvtt-cli package pack -n corpsecaps-formulas --type Module --in foundry/corpsecaps-cauldron/packs/_source/corpsecaps-formulas --out foundry/corpsecaps-cauldron/packs
    ```
 
    ```bash
    npx @foundryvtt/foundryvtt-cli package pack -n marquiste-alchemist-class --type Module --in foundry/marquiste-additions/packs/_source/marquiste-alchemist-class --out foundry/marquiste-additions/packs
    ```
 
-   This creates `foundry/marquiste-additions/packs/marquiste-common-enhancements/` and `.../marquiste-alchemist-class/`, and `foundry/corpsecaps-cauldron/packs/corpsecaps-cauldron/`. The Common Enhancements pack is empty for now, so Foundry would also create it for itself if you skip that command.
+   This creates `foundry/marquiste-additions/packs/marquiste-common-enhancements/` and `.../marquiste-alchemist-class/`, and `foundry/corpsecaps-cauldron/packs/corpsecaps-cauldron/` and `.../corpsecaps-formulas/`. The Common Enhancements pack is empty for now, so Foundry would also create it for itself if you skip that command.
 
 2. **Copy both module folders**, `foundry/marquiste-additions` and `foundry/corpsecaps-cauldron`, into your Foundry data folder, so you end up with `Data/modules/marquiste-additions/module.json` and `Data/modules/corpsecaps-cauldron/module.json`. (Foundry's data folder is shown under Configuration in the setup screen. On Windows it's usually `%localappdata%\FoundryVTT\Data`.)
 
 3. In your world, go to **Settings → Manage Modules**, enable **Marquiste Additions** and **CorpseCap's Cauldron**, and save. (Enabling the Cauldron on its own makes Foundry offer to turn on Marquiste Additions too.)
 
-4. Open the **Compendium Packs** tab. The **Common Enhancements** and **Alchemist Enhancements** packs appear under Marquiste Additions, and the **CorpseCap's Cauldron** pack under CorpseCap's Cauldron. Drag a mutagen onto a character sheet.
+4. Open the **Compendium Packs** tab. The **Common Enhancements** and **Alchemist Enhancements** packs appear under Marquiste Additions, and the **CorpseCap's Cauldron** and **Cauldron Formulas** packs under CorpseCap's Cauldron. Drag a mutagen onto a character sheet.
 
 Both `module.json` files ask for Foundry v13 as the minimum and are verified on v14 (build 370, with PF2e 8.6.1). If yours is a different version, change `compatibility` in `build.js` and rebuild.
 

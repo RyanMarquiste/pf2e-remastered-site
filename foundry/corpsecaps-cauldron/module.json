@@ -37,6 +37,17 @@
                 "PLAYER": "OBSERVER",
                 "ASSISTANT": "OWNER"
             }
+        },
+        {
+            "name": "corpsecaps-formulas",
+            "label": "Cauldron Formulas",
+            "path": "packs/corpsecaps-formulas",
+            "type": "Item",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
         }
     ]
 }

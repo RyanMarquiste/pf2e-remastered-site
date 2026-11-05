@@ -9,6 +9,7 @@ const crypto = require("crypto");
 const MODULE_ID = "marquiste-additions";
 const CAULDRON_ID = "corpsecaps-cauldron"; // the content module
 const CAULDRON_PACK = "corpsecaps-cauldron";
+const FORMULA_PACK = "corpsecaps-formulas"; // labelled "Cauldron Formulas": one formula item for each craftable family
 const CLASS_PACK = "marquiste-alchemist-class"; // labelled "Alchemist Enhancements"; the id stays so existing links keep working
 const COMMON_PACK = "marquiste-common-enhancements";
 const IMG = `modules/${CAULDRON_ID}/images/mind-doubling-mutagen.png`;
@@ -463,6 +464,51 @@ for (const t of pasteTiers) {
   });
 }
 
+// Formulas: one blueprint-like item for each craftable family, carrying the Formula trait, so a formula can be found by trait in the Compendium
+// Browser and put in a formula book. Each item lists its family's tiers in its flags; the formula book scripts turn that into the formulas a
+// character knows. The field vials and coatings are not formulas: they are made only by the Quick Vial action.
+const formulaItems = [];
+for (const [family, img, made] of [
+  ["Mind Doubling Mutagen", IMG, "a mutagen that doubles the mind"],
+  ["Ichthys Mutagen", ICHTHYS_IMG, "a mutagen that gives a fish-like form"],
+  ["Insulating Paste", PASTE_IMG, "a paste that insulates against energy"],
+]) {
+  const tierItems = tiers.map((t) => {
+    const found = items.find((i) => i.name === `${family} (${t.name})`);
+    if (!found) throw new Error(`No ${family} (${t.name}) item for its formula`);
+    return found;
+  });
+  const links = tierItems.map((i) => `<li>@UUID[${uuidOf(i._id)}]{${i.name}} (level ${i.system.level.value})</li>`).join("");
+  formulaItems.push({
+    _id: makeId(`formula:${family}`),
+    img,
+    name: `Formula: ${family}`,
+    type: "equipment",
+    flags: { [MODULE_ID]: { formula: { tiers: tierItems.map((i) => ({ level: i.system.level.value, uuid: uuidOf(i._id) })) } } },
+    system: {
+      baseItem: null,
+      bulk: { value: 0 },
+      description: {
+        value:
+          `<p>The formula for ${made}. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the ` +
+          `${family} your level allows.</p><p>It covers:</p><ul>${links}</ul>`,
+      },
+      hardness: 0,
+      hp: { max: 0, value: 0 },
+      level: { value: tierItems[0].system.level.value },
+      material: { grade: null, type: null },
+      price: { value: { gp: 0 } },
+      publication,
+      quantity: 1,
+      rules: [],
+      size: "med",
+      slug: `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      traits: { rarity: "common", value: ["formula"] },
+      usage: { value: "carried" },
+    },
+  });
+}
+
 // The Alchemist-only items go in their own pack, so they can be kept out of the general equipment lists.
 const classItems = [];
 require("./vials")({
@@ -491,6 +537,7 @@ const commonItems = [];
 writePack(MODULE_ID, COMMON_PACK, commonItems);
 writePack(MODULE_ID, CLASS_PACK, classItems);
 writePack(CAULDRON_ID, CAULDRON_PACK, items);
+writePack(CAULDRON_ID, FORMULA_PACK, formulaItems);
 
 const moduleJson = {
   id: MODULE_ID,
@@ -504,6 +551,7 @@ const moduleJson = {
     // Common Enhancements
     "scripts/common/fleeting-trait.js",
     "scripts/common/mutable-trait.js",
+    "scripts/common/formula-trait.js",
     "scripts/common/compendium-browser.js",
     "scripts/common/injury-poisons.js",
     // Alchemist Enhancements
@@ -554,6 +602,14 @@ const cauldronJson = {
       name: CAULDRON_PACK,
       label: "CorpseCap's Cauldron",
       path: `packs/${CAULDRON_PACK}`,
+      type: "Item",
+      system: "pf2e",
+      ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
+    },
+    {
+      name: FORMULA_PACK,
+      label: "Cauldron Formulas",
+      path: `packs/${FORMULA_PACK}`,
       type: "Item",
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },

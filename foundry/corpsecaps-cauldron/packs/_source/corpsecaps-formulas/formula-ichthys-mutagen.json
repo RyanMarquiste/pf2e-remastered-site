@@ -1,0 +1,75 @@
+{
+    "_key": "!items!Iy2xpGGApIkcPqyQ",
+    "_id": "Iy2xpGGApIkcPqyQ",
+    "img": "modules/corpsecaps-cauldron/images/ichthys-mutagen.png",
+    "name": "Formula: Ichthys Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.qndynPKz4dBrn0GF"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.WJCBmc1XzLh64BzU"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.nvwC8H6ZVbvJ7ukU"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.rQ2nWvNrgFlnXgvM"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for a mutagen that gives a fish-like form. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Ichthys Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.qndynPKz4dBrn0GF]{Ichthys Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.WJCBmc1XzLh64BzU]{Ichthys Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.nvwC8H6ZVbvJ7ukU]{Ichthys Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.rQ2nWvNrgFlnXgvM]{Ichthys Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-ichthys-mutagen",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
