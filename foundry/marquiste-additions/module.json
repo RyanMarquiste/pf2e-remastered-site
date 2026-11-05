@@ -2,7 +2,7 @@
     "id": "marquiste-additions",
     "title": "Marquiste Additions",
     "description": "Homebrew additions for Pathfinder 2e Remastered from ryanmarquiste.github.io/pf2e-remastered-site.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "authors": [
         {
             "name": "Ryan Marquiste"
@@ -10,7 +10,7 @@
     ],
     "compatibility": {
         "minimum": "13",
-        "verified": "13"
+        "verified": "14"
     },
     "relationships": {
         "systems": [

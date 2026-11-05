@@ -62,7 +62,7 @@ Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has t
 
 4. Open the **Compendium Packs** tab. The **Common Enhancements** and **Alchemist Enhancements** packs appear under Marquiste Additions, and the **CorpseCap's Cauldron** pack under CorpseCap's Cauldron. Drag a mutagen onto a character sheet.
 
-Both `module.json` files ask for Foundry v13 as the minimum. If yours is a different version, change `compatibility` in `build.js` and rebuild.
+Both `module.json` files ask for Foundry v13 as the minimum and are verified on v14 (build 370, with PF2e 8.6.1). If yours is a different version, change `compatibility` in `build.js` and rebuild.
 
 ## Check it
 

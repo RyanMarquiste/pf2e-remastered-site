@@ -496,9 +496,9 @@ const moduleJson = {
   id: MODULE_ID,
   title: "Marquiste Additions",
   description: "Homebrew additions for Pathfinder 2e Remastered from ryanmarquiste.github.io/pf2e-remastered-site.",
-  version: "1.0.0",
+  version: "1.1.0",
   authors: [{ name: "Ryan Marquiste" }],
-  compatibility: { minimum: "13", verified: "13" },
+  compatibility: { minimum: "13", verified: "14" },
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
   esmodules: [
     // Common Enhancements
@@ -542,9 +542,9 @@ const cauldronJson = {
   id: CAULDRON_ID,
   title: "CorpseCap's Cauldron",
   description: "Custom alchemical items from ryanmarquiste.github.io/pf2e-remastered-site: the mutagens and Insulating Paste.",
-  version: "1.0.0",
+  version: "1.1.0",
   authors: [{ name: "Ryan Marquiste" }],
-  compatibility: { minimum: "13", verified: "13" },
+  compatibility: { minimum: "13", verified: "14" },
   relationships: {
     systems: [{ id: "pf2e", type: "system" }],
     requires: [{ id: MODULE_ID, type: "module" }],
