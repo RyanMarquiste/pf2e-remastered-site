@@ -3,6 +3,8 @@
 // can change to the named type against any creature for which that type is better. It does this through PF2e's own damage redirect: when the damage
 // roll is made, the roll is told that the item's type may become the mutable type, and PF2e then works out, for each target the damage is applied to,
 // whether the target's immunities and resistances make the other type the better choice.
+import { enabled } from "./settings.js";
+
 const PREFIX = "mutable-";
 
 // Every list a trait can be shown from: items, effects, actions, and the list a Strike row reads (npcAttackTraits).
@@ -70,6 +72,7 @@ function mutations(actor, origin) {
 }
 
 Hooks.on("preCreateChatMessage", (message) => {
+  if (!enabled("mutable")) return;
   const context = message.flags?.pf2e?.context;
   if (context?.type !== "damage-roll") return;
   const actor = ChatMessage.getSpeakerActor(message.speaker);

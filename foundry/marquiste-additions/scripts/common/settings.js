@@ -1,12 +1,17 @@
-// The module's on/off options. Each one is a world setting, so a world keeps the behaviour it had (all are on by default except Quick Alchemy). The
-// scripts read a setting when they run (see `enabled`), so changing it takes effect straight away without a reload. Turning a feature off stops the
-// module acting; it never deletes anything the feature made earlier (effects, formula books, known formulas).
+// The module's options. Each one is a world setting, so a world keeps the behaviour it had (all are on by default except Quick Alchemy, Troubleshooting
+// mode and Log activity). The scripts read a setting when they run (see `enabled`), so changing it takes effect straight away without a reload. Turning a
+// feature off stops the module acting; it never deletes anything the feature made earlier (effects, formula books, known formulas).
 //
-// The traits (Fleeting, Mutable, Formula) are not options: they only add names to PF2e's trait lists and do nothing unless an item carries them.
-// alchemistPackHidden (scripts/common/compendium-browser.js) is a hidden bookkeeping setting.
+// There are two kinds of setting. The ones people choose at the table (Poisons, Crafting, Alchemist, Cauldron) are always shown. The ones under
+// Troubleshooting switch individual features off to find where this module clashes with another module. They are hidden until Troubleshooting mode is
+// ticked, and while it is off every one of them is ignored (`enabled` returns true), so a switch left off can never silently break a world.
 //
-// Foundry's settings window has no headings, so the window is arranged when it opens (see LAYOUT): headings are added and the settings are
-// put in order. A `level` of 1 is a top-level heading; 2 is a sub-heading whose settings are indented under it.
+// The Formula trait is not an option: it only adds a name to PF2e's trait lists. alchemistPackHidden (scripts/common/compendium-browser.js) is a hidden
+// bookkeeping setting.
+//
+// Foundry's settings window has no headings, so the window is arranged when it opens (see LAYOUT): headings are added and the settings are put in
+// order. A `level` of 1 is a top-level heading; 2 is a sub-heading whose settings are indented under it. Entries marked `debug` are hidden until
+// Troubleshooting mode is ticked.
 import { MODULE } from "./shared.js";
 
 const OPTIONS = {
@@ -39,7 +44,7 @@ const OPTIONS = {
   },
   toxicologistMutableAcid: {
     name: "Mutable Acid",
-    hint: "Infused poison items a Toxicologist creates also get the Mutable Acid trait. Off: items are left as PF2e creates them.",
+    hint: "Infused poison items a Toxicologist creates also get the Mutable Acid trait, so their damage can change to acid. Off: items are left as PF2e creates them.",
   },
   infusedPoisonsEnd: {
     name: "Infused Poison Expiry",
@@ -48,6 +53,54 @@ const OPTIONS = {
   insulatingPasteCounter: {
     name: "Insulating Paste",
     hint: "When Insulating Paste reduces damage, posts a chat message with a button that uses up one instance of the protection. Off: no message.",
+  },
+
+  // Troubleshooting.
+  troubleshooting: {
+    name: "Troubleshooting mode",
+    hint:
+      "Shows a switch for each feature of this module, to help find where it clashes with another module: switch features off one at a time until the problem " +
+      "goes away. While this is off, all of those switches are ignored and every feature runs normally. While it is on and a feature is off, the GM is told when the world loads.",
+    default: false,
+  },
+  fleeting: {
+    name: "Fleeting trait",
+    hint:
+      "An item or effect with the Fleeting trait on a character, or a summoned creature with it, is removed when the turn it was created in ends. " +
+      "This needs a running combat. Off: Fleeting is only a label.",
+  },
+  mutable: {
+    name: "Mutable traits",
+    hint:
+      "Damage from an item or effect with a Mutable trait changes to that type against a creature for which it is the better type. The Toxic Coatings and the " +
+      "Toxicologist's Mutable Acid depend on this. Off: the traits are only labels.",
+  },
+  craftingTabLayout: {
+    name: "Crafting tab layout",
+    hint: "Draws the formula books on a character's Crafting tab. Off: that tab is PF2e's own. This also needs Formula Books to be on.",
+  },
+  formulaSync: {
+    name: "Formula sync",
+    hint:
+      "Keeps a character's known formulas in step with their formula books and level, and moves a Formula item dropped on the Crafting tab into a book. " +
+      "Off: the module does not change a character's formula list. This also needs Formula Books to be on.",
+  },
+  alchemistActions: {
+    name: "Alchemist actions",
+    hint: "The Quick Vial, Create Consumable and Quick Alchemy (Marquiste) actions, and removing what they create when the turn ends.",
+  },
+  bombVialUpkeep: {
+    name: "Bomb vial upkeep",
+    hint: "Marks a thrown vial as used and removes it afterwards, and puts back a Versatile Vial that an earlier version of this module renamed.",
+  },
+  compendiumBrowserPacks: {
+    name: "Compendium Browser pack",
+    hint: "Switches the Alchemist pack off for the Compendium Browser's Equipment tab, once, when the world loads. Off: the module leaves that PF2e setting alone.",
+  },
+  debugLog: {
+    name: "Log activity",
+    hint: "Writes what the module is doing to the browser console (F12). Only works while Troubleshooting mode is on.",
+    default: false,
   },
 };
 
@@ -65,7 +118,23 @@ const LAYOUT = [
   { key: "infusedPoisonsEnd" },
   { level: 1, heading: "Cauldron" },
   { key: "insulatingPasteCounter" },
+  { level: 1, heading: "Troubleshooting" },
+  { key: "troubleshooting" },
+  { level: 2, heading: "Traits", debug: true },
+  { key: "fleeting", debug: true },
+  { key: "mutable", debug: true },
+  { level: 2, heading: "Features", debug: true },
+  { key: "craftingTabLayout", debug: true },
+  { key: "formulaSync", debug: true },
+  { key: "alchemistActions", debug: true },
+  { key: "bombVialUpkeep", debug: true },
+  { key: "compendiumBrowserPacks", debug: true },
+  { level: 2, heading: "Console", debug: true },
+  { key: "debugLog", debug: true },
 ];
+
+// The switches that only count while Troubleshooting mode is on.
+const SWITCHES = ["fleeting", "mutable", "craftingTabLayout", "formulaSync", "alchemistActions", "bombVialUpkeep", "compendiumBrowserPacks"];
 
 Hooks.once("init", () => {
   // Registered in the order of the window, which is also the order Foundry lists them in if the arranging below finds nothing to arrange.
@@ -84,7 +153,28 @@ Hooks.once("init", () => {
   }
 });
 
-// Arrange the module's part of the settings window: add the headings and put each setting under its heading.
+// Is this feature on? A troubleshooting switch counts only while Troubleshooting mode is on; otherwise the feature is on.
+export function enabled(key) {
+  if (SWITCHES.includes(key) && !game.settings.get(MODULE, "troubleshooting")) return true;
+  return game.settings.get(MODULE, key);
+}
+
+// Write to the console, but only when the GM has asked for it under Troubleshooting.
+export function log(...args) {
+  if (game.settings.get(MODULE, "troubleshooting") && game.settings.get(MODULE, "debugLog")) console.log(`${MODULE} |`, ...args);
+}
+
+// With Troubleshooting mode on, say which features are switched off, so a forgotten switch is not a mystery.
+Hooks.once("ready", () => {
+  if (!game.user.isGM || !game.settings.get(MODULE, "troubleshooting")) return;
+  const off = SWITCHES.filter((key) => !game.settings.get(MODULE, key)).map((key) => OPTIONS[key].name);
+  const message = off.length ? `Marquiste Additions: Troubleshooting mode is on. Switched off: ${off.join(", ")}.` : "Marquiste Additions: Troubleshooting mode is on.";
+  ui.notifications.warn(message);
+  console.warn(message);
+});
+
+// Arrange the module's part of the settings window: add the headings, put each setting under its heading, and hide the troubleshooting switches
+// until Troubleshooting mode is ticked.
 Hooks.on("renderSettingsConfig", (app, html) => {
   const root = html instanceof HTMLElement ? html : html?.[0];
   if (!root) return;
@@ -103,26 +193,32 @@ Hooks.on("renderSettingsConfig", (app, html) => {
   const parent = groups.get(first.key).parentElement;
   const place = (element) => (anchor ? anchor.after(element) : parent.prepend(element), (anchor = element));
 
-  // A heading is only shown if a setting follows it.
+  const hideable = [];
   let indent = false;
   for (let i = 0; i < LAYOUT.length; i++) {
     const entry = LAYOUT[i];
+    let element;
     if (entry.heading) {
+      // A heading is only shown if a setting follows it.
       let shown = false;
       for (let j = i + 1; j < LAYOUT.length && !LAYOUT[j].heading; j++) shown ||= groups.has(LAYOUT[j].key);
       if (!shown) continue;
-      const heading = document.createElement(entry.level === 1 ? "h4" : "h5");
-      heading.className = `marquiste-setting-heading${entry.level === 1 ? " divider" : ""}`;
-      heading.textContent = entry.heading;
-      if (entry.level === 2) heading.style.cssText = "margin: .75em 0 .25em; padding-left: 1em; opacity: .85;";
+      element = document.createElement(entry.level === 1 ? "h4" : "h5");
+      element.className = `marquiste-setting-heading${entry.level === 1 ? " divider" : ""}`;
+      element.textContent = entry.heading;
+      if (entry.level === 2) element.style.cssText = "margin: .75em 0 .25em; padding-left: 1em; opacity: .85;";
       indent = entry.level === 2;
-      place(heading);
     } else if (groups.has(entry.key)) {
-      const group = groups.get(entry.key);
-      group.style.paddingLeft = indent ? "1em" : "";
-      place(group);
-    }
+      element = groups.get(entry.key);
+      element.style.paddingLeft = indent ? "1em" : "";
+    } else continue;
+    place(element);
+    if (entry.debug) hideable.push(element);
   }
-});
 
-export const enabled = (key) => game.settings.get(MODULE, key);
+  // Foundry's own search only sets `hidden`, so the display is set directly and survives a search being cleared.
+  const master = root.querySelector(`[name="${MODULE}.troubleshooting"]`);
+  const refresh = () => hideable.forEach((element) => (element.style.display = !master || master.checked ? "" : "none"));
+  master?.addEventListener("change", refresh);
+  refresh();
+});

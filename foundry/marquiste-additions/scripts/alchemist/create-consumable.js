@@ -2,6 +2,7 @@
 // The action item carries a CraftingAbility rule, so PF2e itself shows its formula picker, spends the vial and puts the item in a hand.
 // This script adds the checks and the end-of-turn expiry around that.
 import { MODULE, itemUsed, say } from "../common/shared.js";
+import { enabled } from "../common/settings.js";
 import { versatileVials } from "./alchemist.js";
 
 const SLUG = "create-consumable";
@@ -17,7 +18,7 @@ export async function createConsumable(actor) {
 
 // PF2e opens its formula picker for the action. Refuse to go on without a versatile vial or a free hand.
 Hooks.on("renderApplicationV2", (app) => {
-  if (app.constructor.name !== "FormulaPicker") return;
+  if (!enabled("alchemistActions") || app.constructor.name !== "FormulaPicker") return;
   const { actor, item, mode } = app.options;
   if (mode !== "craft" || item?.slug !== SLUG) return;
 
@@ -34,6 +35,7 @@ Hooks.on("renderApplicationV2", (app) => {
 
 // After PF2e posts its card for the action, mark the item it created so that it can expire.
 Hooks.on("createChatMessage", async (message) => {
+  if (!enabled("alchemistActions")) return;
   const action = await itemUsed(message);
   if (action?.type !== "action" || action.slug !== SLUG) return;
 
@@ -50,7 +52,7 @@ Hooks.on("createChatMessage", async (message) => {
 
 // An item made in combat is removed when its creator's next turn begins.
 Hooks.on("updateCombat", async (combat, changed) => {
-  if (!("turn" in changed || "round" in changed)) return;
+  if (!("turn" in changed || "round" in changed) || !enabled("alchemistActions")) return;
   if (game.users.activeGM?.id !== game.user.id) return;
 
   const actors = new Set(game.actors.contents);

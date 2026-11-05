@@ -2,7 +2,7 @@
 
 This folder holds two Foundry modules. **Marquiste Additions** (`marquiste-additions/`) is the functional module: the scripts and the rules items they use. **CorpseCap's Cauldron** (`corpsecaps-cauldron/`) is the content module: the custom alchemical items. The content module needs the functional module, and Foundry asks you to turn it on when you enable the Cauldron. The functional module has two compendiums, and its scripts are sorted the same way:
 
-- **Common Enhancements** (`scripts/common/`): rules that apply across the whole game. Right now that is the injury poison rules (poisoning a weapon, and using the poison up when a Strike hits or critically fails), the Fleeting trait, the Mutable traits, the Formula trait with the formula books on the Crafting tab, and the Compendium Browser setup. The pack has no items yet. None of this is specific to Alchemists, so the scripts are in `scripts/common/`; the three formula items that the books use are in the CorpseCap's Cauldron module, because they describe its items.
+- **Common Enhancements** (`scripts/common/`): rules that apply across the whole game. Right now that is the injury poison rules (poisoning a weapon, and using the poison up when a Strike hits or critically fails), the Fleeting trait (which removes what carries it at the end of the turn), the Mutable traits, the Formula trait with the formula books on the Crafting tab, and the Compendium Browser setup. The pack has no items yet. None of this is specific to Alchemists, so the scripts are in `scripts/common/`; the three formula items that the books use are in the CorpseCap's Cauldron module, because they describe its items.
 - **Alchemist Enhancements** (`scripts/alchemist/`): features only for Alchemists: the Volatile Vial, the Field Vials, the Toxic Coatings, the Toxicologist's Mutable Acid, the Quick Vial, Create Consumable and Quick Alchemy (Marquiste) actions, and a formula item for each of PF2e's mutagen families that start at level 1 (16 of them, listed in `mutagen-formulas.js`; each covers the Lesser, Moderate, Greater and Major tiers). Built by `build.js` from `vials.js` and `mutagen-formulas.js`. The pack's id is still `marquiste-alchemist-class`, so links from existing characters keep working.
 
 The **CorpseCap's Cauldron** module has two compendiums. The first has this site's custom alchemical items, the mutagens and Insulating Paste. The second, **Cauldron Formulas**, has one formula item for each of those families, carrying the Formula trait, so a formula can be found by trait in the Compendium Browser and put in a formula book. It has no scripts of its own: the Insulating Paste counter is in Marquiste Additions (`scripts/cauldron/`), because it is behaviour, not content.
@@ -81,7 +81,7 @@ PF2e can't hide single items; its Compendium Browser lists whole packs per tab. 
 
 ## Module settings
 
-Open **Settings → Configure Settings → Marquiste Additions**. The options are world settings, and a change takes effect straight away without a reload. Turning one off stops the module acting; it never deletes what the feature made earlier (poison effects, formula books, known formulas). The traits (Fleeting, Mutable, Formula) are not options: they only add names to PF2e's trait lists and do nothing unless an item carries them.
+Open **Settings → Configure Settings → Marquiste Additions**. The options are world settings, and a change takes effect straight away without a reload. Turning one off stops the module acting; it never deletes what the feature made earlier (poison effects, formula books, known formulas). The Formula trait is not an option: it only adds a name to PF2e's trait lists. The Fleeting and Mutable traits can be switched off under Troubleshooting (below).
 
 The settings window groups them under headings:
 
@@ -94,8 +94,27 @@ The settings window groups them under headings:
 | **Alchemist → Toxicologist** | **Mutable Acid** | on | Items are left as PF2e creates them. |
 | **Alchemist → Toxicologist** | **Infused Poison Expiry** | on | The poison effect stays on the weapon after resting. |
 | **Cauldron** | **Insulating Paste** | on | No chat message with the "use up one instance" button. |
+| **Troubleshooting** | **Troubleshooting mode** | off | The switches below it are hidden and ignored. See Troubleshooting below. |
 
 Foundry's settings window has no headings of its own, so `scripts/common/settings.js` adds them (and puts the settings in this order) when the window opens. If a Foundry update changes the window's markup, the settings still work and just appear in a plain list.
+
+### Troubleshooting
+
+When the module clashes with another module, tick **Troubleshooting mode** under **Troubleshooting**. A switch appears for each feature, all on. Switch features off one at a time until the problem goes away, and you have found which part clashes.
+
+- **Fleeting trait** and **Mutable traits**: the two traits' behaviour. With either off, the trait is only a label.
+- **Crafting tab layout**: the formula books drawn on the Crafting tab (the tab becomes PF2e's own).
+- **Formula sync**: the module changing a character's formula list.
+- **Alchemist actions**: Quick Vial, Create Consumable, the Quick Alchemy (Marquiste) chooser, and removing what they create at the end of the turn.
+- **Bomb vial upkeep**: marking a thrown vial as used and removing it afterwards.
+- **Compendium Browser pack**: the one-time change that hides the Alchemist pack from the Equipment tab.
+- **Log activity**: writes what the module is doing to the browser console (F12).
+
+These switches only count while Troubleshooting mode is on. Turn it off and every one is ignored, so everything runs normally, whatever the switches were left at. While it is on and anything is off, the GM is told when the world loads.
+
+### Fleeting
+
+An item or effect with the **Fleeting** trait that lands on a character is removed when the turn it was created in ends, and so is a creature with the trait that is put on the scene. This needs a running combat: outside combat nothing expires, and the GM removes it. Only the moment of creation starts the clock, so items that already exist are never removed. The vials made by Quick Vial and the items made by Create Consumable end the way those actions describe and are left alone by this.
 
 ### Quick Alchemy
 
@@ -121,7 +140,7 @@ An Alchemist's **versatile vials** stay exactly as PF2e has them: a resource tie
 
 - **Quick Vial:** it finds the research field from the character's Bomber, Chirurgeon, Mutagenist or Toxicologist class feature. It checks that the character has a free hand (using PF2e's own hands-free count) before creating a vial and creates nothing if they don't; the new vial goes into that hand. Applying a coating needs no free hand. It doesn't check for the alchemist's toolkit. Outside combat nothing removes the vial, so delete it yourself.
 
-- **Vials:** the vials, coatings and Mutagenist vial carry the **Fleeting** trait, which `scripts/common/fleeting-trait.js` adds to PF2e's trait lists, but nothing makes them expire; only a vial made with Quick Vial in combat is removed at the end of the turn. The Field Vials' "only for the matching research field" limit isn't enforced. The Toxic Coating effects add their poison damage to every Strike until the end of the turn, so remove them yourself after the first hit.
+- **Vials:** the vials, coatings and Mutagenist vial carry the **Fleeting** trait, which `scripts/common/fleeting-trait.js` adds to PF2e's trait lists. In combat they are removed at the end of the turn they were created in (a vial from Quick Vial by that action's own rule); outside combat nothing removes them. The Field Vials' "only for the matching research field" limit isn't enforced. The Toxic Coating effects add their poison damage to every Strike until the end of the turn, so remove them yourself after the first hit.
 
 - **Insulating Paste:** the effect shows a counter badge starting at 5. PF2e doesn't track this itself, so `scripts/cauldron/insulating-paste.js` (loaded by the module) watches PF2e's "damage taken" chat messages. When the paste's resistance reduced the damage, it posts a chat message with a **Use up one instance of protection** button. Pressing it (the character's owner or a GM) lowers the badge by one and removes the effect at 0. Each message can only be counted once. The prompt is posted from the GM's client, so a GM has to be connected. The duration still runs out on its own.
 

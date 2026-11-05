@@ -246,13 +246,13 @@ async function decorate(app, root) {
 }
 
 Hooks.on("renderCharacterSheetPF2e", (app, html) => {
-  if (!enabled("formulaBooks")) return;
+  if (!enabled("formulaBooks") || !enabled("craftingTabLayout")) return;
   const root = html instanceof HTMLElement ? html : html?.[0];
   if (root) decorate(app, root).catch((error) => console.error(MODULE, error));
 });
 
 // Switched on or off: open character sheets draw the Crafting tab again so the change shows without closing them.
 Hooks.on(`${MODULE}.settingChanged`, (key) => {
-  if (key !== "formulaBooks") return;
+  if (!["formulaBooks", "craftingTabLayout", "troubleshooting"].includes(key)) return;
   for (const app of Object.values(ui.windows ?? {})) if (app.actor?.type === "character") app.render();
 });

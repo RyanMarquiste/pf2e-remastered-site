@@ -1,6 +1,6 @@
 // Insulating Paste: when its resistance reduces damage, post a chat message with a button that lowers the effect's counter.
 // PF2e doesn't track this itself, so this reads the "damage taken" chat message PF2e posts when damage is applied.
-import { enabled } from "../common/settings.js";
+import { enabled, log } from "../common/settings.js";
 
 const MODULE = "marquiste-additions";
 const SLUG = "insulating-paste";
@@ -29,7 +29,7 @@ Hooks.on("createChatMessage", async (message) => {
     const type = effect.flags.pf2e?.rulesSelections?.damageType;
     const resistance = actor.attributes.resistances.find((r) => r.type === type);
     const labels = [resistance?.applicationLabel, resistance?.label].filter(Boolean);
-    console.debug(`${MODULE} | paste on ${actor.name}: type=${type}, labels=${JSON.stringify(labels)}, applications=${JSON.stringify(applications)}`);
+    log(`paste on ${actor.name}: type=${type}, labels=${JSON.stringify(labels)}, applications=${JSON.stringify(applications)}`);
     if (!labels.length) continue;
 
     const reduced = applications.some((a) => a.category === "resistance" && !a.ignored && a.adjustment < 0 && labels.includes(a.type));

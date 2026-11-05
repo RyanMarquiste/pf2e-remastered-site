@@ -215,21 +215,23 @@ async function redirectFormulaItems(actor) {
 }
 
 const mine = (userId) => userId === game.user.id;
+// Formula books keep the formula list in step only when the feature is on and the sync has not been switched off for troubleshooting.
+const syncing = () => enabled("formulaBooks") && enabled("formulaSync");
 const onBook = (item, userId) => {
-  if (enabled("formulaBooks") && mine(userId) && item.actor && isBook(item)) sync(item.actor);
+  if (syncing() && mine(userId) && item.actor && isBook(item)) sync(item.actor);
 };
 Hooks.on("createItem", (item, options, userId) => onBook(item, userId));
 Hooks.on("updateItem", (item, changes, options, userId) => onBook(item, userId));
 Hooks.on("deleteItem", (item, options, userId) => onBook(item, userId));
 
 Hooks.on("updateActor", (actor, changes, options, userId) => {
-  if (!enabled("formulaBooks") || !mine(userId) || actor.type !== "character") return;
+  if (!syncing() || !mine(userId) || actor.type !== "character") return;
   if (foundry.utils.hasProperty(changes, "system.details.level.value")) sync(actor);
   if (foundry.utils.hasProperty(changes, "system.crafting.formulas")) redirectFormulaItems(actor).catch((error) => console.error(MODULE, error));
 });
 
 // Switched back on: books and levels may have changed while it was off, so the GM brings every character with a book up to date.
 Hooks.on(`${MODULE}.settingChanged`, (key, value) => {
-  if (key !== "formulaBooks" || !value || game.users.activeGM?.id !== game.user.id) return;
+  if (!["formulaBooks", "formulaSync", "troubleshooting"].includes(key) || !syncing() || game.users.activeGM?.id !== game.user.id) return;
   for (const actor of game.actors) if (actor.type === "character" && booksOf(actor).length) sync(actor);
 });

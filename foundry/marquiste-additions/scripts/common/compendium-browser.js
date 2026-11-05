@@ -1,6 +1,8 @@
 // The Alchemist-only items live in their own pack. Keep that pack out of the PF2e Compendium Browser's Equipment tab, once, the first time
 // the module runs, so these items stay out of the general equipment list. It stays on the other tabs (such as Actions), and the choice can
 // be changed afterwards in the Compendium Browser's settings.
+import { enabled } from "./settings.js";
+
 const MODULE = "marquiste-additions";
 const COLLECTION = `${MODULE}.marquiste-alchemist-class`;
 
@@ -9,7 +11,7 @@ Hooks.once("init", () => {
 });
 
 Hooks.once("ready", async () => {
-  if (game.users.activeGM?.id !== game.user.id) return;
+  if (game.users.activeGM?.id !== game.user.id || !enabled("compendiumBrowserPacks")) return;
   if (game.settings.get(MODULE, "alchemistPackHidden")) return;
   const pack = game.packs.get(COLLECTION);
   if (!pack) return;

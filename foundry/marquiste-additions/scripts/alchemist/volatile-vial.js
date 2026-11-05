@@ -1,9 +1,11 @@
 // The upkeep for the bomb vials. (The Quick Alchemy setting, volatileVialRules, is registered in scripts/common/settings.js.)
+import { enabled } from "../common/settings.js";
+
 const MODULE = "marquiste-additions";
 
 // An earlier version renamed each Versatile Vial to Volatile Vial. The Versatile Vial is the resource, so put any such item back.
 Hooks.once("ready", async () => {
-  if (game.users.activeGM?.id !== game.user.id) return;
+  if (game.users.activeGM?.id !== game.user.id || !enabled("bombVialUpkeep")) return;
   const actors = new Set(game.actors.contents);
   for (const scene of game.scenes) for (const token of scene.tokens) if (token.actor) actors.add(token.actor);
   for (const actor of actors) {
@@ -24,7 +26,7 @@ const BOMB_VIALS = new Set(["volatile-vial", "bomber-field-vial", "toxicologist-
 const SPENT = "spent";
 
 Hooks.on("updateItem", async (item, changes, options, userId) => {
-  if (userId !== game.user.id) return;
+  if (userId !== game.user.id || !enabled("bombVialUpkeep")) return;
   if (!item.actor || item.type !== "weapon" || !BOMB_VIALS.has(item.slug)) return;
   const quantity = foundry.utils.getProperty(changes, "system.quantity");
   if (quantity === undefined) return;
@@ -34,7 +36,7 @@ Hooks.on("updateItem", async (item, changes, options, userId) => {
 
 // Once the damage for a spent vial has been rolled, remove the vial after a minute, long enough to apply the damage from the chat card.
 Hooks.on("createChatMessage", async (message) => {
-  if (message.author?.id !== game.user.id) return;
+  if (message.author?.id !== game.user.id || !enabled("bombVialUpkeep")) return;
   if (message.flags?.pf2e?.context?.type !== "damage-roll") return;
   const uuid = message.flags.pf2e.origin?.uuid;
   if (!uuid) return;
@@ -47,7 +49,7 @@ Hooks.on("createChatMessage", async (message) => {
 
 // A spent vial that was never followed by a damage roll, such as after a miss, goes when the turn changes.
 Hooks.on("updateCombat", async (combat, changed) => {
-  if (!("turn" in changed || "round" in changed)) return;
+  if (!("turn" in changed || "round" in changed) || !enabled("bombVialUpkeep")) return;
   if (game.users.activeGM?.id !== game.user.id) return;
 
   const actors = new Set(game.actors.contents);

@@ -1,6 +1,7 @@
 // Quick Alchemy (Marquiste): with the Quick Alchemy setting switched on, using the Quick Alchemy (Marquiste) action asks the character to choose
 // Quick Vial or Create Consumable. Create Consumable is shown but cannot be chosen while they have no versatile vial left.
 import { MODULE, itemUsed } from "../common/shared.js";
+import { enabled, log } from "../common/settings.js";
 import { SETTING, QUICK_VIAL_ICON, CONSUMABLE_ICON, versatileVials } from "./alchemist.js";
 import { createQuickVial } from "./quick-vial.js";
 import { createConsumable } from "./create-consumable.js";
@@ -10,6 +11,7 @@ const SLUGS = ["quick-alchemy-marquiste", "quick-alchemy-house-rule"];
 const NAMES = ["Quick Alchemy (Marquiste)", "Quick Alchemy (House Rule)"];
 
 Hooks.on("createChatMessage", async (message) => {
+  if (!enabled("alchemistActions")) return;
   const feat = await itemUsed(message);
   if (!feat || !(SLUGS.includes(feat.slug) || NAMES.includes(feat.name))) return;
   if (!game.settings.get(MODULE, SETTING)) {
@@ -17,7 +19,7 @@ Hooks.on("createChatMessage", async (message) => {
   }
   const actor = feat.actor;
   const vials = versatileVials(actor);
-  console.debug(`${MODULE} | Quick Alchemy (Marquiste) used by ${actor.name}; versatile vials: ${vials}`);
+  log(`Quick Alchemy (Marquiste) used by ${actor.name}; versatile vials: ${vials}`);
 
   const choice = await foundry.applications.api.DialogV2.wait({
     window: { title: "Quick Alchemy" },

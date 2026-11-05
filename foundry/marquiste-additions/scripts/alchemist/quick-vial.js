@@ -1,5 +1,6 @@
 // Quick Vial: an Alchemist with a free hand creates a volatile vial or the field vial for their research field, held in that hand.
 import { MODULE, itemUsed, say } from "../common/shared.js";
+import { enabled } from "../common/settings.js";
 import { PACK } from "./alchemist.js";
 import { pickRow, coatableWeapons, pickWeapon } from "../common/weapon-picker.js";
 import { claimWeapon } from "../common/weapon-poison.js";
@@ -109,13 +110,14 @@ export async function createQuickVial(actor) {
 
 // Using the Quick Vial action on its own.
 Hooks.on("createChatMessage", async (message) => {
+  if (!enabled("alchemistActions")) return;
   const action = await itemUsed(message);
   if (action?.type === "action" && action.slug === "quick-vial") await createQuickVial(action.actor);
 });
 
 // A vial made in combat is removed once its creator's turn is over.
 Hooks.on("updateCombat", async (combat, changed) => {
-  if (!("turn" in changed || "round" in changed)) return;
+  if (!("turn" in changed || "round" in changed) || !enabled("alchemistActions")) return;
   if (game.users.activeGM?.id !== game.user.id) return; // only one client cleans up
 
   const actors = new Set(game.actors.contents);
