@@ -1,0 +1,75 @@
+{
+    "_key": "!items!nFSy907PARxpAv9a",
+    "_id": "nFSy907PARxpAv9a",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/quicksilver-mutagen.webp",
+    "name": "Formula: Quicksilver Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.5MKBwpE401uz4kNN"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.n52BSbZsnx4Vmt2p"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.eQDTsetadI8u8Kc0"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.4GXzTN6iSDGfYEAi"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Quicksilver Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Quicksilver Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.5MKBwpE401uz4kNN]{Quicksilver Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.n52BSbZsnx4Vmt2p]{Quicksilver Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.eQDTsetadI8u8Kc0]{Quicksilver Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.4GXzTN6iSDGfYEAi]{Quicksilver Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-quicksilver-mutagen",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

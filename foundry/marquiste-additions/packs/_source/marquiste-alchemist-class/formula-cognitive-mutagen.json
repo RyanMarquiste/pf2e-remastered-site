@@ -1,0 +1,75 @@
+{
+    "_key": "!items!GSRTt7GTsdcMtkGi",
+    "_id": "GSRTt7GTsdcMtkGi",
+    "img": "icons/consumables/potions/potion-vial-corked-purple.webp",
+    "name": "Formula: Cognitive Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.wbr6rkyaVYnDhdgV"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.qpzL9UnTi4cDhy6J"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.ZGojRKG1yYiVWemR"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.VBK9i74dry8yf8f0"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Cognitive Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Cognitive Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.wbr6rkyaVYnDhdgV]{Cognitive Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.qpzL9UnTi4cDhy6J]{Cognitive Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.ZGojRKG1yYiVWemR]{Cognitive Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.VBK9i74dry8yf8f0]{Cognitive Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-cognitive-mutagen",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

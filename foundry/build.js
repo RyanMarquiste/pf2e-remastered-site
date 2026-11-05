@@ -467,24 +467,14 @@ for (const t of pasteTiers) {
 // Formulas: one blueprint-like item for each craftable family, carrying the Formula trait, so a formula can be found by trait in the Compendium
 // Browser and put in a formula book. Each item lists its family's tiers in its flags; the formula book scripts turn that into the formulas a
 // character knows. The field vials and coatings are not formulas: they are made only by the Quick Vial action.
-const formulaItems = [];
-for (const [family, img, made] of [
-  ["Mind Doubling Mutagen", IMG, "a mutagen that doubles the mind"],
-  ["Ichthys Mutagen", ICHTHYS_IMG, "a mutagen that gives a fish-like form"],
-  ["Insulating Paste", PASTE_IMG, "a paste that insulates against energy"],
-]) {
-  const tierItems = tiers.map((t) => {
-    const found = items.find((i) => i.name === `${family} (${t.name})`);
-    if (!found) throw new Error(`No ${family} (${t.name}) item for its formula`);
-    return found;
-  });
-  const links = tierItems.map((i) => `<li>@UUID[${uuidOf(i._id)}]{${i.name}} (level ${i.system.level.value})</li>`).join("");
-  formulaItems.push({
+function formulaItem({ family, img, made, rarity = "common", tiers, pub }) {
+  const links = tiers.map((t) => `<li>@UUID[${t.uuid}]{${t.name}} (level ${t.level})</li>`).join("");
+  return {
     _id: makeId(`formula:${family}`),
     img,
     name: `Formula: ${family}`,
     type: "equipment",
-    flags: { [MODULE_ID]: { formula: { tiers: tierItems.map((i) => ({ level: i.system.level.value, uuid: uuidOf(i._id) })) } } },
+    flags: { [MODULE_ID]: { formula: { tiers: tiers.map((t) => ({ level: t.level, uuid: t.uuid })) } } },
     system: {
       baseItem: null,
       bulk: { value: 0 },
@@ -495,18 +485,33 @@ for (const [family, img, made] of [
       },
       hardness: 0,
       hp: { max: 0, value: 0 },
-      level: { value: tierItems[0].system.level.value },
+      level: { value: tiers[0].level },
       material: { grade: null, type: null },
       price: { value: { gp: 0 } },
-      publication,
+      publication: pub,
       quantity: 1,
       rules: [],
       size: "med",
       slug: `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
-      traits: { rarity: "common", value: ["formula"] },
+      traits: { rarity, value: ["formula"] },
       usage: { value: "carried" },
     },
+  };
+}
+
+// CorpseCap's Cauldron: the mutagens and Insulating Paste.
+const formulaItems = [];
+for (const [family, img, made] of [
+  ["Mind Doubling Mutagen", IMG, "a mutagen that doubles the mind"],
+  ["Ichthys Mutagen", ICHTHYS_IMG, "a mutagen that gives a fish-like form"],
+  ["Insulating Paste", PASTE_IMG, "a paste that insulates against energy"],
+]) {
+  const tierItems = tiers.map((t) => {
+    const found = items.find((i) => i.name === `${family} (${t.name})`);
+    if (!found) throw new Error(`No ${family} (${t.name}) item for its formula`);
+    return { name: found.name, level: found.system.level.value, uuid: uuidOf(found._id) };
   });
+  formulaItems.push(formulaItem({ family, img, made, tiers: tierItems, pub: publication }));
 }
 
 // The Alchemist-only items go in their own pack, so they can be kept out of the general equipment lists.
@@ -518,6 +523,20 @@ require("./vials")({
   uuidOf: classUuidOf,
   img: (name) => `modules/${MODULE_ID}/images/${name}.png`,
 });
+
+// Formula items for PF2e's mutagens that start at level 1 (see mutagen-formulas.js), so an Alchemist's mutagen formulas can go in a formula book.
+for (const family of require("./mutagen-formulas")) {
+  classItems.push(
+    formulaItem({
+      family: family.name,
+      img: family.img,
+      made: family.name,
+      rarity: family.rarity,
+      pub: modulePublication,
+      tiers: family.ids.map((id, i) => ({ name: `${family.name} (${tiers[i].name})`, level: tiers[i].level, uuid: `Compendium.pf2e.equipment-srd.Item.${id}` })),
+    })
+  );
+}
 
 function writePack(moduleId, pack, list) {
   const out = sourceDir(moduleId, pack);

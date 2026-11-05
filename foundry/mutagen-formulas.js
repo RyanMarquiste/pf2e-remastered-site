@@ -1,0 +1,20 @@
+// The PF2e mutagens that start at level 1, one entry for each family. Each family has four tiers, Lesser, Moderate, Greater and Major (levels 1, 3, 11 and 17),
+// and ids lists the equipment compendium ids of those four items in that order. The Alchemist pack makes a formula item for each family.
+module.exports = [
+  { name: "Bendy-Arm Mutagen", rarity: "common", img: "icons/consumables/potions/bottle-conical-corked-green.webp", ids: ["9F3d43xMDCJNIkDo","6VCaHBbUBk4eBlPC","RsAoEbp28Za4hlLH","bvIVxDq1wh6IavHP"] },
+  { name: "Bestial Mutagen", rarity: "common", img: "icons/consumables/potions/bottle-round-flask-fumes-purple.webp", ids: ["IQK9N2mEOyAj3iWU","VISk5uLPVIvNWovB","gDheph8YteBtnyKp","nS75vsM3x5jxlUqn"] },
+  { name: "Cognitive Mutagen", rarity: "common", img: "icons/consumables/potions/potion-vial-corked-purple.webp", ids: ["wbr6rkyaVYnDhdgV","qpzL9UnTi4cDhy6J","ZGojRKG1yYiVWemR","VBK9i74dry8yf8f0"] },
+  { name: "Deadweight Mutagen", rarity: "common", img: "icons/consumables/potions/potion-vial-corked-labeled-purple.webp", ids: ["JPALWW3w4z8STAYV","qLwwxk1j04rgXSF9","xanr7nay2UQeR4Ec","Wx5WhSNOmeICgHSC"] },
+  { name: "Drakeheart Mutagen", rarity: "common", img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp", ids: ["GS4YvQieBS11JNYR","xY2MogTwH9Fd8UPG","WuzLBK78DgIt8SsN","M4ZOHOlne43ArjOC"] },
+  { name: "Energy Mutagen", rarity: "common", img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/energy-mutagen.webp", ids: ["mbrwudO35tItsldq","SLJTJwyIRjuWjfuK","xVtyaEnYZ1aJT4ki","34MbgwW1SGlowyk2"] },
+  { name: "Juggernaut Mutagen", rarity: "common", img: "icons/consumables/potions/bottle-metal-yellow-gray.webp", ids: ["xE0EdDrf734l2fQH","mj9i9GeQTADByNPZ","TMtQnY6yvIRCpK9v","1kNp6yOS0aZPBPzZ"] },
+  { name: "Martial Mayhem Mutagen", rarity: "common", img: "icons/consumables/potions/bottle-bulb-corked-purple.webp", ids: ["2EzE8fdNzD4Cp2ST","9Wt5Jokp8IHAQZHy","4JPLGSOoAJi0g5Qp","AXlHVbcQINWgbHNa"] },
+  { name: "Megaphone Mutagen", rarity: "common", img: "icons/consumables/drinks/drink-orange.webp", ids: ["Tc6Cjo814FoNfujn","TDEsq6EotCp2PtsM","QMZJNmrFV3OB7rf8","tJ2URF9RHWMR8xEr"] },
+  { name: "Prey Mutagen", rarity: "rare", img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/prey-mutagen.webp", ids: ["60DuFyGQoZhPj4To","JiMljGYKx60DHs8O","qoyelABKtk9DRSEk","fiBThkOOXEdcTSMf"] },
+  { name: "Quicksilver Mutagen", rarity: "common", img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/quicksilver-mutagen.webp", ids: ["5MKBwpE401uz4kNN","n52BSbZsnx4Vmt2p","eQDTsetadI8u8Kc0","4GXzTN6iSDGfYEAi"] },
+  { name: "Sanguine Mutagen", rarity: "common", img: "icons/consumables/potions/potion-bottle-labeled-medicine-capped-red-black.webp", ids: ["VIHsu1q3078gdQut","pP7RqEkNYg5ayWqx","se2g3LNsmQSsRv9w","vmwrU3lz1HFfadAS"] },
+  { name: "Serene Mutagen", rarity: "common", img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/serene-mutagen.webp", ids: ["bOPQDM54W8ZDoULY","XEYveTvLH1lJ4jeI","Yej7lnnDYDZybGqo","ccrdVliTNBh2mNZf"] },
+  { name: "Silvertongue Mutagen", rarity: "common", img: "icons/consumables/potions/potion-bottle-corked-fancy-blue.webp", ids: ["YwRAHWW8yUI07sy9","lIExlUFBKvBue8hb","uggpIk6vguWFXVli","uD5vRYVOXNJ53sEE"] },
+  { name: "Theatrical Mutagen", rarity: "common", img: "icons/consumables/potions/potion-flask-corked-labeled-pink.webp", ids: ["kScHu3XS3XPvN9Db","8rQ7HkUtSa8so0Et","BB9ErvPViT4TtiYp","Wv0ck7AMP0s0jIue"] },
+  { name: "War Blood Mutagen", rarity: "uncommon", img: "icons/consumables/potions/potion-flask-corked-shiny-red.webp", ids: ["H3KAt7cHJ6ZLTJQE","AOAXZzH4AOsQqYYv","oaGUNWmrqtKhy1HP","Qa4qjxk5aPzx7HTR"] },
+];

@@ -1,0 +1,75 @@
+{
+    "_key": "!items!iY46AqrwNocjDr3j",
+    "_id": "iY46AqrwNocjDr3j",
+    "img": "icons/consumables/potions/potion-vial-corked-labeled-purple.webp",
+    "name": "Formula: Deadweight Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.JPALWW3w4z8STAYV"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.qLwwxk1j04rgXSF9"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.xanr7nay2UQeR4Ec"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Wx5WhSNOmeICgHSC"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Deadweight Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Deadweight Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.JPALWW3w4z8STAYV]{Deadweight Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.qLwwxk1j04rgXSF9]{Deadweight Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.xanr7nay2UQeR4Ec]{Deadweight Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.Wx5WhSNOmeICgHSC]{Deadweight Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-deadweight-mutagen",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

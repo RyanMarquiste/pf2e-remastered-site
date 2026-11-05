@@ -1,0 +1,75 @@
+{
+    "_key": "!items!Q4p7nNwWfkemY357",
+    "_id": "Q4p7nNwWfkemY357",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/energy-mutagen.webp",
+    "name": "Formula: Energy Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.mbrwudO35tItsldq"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.SLJTJwyIRjuWjfuK"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.xVtyaEnYZ1aJT4ki"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.34MbgwW1SGlowyk2"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Energy Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Energy Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.mbrwudO35tItsldq]{Energy Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.SLJTJwyIRjuWjfuK]{Energy Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.xVtyaEnYZ1aJT4ki]{Energy Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.34MbgwW1SGlowyk2]{Energy Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-energy-mutagen",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

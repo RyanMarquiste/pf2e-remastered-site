@@ -1,0 +1,75 @@
+{
+    "_key": "!items!lGk9NYJLbzhIJFT5",
+    "_id": "lGk9NYJLbzhIJFT5",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/serene-mutagen.webp",
+    "name": "Formula: Serene Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.bOPQDM54W8ZDoULY"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.XEYveTvLH1lJ4jeI"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Yej7lnnDYDZybGqo"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.ccrdVliTNBh2mNZf"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Serene Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Serene Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.bOPQDM54W8ZDoULY]{Serene Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.XEYveTvLH1lJ4jeI]{Serene Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.Yej7lnnDYDZybGqo]{Serene Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.ccrdVliTNBh2mNZf]{Serene Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-serene-mutagen",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
