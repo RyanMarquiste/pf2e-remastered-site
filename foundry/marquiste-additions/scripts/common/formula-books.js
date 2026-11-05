@@ -11,7 +11,7 @@ export const BOOK_SOURCE = "Compendium.pf2e.equipment-srd.Item.qCEOZ6109Yo34tRx"
 const ENTRIES = "entries"; // flag on a book: the entries it holds, in order
 const OURS = "bookFormulas"; // flag on the actor: the formulas this script added to its list
 
-const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
 export const isBook = (item) =>
   item?.type === "equipment" && ((item.sourceId ?? item._stats?.compendiumSource) === BOOK_SOURCE || /^formula-book/.test(item.slug ?? ""));
