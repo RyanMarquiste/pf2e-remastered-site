@@ -114,24 +114,35 @@ async function pickSquare(cells) {
 
 // When a splash weapon is thrown at a big target, ask which square and keep the answer on the attack roll's chat message.
 Hooks.on("createChatMessage", async (message) => {
-  if (message.author?.id !== game.user.id || !enabled("bombSplash")) return;
   const context = message.flags?.pf2e?.context;
-  if (context?.type !== "attack-roll" || !context.target?.token) return;
+  if (context?.type !== "attack-roll") return;
+  // Why a roll was passed over is written to the console when Log activity is on (Troubleshooting), so a missing prompt can be explained.
+  const skip = (reason) => log(`attack: no square prompt, ${reason}`);
+  if (message.author?.id !== game.user.id) return skip(`rolled by ${message.author?.name ?? "someone else"}, not this user`);
+  if (!enabled("bombSplash")) return skip("Splash by squares is off");
+  if (!context.target?.token) return skip("the attack has no target");
   try {
     const item = fromUuidSync(message.flags.pf2e.origin?.uuid ?? "");
-    if (!isSplash(item) || !squareGrid()) return;
+    if (!item) return skip(`the weapon was not found (${message.flags.pf2e.origin?.uuid})`);
+    if (!isSplash(item)) return skip(`${item.name} is not a weapon with the Splash trait (traits: ${traitsOf(item).join(", ")})`);
+    if (!squareGrid()) return skip("the scene is not on a square grid or the canvas is not ready");
     const target = fromUuidSync(context.target.token);
-    if (!target || target.parent?.id !== canvas.scene?.id) return;
+    if (!target) return skip(`the target token was not found (${context.target.token})`);
+    if (target.parent?.id !== canvas.scene?.id) return skip("the target is not on the scene being viewed");
     const cells = cellsOf(target);
-    if (cells.length < 2) return; // one square needs no choosing
+    if (cells.length < 2) return skip(`${target.name} covers ${cells.length} square (width ${target.width}, height ${target.height})`);
+    log(`attack: asking for a square of ${target.name} (${cells.length} squares)`);
     ui.notifications.info(`Click the square of ${target.name} that ${item.name} lands in. Right-click or Esc to skip.`);
     const cell = await pickSquare(cells);
     if (cell) await message.setFlag(MODULE, SQUARE, { token: target.uuid, i: cell.i, j: cell.j });
     else ui.notifications.info("No square chosen: PF2e's own splash is used.");
   } catch (error) {
     warn("choosing a square failed", error);
+    ui.notifications.warn("Splash by squares could not ask for a square. See the console (F12).");
   }
 });
+
+Hooks.once("ready", () => log("splash by squares is loaded"));
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 // 2 and 3. The damage roll
@@ -168,17 +179,20 @@ const typeLabel = (type) => {
 // A damage roll for a splash weapon is changed before it is posted: the target's own splash is counted by squares, the separate splash rolls PF2e
 // attaches (which a player applies by hand) are dropped, and what the others take is kept on the message for the card.
 Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
-  if (userId !== game.user.id || !enabled("bombSplash")) return;
   const pf2e = message.flags?.pf2e;
   const context = pf2e?.context;
-  if (context?.type !== "damage-roll" || !context.target?.token) return;
+  if (context?.type !== "damage-roll") return;
+  const skip = (reason) => log(`damage: PF2e's roll left as it was, ${reason}`);
+  if (userId !== game.user.id) return;
+  if (!enabled("bombSplash")) return skip("Splash by squares is off");
+  if (!context.target?.token) return skip("the roll has no target");
   try {
     const item = fromUuidSync(pf2e.origin?.uuid ?? "");
-    if (!isSplash(item) || !squareGrid()) return;
+    if (!isSplash(item) || !squareGrid()) return skip(`${item?.name ?? "the weapon"} is not a splash weapon, or the scene is not a square grid`);
     const outcome = context.outcome ?? null;
-    if (outcome === "criticalFailure") return;
+    if (outcome === "criticalFailure") return skip("a critical failure deals no splash");
     const target = fromUuidSync(context.target.token);
-    if (!target || target.parent?.id !== canvas.scene?.id) return;
+    if (!target || target.parent?.id !== canvas.scene?.id) return skip("the target is not on the scene being viewed");
 
     // Where it landed: the only square of a small target, or the square chosen when it was thrown.
     const cells = cellsOf(target);
@@ -190,7 +204,7 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
       const stored = attack?.flags?.[MODULE]?.[SQUARE];
       if (stored && cells.some((cell) => cell.i === stored.i && cell.j === stored.j)) centre = { i: stored.i, j: stored.j };
     }
-    if (!centre) return;
+    if (!centre) return skip(`no square was chosen for ${target.name}`);
 
     // How far it reaches. A miss only splashes the square it landed in.
     const hit = outcome !== "failure";
@@ -214,7 +228,7 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
       materials: [...instance.materials],
       splash: instance.persistent ? 0 : instance.componentTotal("splash"),
     }));
-    if (!parts.some((part) => part.splash > 0)) return;
+    if (!parts.some((part) => part.splash > 0)) return skip("the roll has no splash damage");
 
     // The target's own squares count. Its extra splash goes into the roll itself, so resistances and weaknesses see it with the rest.
     const targetSquares = squaresIn(cells, areaKeys);
