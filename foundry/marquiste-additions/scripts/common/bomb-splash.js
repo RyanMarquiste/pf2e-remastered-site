@@ -249,21 +249,29 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
   try {
     const item = fromUuidSync(pf2e.origin?.uuid ?? "");
     if (!isSplash(item) || !squareGrid()) return skip(`${item?.name ?? "the weapon"} is not a splash weapon, or the scene is not a square grid`);
-    const outcome = context.outcome ?? null;
-    if (outcome === "criticalFailure") return skip("a critical failure deals no splash");
     const target = fromUuidSync(context.target.token);
     if (!target || target.parent?.id !== canvas.scene?.id) return skip("the target is not on the scene being viewed");
+
+    // What the attack roll was. The card's Damage button always rolls damage as a hit, even after a miss, so the attack's own result decides.
+    const attack = game.messages.contents.findLast(
+      (m) =>
+        m.author?.id === userId &&
+        m.flags?.pf2e?.context?.type === "attack-roll" &&
+        m.flags.pf2e.origin?.uuid === pf2e.origin?.uuid &&
+        m.flags.pf2e.context.target?.token === target.uuid
+    );
+    const attackOutcome = attack?.flags?.pf2e?.context?.outcome ?? null;
+    const outcome = attackOutcome === "failure" || attackOutcome === "criticalFailure" ? attackOutcome : (context.outcome ?? null);
+    if (outcome === "criticalFailure") return skip("a critical failure deals no splash");
 
     // Where it landed: the only square of a small target, or the square chosen when it was thrown.
     const cells = cellsOf(target);
     let centre = cells.length === 1 ? cells[0] : null;
     if (!centre) {
-      const attack = game.messages.contents.findLast(
-        (m) => m.author?.id === userId && m.flags?.pf2e?.origin?.uuid === pf2e.origin?.uuid && m.flags?.[MODULE]?.[SQUARE]?.token === target.uuid
-      );
       const stored = attack?.flags?.[MODULE]?.[SQUARE];
-      if (stored && cells.some((cell) => cell.i === stored.i && cell.j === stored.j)) centre = { i: stored.i, j: stored.j };
+      if (stored?.token === target.uuid && cells.some((cell) => cell.i === stored.i && cell.j === stored.j)) centre = { i: stored.i, j: stored.j };
     }
+    if (!centre && outcome === "failure") centre = cells[0]; // a miss splashes only the target, once, so which square does not matter
     if (!centre) return skip(`no square was chosen for ${target.name}`);
 
     // How far it reaches. A miss only splashes the square it landed in.
@@ -291,9 +299,11 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
     if (!parts.some((part) => part.splash > 0)) return skip("the roll has no splash damage");
 
     // The target's own squares count. Its extra splash goes into the roll itself, so resistances and weaknesses see it with the rest.
-    const targetSquares = squaresIn(cells, areaKeys);
-    const extras = parts.map((part) => (targetSquares - 1) * part.splash);
-    let rolls = sources.filter((_, index) => !JSON.parse(sources[index]).options?.splashOnly);
+    // On a miss the damage roll is only the splash, taken once: PF2e's own splash-only rolls take the place of the damage roll.
+    const targetSquares = hit ? squaresIn(cells, areaKeys) : 1;
+    const extras = parts.map((part) => (hit ? (targetSquares - 1) * part.splash : 0));
+    let rolls = hit ? sources.filter((_, index) => !JSON.parse(sources[index]).options?.splashOnly) : sources.filter((source) => JSON.parse(source).options?.splashOnly);
+    if (!rolls.length) return skip("PF2e made no splash roll to use");
     if (extras.some((extra) => extra > 0)) {
       const patched = withExtraSplash(primary, extras);
       const expected = primary.total + extras.reduce((sum, extra) => sum + extra, 0);
@@ -316,8 +326,13 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
       });
     }
 
-    message.updateSource({
-      rolls,
+    const changes = { rolls };
+    if (!hit && context.outcome !== outcome) {
+      changes.flags = { pf2e: { context: { outcome } } };
+      const label = (key) => `(${game.i18n.localize(`PF2E.AttackOutcome.${key}`)})`;
+      if (message.flavor?.includes(label(context.outcome))) changes.flavor = message.flavor.replace(label(context.outcome), label(outcome));
+    }
+    message.updateSource(foundry.utils.mergeObject(changes, {
       flags: {
         [MODULE]: {
           [DAMAGE]: {
@@ -332,7 +347,7 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
           },
         },
       },
-    });
+    }));
     log(`splash for ${item.name} on ${target.name}: ${targetSquares} squares, ${ringCount} rings, ${entries.length} others`);
   } catch (error) {
     warn("left PF2e's roll as it was:", error);
