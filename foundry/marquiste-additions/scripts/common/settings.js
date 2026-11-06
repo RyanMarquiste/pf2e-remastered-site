@@ -1,4 +1,4 @@
-// The module's options. Each one is a world setting, so a world keeps the behaviour it had (all are on by default except Quick Alchemy, Troubleshooting
+// The module's options. Each one is a world setting, so a world keeps the behaviour it had (all are on by default except Quick Alchemy, Apply splash automatically, Troubleshooting
 // mode and Log activity). The scripts read a setting when they run (see `enabled`), so changing it takes effect straight away without a reload. Turning a
 // feature off stops the module acting; it never deletes anything the feature made earlier (effects, formula books, known formulas).
 //
@@ -40,6 +40,20 @@ const OPTIONS = {
       "Turns on the alternate Quick Alchemy: using the Quick Alchemy (Marquiste) action asks you to choose Quick Vial or Create Consumable. " +
       "An Alchemist's versatile vials stay as PF2e's resource; a Volatile Vial, the throwable bomb, is only created by Quick Vial. " +
       "Off: that action does nothing. PF2e's own Quick Alchemy is not changed.",
+    default: false,
+  },
+  bombSplash: {
+    name: "Splash by squares",
+    hint:
+      "A weapon with the Splash trait (the alchemical bombs) splashes the square it lands in and the squares around it. When the target takes up more than one square " +
+      "you click the square it lands in. A creature takes the splash once for each of its squares in the area, and the target takes its splash as part of the damage roll. " +
+      "Off: splash works as it does in PF2e.",
+  },
+  bombSplashAutoApply: {
+    name: "Apply splash automatically",
+    hint:
+      "The splash for the other creatures in the area is applied as soon as the damage is rolled, and the chat card only lists what they took. " +
+      "Off: the card has an Apply button for each creature. This needs Splash by squares, and the GM needs to be connected.",
     default: false,
   },
   toxicologistMutableAcid: {
@@ -116,6 +130,9 @@ const LAYOUT = [
   { level: 2, heading: "Toxicologist" },
   { key: "toxicologistMutableAcid" },
   { key: "infusedPoisonsEnd" },
+  { level: 1, heading: "Splash" },
+  { key: "bombSplash" },
+  { key: "bombSplashAutoApply" },
   { level: 1, heading: "Cauldron" },
   { key: "insulatingPasteCounter" },
   { level: 1, heading: "Troubleshooting" },

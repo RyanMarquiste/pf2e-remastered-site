@@ -576,6 +576,8 @@ const moduleJson = {
     "scripts/common/crafting-tab.js",
     "scripts/common/compendium-browser.js",
     "scripts/common/injury-poisons.js",
+    "scripts/common/splash-geometry.js",
+    "scripts/common/bomb-splash.js",
     // Alchemist Enhancements
     "scripts/alchemist/volatile-vial.js",
     "scripts/alchemist/quick-vial.js",

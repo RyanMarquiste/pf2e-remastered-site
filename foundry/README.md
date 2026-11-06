@@ -32,7 +32,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `marquiste-additions/images/` | Alchemist item art (square, black background), referenced as `modules/marquiste-additions/images/...`. Regenerate from the site art with `foundry/make-icons.ps1`. |
 | `corpsecaps-cauldron/images/` | The mutagen and Insulating Paste art, referenced as `modules/corpsecaps-cauldron/images/...`. Made by the same script. |
 | `vials.js` | The Alchemist Enhancements items: the Volatile Vial, Field Vials, coatings and the actions; `build.js` calls it. |
-| `marquiste-additions/scripts/common/` | Scripts for every character: injury poisons (`injury-poisons.js`), the Fleeting trait, the Compendium Browser setup, and helpers (`shared.js`, and `weapon-picker.js` for the picker windows). |
+| `marquiste-additions/scripts/common/` | Scripts for every character: injury poisons (`injury-poisons.js`), splash by squares (`bomb-splash.js`, `splash-geometry.js`), the Fleeting trait, the Compendium Browser setup, and helpers (`shared.js`, and `weapon-picker.js` for the picker windows). |
 | `marquiste-additions/scripts/alchemist/` | Alchemist scripts: the bomb vial upkeep, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Toxicologist feature that gives Mutable Acid. `common/mutable-trait.js` has the Mutable traits themselves. `alchemist.js` holds the helpers they share. |
 | `marquiste-additions/scripts/cauldron/` | The Insulating Paste counter. |
 | `<module>/packs/<pack>/` | The compiled compendiums. **Not in the repo**: you build them in step 1. |
@@ -93,6 +93,8 @@ The settings window groups them under headings:
 | **Alchemist** | **Quick Alchemy** | off | See below. |
 | **Alchemist → Toxicologist** | **Mutable Acid** | on | Items are left as PF2e creates them. |
 | **Alchemist → Toxicologist** | **Infused Poison Expiry** | on | The poison effect stays on the weapon after resting. |
+| **Splash** | **Splash by squares** | on | Splash works as in PF2e. See Splash by squares below. |
+| **Splash** | **Apply splash automatically** | off | The card has an Apply button for each creature. When on, the active GM's screen applies the splash as soon as the damage is rolled. |
 | **Cauldron** | **Insulating Paste** | on | No chat message with the "use up one instance" button. |
 | **Troubleshooting** | **Troubleshooting mode** | off | The switches below it are hidden and ignored. See Troubleshooting below. |
 
@@ -111,6 +113,19 @@ When the module clashes with another module, tick **Troubleshooting mode** under
 - **Log activity**: writes what the module is doing to the browser console (F12).
 
 These switches only count while Troubleshooting mode is on. Turn it off and every one is ignored, so everything runs normally, whatever the switches were left at. While it is on and anything is off, the GM is told when the world loads.
+
+### Splash by squares
+
+A weapon with the **Splash** trait (the alchemical bombs; `scripts/common/bomb-splash.js`, with the square arithmetic in `splash-geometry.js`) splashes by grid squares instead of leaving it to the table:
+
+1. **Choosing the square.** When such a weapon is thrown at a creature that takes up more than one square, the highlighted squares of the target appear on the map and you click the one the bomb lands in (right-click or Esc to skip; a small window with the squares as buttons is used if the map can't be used). A creature of one square needs no choice.
+2. **The area.** The chosen square and the squares around it, diagonals included. Each creature takes the splash once for every one of its squares in the area, so a creature on two of them takes splash 1 as 2. Everyone counts: allies, the thrower and hidden creatures.
+3. **The target.** On a hit the target takes its splash as part of the damage roll, so it is added to the primary damage before resistances and weaknesses. A critical hit does not double it. On a miss only the square the bomb landed in is splashed, so the target takes the splash once and nobody else does. A critical failure deals no splash.
+4. **Everyone else** is listed on a chat card with the amount each takes. Each has an Apply button (a player can only press it for creatures they can change; otherwise the GM presses it), or with **Apply splash automatically** on the active GM's screen applies it and the card only lists the totals. The separate splash roll PF2e attaches to the damage card is dropped while this is on, so the splash cannot be applied twice.
+
+More rings of squares when something widens the splash: each of **Expanded Splash** (switched on in the character's rolls toggles), the **Splash 10 ft** trait, and the bomb's critical specialization on a critical hit adds one ring (5 ft), up to three rings. The card says what widened it.
+
+It works on square-grid scenes where the target is on the scene being viewed. On a hex or gridless scene, or if no square was chosen for a large target, PF2e's own splash is used and the roll is left as it was. The extra splash for a large target is added into PF2e's damage roll after the dice are rolled; if the changed roll does not add up, the module leaves the roll alone and tells you.
 
 ### Fleeting
 
