@@ -407,9 +407,9 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 
     splash.entries.forEach((entry, index) => {
       const row = make("div", "marquiste-splash-row");
-      row.style.cssText = "margin: .35em 0;";
+      row.style.cssText = "margin: .35em 0; display: flex; align-items: center; justify-content: space-between; gap: .5em;";
       const title = make("div");
-      title.style.cssText = "display: flex; align-items: center; gap: .4em;";
+      title.style.cssText = "display: flex; align-items: center; gap: .1em .4em; flex: 1 1 auto; flex-wrap: wrap;";
       if (entry.img) {
         const image = make("img");
         image.src = entry.img;
@@ -423,10 +423,12 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 
       if (splash.auto) row.append(make("em", "", "Applied automatically."));
       else {
-        const bar = make("section", "damage-application");
+        const bar = make("div", "marquiste-splash-buttons"); // not PF2e's damage-application class: the damage card moves those buttons into the target's row
+        bar.style.cssText = "flex: none;";
         const button = make("button");
         button.type = "button";
-        button.title = label("PF2E.DamageButton.Full", "Apply the splash damage");
+        button.style.cssText = "width: auto; line-height: 1.6; padding: 0 .7em;";
+        button.title = `Apply the splash damage to ${entry.name}`;
         button.append(make("i", "fa-solid fa-burst fa-fw"), make("span", "label", label("PF2E.TraitSplash", "Splash")));
         button.addEventListener("click", async () => {
           const token = await fromUuid(entry.token);
