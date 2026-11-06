@@ -7,8 +7,8 @@
 //  3. On a hit, the target takes its splash as part of the damage roll, so it is added to the primary damage before resistances and weaknesses. It is
 //     never doubled on a critical hit. On a miss only the square the bomb landed in is splashed, so the target takes the splash once.
 //
-// Everyone else in the area is listed on a chat card, with a button for each that applies their splash, or applied straight away when
-// "Apply splash automatically" is on. Nothing here changes a bomb's damage dice; it works on the roll PF2e makes. If anything needed is missing (a
+// Everyone else in the area is listed in the damage roll's own chat message, a row for each with Damage, Half, Double and Block buttons that apply
+// their splash, or applied straight away when "Apply splash automatically" is on. Nothing here changes a bomb's damage dice; it works on the roll PF2e makes. If anything needed is missing (a
 // hex or gridless scene, a target on another scene, no square chosen) the roll is left exactly as PF2e made it.
 import { MODULE } from "./shared.js";
 import { enabled, log } from "./settings.js";
@@ -18,7 +18,6 @@ import { area, footprint, rings, squaresIn } from "./splash-geometry.js";
 const SQUARE = "splashSquare"; // on an attack roll message: the square of the target that was chosen
 const SKIPPED = "splashSkipped"; // on an attack roll message: no square was chosen, so PF2e's own splash is used
 const DAMAGE = "splash"; // on a damage roll message: what the rule worked out
-const APPLY = "splashApply"; // on the card for the other creatures
 
 const traitsOf = (item) => [...(item?.system?.traits?.value ?? [])];
 const isSplash = (item) => !!item?.isOfType?.("weapon") && traitsOf(item).some((t) => t === "splash" || /^splash-\d+$/.test(t));
@@ -311,6 +310,7 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
       entries.push({
         token: token.uuid,
         name: token.name,
+        img: token.actor.img,
         squares,
         parts: parts.filter((part) => part.splash > 0).map((part) => ({ type: part.type, materials: part.materials, amount: part.splash * squares })),
       });
@@ -327,6 +327,7 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
             widenedBy,
             target: { name: target.name, squares: targetSquares, parts: parts.filter((part) => part.splash > 0) },
             entries,
+            auto: !!game.users.activeGM && game.settings.get(MODULE, "bombSplashAutoApply"),
             options: [...rollOptions],
           },
         },
@@ -340,101 +341,128 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
 });
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
-// The card for the other creatures
+// The other creatures, in the damage roll's own chat message
 
 const amounts = (parts) => parts.map((part) => `${part.amount} ${typeLabel(part.type)}`).join(", ");
 
-// Posted by the player who rolled the damage, after the damage message exists.
-Hooks.on("createChatMessage", async (message) => {
-  const splash = message.flags?.[MODULE]?.[DAMAGE];
-  if (!splash || message.author?.id !== game.user.id) return;
-  const { target, entries } = splash;
-  if (!entries.length && target.squares < 2) return; // nothing but the one splash PF2e would have done anyway
-
-  const auto = !!game.users.activeGM && game.settings.get(MODULE, "bombSplashAutoApply");
-  const lines = [];
-  if (target.squares > 1) {
-    lines.push(`<li><strong>${esc(target.name)}</strong> (${target.squares} squares): the splash counted ${target.squares} times, ${amounts(target.parts.map((part) => ({ ...part, amount: part.splash * target.squares })))}, as part of the damage roll.</li>`);
-  }
-  entries.forEach((entry, index) => {
-    const button = auto ? "" : ` <button type="button" data-action="marquiste-splash" data-index="${index}">Apply</button>`;
-    lines.push(`<li><strong>${esc(entry.name)}</strong> (${entry.squares} ${entry.squares === 1 ? "square" : "squares"}): ${amounts(entry.parts)}${button}</li>`);
-  });
-  const reach = splash.rings ? `${splash.rings * 5} ft${splash.widenedBy.length ? ` (${splash.widenedBy.join(", ")})` : ""}` : "the square it landed in";
-  const note = auto ? "<p><em>Applied automatically.</em></p>" : "";
-  await ChatMessage.create({
-    speaker: message.speaker,
-    whisper: message.whisper,
-    blind: message.blind,
-    content: `<div class="marquiste-splash"><p><strong>Splash</strong>: ${reach}</p>${lines.length ? `<ul>${lines.join("")}</ul>` : ""}${note}</div>`,
-    flags: { [MODULE]: { [APPLY]: { item: splash.item, outcome: splash.outcome, options: splash.options, entries, auto, applied: {} } } },
-  });
-});
-
-// Apply one creature's splash, the way PF2e's own Splash button would: a splash damage roll, run through that creature's resistances and weaknesses.
-async function applyEntry(card, index) {
-  const entry = card.entries[index];
+// Apply one creature's splash, the way PF2e's own damage buttons do: a splash damage roll, run through that creature's resistances and weaknesses.
+// The multiplier is 1 for Damage, 0.5 for Half and 2 for Double.
+async function applyEntry(splash, index, { multiplier = 1, block = false } = {}) {
+  const entry = splash.entries[index];
   const token = await fromUuid(entry.token);
   const actor = token?.actor;
   if (!actor) return false;
-  const item = await fromUuid(card.item);
+  const item = await fromUuid(splash.item);
   const Damage = CONFIG.Dice.rolls.find((roll) => roll.name === "DamageRoll");
-  const origin = card.options.filter((option) => option.startsWith("self:")).map((option) => option.replace(/^self\b/, "origin"));
-  const rest = card.options.filter((option) => !/^(?:self|target)(?::|$)/.test(option));
+  const origin = splash.options.filter((option) => option.startsWith("self:")).map((option) => option.replace(/^self\b/, "origin"));
+  const rest = splash.options.filter((option) => !/^(?:self|target)(?::|$)/.test(option));
   const rollOptions = new Set([...rest, ...origin, ...actor.getSelfRollOptions()]);
   for (const part of entry.parts) {
-    const roll = new Damage(`(${part.amount}[splash])[${[part.type, ...part.materials].join(",")}]`);
+    let roll = new Damage(`(${part.amount}[splash])[${[part.type, ...part.materials].join(",")}]`);
     await roll.evaluate();
     roll.options.splashOnly = true;
-    await actor.applyDamage({ damage: roll, token, item, rollOptions, outcome: card.outcome });
+    if (multiplier !== 1) roll = roll.alter(multiplier, 0);
+    await actor.applyDamage({ damage: roll, token, item, rollOptions, shieldBlockRequest: block, outcome: splash.outcome });
   }
   return true;
 }
 
-// Mark an entry as done on the card, if this user is allowed to edit it. (Otherwise the button is only disabled on this screen.)
-const markApplied = (message, index) => message.update({ [`flags.${MODULE}.${APPLY}.applied.${index}`]: true }).catch(() => null);
-
-// With automatic application on, the active GM's screen applies everything on the card as it appears.
+// With automatic application on, the active GM's screen applies everything as the damage message appears.
 Hooks.on("createChatMessage", async (message) => {
-  const card = message.flags?.[MODULE]?.[APPLY];
-  if (!card?.auto || game.users.activeGM?.id !== game.user.id) return;
-  for (let index = 0; index < card.entries.length; index++) {
+  const splash = message.flags?.[MODULE]?.[DAMAGE];
+  if (!splash?.auto || game.users.activeGM?.id !== game.user.id) return;
+  for (let index = 0; index < splash.entries.length; index++) {
     try {
-      if (await applyEntry(card, index)) await markApplied(message, index);
+      await applyEntry(splash, index);
     } catch (error) {
-      warn(`could not apply splash to ${card.entries[index].name}`, error);
+      warn(`could not apply splash to ${splash.entries[index].name}`, error);
     }
   }
 });
 
-// The Apply buttons.
+// The rows themselves, added to the damage message under PF2e's own buttons: a picture and name for each creature, how many squares and how much,
+// and the same Damage, Half, Double and Block buttons (or "Applied" when it was done automatically).
 Hooks.on("renderChatMessageHTML", (message, html) => {
-  const card = message.flags?.[MODULE]?.[APPLY];
-  if (!card) return;
-  for (const button of html.querySelectorAll('button[data-action="marquiste-splash"]')) {
-    const index = Number(button.dataset.index);
-    if (card.applied?.[index]) {
-      button.disabled = true;
-      button.textContent = "Applied";
-      continue;
+  const splash = message.flags?.[MODULE]?.[DAMAGE];
+  if (!splash || (!splash.entries.length && splash.target.squares < 2) || html.querySelector(".marquiste-splash")) return;
+  try {
+    const make = (tag, className, text) => {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+    const label = (key, fallback) => {
+      const text = game.i18n.localize(key);
+      return text === key ? fallback : text;
+    };
+    const box = make("div", "marquiste-splash");
+    box.style.cssText = "border-top: 1px solid var(--color-border-light-2, #999); margin-top: .4em; padding-top: .3em;";
+    const reach = splash.rings ? `${splash.rings * 5} ft${splash.widenedBy.length ? ` (${splash.widenedBy.join(", ")})` : ""}` : "the square it landed in";
+    box.append(make("h4", "", `Splash: ${reach}`));
+
+    if (splash.target.squares > 1) {
+      const counted = splash.target.parts.map((part) => ({ ...part, amount: part.splash * splash.target.squares }));
+      box.append(make("p", "", `${splash.target.name} covers ${splash.target.squares} squares of it, so its splash counts ${splash.target.squares} times (${amounts(counted)}) in the roll above.`));
     }
-    button.addEventListener("click", async () => {
-      const token = await fromUuid(card.entries[index].token);
-      if (!token?.actor?.canUserModify(game.user, "update")) {
-        ui.notifications.warn(`You can't change ${card.entries[index].name}. Ask the GM to press Apply.`);
-        return;
+
+    const buttons = [
+      ["fa-heart-crack", label("PF2E.DamageButton.FullShort", "Damage"), 1, label("PF2E.DamageButton.Full", "Apply the splash")],
+      ["fa-heart-crack", label("PF2E.DamageButton.HalfShort", "Half"), 0.5, label("PF2E.DamageButton.Half", "Apply half the splash")],
+      ["fa-up-right-and-down-left-from-center", label("PF2E.DamageButton.DoubleShort", "Double"), 2, label("PF2E.DamageButton.Double", "Apply double the splash")],
+    ];
+    splash.entries.forEach((entry, index) => {
+      const row = make("div", "marquiste-splash-row");
+      row.style.cssText = "margin: .35em 0;";
+      const title = make("div");
+      title.style.cssText = "display: flex; align-items: center; gap: .4em;";
+      if (entry.img) {
+        const image = make("img");
+        image.src = entry.img;
+        image.alt = "";
+        image.style.cssText = "width: 1.6em; height: 1.6em; border: none; flex: none;";
+        title.append(image);
       }
-      button.disabled = true;
-      try {
-        if (await applyEntry(card, index)) {
-          button.textContent = "Applied";
-          await markApplied(message, index);
-        } else button.disabled = false;
-      } catch (error) {
-        button.disabled = false;
-        warn("apply failed", error);
-        ui.notifications.error("The splash could not be applied. See the console (F12).");
+      const name = make("strong", "", entry.name);
+      title.append(name, make("span", "", `${entry.squares} ${entry.squares === 1 ? "square" : "squares"}: ${amounts(entry.parts)}`));
+      row.append(title);
+
+      if (splash.auto) row.append(make("em", "", "Applied automatically."));
+      else {
+        const bar = make("section", "damage-application");
+        const apply = async (multiplier, block) => {
+          const token = await fromUuid(entry.token);
+          if (!token?.actor?.canUserModify(game.user, "update")) {
+            ui.notifications.warn(`You can't change ${entry.name}. Ask the GM to press the button.`);
+            return;
+          }
+          try {
+            await applyEntry(splash, index, { multiplier, block });
+          } catch (error) {
+            warn("apply failed", error);
+            ui.notifications.error("The splash could not be applied. See the console (F12).");
+          }
+        };
+        for (const [icon, text, multiplier, tip] of buttons) {
+          const button = make("button");
+          button.type = "button";
+          button.title = tip;
+          button.append(make("i", `fa-solid ${icon} fa-fw`), make("span", "label", text));
+          button.addEventListener("click", () => apply(multiplier, false));
+          bar.append(button);
+        }
+        const block = make("button");
+        block.type = "button";
+        block.title = label("PF2E.DamageButton.ShieldBlock", "Shield Block");
+        block.append(make("i", "fa-solid fa-shield-blank fa-fw"), make("span", "label", label("PF2E.DamageButton.ShieldBlockShort", "Block")));
+        block.addEventListener("click", () => apply(1, true));
+        bar.append(block);
+        row.append(bar);
       }
+      box.append(row);
     });
+    (html.querySelector(".message-content") ?? html).append(box);
+  } catch (error) {
+    warn("could not show the splash rows", error);
   }
 });
