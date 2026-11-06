@@ -7,8 +7,8 @@
 //  3. On a hit, the target takes its splash as part of the damage roll, so it is added to the primary damage before resistances and weaknesses. It is
 //     never doubled on a critical hit. On a miss only the square the bomb landed in is splashed, so the target takes the splash once.
 //
-// Everyone else in the area is listed in the damage roll's own chat message, a row for each with Damage, Half, Double and Block buttons that apply
-// their splash, or applied straight away when "Apply splash automatically" is on. Nothing here changes a bomb's damage dice; it works on the roll PF2e makes. If anything needed is missing (a
+// On a hit, everyone else in the area is listed in the damage roll's own chat message, a row for each with a Splash button that applies their splash
+// (it is never halved or doubled), or applied straight away when "Apply splash automatically" is on. A miss splashes no one else. Nothing here changes a bomb's damage dice; it works on the roll PF2e makes. If anything needed is missing (a
 // hex or gridless scene, a target on another scene, no square chosen) the roll is left exactly as PF2e made it.
 import { MODULE } from "./shared.js";
 import { enabled, log } from "./settings.js";
@@ -303,7 +303,7 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
 
     // Everyone else under the area.
     const entries = [];
-    for (const token of canvas.scene.tokens) {
+    for (const token of hit ? canvas.scene.tokens : []) {
       if (token.id === target.id || !token.actor?.isOfType?.("creature")) continue;
       const squares = squaresIn(cellsOf(token), areaKeys);
       if (!squares) continue;
@@ -346,8 +346,8 @@ Hooks.on("preCreateChatMessage", (message, data, options, userId) => {
 const amounts = (parts) => parts.map((part) => `${part.amount} ${typeLabel(part.type)}`).join(", ");
 
 // Apply one creature's splash, the way PF2e's own damage buttons do: a splash damage roll, run through that creature's resistances and weaknesses.
-// The multiplier is 1 for Damage, 0.5 for Half and 2 for Double.
-async function applyEntry(splash, index, { multiplier = 1, block = false } = {}) {
+// Splash is applied as it is: never halved or doubled.
+async function applyEntry(splash, index) {
   const entry = splash.entries[index];
   const token = await fromUuid(entry.token);
   const actor = token?.actor;
@@ -358,11 +358,10 @@ async function applyEntry(splash, index, { multiplier = 1, block = false } = {})
   const rest = splash.options.filter((option) => !/^(?:self|target)(?::|$)/.test(option));
   const rollOptions = new Set([...rest, ...origin, ...actor.getSelfRollOptions()]);
   for (const part of entry.parts) {
-    let roll = new Damage(`(${part.amount}[splash])[${[part.type, ...part.materials].join(",")}]`);
+    const roll = new Damage(`(${part.amount}[splash])[${[part.type, ...part.materials].join(",")}]`);
     await roll.evaluate();
     roll.options.splashOnly = true;
-    if (multiplier !== 1) roll = roll.alter(multiplier, 0);
-    await actor.applyDamage({ damage: roll, token, item, rollOptions, shieldBlockRequest: block, outcome: splash.outcome });
+    await actor.applyDamage({ damage: roll, token, item, rollOptions, outcome: splash.outcome });
   }
   return true;
 }
@@ -381,7 +380,7 @@ Hooks.on("createChatMessage", async (message) => {
 });
 
 // The rows themselves, added to the damage message under PF2e's own buttons: a picture and name for each creature, how many squares and how much,
-// and the same Damage, Half, Double and Block buttons (or "Applied" when it was done automatically).
+// and a Splash button (or "Applied" when it was done automatically).
 Hooks.on("renderChatMessageHTML", (message, html) => {
   const splash = message.flags?.[MODULE]?.[DAMAGE];
   if (!splash || (!splash.entries.length && splash.target.squares < 2) || html.querySelector(".marquiste-splash")) return;
@@ -406,11 +405,6 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       box.append(make("p", "", `${splash.target.name} covers ${splash.target.squares} squares of it, so its splash counts ${splash.target.squares} times (${amounts(counted)}) in the roll above.`));
     }
 
-    const buttons = [
-      ["fa-heart-crack", label("PF2E.DamageButton.FullShort", "Damage"), 1, label("PF2E.DamageButton.Full", "Apply the splash")],
-      ["fa-heart-crack", label("PF2E.DamageButton.HalfShort", "Half"), 0.5, label("PF2E.DamageButton.Half", "Apply half the splash")],
-      ["fa-up-right-and-down-left-from-center", label("PF2E.DamageButton.DoubleShort", "Double"), 2, label("PF2E.DamageButton.Double", "Apply double the splash")],
-    ];
     splash.entries.forEach((entry, index) => {
       const row = make("div", "marquiste-splash-row");
       row.style.cssText = "margin: .35em 0;";
@@ -430,33 +424,24 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       if (splash.auto) row.append(make("em", "", "Applied automatically."));
       else {
         const bar = make("section", "damage-application");
-        const apply = async (multiplier, block) => {
+        const button = make("button");
+        button.type = "button";
+        button.title = label("PF2E.DamageButton.Full", "Apply the splash damage");
+        button.append(make("i", "fa-solid fa-burst fa-fw"), make("span", "label", label("PF2E.TraitSplash", "Splash")));
+        button.addEventListener("click", async () => {
           const token = await fromUuid(entry.token);
           if (!token?.actor?.canUserModify(game.user, "update")) {
             ui.notifications.warn(`You can't change ${entry.name}. Ask the GM to press the button.`);
             return;
           }
           try {
-            await applyEntry(splash, index, { multiplier, block });
+            await applyEntry(splash, index);
           } catch (error) {
             warn("apply failed", error);
             ui.notifications.error("The splash could not be applied. See the console (F12).");
           }
-        };
-        for (const [icon, text, multiplier, tip] of buttons) {
-          const button = make("button");
-          button.type = "button";
-          button.title = tip;
-          button.append(make("i", `fa-solid ${icon} fa-fw`), make("span", "label", text));
-          button.addEventListener("click", () => apply(multiplier, false));
-          bar.append(button);
-        }
-        const block = make("button");
-        block.type = "button";
-        block.title = label("PF2E.DamageButton.ShieldBlock", "Shield Block");
-        block.append(make("i", "fa-solid fa-shield-blank fa-fw"), make("span", "label", label("PF2E.DamageButton.ShieldBlockShort", "Block")));
-        block.addEventListener("click", () => apply(1, true));
-        bar.append(block);
+        });
+        bar.append(button);
         row.append(bar);
       }
       box.append(row);
