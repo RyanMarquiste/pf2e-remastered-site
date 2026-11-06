@@ -1,6 +1,7 @@
 // Splash damage by squares, for a weapon with the Splash trait (the alchemical bombs). PF2e itself does not look at the grid. With this on:
 //
-//  1. When a splash weapon is thrown at a creature that takes up more than one square, the player clicks which of its squares the bomb lands in.
+//  1. When a splash weapon is thrown at a creature that takes up more than one square, the player clicks which of its squares the bomb lands in. The
+//     Damage buttons on the attack roll are held back until that is done (or skipped).
 //  2. The splash reaches that square and the squares around it (more rings of squares when something widens it). A creature takes the splash once for
 //     every one of its squares that is in that area, so a creature on two of them takes it twice.
 //  3. On a hit, the target takes its splash as part of the damage roll, so it is added to the primary damage before resistances and weaknesses. It is
@@ -15,6 +16,7 @@ import { esc } from "./formula-books.js";
 import { area, footprint, rings, squaresIn } from "./splash-geometry.js";
 
 const SQUARE = "splashSquare"; // on an attack roll message: the square of the target that was chosen
+const SKIPPED = "splashSkipped"; // on an attack roll message: no square was chosen, so PF2e's own splash is used
 const DAMAGE = "splash"; // on a damage roll message: what the rule worked out
 const APPLY = "splashApply"; // on the card for the other creatures
 
@@ -112,33 +114,92 @@ async function pickSquare(cells) {
   }
 }
 
-// When a splash weapon is thrown at a big target, ask which square and keep the answer on the attack roll's chat message.
-Hooks.on("createChatMessage", async (message) => {
+// What a splash attack roll was made with and at, if the square rule applies to it: { item, target, cells }. Otherwise null, and `why` is told the
+// reason (it is written to the console when Log activity is on, so a missing prompt can be explained).
+function splashAttack(message, why = () => {}) {
+  const no = (reason) => (why(reason), null);
   const context = message.flags?.pf2e?.context;
-  if (context?.type !== "attack-roll") return;
-  // Why a roll was passed over is written to the console when Log activity is on (Troubleshooting), so a missing prompt can be explained.
-  const skip = (reason) => log(`attack: no square prompt, ${reason}`);
-  if (message.author?.id !== game.user.id) return skip(`rolled by ${message.author?.name ?? "someone else"}, not this user`);
-  if (!enabled("bombSplash")) return skip("Splash by squares is off");
-  if (!context.target?.token) return skip("the attack has no target");
+  if (context?.type !== "attack-roll") return null;
+  if (!enabled("bombSplash")) return no("Splash by squares is off");
+  if (!context.target?.token) return no("the attack has no target");
+  const item = fromUuidSync(message.flags.pf2e.origin?.uuid ?? "");
+  if (!item) return no(`the weapon was not found (${message.flags.pf2e.origin?.uuid})`);
+  if (!isSplash(item)) return no(`${item.name} is not a weapon with the Splash trait (traits: ${traitsOf(item).join(", ")})`);
+  if (!squareGrid()) return no("the scene is not on a square grid or the canvas is not ready");
+  const target = fromUuidSync(context.target.token);
+  if (!target) return no(`the target token was not found (${context.target.token})`);
+  if (target.parent?.id !== canvas.scene?.id) return no("the target is not on the scene being viewed");
+  const cells = cellsOf(target);
+  if (cells.length < 2) return no(`${target.name} covers ${cells.length} square (width ${target.width}, height ${target.height})`);
+  return { item, target, cells };
+}
+
+// Ask which square and keep the answer on the attack roll's chat message. Giving up is kept too, so the damage buttons are not held back for good.
+const asking = new Set();
+async function chooseSquare(message, { item, target, cells }) {
+  if (asking.has(message.id)) return;
+  asking.add(message.id);
   try {
-    const item = fromUuidSync(message.flags.pf2e.origin?.uuid ?? "");
-    if (!item) return skip(`the weapon was not found (${message.flags.pf2e.origin?.uuid})`);
-    if (!isSplash(item)) return skip(`${item.name} is not a weapon with the Splash trait (traits: ${traitsOf(item).join(", ")})`);
-    if (!squareGrid()) return skip("the scene is not on a square grid or the canvas is not ready");
-    const target = fromUuidSync(context.target.token);
-    if (!target) return skip(`the target token was not found (${context.target.token})`);
-    if (target.parent?.id !== canvas.scene?.id) return skip("the target is not on the scene being viewed");
-    const cells = cellsOf(target);
-    if (cells.length < 2) return skip(`${target.name} covers ${cells.length} square (width ${target.width}, height ${target.height})`);
     log(`attack: asking for a square of ${target.name} (${cells.length} squares)`);
     ui.notifications.info(`Click the square of ${target.name} that ${item.name} lands in. Right-click or Esc to skip.`);
     const cell = await pickSquare(cells);
     if (cell) await message.setFlag(MODULE, SQUARE, { token: target.uuid, i: cell.i, j: cell.j });
-    else ui.notifications.info("No square chosen: PF2e's own splash is used.");
+    else {
+      await message.setFlag(MODULE, SKIPPED, true);
+      ui.notifications.info("No square chosen: PF2e's own splash is used.");
+    }
   } catch (error) {
     warn("choosing a square failed", error);
     ui.notifications.warn("Splash by squares could not ask for a square. See the console (F12).");
+    await message.setFlag(MODULE, SKIPPED, true).catch(() => null);
+  } finally {
+    asking.delete(message.id);
+  }
+}
+
+// When a splash weapon is thrown at a big target, ask which square.
+Hooks.on("createChatMessage", async (message) => {
+  if (message.flags?.pf2e?.context?.type !== "attack-roll") return;
+  if (message.author?.id !== game.user.id) return log(`attack: no square prompt, rolled by ${message.author?.name ?? "someone else"}, not this user`);
+  try {
+    const info = splashAttack(message, (reason) => log(`attack: no square prompt, ${reason}`));
+    if (info) await chooseSquare(message, info);
+  } catch (error) {
+    warn("choosing a square failed", error);
+    ui.notifications.warn("Splash by squares could not ask for a square. See the console (F12).");
+  }
+});
+
+// Until the square is chosen (or given up), the Damage buttons on the attack roll are held back, so the damage cannot be rolled without it. Whoever can
+// edit the message gets buttons to choose the square again or to skip it. An attack from before the last hour is left alone.
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  try {
+    const flags = message.flags?.[MODULE] ?? {};
+    if (message.flags?.pf2e?.context?.type !== "attack-roll" || flags[SQUARE] || flags[SKIPPED]) return;
+    if (Date.now() - (message.timestamp ?? 0) > 60 * 60 * 1000) return;
+    const info = splashAttack(message);
+    if (!info) return;
+    for (const button of html.querySelectorAll('button[data-action="strike-damage"]')) button.disabled = true;
+
+    const note = document.createElement("div");
+    note.className = "marquiste-splash-wait";
+    const text = document.createElement("p");
+    text.innerHTML = `<em>Choose the square of ${esc(info.target.name)} it lands in, then roll damage.</em>`;
+    note.append(text);
+    if (message.canUserModify?.(game.user, "update")) {
+      const add = (label, action) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = label;
+        button.addEventListener("click", action);
+        note.append(button);
+      };
+      add("Choose square", () => chooseSquare(message, info));
+      add("Skip", () => message.setFlag(MODULE, SKIPPED, true));
+    }
+    (html.querySelector(".message-content") ?? html).append(note);
+  } catch (error) {
+    warn("could not hold back the damage buttons", error);
   }
 });
 
