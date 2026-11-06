@@ -430,15 +430,21 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         button.style.cssText = "width: auto; line-height: 1.6; padding: 0 .7em;";
         button.title = `Apply the splash damage to ${entry.name}`;
         button.append(make("i", "fa-solid fa-burst fa-fw"), make("span", "label", label("PF2E.TraitSplash", "Splash")));
+        // Once it has been applied the button is greyed out, here at once and on every screen once the message records it (only someone who can edit
+        // the message can record it; for anyone else the button is greyed out on their own screen only).
+        if (splash.applied?.[index]) button.disabled = true;
         button.addEventListener("click", async () => {
           const token = await fromUuid(entry.token);
           if (!token?.actor?.canUserModify(game.user, "update")) {
             ui.notifications.warn(`You can't change ${entry.name}. Ask the GM to press the button.`);
             return;
           }
+          button.disabled = true; // so it cannot be pressed twice while it is working
           try {
             await applyEntry(splash, index);
+            await message.update({ [`flags.${MODULE}.${DAMAGE}.applied.${index}`]: true }).catch(() => null);
           } catch (error) {
+            button.disabled = false;
             warn("apply failed", error);
             ui.notifications.error("The splash could not be applied. See the console (F12).");
           }
