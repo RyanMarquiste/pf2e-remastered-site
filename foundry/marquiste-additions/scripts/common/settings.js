@@ -43,17 +43,17 @@ const OPTIONS = {
     default: false,
   },
   bombSplash: {
-    name: "Splash by squares",
+    name: "Splash targets",
     hint:
-      "A weapon with the Splash trait (the alchemical bombs) splashes the square it lands in and the squares around it. When the target takes up more than one square " +
-      "you click the square it lands in. A creature takes the splash once for each of its squares in the area, and the target takes its splash as part of the damage roll. " +
-      "Off: splash works as it does in PF2e.",
+      "When the damage for a weapon with the Splash trait (the alchemical bombs) is rolled on a hit, the other creatures within the splash's reach of the target (5 feet, " +
+      "more with Expanded Splash and similar) are listed in the chat message, each with a Splash button that applies its splash. After a miss the damage roll is only the " +
+      "splash, taken once by the target. Off: splash works as it does in PF2e.",
   },
   bombSplashAutoApply: {
     name: "Apply splash automatically",
     hint:
       "The splash for the other creatures in the area is applied as soon as the damage is rolled, and the chat card only lists what they took. " +
-      "Off: the card has an Apply button for each creature. This needs Splash by squares, and the GM needs to be connected.",
+      "Off: the card has an Apply button for each creature. This needs Splash targets, and the GM needs to be connected.",
     default: false,
   },
   toxicologistMutableAcid: {
