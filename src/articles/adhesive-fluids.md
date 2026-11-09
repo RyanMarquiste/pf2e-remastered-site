@@ -1,17 +1,17 @@
 ---
 layout: article.njk
 uuid: 91b13ce6-8084-45f1-92a9-1ddb31713aae
-aliases: ["clinging-resin"]
+aliases: ["adhesive-fluids"]
 menu: alchemist-feats
-title: "Clinging Resin"
+title: "Adhesive Fluids"
 category: Classes
 class: alchemist
 date: 2026-11-09
 summary: "An Alchemist Additive feat that makes a bomb stick to the creature it hits, so large creatures take more of its splash."
 ---
 
-<div class="stat-block" id="clinging-resin">
-  <h4 class="stat-block-title">Clinging Resin <span class="stat-block-action">Feat 2</span></h4>
+<div class="stat-block" id="adhesive-fluids">
+  <h4 class="stat-block-title">Adhesive Fluids <span class="stat-block-action">Feat 2</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemist</span>
     <span class="trait">Additive</span>
@@ -28,6 +28,6 @@ summary: "An Alchemist Additive feat that makes a bomb stick to the creature it 
   <p>The weakness applies to the target of your Strike only, not to any other creature in the splash area, and it applies to the splash damage the target takes even if your Strike misses. As with any weakness, it is not increased on a critical hit. If the target already has a weakness to splash damage, use whichever is higher instead of adding them together.</p>
   <div class="stat-block special-block">
     <p class="special-label">Special</p>
-    <p>Only one additive can be applied to each bomb you create with Quick Alchemy, but there is no limit on how often you can use Clinging Resin: you can add it to every bomb you create.</p>
+    <p>Only one additive can be applied to each bomb you create with Quick Alchemy, but there is no limit on how often you can use Adhesive Fluids: you can add it to every bomb you create.</p>
   </div>
 </div>
