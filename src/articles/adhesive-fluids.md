@@ -7,7 +7,7 @@ title: "Adhesive Fluids"
 category: Classes
 class: alchemist
 date: 2026-11-09
-summary: "An Alchemist Additive feat that makes a bomb stick to the creature it hits, so large creatures take more of its splash."
+summary: "An Alchemist Additive feat that makes a bomb stick to the creature it hits, so the target takes extra splash damage, more for a larger creature."
 ---
 
 <div class="stat-block" id="adhesive-fluids">
@@ -17,14 +17,8 @@ summary: "An Alchemist Additive feat that makes a bomb stick to the creature it 
     <span class="trait">Additive</span>
   </div>
   <p><strong>Trigger</strong> You use Quick Alchemy to create a bomb with the splash trait.</p>
-  <p>You work a sticky resin into the bomb so that it clings to whatever it strikes. The bigger the target, the more of the bomb ends up on it. For the Strike you make with this bomb, the creature you target takes extra damage from the bomb's splash as if it had a weakness to splash damage, based on its size. The weakness is applied for each size category the target is larger than Medium, and its value depends on your level:</p>
-  <ul>
-    <li><strong>Levels 1&ndash;5</strong> weakness 1 to splash damage for each size category larger than Medium.</li>
-    <li><strong>Levels 6&ndash;11</strong> weakness 2 for each size category.</li>
-    <li><strong>Levels 12&ndash;17</strong> weakness 3 for each size category.</li>
-    <li><strong>Levels 18+</strong> weakness 4 for each size category.</li>
-  </ul>
-  <p>A Large creature is one size category larger than Medium, a Huge creature two and a Gargantuan creature three. A creature of Medium size or smaller gains no weakness.</p>
+  <p>You work a sticky resin into the bomb so that it clings to whatever it strikes. For the Strike you make with this bomb, the creature you target takes extra damage from the bomb's splash as if it had a weakness to splash damage. The weakness is equal to the bomb's splash damage, before any status or other bonuses are applied, plus 1 for each size category the target is larger than Medium.</p>
+  <p>A Large creature is one size category larger than Medium, a Huge creature two and a Gargantuan creature three. A creature of Medium size or smaller has no size increase, but still has the weakness equal to the bomb's splash damage. For example, a Volatile Vial that deals 3 splash damage gives its target weakness 3 to splash damage if it is Medium, 4 if it is Large, 5 if it is Huge and 6 if it is Gargantuan.</p>
   <p>The weakness applies to the target of your Strike only, not to any other creature in the splash area, and it applies to the splash damage the target takes even if your Strike misses. As with any weakness, it is not increased on a critical hit. If the target already has a weakness to splash damage, use whichever is higher instead of adding them together.</p>
   <div class="stat-block special-block">
     <p class="special-label">Special</p>
