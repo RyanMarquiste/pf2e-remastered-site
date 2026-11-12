@@ -42,7 +42,7 @@ const thinkingText =
   "<p><strong>Requirements</strong> You are under the effects of a Mind Doubling Mutagen</p>" +
   "<hr />" +
   "<p>On your turn, one of your brains works through a problem while the other keeps hold of the body. " +
-  "You @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]{Recall Knowledge} with a skill in which you are at least trained.</p>";
+  "You @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge} with a skill in which you are at least trained.</p>";
 
 const featText =
   "<p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, your brains have become adept at working " +

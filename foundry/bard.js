@@ -5,7 +5,9 @@
 // tab; Demoralize is a one-action encounter action, so it sits under Actions. Using one posts the card and the module script
 // (scripts/bard/versatile-performance.js) rolls PF2e's own action with Performance in place of the usual skill.
 module.exports = function buildBard({ items, publication, makeId }) {
-  const link = (name) => `@UUID[Compendium.pf2e.actionspf2e.Item.${name}]{${name}}`;
+  // PF2e's own actions, linked by id (a link by name does not resolve).
+  const ids = { "Make an Impression": "OX4fy22hQgUHDr0q", Demoralize: "2u915NdUyQan6uKF", Impersonate: "AJstokjdG6iDjVjE" };
+  const link = (name) => `@UUID[Compendium.pf2e.actionspf2e.Item.${ids[name]}]{${name}}`;
   const note =
     "<hr /><p><strong>Module</strong> Using this action rolls PF2e's own action with your Performance modifier in place of the usual skill. Select your token and target the creature first. " +
     "It can be switched off in the module settings under Troubleshooting.</p>";

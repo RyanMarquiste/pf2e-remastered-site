@@ -13,7 +13,7 @@
         },
         "category": "interaction",
         "description": {
-            "value": "<p><strong>Requirements</strong> You are under the effects of a Mind Doubling Mutagen</p><hr /><p>On your turn, one of your brains works through a problem while the other keeps hold of the body. You @UUID[Compendium.pf2e.actionspf2e.Item.Recall Knowledge]{Recall Knowledge} with a skill in which you are at least trained.</p>"
+            "value": "<p><strong>Requirements</strong> You are under the effects of a Mind Doubling Mutagen</p><hr /><p>On your turn, one of your brains works through a problem while the other keeps hold of the body. You @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge} with a skill in which you are at least trained.</p>"
         },
         "frequency": {
             "max": 1,
