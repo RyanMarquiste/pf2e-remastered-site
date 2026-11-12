@@ -23,6 +23,6 @@ summary: "A distilling apparatus that separates one alchemical elixir into two d
     <li><strong>Less than 10 minutes</strong> The elixir is over-diluted. Both resulting elixirs have no effect when consumed. An elixir with an instantaneous effect counts as less than 10 minutes.</li>
     <li><strong>10 minutes or longer</strong> The duration of the effect on each resulting elixir is half the original's.</li>
   </ul>
-  <p>Each diluted elixir is worth half the price of the original elixir. An elixir that already has the diluted trait can't be put into the alembic.</p>
+  <p>An elixir that already has the diluted trait can't be put into the alembic.</p>
   <p><em>Example: an elixir that lasts 1 hour becomes two elixirs that last 30 minutes each. An elixir that lasts 1 minute becomes two elixirs that have no effect.</em></p>
 </div>
