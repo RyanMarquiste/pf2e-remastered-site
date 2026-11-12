@@ -1,17 +1,17 @@
 ---
 layout: article.njk
 uuid: 91b13ce6-8084-45f1-92a9-1ddb31713aae
-aliases: ["sticky-resins"]
+aliases: ["sticky-spreader"]
 menu: alchemist-feats
-title: "Sticky Resins"
+title: "Sticky Spreader"
 category: Classes
 class: alchemist
 date: 2026-11-09
 summary: "An Alchemist Additive feat that coats the target of a successful bomb Strike in sticky resin, giving it a weakness to splash damage that grows with its size."
 ---
 
-<div class="stat-block" id="sticky-resins">
-  <h4 class="stat-block-title">Sticky Resins <span class="stat-block-action">Feat 2</span></h4>
+<div class="stat-block" id="sticky-spreader">
+  <h4 class="stat-block-title">Sticky Spreader <span class="stat-block-action">Feat 2</span></h4>
   <div class="stat-block-traits">
     <span class="trait">Alchemist</span>
     <span class="trait">Additive</span>
@@ -28,6 +28,6 @@ summary: "An Alchemist Additive feat that coats the target of a successful bomb 
   <p>The weakness affects only the target of your Strike and does not apply to any secondary creature in the splash area. If the target already has a weakness to splash damage, use whichever is higher instead of adding them together.</p>
   <div class="stat-block special-block">
     <p class="special-label">Special</p>
-    <p>Only one additive can be applied to each bomb you create with Quick Alchemy, but there is no limit on how often you can use Sticky Resins: you can add it to every bomb you create.</p>
+    <p>Only one additive can be applied to each bomb you create with Quick Alchemy, but there is no limit on how often you can use Sticky Spreader: you can add it to every bomb you create.</p>
   </div>
 </div>
