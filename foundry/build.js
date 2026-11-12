@@ -244,7 +244,7 @@ for (const t of tiers) {
 
 // The Drakeheart Mutagen from PF2e, with its text, numbers and art unchanged, but with the benefit and the drawback as separate effects (like the Mind Doubling Mutagen),
 // so the drawback can be suppressed on its own. The levels, prices and durations are the same as the other mutagens' tiers above. The Final Surge action is PF2e's own.
-const DRAKE = "Marquiste Drakeheart Mutagen";
+const DRAKE = "Drakeheart Mutagen (M)";
 const DRAKE_IMG = "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp";
 const FINAL_SURGE = "Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf";
 const RECALL_KNOWLEDGE = "@UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}";
@@ -622,7 +622,7 @@ function formulaItem({ family, img, made, rarity = "common", tiers, pub }) {
       quantity: 1,
       rules: [],
       size: "med",
-      slug: `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      slug: `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}`,
       traits: { rarity, value: ["formula"] },
       usage: { value: "carried" },
     },

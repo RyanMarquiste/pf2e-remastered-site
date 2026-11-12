@@ -2,7 +2,7 @@
     "_key": "!items!1tMrJT6R6quc6Y3Y",
     "_id": "1tMrJT6R6quc6Y3Y",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Marquiste Drakeheart Mutagen (Moderate)",
+    "name": "Drakeheart Mutagen (M) (Moderate)",
     "type": "consumable",
     "system": {
         "baseItem": null,

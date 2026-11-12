@@ -1,21 +1,21 @@
 {
-    "_key": "!items!xQ0cI1Ox4r6gL66s",
-    "_id": "xQ0cI1Ox4r6gL66s",
+    "_key": "!items!ozpD5UaqkooDPj3G",
+    "_id": "ozpD5UaqkooDPj3G",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Effect: Marquiste Drakeheart Mutagen (Major)",
+    "name": "Effect: Drakeheart Mutagen (M) (Lesser)",
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI]</p><p><strong>Benefit</strong> You gain +7 item bonus to AC, a Dexterity cap of +2, and a +4 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz].</p>"
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.L6pcAiJZb73PiKBB]</p><p><strong>Benefit</strong> You gain +4 item bonus to AC, a Dexterity cap of +2, and a +1 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz].</p>"
         },
         "duration": {
             "expiry": "turn-start",
             "sustained": false,
-            "unit": "hours",
+            "unit": "minutes",
             "value": 1
         },
         "level": {
-            "value": 17
+            "value": 1
         },
         "publication": {
             "license": "ORC",
@@ -32,14 +32,14 @@
                 "selector": "ac",
                 "slug": "drakeheart-mutagen-ac",
                 "type": "item",
-                "value": 7
+                "value": 4
             },
             {
                 "key": "FlatModifier",
                 "selector": "perception",
                 "slug": "drakeheart-mutagen-perception",
                 "type": "item",
-                "value": 4
+                "value": 1
             },
             {
                 "key": "GrantItem",
