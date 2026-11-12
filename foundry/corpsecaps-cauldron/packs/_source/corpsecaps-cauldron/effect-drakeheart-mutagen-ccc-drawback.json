@@ -2,11 +2,11 @@
     "_key": "!items!iPZ1Oj8fVLv68XHz",
     "_id": "iPZ1Oj8fVLv68XHz",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Effect: Drakeheart Mutagen (M) Drawback",
+    "name": "Effect: Drakeheart Mutagen (CCC) Drawback",
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by the Drakeheart Mutagen (M) effect, and removed with it.</p><p><strong>Drawback</strong> You take a -1 penalty to Will saves, Reflex saves, and all skill checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}.</p>"
+            "value": "<p>Granted by the Drakeheart Mutagen (CCC) effect, and removed with it.</p><p><strong>Drawback</strong> You take a -1 penalty to Will saves, Reflex saves, and all skill checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}.</p>"
         },
         "duration": {
             "expiry": null,

@@ -1,21 +1,21 @@
 {
-    "_key": "!items!L0EFHD71Hp8ORiZ4",
-    "_id": "L0EFHD71Hp8ORiZ4",
+    "_key": "!items!OOP5o6yc4CscZmlf",
+    "_id": "OOP5o6yc4CscZmlf",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Effect: Drakeheart Mutagen (M) (Moderate)",
+    "name": "Effect: Drakeheart Mutagen (CCC) (Greater)",
     "type": "effect",
     "system": {
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y]</p><p><strong>Benefit</strong> You gain +5 item bonus to AC, a Dexterity cap of +2, and a +2 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz].</p>"
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK]</p><p><strong>Benefit</strong> You gain +6 item bonus to AC, a Dexterity cap of +2, and a +3 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz].</p>"
         },
         "duration": {
             "expiry": "turn-start",
             "sustained": false,
-            "unit": "minutes",
-            "value": 10
+            "unit": "hours",
+            "value": 1
         },
         "level": {
-            "value": 3
+            "value": 11
         },
         "publication": {
             "license": "ORC",
@@ -32,14 +32,14 @@
                 "selector": "ac",
                 "slug": "drakeheart-mutagen-ac",
                 "type": "item",
-                "value": 5
+                "value": 6
             },
             {
                 "key": "FlatModifier",
                 "selector": "perception",
                 "slug": "drakeheart-mutagen-perception",
                 "type": "item",
-                "value": 2
+                "value": 3
             },
             {
                 "key": "GrantItem",

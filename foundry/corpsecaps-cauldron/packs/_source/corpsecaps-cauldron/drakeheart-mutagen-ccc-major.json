@@ -1,8 +1,8 @@
 {
-    "_key": "!items!fYiW71wPQVMwF1uK",
-    "_id": "fYiW71wPQVMwF1uK",
+    "_key": "!items!2m7na7huct4eQZNI",
+    "_id": "2m7na7huct4eQZNI",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Drakeheart Mutagen (M) (Greater)",
+    "name": "Drakeheart Mutagen (CCC) (Major)",
     "type": "consumable",
     "system": {
         "baseItem": null,
@@ -13,7 +13,7 @@
         "containerId": null,
         "damage": null,
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Your skin grows scales like a drake, and your eyesight become sharp and your pupils slitted, but your mind and reflexes slow.</p><p><strong>Benefit</strong> You gain +6 item bonus to AC, a Dexterity cap of +2 (as usual, use your lowest Dexterity cap if you have more than one), and a +3 item bonus to Perception checks. If you're wearing armor, you still calculate your proficiency bonus to AC based on your proficiency in the armor you're wearing, even if the drakeheart mutagen has a higher item bonus. You also gain the @UUID[Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf]{Final Surge} action.</p><p><strong>Drawback</strong> You take a -1 penalty to Will saves, Reflex saves, and all skill checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}.</p><p><strong>Duration</strong> 1 hour or until you use Final Surge, whichever comes first.</p><p>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.OOP5o6yc4CscZmlf]</p>"
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Your skin grows scales like a drake, and your eyesight become sharp and your pupils slitted, but your mind and reflexes slow.</p><p><strong>Benefit</strong> You gain +7 item bonus to AC, a Dexterity cap of +2 (as usual, use your lowest Dexterity cap if you have more than one), and a +4 item bonus to Perception checks. If you're wearing armor, you still calculate your proficiency bonus to AC based on your proficiency in the armor you're wearing, even if the drakeheart mutagen has a higher item bonus. You also gain the @UUID[Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf]{Final Surge} action.</p><p><strong>Drawback</strong> You take a -1 penalty to Will saves, Reflex saves, and all skill checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}.</p><p><strong>Duration</strong> 1 hour or until you use Final Surge, whichever comes first.</p><p>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.xQ0cI1Ox4r6gL66s]</p>"
         },
         "hardness": 0,
         "hp": {
@@ -21,7 +21,7 @@
             "value": 0
         },
         "level": {
-            "value": 11
+            "value": 17
         },
         "material": {
             "grade": null,
@@ -29,7 +29,7 @@
         },
         "price": {
             "value": {
-                "gp": 300
+                "gp": 3000
             }
         },
         "publication": {

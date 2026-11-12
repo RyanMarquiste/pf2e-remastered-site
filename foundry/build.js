@@ -245,7 +245,7 @@ for (const t of tiers) {
 
 // The Drakeheart Mutagen from PF2e, with its text, numbers and art unchanged, but with the benefit and the drawback as separate effects (like the Mind Doubling Mutagen),
 // so the drawback can be suppressed on its own. The levels, prices and durations are the same as the other mutagens' tiers above. The Final Surge action is PF2e's own.
-const DRAKE = `Drakeheart Mutagen ${tags.marquiste.short}`;
+const DRAKE = `Drakeheart Mutagen ${tags.cauldron.short}`;
 const DRAKE_IMG = "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp";
 const FINAL_SURGE = "Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf";
 const RECALL_KNOWLEDGE = "@UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}";
