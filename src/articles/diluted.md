@@ -11,7 +11,7 @@ summary: "New trait: Diluted, for an item or effect that has been diluted, which
 
 <div class="stat-block" id="diluted">
   <h4 class="stat-block-title">Diluted</h4>
-  <p>This item or effect has been diluted. The duration of its effect is half what it would otherwise be, and it has no effect at all if it was over-diluted.</p>
+  <p>This item or effect has been diluted. The duration of its effect is half what it would otherwise be.</p>
   <p>If this is on an item with a price, the price is reduced by half (round down).</p>
   <p>Something with this trait can't be diluted again.</p>
 </div>
