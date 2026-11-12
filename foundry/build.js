@@ -5,6 +5,7 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const tags = require("./tags"); // the global tags: the long and short names of the Marquiste and Cauldron packages
 
 const MODULE_ID = "marquiste-additions";
 const CAULDRON_ID = "corpsecaps-cauldron"; // the content module
@@ -26,7 +27,7 @@ const makeId = (seed) => {
 const uuidOf = (id) => `Compendium.${CAULDRON_ID}.${CAULDRON_PACK}.Item.${id}`;
 const classUuidOf = (id) => `Compendium.${MODULE_ID}.${CLASS_PACK}.Item.${id}`;
 
-const publication = { license: "ORC", remaster: true, title: "CorpseCap's Cauldron" }; // the Cauldron's items
+const publication = { license: "ORC", remaster: true, title: tags.cauldron.long }; // the Cauldron's items
 const modulePublication = { license: "ORC", remaster: true, title: "Marquiste Additions" }; // the Alchemist items
 
 const tiers = [
@@ -244,7 +245,7 @@ for (const t of tiers) {
 
 // The Drakeheart Mutagen from PF2e, with its text, numbers and art unchanged, but with the benefit and the drawback as separate effects (like the Mind Doubling Mutagen),
 // so the drawback can be suppressed on its own. The levels, prices and durations are the same as the other mutagens' tiers above. The Final Surge action is PF2e's own.
-const DRAKE = "Drakeheart Mutagen (M)";
+const DRAKE = `Drakeheart Mutagen ${tags.marquiste.short}`;
 const DRAKE_IMG = "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp";
 const FINAL_SURGE = "Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf";
 const RECALL_KNOWLEDGE = "@UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}";
@@ -758,7 +759,7 @@ fs.writeFileSync(path.join(__dirname, MODULE_ID, "module.json"), JSON.stringify(
 // The content module. It needs Marquiste Additions for the Insulating Paste counter and the traits its items use.
 const cauldronJson = {
   id: CAULDRON_ID,
-  title: "CorpseCap's Cauldron",
+  title: tags.cauldron.long,
   description: "Custom alchemical items from ryanmarquiste.github.io/pf2e-remastered-site: the mutagens and Insulating Paste.",
   version: "1.1.0",
   authors: [{ name: "Ryan Marquiste" }],
@@ -770,7 +771,7 @@ const cauldronJson = {
   packs: [
     {
       name: CAULDRON_PACK,
-      label: "CorpseCap's Cauldron",
+      label: tags.cauldron.long,
       path: `packs/${CAULDRON_PACK}`,
       type: "Item",
       system: "pf2e",

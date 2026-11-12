@@ -183,6 +183,17 @@ An Alchemist's **versatile vials** stay exactly as PF2e has them: a resource tie
 - The re-roll needs the character to own a feat with the slug `mutant-innervation`. If the system names that feat differently, edit the `RollTwice` predicate in `build.js`.
 - The item art is the site's image on a square black background. Foundry shows it as the item and effect icon.
 
+## Global tags
+
+`foundry/tags.js` holds the name of each package in a long and a short form, for item, feat and ability names:
+
+| Package | Long | Short |
+| --- | --- | --- |
+| Marquiste (Marquiste Additions and the homebrew in general) | Marquiste | (M) |
+| CorpseCap's Cauldron | CorpseCap's Cauldron | (CCC) |
+
+`build.js` and `vials.js` build names from them (for example **Drakeheart Mutagen (M)** and **Quick Alchemy (Marquiste)**), plus the Cauldron's publication title and labels. To rename a package or change its short form, edit `tags.js` and run `node foundry/build.js`. The scripts in `marquiste-additions/scripts/` are not built and cannot read the tags; the one name they look for, "Quick Alchemy (Marquiste)" in `scripts/alchemist/quick-alchemy.js`, has to be changed there by hand.
+
 ## Changing or adding items
 
 Edit `build.js`, run `node foundry/build.js`, then repeat step 1 (compile) and replace the module in your Foundry data folder. Item IDs are derived from the item names, so links between the items stay stable across rebuilds.
