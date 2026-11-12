@@ -15,7 +15,7 @@ summary: "A distilling apparatus that separates an elixir with a long-lasting ef
     <p class="appearance-label">Appearance</p>
     <p>A squat glass still with a long, coiled copper tube that splits in two at the end and drips into a pair of stoppered flasks hanging beneath it.</p>
   </div>
-  <p><strong>Price</strong> 150 gp; <strong>Usage</strong> held in 2 hands; <strong>Bulk</strong> 2<br>
+  <p><strong>Price</strong> 150 gp; <strong>Usage</strong> held in 2 hands; <strong>Bulk</strong> 1<br>
   <strong>Activate</strong> Dilute (exploration, manipulate); <strong>Duration</strong> 10 minutes<br>
   <strong>Requirements</strong> You have an item to dilute that is small enough to fit in the alembic</p>
   <p>You pour an item into the alembic, and the apparatus separates it into two copies of that item. The item you poured in is used up and replaced by the two copies, and each gains the <a href="{{ 'diluted' | articleUrl(collections.articles) | url }}">diluted</a> trait. What the copies do depends on the item:</p>
