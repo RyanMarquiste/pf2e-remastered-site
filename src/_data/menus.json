@@ -43,6 +43,11 @@
     { "title": "Items", "url": "/general/items/" },
     { "title": "Runes", "url": "/general/items/runes/" }
   ],
+  "general-tools": [
+    { "title": "General" },
+    { "title": "Items", "url": "/general/items/" },
+    { "title": "Tools", "url": "/general/items/tools/" }
+  ],
   "general-consumables": [
     { "title": "General" },
     { "title": "Items", "url": "/general/items/" },
