@@ -1,9 +1,10 @@
 # Foundry VTT export (PF2e system)
 
-This folder holds two Foundry modules. **Marquiste Additions** (`marquiste-additions/`) is the functional module: the scripts and the rules items they use. **CorpseCap's Cauldron** (`corpsecaps-cauldron/`) is the content module: the custom alchemical items. The content module needs the functional module, and Foundry asks you to turn it on when you enable the Cauldron. The functional module has two compendiums, and its scripts are sorted the same way:
+This folder holds two Foundry modules. **Marquiste Additions** (`marquiste-additions/`) is the functional module: the scripts and the rules items they use. **CorpseCap's Cauldron** (`corpsecaps-cauldron/`) is the content module: the custom alchemical items. The content module needs the functional module, and Foundry asks you to turn it on when you enable the Cauldron. The functional module has three compendiums, and its scripts are sorted the same way:
 
 - **Common Enhancements** (`scripts/common/`): rules that apply across the whole game. Right now that is the injury poison rules (poisoning a weapon, and using the poison up when a Strike hits or critically fails), the Fleeting trait (which removes what carries it at the end of the turn), the Mutable traits, the Formula trait with the formula books on the Crafting tab, and the Compendium Browser setup. The pack has no items yet. None of this is specific to Alchemists, so the scripts are in `scripts/common/`; the three formula items that the books use are in the CorpseCap's Cauldron module, because they describe its items.
 - **Alchemist Enhancements** (`scripts/alchemist/`): features only for Alchemists: the Volatile Vial, the Field Vials, the Toxic Coatings, the Toxicologist's Mutable Acid, the Quick Vial, Create Consumable and Quick Alchemy (Marquiste) actions, and a formula item for each of PF2e's mutagen families that start at level 1 (16 of them, listed in `mutagen-formulas.js`; each covers the Lesser, Moderate, Greater and Major tiers). Built by `build.js` from `vials.js` and `mutagen-formulas.js`. The pack's id is still `marquiste-alchemist-class`, so links from existing characters keep working.
+- **Bard Enhancements** (`scripts/bard/`): features only for Bards. Right now that is the three **Versatile Performance** actions (Make an Impression, Demoralize and Impersonate, rolled with Performance), built by `build.js` from `bard.js`. See Versatile Performance below.
 
 The **CorpseCap's Cauldron** module has two compendiums. The first has this site's custom alchemical items, the mutagens and Insulating Paste. The second, **Cauldron Formulas**, has one formula item for each of those families, carrying the Formula trait, so a formula can be found by trait in the Compendium Browser and put in a formula book. It has no scripts of its own: the Insulating Paste counter is in Marquiste Additions (`scripts/cauldron/`), because it is behaviour, not content.
 
@@ -32,8 +33,10 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `marquiste-additions/images/` | Alchemist item art (square, black background), referenced as `modules/marquiste-additions/images/...`. Regenerate from the site art with `foundry/make-icons.ps1`. |
 | `corpsecaps-cauldron/images/` | The mutagen and Insulating Paste art, referenced as `modules/corpsecaps-cauldron/images/...`. Made by the same script. |
 | `vials.js` | The Alchemist Enhancements items: the Volatile Vial, Field Vials, coatings and the actions; `build.js` calls it. |
+| `bard.js` | The Bard Enhancements items: the three Versatile Performance actions; `build.js` calls it. |
 | `marquiste-additions/scripts/common/` | Scripts for every character: injury poisons (`injury-poisons.js`), splash targets (`bomb-splash.js`, `splash-geometry.js`), the Fleeting trait, the Compendium Browser setup, and helpers (`shared.js`, and `weapon-picker.js` for the picker windows). |
 | `marquiste-additions/scripts/alchemist/` | Alchemist scripts: the bomb vial upkeep, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Toxicologist feature that gives Mutable Acid. `common/mutable-trait.js` has the Mutable traits themselves. `alchemist.js` holds the helpers they share. |
+| `marquiste-additions/scripts/bard/` | Bard scripts: the Versatile Performance actions (`versatile-performance.js`). |
 | `marquiste-additions/scripts/cauldron/` | The Insulating Paste counter. |
 | `<module>/packs/<pack>/` | The compiled compendiums. **Not in the repo**: you build them in step 1. |
 
@@ -41,7 +44,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 
 Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has to be compiled once.
 
-1. **Compile the packs.** From the repo root, with Node installed, run all four commands (the Cauldron pack is in its own module folder):
+1. **Compile the packs.** From the repo root, with Node installed, run all five commands (the Cauldron pack is in its own module folder):
 
    ```bash
    npx @foundryvtt/foundryvtt-cli package pack -n marquiste-common-enhancements --type Module --in foundry/marquiste-additions/packs/_source/marquiste-common-enhancements --out foundry/marquiste-additions/packs
@@ -56,13 +59,17 @@ Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has t
    npx @foundryvtt/foundryvtt-cli package pack -n marquiste-alchemist-class --type Module --in foundry/marquiste-additions/packs/_source/marquiste-alchemist-class --out foundry/marquiste-additions/packs
    ```
 
-   This creates `foundry/marquiste-additions/packs/marquiste-common-enhancements/` and `.../marquiste-alchemist-class/`, and `foundry/corpsecaps-cauldron/packs/corpsecaps-cauldron/` and `.../corpsecaps-formulas/`. The Common Enhancements pack is empty for now, so Foundry would also create it for itself if you skip that command.
+   ```bash
+   npx @foundryvtt/foundryvtt-cli package pack -n marquiste-bard-class --type Module --in foundry/marquiste-additions/packs/_source/marquiste-bard-class --out foundry/marquiste-additions/packs
+   ```
+
+   This creates `foundry/marquiste-additions/packs/marquiste-common-enhancements/`, `.../marquiste-alchemist-class/` and `.../marquiste-bard-class/`, and `foundry/corpsecaps-cauldron/packs/corpsecaps-cauldron/` and `.../corpsecaps-formulas/`. The Common Enhancements pack is empty for now, so Foundry would also create it for itself if you skip that command.
 
 2. **Copy both module folders**, `foundry/marquiste-additions` and `foundry/corpsecaps-cauldron`, into your Foundry data folder, so you end up with `Data/modules/marquiste-additions/module.json` and `Data/modules/corpsecaps-cauldron/module.json`. (Foundry's data folder is shown under Configuration in the setup screen. On Windows it's usually `%localappdata%\FoundryVTT\Data`.)
 
 3. In your world, go to **Settings → Manage Modules**, enable **Marquiste Additions** and **CorpseCap's Cauldron**, and save. (Enabling the Cauldron on its own makes Foundry offer to turn on Marquiste Additions too.)
 
-4. Open the **Compendium Packs** tab. The **Common Enhancements** and **Alchemist Enhancements** packs appear under Marquiste Additions, and the **CorpseCap's Cauldron** and **Cauldron Formulas** packs under CorpseCap's Cauldron. Drag a mutagen onto a character sheet.
+4. Open the **Compendium Packs** tab. The **Common Enhancements**, **Alchemist Enhancements** and **Bard Enhancements** packs appear under Marquiste Additions, and the **CorpseCap's Cauldron** and **Cauldron Formulas** packs under CorpseCap's Cauldron. Drag a mutagen onto a character sheet.
 
 Both `module.json` files ask for Foundry v13 as the minimum and are verified on v14 (build 370, with PF2e 8.6.1). If yours is a different version, change `compatibility` in `build.js` and rebuild.
 
@@ -123,6 +130,16 @@ A weapon with the **Splash** trait (the alchemical bombs; `scripts/common/bomb-s
 3. **A miss.** Whether it was a miss is read from the attack roll, because PF2e's Damage button on the attack card always rolls damage as a hit: after a miss the damage roll becomes just the splash (labelled Miss), taken once by the target. A critical failure deals no splash.
 
 It works on square-grid scenes where the target is on the scene being viewed. On a hex or gridless scene the roll is left as PF2e made it. The **Splash targets** setting turns all of this off.
+
+### Versatile Performance
+
+The Bard feat **Versatile Performance** lets a Bard use Performance for three actions. The **Bard Enhancements** pack has an action item for each, with the PF2e traits of the original so that they sit in the right place on the character sheet's Actions tab:
+
+- **Make an Impression (Versatile Performance)**, under **Exploration**: Performance instead of Diplomacy.
+- **Impersonate (Versatile Performance)**, under **Exploration**: an acting Performance instead of Deception.
+- **Demoralize (Versatile Performance)**, under **Actions** (one action): Performance instead of Intimidation.
+
+Drag the ones the character needs onto the sheet. Using one posts its card and then rolls PF2e's own action (`scripts/bard/versatile-performance.js` calls `game.pf2e.actions`) with the **Performance** statistic in place of the usual skill, so the DC (Will for the first two, Perception for Impersonate), the degrees of success and the roll options such as `action:demoralize` are PF2e's own. Select the token and target the creature before using it. The module does not check that the character has the feat or the polymath muse. The **Bard actions** switch under Troubleshooting turns the rolling off, leaving the actions as plain description cards.
 
 ### Fleeting
 

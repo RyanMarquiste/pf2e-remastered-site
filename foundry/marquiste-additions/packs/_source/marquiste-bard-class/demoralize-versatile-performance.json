@@ -1,0 +1,39 @@
+{
+    "_key": "!items!tD20iZaHAawu0TDE",
+    "_id": "tD20iZaHAawu0TDE",
+    "img": "icons/skills/social/intimidation-impressing.webp",
+    "name": "Demoralize (Versatile Performance)",
+    "type": "action",
+    "system": {
+        "slug": "demoralize-versatile-performance",
+        "actionType": {
+            "value": "action"
+        },
+        "actions": {
+            "value": 1
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Requirements</strong> You have the Versatile Performance feat</p><hr /><p>You can use Performance instead of Intimidation to @UUID[Compendium.pf2e.actionspf2e.Item.Demoralize]{Demoralize}. It works exactly like that action, including the Will DC, the results and the creature's temporary immunity, but the check is a Performance check.</p><hr /><p><strong>Module</strong> Using this action rolls PF2e's own action with your Performance modifier in place of the usual skill. Select your token and target the creature first. It can be switched off in the module settings under Troubleshooting.</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "auditory",
+                "bard",
+                "concentrate",
+                "emotion",
+                "fear",
+                "mental"
+            ]
+        }
+    }
+}

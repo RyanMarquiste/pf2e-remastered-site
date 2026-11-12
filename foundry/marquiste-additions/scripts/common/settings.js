@@ -103,6 +103,10 @@ const OPTIONS = {
     name: "Alchemist actions",
     hint: "The Quick Vial, Create Consumable and Quick Alchemy (Marquiste) actions, and removing what they create when the turn ends.",
   },
+  bardActions: {
+    name: "Bard actions",
+    hint: "The Make an Impression, Demoralize and Impersonate (Versatile Performance) actions roll PF2e's own action with Performance as the skill when they are used.",
+  },
   bombVialUpkeep: {
     name: "Bomb vial upkeep",
     hint: "Marks a thrown vial as used and removes it afterwards, and puts back a Versatile Vial that an earlier version of this module renamed.",
@@ -144,6 +148,7 @@ const LAYOUT = [
   { key: "craftingTabLayout", debug: true },
   { key: "formulaSync", debug: true },
   { key: "alchemistActions", debug: true },
+  { key: "bardActions", debug: true },
   { key: "bombVialUpkeep", debug: true },
   { key: "compendiumBrowserPacks", debug: true },
   { level: 2, heading: "Console", debug: true },
@@ -151,7 +156,7 @@ const LAYOUT = [
 ];
 
 // The switches that only count while Troubleshooting mode is on.
-const SWITCHES = ["fleeting", "mutable", "craftingTabLayout", "formulaSync", "alchemistActions", "bombVialUpkeep", "compendiumBrowserPacks"];
+const SWITCHES = ["fleeting", "mutable", "craftingTabLayout", "formulaSync", "alchemistActions", "bardActions", "bombVialUpkeep", "compendiumBrowserPacks"];
 
 Hooks.once("init", () => {
   // Registered in the order of the window, which is also the order Foundry lists them in if the arranging below finds nothing to arrange.

@@ -1,0 +1,38 @@
+{
+    "_key": "!items!9hYZfaHbiisBJfSg",
+    "_id": "9hYZfaHbiisBJfSg",
+    "img": "icons/skills/social/theft-pickpocket-bribery-brown.webp",
+    "name": "Impersonate (Versatile Performance)",
+    "type": "action",
+    "system": {
+        "slug": "impersonate-versatile-performance",
+        "actionType": {
+            "value": "action"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Requirements</strong> You have the Versatile Performance feat</p><hr /><p>You can use an acting Performance instead of Deception to @UUID[Compendium.pf2e.actionspf2e.Item.Impersonate]{Impersonate}. It works exactly like that exploration activity, including the Perception DC and the results, but the check is a Performance check.</p><hr /><p><strong>Module</strong> Using this action rolls PF2e's own action with your Performance modifier in place of the usual skill. Select your token and target the creature first. It can be switched off in the module settings under Troubleshooting.</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "bard",
+                "concentrate",
+                "exploration",
+                "manipulate",
+                "secret"
+            ]
+        }
+    }
+}

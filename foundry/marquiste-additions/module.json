@@ -37,6 +37,7 @@
         "scripts/alchemist/quick-alchemy.js",
         "scripts/alchemist/toxicologist.js",
         "scripts/alchemist/daily-preparations.js",
+        "scripts/bard/versatile-performance.js",
         "scripts/cauldron/insulating-paste.js"
     ],
     "packs": [
@@ -55,6 +56,17 @@
             "name": "marquiste-alchemist-class",
             "label": "Alchemist Enhancements",
             "path": "packs/marquiste-alchemist-class",
+            "type": "Item",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
+        },
+        {
+            "name": "marquiste-bard-class",
+            "label": "Bard Enhancements",
+            "path": "packs/marquiste-bard-class",
             "type": "Item",
             "system": "pf2e",
             "ownership": {
