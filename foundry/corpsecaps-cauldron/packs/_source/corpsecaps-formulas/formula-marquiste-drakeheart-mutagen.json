@@ -1,0 +1,75 @@
+{
+    "_key": "!items!0XDeJ4InwPHgLh95",
+    "_id": "0XDeJ4InwPHgLh95",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
+    "name": "Formula: Marquiste Drakeheart Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.L6pcAiJZb73PiKBB"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for a mutagen that gives you a drake's scales and keen eyes. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Marquiste Drakeheart Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.L6pcAiJZb73PiKBB]{Marquiste Drakeheart Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y]{Marquiste Drakeheart Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK]{Marquiste Drakeheart Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI]{Marquiste Drakeheart Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-marquiste-drakeheart-mutagen",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

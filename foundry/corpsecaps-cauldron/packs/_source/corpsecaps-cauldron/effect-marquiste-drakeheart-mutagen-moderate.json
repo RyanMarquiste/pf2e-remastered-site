@@ -1,0 +1,65 @@
+{
+    "_key": "!items!L0EFHD71Hp8ORiZ4",
+    "_id": "L0EFHD71Hp8ORiZ4",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
+    "name": "Effect: Marquiste Drakeheart Mutagen (Moderate)",
+    "type": "effect",
+    "system": {
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y]</p><p><strong>Benefit</strong> You gain +5 item bonus to AC, a Dexterity cap of +2, and a +2 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz].</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 10
+        },
+        "level": {
+            "value": 3
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "DexterityModifierCap",
+                "value": 2
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "ac",
+                "slug": "drakeheart-mutagen-ac",
+                "type": "item",
+                "value": 5
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "perception",
+                "slug": "drakeheart-mutagen-perception",
+                "type": "item",
+                "value": 2
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf"
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

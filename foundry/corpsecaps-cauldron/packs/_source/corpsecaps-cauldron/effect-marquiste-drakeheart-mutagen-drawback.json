@@ -1,0 +1,73 @@
+{
+    "_key": "!items!iPZ1Oj8fVLv68XHz",
+    "_id": "iPZ1Oj8fVLv68XHz",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
+    "name": "Effect: Marquiste Drakeheart Mutagen Drawback",
+    "type": "effect",
+    "system": {
+        "description": {
+            "value": "<p>Granted by the Marquiste Drakeheart Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a -1 penalty to Will saves, Reflex saves, and all skill checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "sustained": false,
+            "unit": "unlimited",
+            "value": -1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "drakeheart-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "reflex",
+                    "will"
+                ],
+                "slug": "drakeheart-mutagen-drawback-saves",
+                "value": -1,
+                "predicate": [
+                    {
+                        "not": "drakeheart-drawback-suppressed"
+                    }
+                ]
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "skill-check",
+                "slug": "drakeheart-mutagen-drawback-recall-knowledge",
+                "value": -1,
+                "predicate": [
+                    "action:recall-knowledge",
+                    {
+                        "not": "drakeheart-drawback-suppressed"
+                    }
+                ]
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}
