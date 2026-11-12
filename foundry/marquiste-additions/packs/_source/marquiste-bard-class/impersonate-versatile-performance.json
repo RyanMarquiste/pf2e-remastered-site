@@ -1,13 +1,13 @@
 {
     "_key": "!items!9hYZfaHbiisBJfSg",
     "_id": "9hYZfaHbiisBJfSg",
-    "img": "icons/skills/social/theft-pickpocket-bribery-brown.webp",
+    "img": "systems/pf2e/icons/actions/Passive.webp",
     "name": "Impersonate (Versatile Performance)",
     "type": "action",
     "system": {
         "slug": "impersonate-versatile-performance",
         "actionType": {
-            "value": "action"
+            "value": "passive"
         },
         "actions": {
             "value": null

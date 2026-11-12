@@ -16,7 +16,8 @@ module.exports = function buildBard({ items, publication, makeId }) {
     {
       name: "Make an Impression (Versatile Performance)",
       slug: "make-an-impression-versatile-performance",
-      img: "icons/skills/social/diplomacy-peace-alliance.webp",
+      img: "systems/pf2e/icons/actions/Passive.webp",
+      type: "passive",
       cost: null,
       traits: ["auditory", "bard", "concentrate", "exploration", "linguistic", "mental"],
       text:
@@ -27,7 +28,8 @@ module.exports = function buildBard({ items, publication, makeId }) {
     {
       name: "Demoralize (Versatile Performance)",
       slug: "demoralize-versatile-performance",
-      img: "icons/skills/social/intimidation-impressing.webp",
+      img: "systems/pf2e/icons/actions/OneAction.webp",
+      type: "action",
       cost: 1,
       traits: ["auditory", "bard", "concentrate", "emotion", "fear", "mental"],
       text:
@@ -38,7 +40,8 @@ module.exports = function buildBard({ items, publication, makeId }) {
     {
       name: "Impersonate (Versatile Performance)",
       slug: "impersonate-versatile-performance",
-      img: "icons/skills/social/theft-pickpocket-bribery-brown.webp",
+      img: "systems/pf2e/icons/actions/Passive.webp",
+      type: "passive",
       cost: null,
       traits: ["bard", "concentrate", "exploration", "manipulate", "secret"],
       text:
@@ -56,7 +59,7 @@ module.exports = function buildBard({ items, publication, makeId }) {
       type: "action",
       system: {
         slug: action.slug,
-        actionType: { value: "action" },
+        actionType: { value: action.type },
         actions: { value: action.cost },
         category: "interaction",
         description: { value: action.text + note },
