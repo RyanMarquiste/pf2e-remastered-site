@@ -118,7 +118,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
         },
         expend: 1,
         grade: null,
-        group: "club",
+        group: "sling",
         hardness: 0,
         hp: { max: 0, value: 0 },
         level: { value: t.level },

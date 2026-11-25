@@ -28,7 +28,7 @@ summary: "A short-lived lump of overcooked food that a Wandering Chef flings at 
     </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
-  <strong>Category</strong> Simple; <strong>Group</strong> Club; <strong>Range</strong> 10 feet<br>
+  <strong>Category</strong> Simple; <strong>Group</strong> Sling; <strong>Range</strong> 10 feet<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
   <p>A spare bit of food, overcooked with alchemical ingredients until it is inedible and has none of the properties it had before. You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p>
 
