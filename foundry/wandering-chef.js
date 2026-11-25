@@ -218,7 +218,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
             "You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p>" +
             `<p>The Food Projectile deals ${t.dice}d6 bludgeoning damage, or fire damage if flambéed.${bonusText(t)}</p>`,
         },
-        expend: 1,
+        expend: null,
         grade: null,
         group: "sling",
         hardness: 0,
@@ -233,7 +233,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
         rules: scaling(),
         runes: { potency: 0, property: [], striking: 0 },
         size: "med",
-        traits: { rarity: "common", value: ["consumable", "fleeting", "nonlethal", "thrown-10", "versatile-fire"] },
+        traits: { rarity: "common", value: ["fleeting", "nonlethal", "thrown-10", "versatile-fire"] },
         usage: { canBeAmmo: false, value: "held-in-one-hand" },
       },
     });

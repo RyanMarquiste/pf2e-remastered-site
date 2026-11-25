@@ -12,7 +12,6 @@ summary: "A short-lived lump of overcooked food that a Wandering Chef flings at 
 <div class="stat-block" id="food-projectile">
   <h4 class="stat-block-title">Food Projectile</h4>
   <div class="stat-block-traits">
-    <span class="trait">Consumable</span>
     <span class="trait">Fleeting</span>
     <span class="trait">Nonlethal</span>
     <span class="trait">Thrown 10 ft.</span>

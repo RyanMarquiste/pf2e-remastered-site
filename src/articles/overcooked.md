@@ -19,7 +19,7 @@ summary: "A Wandering Chef feat that adds an Overcook option to Quick Alchemy, t
 
   <div class="stat-block-section"><span>Overcook</span></div>
   <p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p>
-  <p>Choose Overcook as your action for Quick Alchemy. You overcook a spare bit of food into a Food Projectile that you can fling at an enemy. The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart. It is also used up when you throw it.</p>
+  <p>Choose Overcook as your action for Quick Alchemy. You overcook a spare bit of food into a Food Projectile that you can fling at an enemy. The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart.</p>
   <p>Using Overcook does not expend a versatile vial and does not consume any food or other food resources.</p>
   <p>The overcooking leaves the food inedible. The Food Projectile has no nutritional value and none of the other properties the food would otherwise have.</p>
   <p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. This costs no action and uses nothing up.</p>

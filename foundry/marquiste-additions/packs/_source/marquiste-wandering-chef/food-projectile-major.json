@@ -27,7 +27,7 @@
         "description": {
             "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A hard, blackened lump of food, scorched and charred through and smelling of smoke, with a few stubborn flecks of seasoning still clinging to it.</em></p><p>A spare bit of food, overcooked with alchemical ingredients until it is inedible and has none of the properties it had before. You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p><p>The Food Projectile deals 4d6 bludgeoning damage, or fire damage if flambéed. You gain a +3 item bonus to attack rolls with it.</p>"
         },
-        "expend": 1,
+        "expend": null,
         "grade": null,
         "group": "sling",
         "hardness": 0,
@@ -91,7 +91,6 @@
         "traits": {
             "rarity": "common",
             "value": [
-                "consumable",
                 "fleeting",
                 "nonlethal",
                 "thrown-10",
