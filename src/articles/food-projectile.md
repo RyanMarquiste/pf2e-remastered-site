@@ -44,4 +44,4 @@ summary: "A short-lived lump of overcooked food that a Wandering Chef flings at 
   <p>You gain a +3 item bonus to attack rolls. The weapon deals 4d6 bludgeoning damage.</p>
 </div>
 
-<p>A Wandering Chef makes a Food Projectile with the Overcook option from the <a href="{{ 'overcooked' | articleUrl(collections.articles) | url }}">Overcooked</a> feat, and the <a href="{{ 'food-fight' | articleUrl(collections.articles) | url }}">Food Fight</a> feat makes it deal d8 damage instead of d6 and have the Thrown 15 ft. trait.</p>
+<p>A Wandering Chef makes a Food Projectile with the Overcook option from the <a href="{{ 'overcooked' | articleUrl(collections.articles) | url }}">Overcooked</a> feat, and the <a href="{{ 'food-fight' | articleUrl(collections.articles) | url }}">Food Fight</a> feat gives it the Deadly d8 trait and changes Thrown 10 ft. to Thrown 15 ft.</p>

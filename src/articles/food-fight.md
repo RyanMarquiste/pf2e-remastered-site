@@ -6,7 +6,7 @@ menu: wandering-chef-feats
 title: "Food Fight"
 category: Archetypes
 date: 2026-11-25
-summary: "A Wandering Chef feat that lets you Overcook and Strike in a single action, and makes your Food Projectiles hit harder and reach farther."
+summary: "A Wandering Chef feat that lets you Overcook and Strike in a single action, and gives your Food Projectiles the deadly d8 trait and extra reach."
 ---
 
 <div class="stat-block" id="food-fight">
@@ -17,5 +17,5 @@ summary: "A Wandering Chef feat that lets you Overcook and Strike in a single ac
   <p><strong>Prerequisites</strong> Wandering Chef Dedication, <a href="{{ 'overcooked' | articleUrl(collections.articles) | url }}">Overcooked</a></p>
   <p>You have learned to turn whatever is on the table into a weapon, and to throw it the moment it leaves the pan.</p>
   <p><strong>Overcook and Strike</strong> When you use Overcook, you can Strike with the Food Projectile it creates as part of the same action. This Strike counts toward your multiple attack penalty as normal.</p>
-  <p><strong>Heavier and farther</strong> The Food Projectiles you create with Overcook deal d8 damage instead of d6, and their range increases from 10 feet to 15 feet, so they have the thrown 15 ft. trait instead of thrown 10 ft. As you gain levels they still deal one more die at 4th, 12th, and 18th level, so they deal 2d8 damage from 4th level, 3d8 from 12th, and 4d8 from 18th.</p>
+  <p><strong>Deadlier and farther</strong> The Food Projectiles you create with Overcook gain the deadly d8 trait, so on a critical hit they deal an extra d8 damage after the damage is doubled. Their range also increases from 10 feet to 15 feet, so they have the thrown 15 ft. trait instead of thrown 10 ft.</p>
 </div>

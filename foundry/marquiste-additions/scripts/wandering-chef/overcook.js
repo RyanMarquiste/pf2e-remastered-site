@@ -26,13 +26,12 @@ export async function overcook(actor) {
   const data = (await pack.getDocument(entry._id)).toObject();
   delete data._id;
 
-  // Food Fight: the projectile deals d8 instead of d6 and reaches 15 feet instead of 10.
+  // Food Fight: the projectile gains the deadly d8 trait and reaches 15 feet instead of 10.
   const foodFight = actor.itemTypes.feat.some((f) => f.slug === FOOD_FIGHT);
   if (foodFight) {
-    data.system.damage.die = "d8";
     data.system.range = 15;
-    data.system.traits.value = data.system.traits.value.map((t) => (t === "thrown-10" ? "thrown-15" : t));
-    data.system.description.value = data.system.description.value.replace(/(\d)d6/g, "$1d8");
+    data.system.traits.value = [...data.system.traits.value.map((t) => (t === "thrown-10" ? "thrown-15" : t)), "deadly-d8"];
+    data.system.description.value += "<p><strong>Food Fight</strong> This Food Projectile has the deadly d8 trait: on a critical hit it deals an extra d8 damage after the damage is doubled.</p>";
   }
   data.system.equipped = { carryType: "held", handsHeld: 1 };
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);

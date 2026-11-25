@@ -79,9 +79,9 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
           "<p>You have learned to turn whatever is on the table into a weapon, and to throw it the moment it leaves the pan.</p>" +
           "<p><strong>Overcook and Strike</strong> When you use Overcook, you can Strike with the Food Projectile it creates as part of the same action. " +
           "This Strike counts toward your multiple attack penalty as normal.</p>" +
-          "<p><strong>Heavier and farther</strong> The Food Projectiles you create with Overcook deal d8 damage instead of d6, and their range increases from 10 feet to 15 feet, " +
-          "so they have the thrown 15 ft. trait instead of thrown 10 ft. They still deal one more die at 4th, 12th, and 18th level.</p>" +
-          "<hr /><p><strong>Module</strong> With this feat on a character, the Overcook action makes the stronger projectile and offers the Strike. " +
+          "<p><strong>Deadlier and farther</strong> The Food Projectiles you create with Overcook gain the deadly d8 trait, so on a critical hit they deal an extra d8 damage after the damage is doubled. " +
+          "Their range also increases from 10 feet to 15 feet, so they have the thrown 15 ft. trait instead of thrown 10 ft.</p>" +
+          "<hr /><p><strong>Module</strong> With this feat on a character, the Overcook action makes the deadlier projectile and offers the Strike. " +
           "It can be switched off in the module settings under Wandering Chef.</p>",
       },
       level: { value: 6 },
