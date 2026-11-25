@@ -29,7 +29,7 @@
         },
         "expend": 1,
         "grade": null,
-        "group": "sling",
+        "group": "club",
         "hardness": 0,
         "hp": {
             "max": 0,
@@ -93,6 +93,7 @@
             "value": [
                 "consumable",
                 "fleeting",
+                "nonlethal",
                 "thrown-10",
                 "versatile-fire"
             ]

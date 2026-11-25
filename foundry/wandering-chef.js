@@ -118,7 +118,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
         },
         expend: 1,
         grade: null,
-        group: "sling",
+        group: "club",
         hardness: 0,
         hp: { max: 0, value: 0 },
         level: { value: t.level },
@@ -131,7 +131,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
         rules: scaling(),
         runes: { potency: 0, property: [], striking: 0 },
         size: "med",
-        traits: { rarity: "common", value: ["consumable", "fleeting", "thrown-10", "versatile-fire"] },
+        traits: { rarity: "common", value: ["consumable", "fleeting", "nonlethal", "thrown-10", "versatile-fire"] },
         usage: { canBeAmmo: false, value: "held-in-one-hand" },
       },
     });
