@@ -1,0 +1,77 @@
+{
+    "_key": "!items!z0z0PWhmf104SU64",
+    "_id": "z0z0PWhmf104SU64",
+    "img": "systems/pf2e/icons/equipment/weapons/club.webp",
+    "name": "Rolling Pin",
+    "type": "weapon",
+    "system": {
+        "slug": "rolling-pin",
+        "ammo": null,
+        "baseItem": null,
+        "bonus": {
+            "value": 0
+        },
+        "bonusDamage": {
+            "value": 0
+        },
+        "bulk": {
+            "value": 0.1
+        },
+        "category": "simple",
+        "damage": {
+            "damageType": "bludgeoning",
+            "dice": 1,
+            "die": "d4"
+        },
+        "description": {
+            "value": "<p><em>A smooth, heavy wooden cylinder for flattening dough. It leaves a bruise, but it is made for flattening and not for killing.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
+        },
+        "expend": null,
+        "grade": null,
+        "group": "club",
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 0
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "sp": 1
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "range": null,
+        "reload": {
+            "value": ""
+        },
+        "rules": [],
+        "runes": {
+            "potency": 0,
+            "property": [],
+            "striking": 0
+        },
+        "size": "med",
+        "traits": {
+            "rarity": "uncommon",
+            "value": [
+                "nonlethal"
+            ]
+        },
+        "usage": {
+            "canBeAmmo": false,
+            "value": "held-in-one-hand"
+        }
+    }
+}

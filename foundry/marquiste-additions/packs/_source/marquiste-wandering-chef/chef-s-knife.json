@@ -1,0 +1,78 @@
+{
+    "_key": "!items!2UyxlDQPtVBbJtAd",
+    "_id": "2UyxlDQPtVBbJtAd",
+    "img": "icons/tools/cooking/knife-chef-steel-brown.webp",
+    "name": "Chef's Knife",
+    "type": "weapon",
+    "system": {
+        "slug": "chefs-knife",
+        "ammo": null,
+        "baseItem": null,
+        "bonus": {
+            "value": 0
+        },
+        "bonusDamage": {
+            "value": 0
+        },
+        "bulk": {
+            "value": 0.1
+        },
+        "category": "simple",
+        "damage": {
+            "damageType": "slashing",
+            "dice": 1,
+            "die": "d4"
+        },
+        "description": {
+            "value": "<p><em>A broad, razor-sharp blade made for chopping and slicing. In a practiced hand it works as well on a monster as on an onion.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
+        },
+        "expend": null,
+        "grade": null,
+        "group": "knife",
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 0
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "sp": 2
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "range": null,
+        "reload": {
+            "value": ""
+        },
+        "rules": [],
+        "runes": {
+            "potency": 0,
+            "property": [],
+            "striking": 0
+        },
+        "size": "med",
+        "traits": {
+            "rarity": "uncommon",
+            "value": [
+                "deadly-d6",
+                "finesse"
+            ]
+        },
+        "usage": {
+            "canBeAmmo": false,
+            "value": "held-in-one-hand"
+        }
+    }
+}

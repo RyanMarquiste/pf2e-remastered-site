@@ -92,6 +92,108 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
     },
   });
 
+  // The Kitchen Armaments weapons: simple, uncommon cookware weapons for the Wandering Chef, and the feat that trains the character in them.
+  const ACCESS =
+    "<p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>";
+  const kitchenWeapons = [
+    {
+      name: "Chef's Knife", slug: "chefs-knife", img: "icons/tools/cooking/knife-chef-steel-brown.webp",
+      group: "knife", die: "d4", type: "slashing", traits: ["deadly-d6", "finesse"], price: { sp: 2 },
+      text: "A broad, razor-sharp blade made for chopping and slicing. In a practiced hand it works as well on a monster as on an onion.",
+    },
+    {
+      name: "Tenderizer", slug: "tenderizer", img: "icons/tools/hand/hammer-mallet-brown.webp",
+      group: "hammer", die: "d6", type: "bludgeoning", traits: [], price: { sp: 1 },
+      text: "A heavy, studded mallet for pounding tough cuts of meat until they give. It does the same to anything else you hit with it.",
+    },
+    {
+      name: "Skewer", slug: "skewer", img: "icons/consumables/meat/kebab-skewer-vegetable-brown.webp",
+      group: "spear", die: "d4", type: "piercing", traits: ["fatal-d8", "finesse"], price: { sp: 1 },
+      text: "A long, thin metal spike for threading meat and vegetables over a fire, with a point sharp enough to pierce more than dinner.",
+    },
+    {
+      name: "Rolling Pin", slug: "rolling-pin", img: "systems/pf2e/icons/equipment/weapons/club.webp",
+      group: "club", die: "d4", type: "bludgeoning", traits: ["nonlethal"], price: { sp: 1 },
+      text: "A smooth, heavy wooden cylinder for flattening dough. It leaves a bruise, but it is made for flattening and not for killing.",
+    },
+  ];
+  for (const w of kitchenWeapons) {
+    items.push({
+      _id: makeId(`item:${w.name}`),
+      img: w.img,
+      name: w.name,
+      type: "weapon",
+      system: {
+        slug: w.slug,
+        ammo: null,
+        baseItem: null,
+        bonus: { value: 0 },
+        bonusDamage: { value: 0 },
+        bulk: { value: 0.1 },
+        category: "simple",
+        damage: { damageType: w.type, dice: 1, die: w.die },
+        description: { value: `<p><em>${w.text}</em></p>${ACCESS}` },
+        expend: null,
+        grade: null,
+        group: w.group,
+        hardness: 0,
+        hp: { max: 0, value: 0 },
+        level: { value: 0 },
+        material: { grade: null, type: null },
+        price: { value: w.price },
+        publication,
+        quantity: 1,
+        range: null,
+        reload: { value: "" },
+        rules: [],
+        runes: { potency: 0, property: [], striking: 0 },
+        size: "med",
+        traits: { rarity: "uncommon", value: w.traits },
+        usage: { canBeAmmo: false, value: "held-in-one-hand" },
+      },
+    });
+  }
+
+  // Kitchen Armaments: trains the character in the five kitchen weapons (the four above and the frying pan) and unlocks their critical specialization at expert.
+  const kitchenSlugs = [...kitchenWeapons.map((w) => w.slug), "frying-pan"].map((slug) => `item:slug:${slug}`);
+  items.push({
+    _id: makeId("feat:Kitchen Armaments"),
+    img: "icons/tools/cooking/knife-chef-steel-brown.webp",
+    name: "Kitchen Armaments",
+    type: "feat",
+    system: {
+      slug: "kitchen-armaments",
+      actionType: { value: "passive" },
+      actions: { value: null },
+      category: "class",
+      description: {
+        value:
+          "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr />" +
+          "<p>You have spent enough time in a kitchen to know which tools make good weapons. You become trained in the chef's knife, tenderizer, skewer, rolling pin, and frying pan. " +
+          "Whenever you gain a class feature that grants you expert or higher proficiency in simple weapons, you also gain that rank in these weapons.</p>" +
+          "<p>Once your proficiency rank in one of these weapons is expert or higher, you gain access to its critical specialization effect.</p>",
+      },
+      level: { value: 4 },
+      prerequisites: { value: [{ value: "Wandering Chef Dedication" }] },
+      publication,
+      rules: [
+        {
+          key: "MartialProficiency",
+          label: "Kitchen Armaments",
+          slug: "kitchen-armaments",
+          definition: [{ or: kitchenSlugs }],
+          sameAs: "simple",
+          value: 1,
+        },
+        {
+          key: "CriticalSpecialization",
+          predicate: [{ or: kitchenSlugs }, { gte: ["item:proficiency:rank", 2] }],
+        },
+      ],
+      traits: { otherTags: [], rarity: "common", value: ["archetype"] },
+    },
+  });
+
   for (const t of tiers) {
     items.push({
       _id: makeId(`item:Food Projectile:${t.name}`),
