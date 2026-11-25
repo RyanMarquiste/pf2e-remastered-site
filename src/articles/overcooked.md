@@ -25,16 +25,7 @@ summary: "A Wandering Chef feat that adds an Overcook option to Quick Alchemy, t
   <p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. This costs no action and uses nothing up.</p>
 
   <div class="stat-block-section"><span>Food Projectile</span><span>Weapon</span></div>
-  <p>See <a href="{{ 'food-projectile' | articleUrl(collections.articles) | url }}">Food Projectile</a> for the item.</p>
-  <p><strong>Category</strong> Simple; <strong>Group</strong> Club; <strong>Range</strong> 10 feet<br>
-  <strong>Damage</strong> 1d6 bludgeoning<br>
-  <strong>Traits</strong> <span class="trait">Consumable</span> <span class="trait">Fleeting</span> <span class="trait">Nonlethal</span> <span class="trait">Thrown 10 ft.</span> <span class="trait">Versatile F</span></p>
-  <p>The Food Projectile grows more potent as you gain levels, at the same levels and by the same amounts as a <a href="{{ 'volatile-vial' | articleUrl(collections.articles) | url }}">volatile vial</a>.</p>
-  <ul>
-    <li><strong>4th level</strong> You gain a +1 item bonus to attack rolls with it, and it deals 2d6 damage.</li>
-    <li><strong>12th level</strong> You gain a +2 item bonus to attack rolls with it, and it deals 3d6 damage.</li>
-    <li><strong>18th level</strong> You gain a +3 item bonus to attack rolls with it, and it deals 4d6 damage.</li>
-  </ul>
+  <p>The Food Projectile is a <a href="{{ 'food-projectile' | articleUrl(collections.articles) | url }}">Food Projectile</a> item. Its statistics, and how it grows more potent as you gain levels, are given there. It improves at the same levels and by the same amounts as a <a href="{{ 'volatile-vial' | articleUrl(collections.articles) | url }}">volatile vial</a>.</p>
 
   <div class="stat-block special-block">
     <p class="special-label">Special</p>
