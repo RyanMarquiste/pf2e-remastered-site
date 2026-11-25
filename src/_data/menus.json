@@ -2,6 +2,13 @@
   "classes": [
     { "title": "Classes", "url": "/classes/" }
   ],
+  "archetypes": [
+    { "title": "Archetypes", "url": "/archetypes/" }
+  ],
+  "wandering-chef-feats": [
+    { "title": "Archetypes", "url": "/archetypes/" },
+    { "title": "Wandering Chef", "url": "/archetypes/wandering-chef/" }
+  ],
   "alchemist-feats": [
     { "title": "Classes", "url": "/classes/" },
     { "title": "Alchemist", "url": "/classes/alchemist/" },
