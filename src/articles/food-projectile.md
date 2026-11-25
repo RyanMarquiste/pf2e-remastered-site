@@ -24,6 +24,7 @@ summary: "A short-lived lump of overcooked food that a Wandering Chef flings at 
         <p class="appearance-label">Appearance</p>
         <p>A hard, blackened lump of food, scorched and charred through and smelling of smoke, with a few stubborn flecks of seasoning still clinging to it.</p>
       </div>
+      <img class="stat-block-art" src="{{ '/images/food-projectile.png' | url }}" alt="A round, scorched loaf of cross-scored bread, charred dark brown and gray, wreathed in orange and blue flames with curls of smoke rising from it." loading="lazy">
     </div>
   </div>
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
