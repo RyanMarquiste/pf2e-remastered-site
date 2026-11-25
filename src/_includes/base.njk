@@ -42,7 +42,14 @@
           <summary>Archetypes</summary>
           <div class="dropdown-menu">
             <a href="{{ '/archetypes/' | url }}">All Archetypes</a>
-            <a href="{{ '/archetypes/wandering-chef/' | url }}">Wandering Chef</a>
+            <details class="nav-subdropdown">
+              <summary>Wandering Chef</summary>
+              <div class="dropdown-submenu">
+                <a href="{{ '/archetypes/wandering-chef/' | url }}">Overview</a>
+                <a href="{{ '/archetypes/wandering-chef/feats/' | url }}">Feats</a>
+                <a href="{{ '/archetypes/wandering-chef/items/' | url }}">Items</a>
+              </div>
+            </details>
           </div>
         </details>
         <details class="nav-dropdown">

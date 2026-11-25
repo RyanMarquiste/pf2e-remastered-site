@@ -25,6 +25,7 @@ summary: "A Wandering Chef feat that adds an Overcook option to Quick Alchemy, t
   <p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. This costs no action and uses nothing up.</p>
 
   <div class="stat-block-section"><span>Food Projectile</span><span>Weapon</span></div>
+  <p>See <a href="{{ 'food-projectile' | articleUrl(collections.articles) | url }}">Food Projectile</a> for the item.</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Club; <strong>Range</strong> 10 feet<br>
   <strong>Damage</strong> 1d6 bludgeoning<br>
   <strong>Traits</strong> <span class="trait">Consumable</span> <span class="trait">Fleeting</span> <span class="trait">Nonlethal</span> <span class="trait">Thrown 10 ft.</span> <span class="trait">Versatile F</span></p>

@@ -5,9 +5,18 @@
   "archetypes": [
     { "title": "Archetypes", "url": "/archetypes/" }
   ],
+  "wandering-chef": [
+    { "title": "Archetypes", "url": "/archetypes/" }
+  ],
   "wandering-chef-feats": [
     { "title": "Archetypes", "url": "/archetypes/" },
-    { "title": "Wandering Chef", "url": "/archetypes/wandering-chef/" }
+    { "title": "Wandering Chef", "url": "/archetypes/wandering-chef/" },
+    { "title": "Feats", "url": "/archetypes/wandering-chef/feats/" }
+  ],
+  "wandering-chef-items": [
+    { "title": "Archetypes", "url": "/archetypes/" },
+    { "title": "Wandering Chef", "url": "/archetypes/wandering-chef/" },
+    { "title": "Items", "url": "/archetypes/wandering-chef/items/" }
   ],
   "alchemist-feats": [
     { "title": "Classes", "url": "/classes/" },
