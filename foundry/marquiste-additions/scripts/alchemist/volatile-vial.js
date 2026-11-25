@@ -22,7 +22,8 @@ Hooks.once("ready", async () => {
 
 // PF2e takes one off a consumable weapon's quantity each time a Strike is made with it. A vial that reaches 0 is used up, but the chat card's
 // damage buttons still need the item, so it is only marked as spent here and removed later: shortly after its damage is rolled, or when the turn changes.
-const BOMB_VIALS = new Set(["volatile-vial", "bomber-field-vial", "toxicologist-field-vial"]);
+// The Wandering Chef's Food Projectile is thrown the same way, so it is cleared up the same way.
+const BOMB_VIALS = new Set(["volatile-vial", "bomber-field-vial", "toxicologist-field-vial", "food-projectile"]);
 const SPENT = "spent";
 
 Hooks.on("updateItem", async (item, changes, options, userId) => {

@@ -5,6 +5,7 @@ This folder holds two Foundry modules. **Marquiste Additions** (`marquiste-addit
 - **Common Enhancements** (`scripts/common/`): rules that apply across the whole game. Right now that is the injury poison rules (poisoning a weapon, and using the poison up when a Strike hits or critically fails), the Fleeting trait (which removes what carries it at the end of the turn), the Mutable traits, the Formula trait with the formula books on the Crafting tab, and the Compendium Browser setup. The pack has no items yet. None of this is specific to Alchemists, so the scripts are in `scripts/common/`; the three formula items that the books use are in the CorpseCap's Cauldron module, because they describe its items.
 - **Alchemist Enhancements** (`scripts/alchemist/`): features only for Alchemists: the Volatile Vial, the Field Vials, the Toxic Coatings, the Toxicologist's Mutable Acid, the Quick Vial, Create Consumable and Quick Alchemy (Marquiste) actions, and a formula item for each of PF2e's mutagen families that start at level 1 (16 of them, listed in `mutagen-formulas.js`; each covers the Lesser, Moderate, Greater and Major tiers). Built by `build.js` from `vials.js` and `mutagen-formulas.js`. The pack's id is still `marquiste-alchemist-class`, so links from existing characters keep working.
 - **Bard Enhancements** (`scripts/bard/`): features only for Bards. Right now that is the three **Versatile Performance** actions (Make an Impression, Demoralize and Impersonate, rolled with Performance), built by `build.js` from `bard.js`. See Versatile Performance below.
+- **Wandering Chef Enhancements** (`scripts/wandering-chef/`): the **Overcook** action from the Overcooked feat, which creates a **Food Projectile** (4 tiers at levels 1, 4, 12 and 18, scaled like the Volatile Vial but without splash), built by `build.js` from `wandering-chef.js`. See Overcook below.
 
 The **CorpseCap's Cauldron** module has two compendiums. The first has this site's custom alchemical items, the mutagens and Insulating Paste. The second, **Cauldron Formulas**, has one formula item for each of those families, carrying the Formula trait, so a formula can be found by trait in the Compendium Browser and put in a formula book. It has no scripts of its own: the Insulating Paste counter is in Marquiste Additions (`scripts/cauldron/`), because it is behaviour, not content.
 
@@ -35,9 +36,11 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `corpsecaps-cauldron/images/` | The mutagen and Insulating Paste art, referenced as `modules/corpsecaps-cauldron/images/...`. Made by the same script. |
 | `vials.js` | The Alchemist Enhancements items: the Volatile Vial, Field Vials, coatings and the actions; `build.js` calls it. |
 | `bard.js` | The Bard Enhancements items: the three Versatile Performance actions; `build.js` calls it. |
+| `wandering-chef.js` | The Wandering Chef Enhancements items: the Overcook action and the four Food Projectile tiers; `build.js` calls it. |
 | `marquiste-additions/scripts/common/` | Scripts for every character: injury poisons (`injury-poisons.js`), splash targets (`bomb-splash.js`, `splash-geometry.js`), the Fleeting trait, the Compendium Browser setup, and helpers (`shared.js`, and `weapon-picker.js` for the picker windows). |
 | `marquiste-additions/scripts/alchemist/` | Alchemist scripts: the bomb vial upkeep, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Toxicologist feature that gives Mutable Acid. `common/mutable-trait.js` has the Mutable traits themselves. `alchemist.js` holds the helpers they share. |
 | `marquiste-additions/scripts/bard/` | Bard scripts: the Versatile Performance actions (`versatile-performance.js`). |
+| `marquiste-additions/scripts/wandering-chef/` | Wandering Chef scripts: the Overcook action (`overcook.js`). |
 | `marquiste-additions/scripts/cauldron/` | The Insulating Paste counter. |
 | `<module>/packs/<pack>/` | The compiled compendiums. **Not in the repo**: you build them in step 1. |
 
@@ -64,13 +67,17 @@ Foundry v11+ only reads compendiums stored as LevelDB folders, so the JSON has t
    npx @foundryvtt/foundryvtt-cli package pack -n marquiste-bard-class --type Module --in foundry/marquiste-additions/packs/_source/marquiste-bard-class --out foundry/marquiste-additions/packs
    ```
 
-   This creates `foundry/marquiste-additions/packs/marquiste-common-enhancements/`, `.../marquiste-alchemist-class/` and `.../marquiste-bard-class/`, and `foundry/corpsecaps-cauldron/packs/corpsecaps-cauldron/` and `.../corpsecaps-formulas/`. The Common Enhancements pack is empty for now, so Foundry would also create it for itself if you skip that command.
+   ```bash
+   npx @foundryvtt/foundryvtt-cli package pack -n marquiste-wandering-chef --type Module --in foundry/marquiste-additions/packs/_source/marquiste-wandering-chef --out foundry/marquiste-additions/packs
+   ```
+
+   This creates `foundry/marquiste-additions/packs/marquiste-common-enhancements/`, `.../marquiste-alchemist-class/`, `.../marquiste-bard-class/` and `.../marquiste-wandering-chef/`, and `foundry/corpsecaps-cauldron/packs/corpsecaps-cauldron/` and `.../corpsecaps-formulas/`. The Common Enhancements pack is empty for now, so Foundry would also create it for itself if you skip that command.
 
 2. **Copy both module folders**, `foundry/marquiste-additions` and `foundry/corpsecaps-cauldron`, into your Foundry data folder, so you end up with `Data/modules/marquiste-additions/module.json` and `Data/modules/corpsecaps-cauldron/module.json`. (Foundry's data folder is shown under Configuration in the setup screen. On Windows it's usually `%localappdata%\FoundryVTT\Data`.)
 
 3. In your world, go to **Settings → Manage Modules**, enable **Marquiste Additions** and **CorpseCap's Cauldron**, and save. (Enabling the Cauldron on its own makes Foundry offer to turn on Marquiste Additions too.)
 
-4. Open the **Compendium Packs** tab. The **Common Enhancements**, **Alchemist Enhancements** and **Bard Enhancements** packs appear under Marquiste Additions, and the **CorpseCap's Cauldron** and **Cauldron Formulas** packs under CorpseCap's Cauldron. Drag a mutagen onto a character sheet.
+4. Open the **Compendium Packs** tab. The **Common Enhancements**, **Alchemist Enhancements**, **Bard Enhancements** and **Wandering Chef Enhancements** packs appear under Marquiste Additions, and the **CorpseCap's Cauldron** and **Cauldron Formulas** packs under CorpseCap's Cauldron. Drag a mutagen onto a character sheet.
 
 Both `module.json` files ask for Foundry v13 as the minimum and are verified on v14 (build 370, with PF2e 8.6.1). If yours is a different version, change `compatibility` in `build.js` and rebuild.
 
@@ -103,6 +110,7 @@ The settings window groups them under headings:
 | **Alchemist → Toxicologist** | **Infused Poison Expiry** | on | The poison effect stays on the weapon after resting. |
 | **Splash** | **Splash targets** | on | Splash works as in PF2e. See Splash targets below. |
 | **Splash** | **Apply splash automatically** | off | Each creature's row has a Splash button. When on, the active GM's screen applies the splash as soon as the damage is rolled. |
+| **Wandering Chef** | **Wandering Chef enhancements** | on | The Overcook action does nothing. See Overcook below. |
 | **Cauldron** | **Insulating Paste** | on | No chat message with the "use up one instance" button. |
 | **Troubleshooting** | **Troubleshooting mode** | off | The switches below it are hidden and ignored. See Troubleshooting below. |
 
@@ -141,6 +149,14 @@ The Bard feat **Versatile Performance** lets a Bard use Performance for three ac
 - **Demoralize (Versatile Performance)**, under **Actions** (one action): Performance instead of Intimidation.
 
 Drag the ones the character needs onto the sheet. Using one posts its card and then rolls PF2e's own action (`scripts/bard/versatile-performance.js` calls `game.pf2e.actions`) with the **Performance** statistic in place of the usual skill, so the DC (Will for the first two, Perception for Impersonate), the degrees of success and the roll options such as `action:demoralize` are PF2e's own. Select the token and target the creature before using it. The module does not check that the character has the feat or the polymath muse. The **Bard actions** switch under Troubleshooting turns the rolling off, leaving the actions as plain description cards.
+
+### Overcook
+
+The Wandering Chef feat **Overcooked** adds an Overcook option to Quick Alchemy. The **Wandering Chef Enhancements** pack has an **Overcook** action (one action, Manipulate) and four **Food Projectile** weapons (Lesser, Moderate, Greater and Major, levels 1, 4, 12 and 18). Drag the Overcook action onto the character's sheet. A Wandering Chef takes the feat at 4th level, so they start with the Moderate projectile.
+
+Using Overcook posts its card, and `scripts/wandering-chef/overcook.js` then creates the best Food Projectile the character's level allows, held in a free hand (nothing is created if no hand is free). It spends no versatile vial and no food. In combat the projectile is removed when the creator's turn is over, and a thrown one is cleared up like a spent bomb vial (the slug `food-projectile` is in the list in `scripts/alchemist/volatile-vial.js`). Outside combat nothing removes it, so delete it yourself.
+
+The Food Projectile is a simple thrown weapon of the Sling group (1d6 bludgeoning, range 10 feet, with the Consumable, Fleeting, Thrown 10 ft and Versatile F traits). Its attack bonus and damage dice grow with the item's level, with the same rules as the Volatile Vial's, minus the splash. **Flambé** is PF2e's Versatile Fire trait: choose fire damage when you Strike. Like Quick Vial, the action does not check for the alchemist's toolkit. It is switched on and off by **Wandering Chef enhancements** in the settings.
 
 ### Fleeting
 

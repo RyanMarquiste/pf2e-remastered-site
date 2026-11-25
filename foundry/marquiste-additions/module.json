@@ -38,6 +38,7 @@
         "scripts/alchemist/toxicologist.js",
         "scripts/alchemist/daily-preparations.js",
         "scripts/bard/versatile-performance.js",
+        "scripts/wandering-chef/overcook.js",
         "scripts/cauldron/insulating-paste.js"
     ],
     "packs": [
@@ -67,6 +68,17 @@
             "name": "marquiste-bard-class",
             "label": "Bard Enhancements",
             "path": "packs/marquiste-bard-class",
+            "type": "Item",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
+        },
+        {
+            "name": "marquiste-wandering-chef",
+            "label": "Wandering Chef Enhancements",
+            "path": "packs/marquiste-wandering-chef",
             "type": "Item",
             "system": "pf2e",
             "ownership": {

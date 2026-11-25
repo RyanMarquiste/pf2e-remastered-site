@@ -14,6 +14,7 @@ const FORMULA_PACK = "corpsecaps-formulas"; // labelled "Cauldron Formulas": one
 const CLASS_PACK = "marquiste-alchemist-class"; // labelled "Alchemist Enhancements"; the id stays so existing links keep working
 const COMMON_PACK = "marquiste-common-enhancements";
 const BARD_PACK = "marquiste-bard-class"; // labelled "Bard Enhancements"
+const CHEF_PACK = "marquiste-wandering-chef"; // labelled "Wandering Chef Enhancements"
 const IMG = `modules/${CAULDRON_ID}/images/mind-doubling-mutagen.png`;
 const ICHTHYS_IMG = `modules/${CAULDRON_ID}/images/ichthys-mutagen.png`;
 const PASTE_IMG = `modules/${CAULDRON_ID}/images/insulating-paste.png`;
@@ -686,12 +687,17 @@ function writePack(moduleId, pack, list) {
 const bardItems = [];
 require("./bard")({ items: bardItems, publication: modulePublication, makeId });
 
+// Wandering Chef Enhancements: the Overcook action and the Food Projectile.
+const chefItems = [];
+require("./wandering-chef")({ items: chefItems, publication: modulePublication, makeId });
+
 // Common Enhancements: items that apply across the whole game. Nothing is needed yet: the injury poison rules work on PF2e's own poisons.
 const commonItems = [];
 
 writePack(MODULE_ID, COMMON_PACK, commonItems);
 writePack(MODULE_ID, CLASS_PACK, classItems);
 writePack(MODULE_ID, BARD_PACK, bardItems);
+writePack(MODULE_ID, CHEF_PACK, chefItems);
 writePack(CAULDRON_ID, CAULDRON_PACK, items);
 writePack(CAULDRON_ID, FORMULA_PACK, formulaItems);
 
@@ -724,6 +730,8 @@ const moduleJson = {
     "scripts/alchemist/daily-preparations.js",
     // Bard Enhancements
     "scripts/bard/versatile-performance.js",
+    // Wandering Chef Enhancements
+    "scripts/wandering-chef/overcook.js",
     // Behaviour for items in the CorpseCap's Cauldron module (the Insulating Paste counter)
     "scripts/cauldron/insulating-paste.js",
   ],
@@ -748,6 +756,14 @@ const moduleJson = {
       name: BARD_PACK,
       label: "Bard Enhancements",
       path: `packs/${BARD_PACK}`,
+      type: "Item",
+      system: "pf2e",
+      ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
+    },
+    {
+      name: CHEF_PACK,
+      label: "Wandering Chef Enhancements",
+      path: `packs/${CHEF_PACK}`,
       type: "Item",
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },

@@ -1,0 +1,105 @@
+{
+    "_key": "!items!jOHJL12mAqy4uQWO",
+    "_id": "jOHJL12mAqy4uQWO",
+    "img": "icons/consumables/food/bread-toast-tan.webp",
+    "name": "Food Projectile (Moderate)",
+    "type": "weapon",
+    "system": {
+        "slug": "food-projectile",
+        "ammo": null,
+        "baseItem": null,
+        "bonus": {
+            "value": 0
+        },
+        "bonusDamage": {
+            "value": 0
+        },
+        "bulk": {
+            "value": 0
+        },
+        "category": "simple",
+        "containerId": null,
+        "damage": {
+            "damageType": "bludgeoning",
+            "dice": 1,
+            "die": "d6"
+        },
+        "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A hard, blackened lump of food, scorched and charred through and smelling of smoke, with a few stubborn flecks of seasoning still clinging to it.</em></p><p>A spare bit of food, overcooked with alchemical ingredients until it is inedible and has none of the properties it had before. You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p><p>The Food Projectile deals 2d6 bludgeoning damage, or fire damage if flambéed. You gain a +1 item bonus to attack rolls with it.</p>"
+        },
+        "expend": 1,
+        "grade": null,
+        "group": "sling",
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 4
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {}
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "range": 10,
+        "reload": {
+            "value": "-"
+        },
+        "rules": [
+            {
+                "hideIfDisabled": true,
+                "key": "FlatModifier",
+                "predicate": [
+                    {
+                        "gte": [
+                            "parent:level",
+                            4
+                        ]
+                    }
+                ],
+                "selector": "{item|id}-attack",
+                "type": "item",
+                "value": "ternary(gte(@item.level,18),3,ternary(gte(@item.level,12),2,1))"
+            },
+            {
+                "key": "DamageAlteration",
+                "mode": "upgrade",
+                "property": "dice-number",
+                "selectors": [
+                    "{item|id}-damage"
+                ],
+                "slug": "base",
+                "value": "ternary(gte(@item.level,18),4,ternary(gte(@item.level,12),3,ternary(gte(@item.level,4),2,1)))"
+            }
+        ],
+        "runes": {
+            "potency": 0,
+            "property": [],
+            "striking": 0
+        },
+        "size": "med",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "consumable",
+                "fleeting",
+                "thrown-10",
+                "versatile-fire"
+            ]
+        },
+        "usage": {
+            "canBeAmmo": false,
+            "value": "held-in-one-hand"
+        }
+    }
+}

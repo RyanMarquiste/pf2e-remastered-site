@@ -56,6 +56,12 @@ const OPTIONS = {
       "Off: the card has an Apply button for each creature. This needs Splash targets, and the GM needs to be connected.",
     default: false,
   },
+  wanderingChef: {
+    name: "Wandering Chef enhancements",
+    hint:
+      "Using the Overcook action (the Overcooked feat's option for Quick Alchemy) creates a Food Projectile in a free hand, tiered to the character's level, and removes it " +
+      "when their turn is over. Off: that action does nothing.",
+  },
   toxicologistMutableAcid: {
     name: "Mutable Acid",
     hint: "Infused poison items a Toxicologist creates also get the Mutable Acid trait, so their damage can change to acid. Off: items are left as PF2e creates them.",
@@ -137,6 +143,8 @@ const LAYOUT = [
   { level: 1, heading: "Splash" },
   { key: "bombSplash" },
   { key: "bombSplashAutoApply" },
+  { level: 1, heading: "Wandering Chef" },
+  { key: "wanderingChef" },
   { level: 1, heading: "Cauldron" },
   { key: "insulatingPasteCounter" },
   { level: 1, heading: "Troubleshooting" },
