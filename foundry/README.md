@@ -36,7 +36,7 @@ The files were written against the PF2e system's own mutagen data (Cognitive Mut
 | `corpsecaps-cauldron/images/` | The mutagen and Insulating Paste art, referenced as `modules/corpsecaps-cauldron/images/...`. Made by the same script. |
 | `vials.js` | The Alchemist Enhancements items: the Volatile Vial, Field Vials, coatings and the actions; `build.js` calls it. |
 | `bard.js` | The Bard Enhancements items: the three Versatile Performance actions; `build.js` calls it. |
-| `wandering-chef.js` | The Wandering Chef Enhancements items: the Overcook action and the four Food Projectile tiers; `build.js` calls it. |
+| `wandering-chef.js` | The Wandering Chef Enhancements items: the Overcook action, the Food Fight feat and the four Food Projectile tiers; `build.js` calls it. |
 | `marquiste-additions/scripts/common/` | Scripts for every character: injury poisons (`injury-poisons.js`), splash targets (`bomb-splash.js`, `splash-geometry.js`), the Fleeting trait, the Compendium Browser setup, and helpers (`shared.js`, and `weapon-picker.js` for the picker windows). |
 | `marquiste-additions/scripts/alchemist/` | Alchemist scripts: the bomb vial upkeep, the Quick Vial and Create Consumable actions, the Quick Alchemy chooser and the Toxicologist feature that gives Mutable Acid. `common/mutable-trait.js` has the Mutable traits themselves. `alchemist.js` holds the helpers they share. |
 | `marquiste-additions/scripts/bard/` | Bard scripts: the Versatile Performance actions (`versatile-performance.js`). |
@@ -157,6 +157,8 @@ The Wandering Chef feat **Overcooked** adds an Overcook option to Quick Alchemy.
 Using Overcook posts its card, and `scripts/wandering-chef/overcook.js` then creates the best Food Projectile the character's level allows, held in a free hand (nothing is created if no hand is free). It spends no versatile vial and no food. In combat the projectile is removed when the creator's turn is over, and a thrown one is cleared up like a spent bomb vial (the slug `food-projectile` is in the list in `scripts/alchemist/volatile-vial.js`). Outside combat nothing removes it, so delete it yourself.
 
 The Food Projectile is a simple thrown weapon of the Sling group (1d6 bludgeoning, range 10 feet, with the Consumable, Fleeting, Thrown 10 ft and Versatile F traits). Its attack bonus and damage dice grow with the item's level, with the same rules as the Volatile Vial's, minus the splash. **Flambé** is PF2e's Versatile Fire trait: choose fire damage when you Strike. Like Quick Vial, the action does not check for the alchemist's toolkit. It is switched on and off by **Wandering Chef enhancements** in the settings.
+
+**Food Fight** (feat 6) is a feat item in the same pack. Drag it onto a character and Overcook notices it by its slug, `food-fight`: the projectile it makes deals d8 instead of d6, has range 15 feet and the Thrown 15 ft trait, and the module then asks whether to Strike with it as part of the same action. Answering yes rolls the first Strike variant from the character's Strikes (so pick the target first); the Strike still counts toward the multiple attack penalty, which PF2e leaves to you to apply to later Strikes. Answering no, or a Strike that can't be found, leaves the projectile in hand to Strike with from the Actions tab.
 
 ### Fleeting
 

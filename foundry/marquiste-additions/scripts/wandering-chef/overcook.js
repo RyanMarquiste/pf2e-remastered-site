@@ -1,11 +1,13 @@
 // Overcook (the Overcooked feat's option for Quick Alchemy): a Wandering Chef with a free hand creates a Food Projectile, held in that hand and removed when their
-// turn is over. Like Quick Vial, it does not check for the alchemist's toolkit.
+// turn is over. Like Quick Vial, it does not check for the alchemist's toolkit. With the Food Fight feat the projectile is stronger and the character can Strike with it
+// straight away.
 import { MODULE, itemUsed, say } from "../common/shared.js";
 import { enabled } from "../common/settings.js";
 import { tierFor } from "../alchemist/alchemist.js";
 
 const PACK = `${MODULE}.marquiste-wandering-chef`;
 const FLAG = "overcook";
+const FOOD_FIGHT = "food-fight"; // the slug of the Food Fight feat
 
 export async function overcook(actor) {
   const pack = game.packs.get(PACK);
@@ -23,6 +25,15 @@ export async function overcook(actor) {
 
   const data = (await pack.getDocument(entry._id)).toObject();
   delete data._id;
+
+  // Food Fight: the projectile deals d8 instead of d6 and reaches 15 feet instead of 10.
+  const foodFight = actor.itemTypes.feat.some((f) => f.slug === FOOD_FIGHT);
+  if (foodFight) {
+    data.system.damage.die = "d8";
+    data.system.range = 15;
+    data.system.traits.value = data.system.traits.value.map((t) => (t === "thrown-10" ? "thrown-15" : t));
+    data.system.description.value = data.system.description.value.replace(/(\d)d6/g, "$1d8");
+  }
   data.system.equipped = { carryType: "held", handsHeld: 1 };
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
   data.flags = {
@@ -38,6 +49,17 @@ export async function overcook(actor) {
       ? `<p>${actor.name} overcooks a spare bit of food into ${projectile.name}, held in a free hand. It falls apart at the end of this turn.</p>`
       : `<p>${actor.name} overcooks a spare bit of food into ${projectile.name}, held in a free hand. It falls apart at the end of the turn, so remove it yourself, as there is no combat running.</p>`,
   );
+
+  // Food Fight: Overcook and Strike as part of the same action.
+  if (!foodFight) return;
+  const strike = actor.system.actions?.find((a) => a.item?.id === projectile.id);
+  if (!strike?.variants?.length) return ui.notifications.info(`Marquiste Additions: Strike with ${projectile.name} from the Actions tab, as the Strike wasn't found.`);
+  const go = await foundry.applications.api.DialogV2.confirm({
+    window: { title: "Food Fight" },
+    content: `<p>Strike with ${projectile.name} as part of this action?</p>`,
+    rejectClose: false,
+  });
+  if (go) await strike.variants[0].roll();
 }
 
 // Using the Overcook action.

@@ -1,0 +1,46 @@
+{
+    "_key": "!items!7WGduRLsxDWrV6JB",
+    "_id": "7WGduRLsxDWrV6JB",
+    "img": "icons/consumables/food/bread-toast-tan.webp",
+    "name": "Food Fight",
+    "type": "feat",
+    "system": {
+        "slug": "food-fight",
+        "actionType": {
+            "value": "passive"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "class",
+        "description": {
+            "value": "<p><strong>Prerequisites</strong> Wandering Chef Dedication, Overcooked</p><hr /><p>You have learned to turn whatever is on the table into a weapon, and to throw it the moment it leaves the pan.</p><p><strong>Overcook and Strike</strong> When you use Overcook, you can Strike with the Food Projectile it creates as part of the same action. This Strike counts toward your multiple attack penalty as normal.</p><p><strong>Heavier and farther</strong> The Food Projectiles you create with Overcook deal d8 damage instead of d6, and their range increases from 10 feet to 15 feet, so they have the thrown 15 ft. trait instead of thrown 10 ft. They still deal one more die at 4th, 12th, and 18th level.</p><hr /><p><strong>Module</strong> With this feat on a character, the Overcook action makes the stronger projectile and offers the Strike. It can be switched off in the module settings under Wandering Chef.</p>"
+        },
+        "level": {
+            "value": 6
+        },
+        "prerequisites": {
+            "value": [
+                {
+                    "value": "Wandering Chef Dedication"
+                },
+                {
+                    "value": "Overcooked"
+                }
+            ]
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "archetype"
+            ]
+        }
+    }
+}
