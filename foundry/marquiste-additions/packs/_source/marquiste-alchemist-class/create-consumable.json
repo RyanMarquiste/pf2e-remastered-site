@@ -13,7 +13,7 @@
         },
         "category": "interaction",
         "description": {
-            "value": "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit, you have a free hand, and you have at least one versatile vial</p><hr /><p>This is the Create Consumable option of Quick Alchemy. Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert.</p>"
+            "value": "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit, you have a free hand, and you have at least one versatile vial</p><hr /><p>This is the Create Consumable option of Quick Alchemy. Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make.</p>"
         },
         "frequency": null,
         "publication": {
@@ -26,7 +26,10 @@
                 "key": "CraftingAbility",
                 "craftableItems": [
                     "item:trait:alchemical",
-                    "item:trait:consumable"
+                    "item:trait:consumable",
+                    {
+                        "not": "item:trait:processed"
+                    }
                 ],
                 "priority": 15,
                 "resource": "versatile-vials",

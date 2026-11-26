@@ -352,14 +352,14 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           "<p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit, you have a free hand, and you have at least one versatile vial</p><hr />" +
           "<p>This is the Create Consumable option of Quick Alchemy. Expend one versatile vial to create a single alchemical consumable item of your level or lower that's " +
           "in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated " +
-          "before the start of your next turn or else it becomes inert.</p>",
+          "before the start of your next turn or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make.</p>",
       },
       frequency: null,
       publication,
       rules: [
         {
           key: "CraftingAbility",
-          craftableItems: ["item:trait:alchemical", "item:trait:consumable"],
+          craftableItems: ["item:trait:alchemical", "item:trait:consumable", { not: "item:trait:processed" }],
           priority: 15,
           resource: "versatile-vials",
           slug: "create-consumable",
@@ -392,7 +392,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
           "<h2>Create Consumable</h2>" +
           "<p><strong>Requirements</strong> You have at least one versatile vial</p>" +
           "<p>Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in " +
-          "alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert.</p>" +
+          "alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make.</p>" +
           "<h2>Quick Vial</h2>" +
           "<p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait and must be " +
           "activated by the end of your current turn or else it becomes inert.</p>" +

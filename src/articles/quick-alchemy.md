@@ -23,7 +23,7 @@ summary: "House-rule revisions to the Alchemist's Quick Alchemy feat."
 
   <div class="stat-block-section"><span>Create Consumable</span></div>
   <p><strong>Requirements</strong> You have at least one versatile vial</p>
-  <p>Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert.</p>
+  <p>Expend one versatile vial to create a single alchemical consumable item of your level or lower that's in your formula book. Skip the normal monetary cost in alchemical raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make.</p>
 
   <div class="stat-block-section"><span>Quick Vial</span></div>
   <p>Create a volatile vial that can be used only as a bomb or for the volatile vial option from your research field. This item has the infused trait and must be activated by the end of your current turn or else it becomes inert.</p>
