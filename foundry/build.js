@@ -638,12 +638,18 @@ function formulaItem({ family, img, made, rarity = "common", tiers, pub, idSeed 
   };
 }
 
+// The Cognitive Mutagen from PF2e, with its benefit and drawback as separate effects (see cognitive-mutagen.js).
+const cognitive = require("./cognitive-mutagen")({ items, publication, makeId, uuidOf, tiers });
+
 // CorpseCap's Cauldron: the mutagens and Insulating Paste.
 const formulaItems = [];
+// Mutagens that share their name with a PF2e mutagen: their formulas keep a "ccc" in the id seed and slug, so they stay apart from the Alchemist pack's formula for PF2e's.
+const SAME_NAME_AS_PF2E = new Set([DRAKE, "Cognitive Mutagen"]);
 for (const [family, img, made] of [
   ["Mind Doubling Mutagen", IMG, "a mutagen that doubles the mind"],
   ["Ichthys Mutagen", ICHTHYS_IMG, "a mutagen that gives a fish-like form"],
   [DRAKE, DRAKE_IMG, "a mutagen that gives you a drake's scales and keen eyes"],
+  ["Cognitive Mutagen", cognitive.img, "a mutagen that clears the mind but dulls the body"],
   ["Insulating Paste", PASTE_IMG, "a paste that insulates against energy"],
 ]) {
   const tierItems = tiers.map((t) => {
@@ -651,7 +657,9 @@ for (const [family, img, made] of [
     if (!found) throw new Error(`No ${family} (${t.name}) item for its formula`);
     return { name: found.name, level: found.system.level.value, uuid: uuidOf(found._id) };
   });
-  const sameName = family === DRAKE ? { idSeed: "Drakeheart Mutagen (CCC)", slug: "formula-drakeheart-mutagen-ccc" } : {};
+  const sameName = SAME_NAME_AS_PF2E.has(family)
+    ? { idSeed: `${family} (CCC)`, slug: `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}-ccc` }
+    : {};
   formulaItems.push(formulaItem({ family, img, made, tiers: tierItems, pub: publication, ...sameName }));
 }
 

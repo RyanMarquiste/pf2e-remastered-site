@@ -1,0 +1,78 @@
+{
+    "_key": "!items!qgaZIlIO9kxEeoyO",
+    "_id": "qgaZIlIO9kxEeoyO",
+    "img": "icons/consumables/potions/potion-vial-corked-purple.webp",
+    "name": "Effect: Cognitive Mutagen (Greater)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-cognitive-mutagen-ccc-greater",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.Vj3PtgnDBRoUsYLN]</p><p><strong>Benefit</strong> You gain a +3 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}. Your critical failures on Recall Knowledge checks become failures instead. You become trained in one Intelligence-based skill [Arcana, Crafting, Lore, Occultism, Society], chosen at creation.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.bcVxhhyLMpfAqbuD].</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 11
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "arcana",
+                    "crafting",
+                    "lore-skill-check",
+                    "occultism",
+                    "society"
+                ],
+                "slug": "cognitive-mutagen-bonus",
+                "type": "item",
+                "value": 3
+            },
+            {
+                "key": "FlatModifier",
+                "predicate": [
+                    "action:recall-knowledge"
+                ],
+                "selector": "skill-check",
+                "slug": "cognitive-mutagen-recall-knowledge-bonus",
+                "type": "item",
+                "value": 3
+            },
+            {
+                "key": "AdjustDegreeOfSuccess",
+                "adjustment": {
+                    "criticalFailure": "one-degree-better"
+                },
+                "predicate": [
+                    "action:recall-knowledge"
+                ],
+                "selector": "skill-check",
+                "type": "skill"
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.bcVxhhyLMpfAqbuD"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

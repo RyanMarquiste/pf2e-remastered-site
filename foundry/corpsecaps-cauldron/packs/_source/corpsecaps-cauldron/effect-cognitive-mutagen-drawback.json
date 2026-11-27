@@ -1,0 +1,85 @@
+{
+    "_key": "!items!bcVxhhyLMpfAqbuD",
+    "_id": "bcVxhhyLMpfAqbuD",
+    "img": "icons/consumables/potions/potion-vial-corked-purple.webp",
+    "name": "Effect: Cognitive Mutagen Drawback",
+    "type": "effect",
+    "system": {
+        "slug": "effect-cognitive-mutagen-ccc-drawback",
+        "description": {
+            "value": "<p>Granted by the Cognitive Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a -2 penalty to weapon and unarmed attack rolls, Athletics checks, and acrobatics checks. You can carry 2 less Bulk than normal before becoming encumbered, and the maximum Bulk you can carry is reduced by 4.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "sustained": false,
+            "unit": "unlimited",
+            "value": -1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "cognitive-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "acrobatics",
+                    "athletics",
+                    "strike-attack-roll"
+                ],
+                "slug": "cognitive-mutagen-drawback",
+                "value": -2,
+                "predicate": [
+                    {
+                        "not": "cognitive-drawback-suppressed"
+                    }
+                ]
+            },
+            {
+                "key": "ActiveEffectLike",
+                "mode": "subtract",
+                "path": "inventory.bulk.encumberedAfterAddend",
+                "value": 2,
+                "predicate": [
+                    {
+                        "not": "cognitive-drawback-suppressed"
+                    }
+                ]
+            },
+            {
+                "key": "ActiveEffectLike",
+                "mode": "subtract",
+                "path": "inventory.bulk.maxAddend",
+                "value": 4,
+                "predicate": [
+                    {
+                        "not": "cognitive-drawback-suppressed"
+                    }
+                ]
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}
