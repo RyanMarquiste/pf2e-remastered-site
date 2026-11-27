@@ -50,9 +50,9 @@ Hooks.on("createChatMessage", async (message) => {
       `<p>What does ${actor.name} do with Quick Cooking?</p>` +
       `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Consumable and Create Processed Food need one." : ""}</p>`,
     buttons: [
+      { action: "overcook", label: "Overcook" },
       { action: "consumable", label: "Create Consumable", default: true },
       { action: "processed", label: "Create Processed Food (takes 1 minute)" },
-      { action: "overcook", label: "Overcook" },
     ],
     render: (event, dialog) => {
       for (const [name, icon] of [["consumable", CONSUMABLE_ICON], ["processed", PROCESSED_ICON], ["overcook", OVERCOOK_ICON]]) {
