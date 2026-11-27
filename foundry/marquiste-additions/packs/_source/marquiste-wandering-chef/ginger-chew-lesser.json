@@ -14,7 +14,7 @@
         "containerId": null,
         "damage": null,
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr /><p>A small, chewy lozenge of candied ginger that settles an unsettled stomach. It is a weaker, shorter-lasting version of the Ginger Chew. A lesser ginger chew lasts for 1 minute and grants you a +1 item bonus to Fortitude saves against being sickened.</p><p>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.unX3jKhLaT6MZpw6]{Effect: Ginger Chew (Lesser)}</p><hr /><p><strong>Secondary Effect</strong> <span class=\"action-glyph\">1</span></p><p><strong>Effect</strong> Reduce your sickened value by 1, if any. The chew becomes inert.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr /><p>A small, chewy lozenge of candied ginger that settles an unsettled stomach. It is a weaker, shorter-lasting version of the Ginger Chew. A lesser ginger chew lasts for 1 minute and grants you a +1 item bonus to Fortitude saves against being sickened.</p><p>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.unX3jKhLaT6MZpw6]{Effect: Ginger Chew (Lesser)}</p><hr /><p><strong>Secondary Effect</strong> <span class=\"action-glyph\">1</span></p><p><strong>Effect</strong> Reduce your sickened value by 1, if any. The chew becomes inert.</p>"
         },
         "hardness": 0,
         "hp": {
@@ -49,7 +49,8 @@
             "value": [
                 "alchemical",
                 "consumable",
-                "lozenge"
+                "lozenge",
+                "marquiste"
             ]
         },
         "usage": {

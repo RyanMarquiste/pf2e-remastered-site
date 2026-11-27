@@ -14,7 +14,7 @@
         },
         "category": "class",
         "description": {
-            "value": "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr /><p>You have spent enough time in a kitchen to know which tools make good weapons. You become trained in the chef's knife, cleaver, tenderizer, skewer, rolling pin, and frying pan. Whenever you gain a class feature that grants you expert or higher proficiency in simple weapons, you also gain that rank in these weapons.</p><p>Once your proficiency rank in one of these weapons is expert or higher, you gain access to its critical specialization effect.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr /><p>You have spent enough time in a kitchen to know which tools make good weapons. You become trained in the chef's knife, cleaver, tenderizer, skewer, rolling pin, and frying pan. Whenever you gain a class feature that grants you expert or higher proficiency in simple weapons, you also gain that rank in these weapons.</p><p>Once your proficiency rank in one of these weapons is expert or higher, you gain access to its critical specialization effect.</p>"
         },
         "level": {
             "value": 4
@@ -77,7 +77,8 @@
             "otherTags": [],
             "rarity": "common",
             "value": [
-                "archetype"
+                "archetype",
+                "marquiste"
             ]
         }
     }

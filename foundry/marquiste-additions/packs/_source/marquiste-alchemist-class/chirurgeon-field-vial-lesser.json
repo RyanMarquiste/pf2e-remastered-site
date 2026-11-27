@@ -17,7 +17,7 @@
             "type": "untyped"
         },
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p><hr /><p><em>A corked flask of thick, rust-red liquid that clings and clots at the glass when tipped, flecked with bits of green herb and smelling of iron and crushed herbs.</em></p><p>Instead of dealing damage, this vial restores Hit Points to one living creature. You can either drink the vial yourself, or throw it at a willing creature within 20 feet. The creature that drinks or is hit by the vial regains @Damage[1d6[healing]] Hit Points. If the vial is drunk, it also has the elixir trait.</p><p><strong>Coagulant</strong> A creature that recovers Hit Points from a coagulant item can't recover Hit Points from another coagulant item for 10 minutes, though it still gains their other effects.</p><p><strong>Advanced Vial (11th level)</strong> When the vial heals a creature with half its maximum Hit Points or fewer, the coagulant trait doesn't apply to that healing.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Interact</p><hr /><p><em>A corked flask of thick, rust-red liquid that clings and clots at the glass when tipped, flecked with bits of green herb and smelling of iron and crushed herbs.</em></p><p>Instead of dealing damage, this vial restores Hit Points to one living creature. You can either drink the vial yourself, or throw it at a willing creature within 20 feet. The creature that drinks or is hit by the vial regains @Damage[1d6[healing]] Hit Points. If the vial is drunk, it also has the elixir trait.</p><p><strong>Coagulant</strong> A creature that recovers Hit Points from a coagulant item can't recover Hit Points from another coagulant item for 10 minutes, though it still gains their other effects.</p><p><strong>Advanced Vial (11th level)</strong> When the vial heals a creature with half its maximum Hit Points or fewer, the coagulant trait doesn't apply to that healing.</p>"
         },
         "hardness": 0,
         "hp": {
@@ -52,7 +52,8 @@
                 "consumable",
                 "fleeting",
                 "healing",
-                "infused"
+                "infused",
+                "marquiste"
             ]
         },
         "usage": {

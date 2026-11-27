@@ -24,7 +24,7 @@
             "die": "d4"
         },
         "description": {
-            "value": "<p><em>A long, thin metal spike for threading meat and vegetables over a fire, with a point sharp enough to pierce more than dinner.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><em>A long, thin metal spike for threading meat and vegetables over a fire, with a point sharp enough to pierce more than dinner.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
         },
         "expend": null,
         "grade": null,
@@ -67,7 +67,8 @@
             "rarity": "uncommon",
             "value": [
                 "fatal-d8",
-                "finesse"
+                "finesse",
+                "marquiste"
             ]
         },
         "usage": {

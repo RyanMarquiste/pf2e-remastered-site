@@ -1,4 +1,4 @@
-// Quick Alchemy (Marquiste): with the Quick Alchemy setting switched on, using the Quick Alchemy (Marquiste) action asks the character to choose
+// Quick Alchemy (the Marquiste action): with the Quick Alchemy setting switched on, using that action asks the character to choose
 // Quick Vial or Create Consumable. Create Consumable is shown but cannot be chosen while they have no versatile vial left.
 import { MODULE, itemUsed } from "../common/shared.js";
 import { enabled, log } from "../common/settings.js";
@@ -15,11 +15,11 @@ Hooks.on("createChatMessage", async (message) => {
   const feat = await itemUsed(message);
   if (!feat || !(SLUGS.includes(feat.slug) || NAMES.includes(feat.name))) return;
   if (!game.settings.get(MODULE, SETTING)) {
-    return ui.notifications.info("Quick Alchemy is switched off in the module settings (Alchemist), so Quick Alchemy (Marquiste) does nothing.");
+    return ui.notifications.info("Quick Alchemy is switched off in the module settings (Alchemist), so the Marquiste Quick Alchemy action does nothing.");
   }
   const actor = feat.actor;
   const vials = versatileVials(actor);
-  log(`Quick Alchemy (Marquiste) used by ${actor.name}; versatile vials: ${vials}`);
+  log(`Quick Alchemy (Marquiste action) used by ${actor.name}; versatile vials: ${vials}`);
 
   const choice = await foundry.applications.api.DialogV2.wait({
     window: { title: "Quick Alchemy" },

@@ -37,7 +37,7 @@ const OPTIONS = {
   volatileVialRules: {
     name: "Quick Alchemy",
     hint:
-      "Turns on the alternate Quick Alchemy: using the Quick Alchemy (Marquiste) action asks you to choose Quick Vial or Create Consumable. " +
+      "Turns on the alternate Quick Alchemy: using the Quick Alchemy action from the Alchemist Enhancements pack asks you to choose Quick Vial or Create Consumable. " +
       "An Alchemist's versatile vials stay as PF2e's resource; a Volatile Vial, the throwable bomb, is only created by Quick Vial. " +
       "Off: that action does nothing. PF2e's own Quick Alchemy is not changed.",
     default: false,
@@ -108,7 +108,7 @@ const OPTIONS = {
   },
   alchemistActions: {
     name: "Alchemist actions",
-    hint: "The Quick Vial, Create Consumable and Quick Alchemy (Marquiste) actions, and removing what they create when the turn ends.",
+    hint: "The Quick Vial, Create Consumable and Quick Alchemy actions, and removing what they create when the turn ends.",
   },
   bardActions: {
     name: "Bard actions",

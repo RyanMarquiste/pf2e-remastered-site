@@ -25,7 +25,7 @@
             "die": "d6"
         },
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A hard, blackened lump of food, scorched and charred through and smelling of smoke, with a few stubborn flecks of seasoning still clinging to it.</em></p><p>A spare bit of food, flash-cooked with alchemical ingredients until it is inedible and has none of the properties it had before. You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p><p>The Food Projectile deals 3d6 bludgeoning damage, or fire damage if flambéed. You gain a +2 item bonus to attack rolls with it.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Activate</strong> <span class=\"action-glyph\">A</span> Strike</p><hr /><p><em>A hard, blackened lump of food, scorched and charred through and smelling of smoke, with a few stubborn flecks of seasoning still clinging to it.</em></p><p>A spare bit of food, flash-cooked with alchemical ingredients until it is inedible and has none of the properties it had before. You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p><p>The Food Projectile deals 3d6 bludgeoning damage, or fire damage if flambéed. You gain a +2 item bonus to attack rolls with it.</p>"
         },
         "expend": null,
         "grade": null,
@@ -94,7 +94,8 @@
                 "fleeting",
                 "nonlethal",
                 "propulsive",
-                "versatile-fire"
+                "versatile-fire",
+                "marquiste"
             ]
         },
         "usage": {

@@ -1,0 +1,11 @@
+/* Source traits (Marquiste, Cauldron): one look for every source chip, so it is clear they name where an item came from and are not a functional trait.
+   PF2e draws a trait chip as an element with class "tag" and the trait in data-trait, sometimes as the slug and sometimes as the label, so both are matched. */
+.tag[data-trait="marquiste"],
+.tag[data-trait="Marquiste"],
+.tag[data-trait="cauldron"],
+.tag[data-trait="Cauldron"] {
+  background: #1f6f78 !important;
+  color: #ffffff !important;
+  border: 1px dashed #a8e0e6 !important;
+  font-style: italic;
+}

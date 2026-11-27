@@ -11,7 +11,7 @@
         },
         "containerId": null,
         "description": {
-            "value": "<p>This mobile collection of spices, food packs, and basic cooking implements can be used for quick work in the kitchen or at a campfire. If you wear your cooking toolkit, you can draw and replace it as part of the action that uses it.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p>This mobile collection of spices, food packs, and basic cooking implements can be used for quick work in the kitchen or at a campfire. If you wear your cooking toolkit, you can draw and replace it as part of the action that uses it.</p>"
         },
         "hardness": 0,
         "hp": {
@@ -40,7 +40,9 @@
         "size": "med",
         "traits": {
             "rarity": "common",
-            "value": []
+            "value": [
+                "marquiste"
+            ]
         },
         "usage": {
             "value": "held-in-two-hands"

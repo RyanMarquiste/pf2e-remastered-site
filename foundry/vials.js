@@ -1,4 +1,4 @@
-// Volatile Vial, the four Field Vials, the Toxic Coating effects, and the Quick Alchemy (Marquiste) action.
+// Volatile Vial, the four Field Vials, the Toxic Coating effects, and the Quick Alchemy action (the Marquiste one).
 // Called from build.js, which supplies the shared helpers.
 const tags = require("./tags");
 
@@ -376,7 +376,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
   items.push({
     _id: makeId("action:Quick Alchemy (House Rule)"),
     img: "systems/pf2e/icons/actions/OneAction.webp",
-    name: `Quick Alchemy (${tags.marquiste.long})`,
+    name: "Quick Alchemy", // the Marquiste source trait and Source line tell it from PF2e's own
     type: "action",
     system: {
       slug: "quick-alchemy-marquiste",

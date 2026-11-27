@@ -34,7 +34,7 @@
             "value": 0
         },
         "description": {
-            "value": "<p>The formula for Drakeheart Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Drakeheart Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.GS4YvQieBS11JNYR]{Drakeheart Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.xY2MogTwH9Fd8UPG]{Drakeheart Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.WuzLBK78DgIt8SsN]{Drakeheart Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.M4ZOHOlne43ArjOC]{Drakeheart Mutagen (Major)} (level 17)</li></ul>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p>The formula for Drakeheart Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Drakeheart Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.GS4YvQieBS11JNYR]{Drakeheart Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.xY2MogTwH9Fd8UPG]{Drakeheart Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.WuzLBK78DgIt8SsN]{Drakeheart Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.M4ZOHOlne43ArjOC]{Drakeheart Mutagen (Major)} (level 17)</li></ul>"
         },
         "hardness": 0,
         "hp": {
@@ -65,7 +65,8 @@
         "traits": {
             "rarity": "common",
             "value": [
-                "formula"
+                "formula",
+                "marquiste"
             ]
         },
         "usage": {

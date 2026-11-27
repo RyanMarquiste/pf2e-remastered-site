@@ -1,11 +1,9 @@
-// The Wandering Chef Enhancements: the Wandering Chef Dedication (Marquiste) with its food packets, Quick Cooking and its two options (Create Food and
+// The Wandering Chef Enhancements: the Wandering Chef Dedication with its food packets, Quick Cooking and its two options (Create Food and
 // Flash Cook), the Cooking Toolkit, and the Food Projectile Flash Cook makes (one item for each tier, at the same levels and with the same scaling as the Volatile
 // Vial, but without splash). Called from build.js, which supplies the shared helpers.
 //
 // Using the Quick Cooking action asks which option to use (scripts/wandering-chef/quick-cooking.js). Using the Flash Cook action posts its card and the module
 // script (scripts/wandering-chef/flash-cook.js) creates the best Food Projectile the character's level allows, held in a free hand and removed when their turn is over.
-const tags = require("./tags");
-
 module.exports = function buildWanderingChef({ items, publication, makeId, uuidOf }) {
   const SUBSIST = "Compendium.pf2e.actionspf2e.Item.49y9Ec4bDii8pcD3";
 
@@ -210,9 +208,9 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // The Wandering Chef Dedication (Marquiste): the dedication from the Tian Xia Character Guide with food packets and Quick Cooking in place of versatile vials
+  // The Wandering Chef Dedication (the Marquiste one, named like the official feat; the source trait and Source line tell them apart): the dedication from the Tian Xia Character Guide with food packets and Quick Cooking in place of versatile vials
   // and Quick Alchemy. The food packets are a SpecialResource tied to the Food Packet item's quantity, which PF2e refills at daily preparations.
-  const dedicationName = `Wandering Chef Dedication (${tags.marquiste.long})`;
+  const dedicationName = "Wandering Chef Dedication";
   items.push({
     _id: makeId("feat:Wandering Chef Dedication (Marquiste)"),
     img: "icons/sundries/books/book-red-exclamation.webp",
@@ -255,11 +253,11 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // Additional Servings (Marquiste): raises the number of food packets, up to three times.
+  // Additional Servings (the Marquiste one): raises the number of food packets, up to three times.
   items.push({
     _id: makeId("feat:Additional Servings (Marquiste)"),
     img: "icons/sundries/books/book-red-exclamation.webp",
-    name: `Additional Servings (${tags.marquiste.long})`,
+    name: "Additional Servings",
     type: "feat",
     system: {
       slug: "additional-servings-marquiste",

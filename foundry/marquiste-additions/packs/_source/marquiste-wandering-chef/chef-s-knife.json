@@ -24,7 +24,7 @@
             "die": "d4"
         },
         "description": {
-            "value": "<p><em>A broad, razor-sharp blade made for chopping and slicing. In a practiced hand it works as well on a monster as on an onion.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><em>A broad, razor-sharp blade made for chopping and slicing. In a practiced hand it works as well on a monster as on an onion.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
         },
         "expend": null,
         "grade": null,
@@ -67,7 +67,8 @@
             "rarity": "uncommon",
             "value": [
                 "deadly-d6",
-                "finesse"
+                "finesse",
+                "marquiste"
             ]
         },
         "usage": {

@@ -14,7 +14,7 @@
         },
         "category": "interaction",
         "description": {
-            "value": "<p><strong>Requirements</strong> You have the Flash Cook feat, you're either holding or wearing a cooking toolkit, and you have a free hand</p><hr /><p>This is the Flash Cook option of Quick Cooking. You use alchemical ingredients to flash-cook a spare bit of food into a Food Projectile that you can fling at an enemy. The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart.</p><p>Using Flash Cook does not expend a food packet and does not consume any food or other food resources. The flash cooking leaves the food inedible: the Food Projectile has no nutritional value and none of the other properties the food would otherwise have.</p><p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. This costs no action and uses nothing up.</p><p>The Food Projectile's tier matches your level: Lesser at 1st, Moderate at 4th, Greater at 12th, and Major at 18th.</p><hr /><p><strong>Module</strong> Using this action creates the Food Projectile, held in a free hand, and removes it when your turn is over. It can be switched off in the module settings under Wandering Chef.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Requirements</strong> You have the Flash Cook feat, you're either holding or wearing a cooking toolkit, and you have a free hand</p><hr /><p>This is the Flash Cook option of Quick Cooking. You use alchemical ingredients to flash-cook a spare bit of food into a Food Projectile that you can fling at an enemy. The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart.</p><p>Using Flash Cook does not expend a food packet and does not consume any food or other food resources. The flash cooking leaves the food inedible: the Food Projectile has no nutritional value and none of the other properties the food would otherwise have.</p><p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. This costs no action and uses nothing up.</p><p>The Food Projectile's tier matches your level: Lesser at 1st, Moderate at 4th, Greater at 12th, and Major at 18th.</p><hr /><p><strong>Module</strong> Using this action creates the Food Projectile, held in a free hand, and removes it when your turn is over. It can be switched off in the module settings under Wandering Chef.</p>"
         },
         "frequency": null,
         "publication": {
@@ -27,7 +27,8 @@
             "otherTags": [],
             "rarity": "common",
             "value": [
-                "manipulate"
+                "manipulate",
+                "marquiste"
             ]
         }
     }

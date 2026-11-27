@@ -673,6 +673,10 @@ for (const family of require("./mutagen-formulas")) {
   );
 }
 
+// The source trait an item carries (see scripts/common/source-traits.js): Marquiste for Marquiste Additions, Cauldron for CorpseCap's Cauldron. Effects are
+// only granted by another item, so they don't carry one.
+const SOURCE_TRAITS = { [MODULE_ID]: "marquiste", [CAULDRON_ID]: "cauldron" };
+
 function writePack(moduleId, pack, list) {
   const out = sourceDir(moduleId, pack);
   fs.rmSync(out, { recursive: true, force: true });
@@ -680,6 +684,17 @@ function writePack(moduleId, pack, list) {
   const slugOf = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   const nameCounts = {};
   for (const item of list) nameCounts[slugOf(item.name)] = (nameCounts[slugOf(item.name)] ?? 0) + 1;
+  const sourceTrait = SOURCE_TRAITS[moduleId];
+  for (const item of list) {
+    const traits = item.system?.traits?.value;
+    if (sourceTrait && item.type !== "effect" && Array.isArray(traits) && !traits.includes(sourceTrait)) traits.push(sourceTrait);
+    // The Source line goes at the top of the description, as PF2e's own items print one.
+    const description = item.system?.description;
+    const title = item.system?.publication?.title;
+    if (item.type !== "effect" && title && typeof description?.value === "string" && !description.value.includes("<strong>Source</strong>")) {
+      description.value = `<p><strong>Source</strong> ${title}</p>` + description.value;
+    }
+  }
   for (const item of list) {
     // Two items can share a name (such as a feat and an action), so a repeated name gets its type added to the file name.
     const file = slugOf(item.name) + (nameCounts[slugOf(item.name)] > 1 ? "-" + item.type : "") + ".json";
@@ -788,12 +803,14 @@ const moduleJson = {
   authors: [{ name: "Ryan Marquiste" }],
   compatibility: { minimum: "13", verified: "14" },
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
+  styles: ["styles/source-traits.css"],
   esmodules: [
     // Common Enhancements
     "scripts/common/settings.js",
     "scripts/common/fleeting-trait.js",
     "scripts/common/mutable-trait.js",
     "scripts/common/formula-trait.js",
+    "scripts/common/source-traits.js",
     "scripts/common/formula-books.js",
     "scripts/common/crafting-tab.js",
     "scripts/common/compendium-browser.js",

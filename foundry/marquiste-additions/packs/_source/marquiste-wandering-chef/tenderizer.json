@@ -24,7 +24,7 @@
             "die": "d6"
         },
         "description": {
-            "value": "<p><em>A heavy, studded mallet for pounding tough cuts of meat until they give. It does the same to anything else you hit with it.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><em>A heavy, studded mallet for pounding tough cuts of meat until they give. It does the same to anything else you hit with it.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
         },
         "expend": null,
         "grade": null,
@@ -65,7 +65,9 @@
         "size": "med",
         "traits": {
             "rarity": "uncommon",
-            "value": []
+            "value": [
+                "marquiste"
+            ]
         },
         "usage": {
             "canBeAmmo": false,
