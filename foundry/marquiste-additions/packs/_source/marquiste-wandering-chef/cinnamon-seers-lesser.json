@@ -14,7 +14,7 @@
         "containerId": null,
         "damage": null,
         "description": {
-            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr /><p>Zippy, alchemically treated cinnamon suffuses cinnamon seers, a rock candy with a lively taste that provides a mental boost. This is a weaker, shorter-lasting version of the cinnamon seer. A lesser cinnamon seer remains in your mouth for 10 minutes, its stimulating flavor granting you a +1 item bonus to checks to Recall Knowledge.</p><p>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.nJaa6KVqpu3h0N6X]{Effect: Cinnamon Seers (Lesser)}</p><hr /><p><strong>Secondary Effect</strong> <span class=\"action-glyph\">r</span> (fortune)</p><p><strong>Trigger</strong> You gain no information from a Recall Knowledge check</p><hr /><p><strong>Effect</strong> Reroll the triggering check. If this was a secret check, the GM rerolls rather than you; the candy doesn't give you any insight into what the GM rolled, so in that case you're rerolling based only on guesswork. The seer becomes inert. You become temporarily immune to cinnamon seers until the next time you make your daily preparations. While the effect lasts it gives you the @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr]{Bite Cinnamon Seers} action, which does this.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr /><p>Zippy, alchemically treated cinnamon suffuses cinnamon seers, a rock candy with a lively taste that provides a mental boost. This is a weaker, shorter-lasting version of the cinnamon seer. A lesser cinnamon seer remains in your mouth for 10 minutes. When you activate it, choose Arcana, Nature, Occultism, Religion or Lore; its stimulating flavor grants you a +1 item bonus to checks to Recall Knowledge with that skill.</p><p>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.nJaa6KVqpu3h0N6X]{Effect: Cinnamon Seers (Lesser)}</p><hr /><p><strong>Secondary Effect</strong> <span class=\"action-glyph\">r</span> (fortune)</p><p><strong>Trigger</strong> You gain no information from a Recall Knowledge check</p><hr /><p><strong>Effect</strong> Reroll the triggering check, which has to be a check with the skill you chose. If this was a secret check, the GM rerolls rather than you; the candy doesn't give you any insight into what the GM rolled, so in that case you're rerolling based only on guesswork. The seer becomes inert. You become temporarily immune to cinnamon seers until the next time you make your daily preparations. While the effect lasts it gives you the @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr]{Bite Cinnamon Seers} action, which does this.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
         },
         "hardness": 0,
         "hp": {
@@ -22,7 +22,7 @@
             "value": 0
         },
         "level": {
-            "value": 2
+            "value": 1
         },
         "material": {
             "grade": null,
@@ -30,7 +30,7 @@
         },
         "price": {
             "value": {
-                "gp": 7
+                "gp": 3
             }
         },
         "publication": {

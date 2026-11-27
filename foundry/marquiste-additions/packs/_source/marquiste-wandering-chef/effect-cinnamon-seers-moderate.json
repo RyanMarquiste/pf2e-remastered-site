@@ -37,7 +37,8 @@
                     "occultism",
                     "nature",
                     "religion",
-                    "lore"
+                    "lore",
+                    "lore-skill-check"
                 ],
                 "type": "item",
                 "value": 1

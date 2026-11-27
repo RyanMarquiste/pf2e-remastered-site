@@ -7,7 +7,7 @@
     "system": {
         "slug": "effect-cinnamon-seers-lesser",
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.GZIkzgnO1D4uiKFq]{Cinnamon Seers (Lesser)}</p><p>You gain a +1 item bonus to checks to Recall Knowledge.</p><p>This effect also gives you @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr]{Bite Cinnamon Seers}.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.GZIkzgnO1D4uiKFq]{Cinnamon Seers (Lesser)}</p><p>You gain a +1 item bonus to checks to Recall Knowledge with the skill you chose when you activated it. Bite Cinnamon Seers can reroll only a check with that skill.</p><p>This effect also gives you @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr]{Bite Cinnamon Seers}.</p>"
         },
         "duration": {
             "expiry": "turn-start",
@@ -16,7 +16,7 @@
             "value": 10
         },
         "level": {
-            "value": 2
+            "value": 1
         },
         "publication": {
             "license": "ORC",
@@ -25,6 +25,38 @@
         },
         "rules": [
             {
+                "key": "ChoiceSet",
+                "flag": "skill",
+                "prompt": "Choose the skill the cinnamon seer sharpens",
+                "predicate": [
+                    {
+                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                    }
+                ],
+                "choices": [
+                    {
+                        "label": "Arcana",
+                        "value": "arcana"
+                    },
+                    {
+                        "label": "Nature",
+                        "value": "nature"
+                    },
+                    {
+                        "label": "Occultism",
+                        "value": "occultism"
+                    },
+                    {
+                        "label": "Religion",
+                        "value": "religion"
+                    },
+                    {
+                        "label": "Lore",
+                        "value": "lore-skill-check"
+                    }
+                ]
+            },
+            {
                 "key": "FlatModifier",
                 "predicate": [
                     "action:recall-knowledge",
@@ -32,13 +64,7 @@
                         "not": "self:effect:effect-cinnamon-seers-immunity"
                     }
                 ],
-                "selector": [
-                    "arcana",
-                    "occultism",
-                    "nature",
-                    "religion",
-                    "lore"
-                ],
+                "selector": "{item|flags.pf2e.rulesSelections.skill}",
                 "type": "item",
                 "value": 1
             },
