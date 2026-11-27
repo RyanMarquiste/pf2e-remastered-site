@@ -6,7 +6,7 @@ menu: wandering-chef-items
 title: "Ginger Chew"
 category: Equipment
 date: 2026-11-27
-summary: "A ginger lozenge in two tiers: a level 2 Lesser that eases sickened for a minute, and a level 5 Moderate, PF2e's own Ginger Chew, that lasts an hour. Biting it reduces sickened."
+summary: "A ginger lozenge in two tiers: a level 2 Lesser that eases sickened for 10 minutes, and a level 5 Moderate, PF2e's own Ginger Chew, that lasts an hour. Biting it reduces sickened."
 ---
 
 <div class="stat-block" id="ginger-chew">
@@ -24,7 +24,7 @@ summary: "A ginger lozenge in two tiers: a level 2 Lesser that eases sickened fo
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 2</span></div>
   <p><strong>Price</strong> 7 gp</p>
-  <p>The bonus lasts for 1 minute.</p>
+  <p>The bonus lasts for 10 minutes.</p>
 
   <div class="stat-block-section"><span>Moderate</span><span>Item 5</span></div>
   <p><strong>Price</strong> 28 gp</p>

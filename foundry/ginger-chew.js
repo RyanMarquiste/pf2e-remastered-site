@@ -1,5 +1,5 @@
 // The Ginger Chew: a Lozenge that settles the stomach, in two tiers for the Wandering Chef. Called from build.js, which supplies the shared helpers.
-//   - Ginger Chew (Lesser): level 2, 7 gp, a weaker version that lasts 1 minute. It is common, so the Wandering Chef can learn it at 1st or 2nd level.
+//   - Ginger Chew (Lesser): level 2, 7 gp, a weaker version that lasts 10 minutes. It is common, so the Wandering Chef can learn it at 1st or 2nd level.
 //   - Ginger Chew (Moderate): a copy of PF2e's own Ginger Chew (Pathfinder Treasure Vault, level 5, 28 gp, 1 hour), named like the Lesser so the two read as tiers.
 // Each carries the alchemical-food tag the chef's Quick Cooking looks for. Activating one puts it in your mouth and applies its effect, a +1 item bonus to Fortitude saves against
 // being sickened. The effect also grants a Bite Ginger Chew action while it lasts, the Lozenge's secondary effect: using it (scripts/wandering-chef/ginger-chew.js) reduces your
@@ -37,13 +37,13 @@ module.exports = function buildGingerChew({ items, publication, makeId, uuidOf, 
       name: "Lesser",
       level: 2,
       gp: 7,
-      duration: { unit: "minutes", value: 1, text: "1 minute" },
+      duration: { unit: "minutes", value: 10, text: "10 minutes" },
       // The id seeds keep the names the Lesser had before it had tiers, so existing links keep working.
       itemSeed: "item:Ginger Chew (Lesser)",
       effectSeed: "effect:Ginger Chew (Lesser)",
       text:
         "A small, chewy lozenge of candied ginger that settles an unsettled stomach. It is a weaker, shorter-lasting version of the Ginger Chew. " +
-        "A lesser ginger chew lasts for 1 minute and grants you a +1 item bonus to Fortitude saves against being sickened.",
+        "A lesser ginger chew lasts for 10 minutes and grants you a +1 item bonus to Fortitude saves against being sickened.",
     },
     {
       name: "Moderate",
