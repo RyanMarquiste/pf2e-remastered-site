@@ -1,6 +1,7 @@
 // The site's Fleeting trait. It is added to PF2e's trait lists so items, effects, actions, spells and creatures can carry it, and it does what it says:
 // an item or effect with the trait that lands on a character, or a creature with the trait that is put on the scene, is removed when the turn it
-// was created in ends. That needs a running combat; outside combat nothing expires, so the GM removes it. Items that already exist when the module
+// was created in ends. Outside combat there are no turns, so the item is stamped with the world time a round later and is removed when the world clock moves on to or past it
+// (the clock's +10 minutes and +1 hour buttons, for one); everything made in a combat also goes when that combat ends. Items that already exist when the module
 // is installed are not touched, because only the moment of creation starts the clock.
 import { MODULE, say } from "./shared.js";
 import { enabled, log } from "./settings.js";
@@ -45,23 +46,27 @@ function currentTurn() {
   return { combatId: combat.id, combatantId: combat.combatant.id, round: combat.round };
 }
 
+// With no running combat there are no turns, so what is made then is stamped with the world time a round later, and removed when the clock moves on to or past it.
+const outsideCombat = () => ({ combatId: null, expiresAt: game.time.worldTime + (CONFIG.time?.roundTime ?? 6) });
+
+// The flags of the actions that create items and end them themselves (scripts/alchemist, scripts/wandering-chef).
+const OWN_CLOCK = ["quickVial", "createConsumable", "cookConsumable", "flashCook", "overcook"];
+
 const hasTrait = (traits) => Array.isArray(traits) && traits.includes(TRAIT);
 
 // Start the clock as the item or token is created, by writing the turn into it before it is saved. Only the client that creates it does this.
 Hooks.on("preCreateItem", (item) => {
   if (!enabled("fleeting") || item.parent?.documentName !== "Actor" || !hasTrait(item.system?.traits?.value)) return;
-  // The Quick Vial action keeps its own record of the turn, and ends the vial itself.
-  if (item.getFlag(MODULE, "quickVial")) return;
-  const turn = currentTurn();
-  if (turn) item.updateSource({ [`flags.${MODULE}.${FLAG}`]: turn });
+  // The actions that create an item keep their own record of the turn, and end the item themselves.
+  if (OWN_CLOCK.some((flag) => item.getFlag(MODULE, flag))) return;
+  item.updateSource({ [`flags.${MODULE}.${FLAG}`]: currentTurn() ?? outsideCombat() });
 });
 
 Hooks.on("preCreateToken", (token) => {
   if (!enabled("fleeting")) return;
   const actor = token.actor ?? game.actors.get(token.actorId);
   if (!hasTrait(actor?.system?.traits?.value)) return;
-  const turn = currentTurn();
-  if (turn) token.updateSource({ [`flags.${MODULE}.${FLAG}`]: turn });
+  token.updateSource({ [`flags.${MODULE}.${FLAG}`]: currentTurn() ?? outsideCombat() });
 });
 
 // Still within the turn it was created in?
@@ -87,7 +92,7 @@ async function expire(combat, ended) {
     for (const item of [...actor.items]) {
       if (!over(item.getFlag(MODULE, FLAG))) continue;
       // The Alchemist actions end what they create on their own terms.
-      if (item.getFlag(MODULE, "quickVial") || item.getFlag(MODULE, "createConsumable")) continue;
+      if (OWN_CLOCK.some((flag) => item.getFlag(MODULE, flag))) continue;
       log("Fleeting: removing", item.name, "from", actor.name);
       await gone(item, actor, item.name);
     }
@@ -101,9 +106,47 @@ async function expire(combat, ended) {
   }
 }
 
+// A stamp without a combat is due once the world time has reached it. One without a time (made by an earlier version) is due at the next advance.
+const due = (flag, worldTime) => flag && !flag.combatId && (flag.expiresAt ?? 0) <= worldTime;
+
+async function expireByClock(worldTime) {
+  const actors = new Set(game.actors.contents);
+  for (const scene of game.scenes) for (const token of scene.tokens) if (token.actor) actors.add(token.actor);
+  const remove = async (document, actor, name) => {
+    try {
+      await document.delete();
+    } catch (error) {
+      return log("Fleeting: could not remove", name, error);
+    }
+    const note = `<p>${name} is Fleeting and is gone.</p>`;
+    if (actor) say(actor, note);
+    else ChatMessage.create({ content: note });
+  };
+  for (const actor of actors) {
+    for (const item of [...actor.items]) {
+      if (OWN_CLOCK.some((flag) => item.getFlag(MODULE, flag)) || !due(item.getFlag(MODULE, FLAG), worldTime)) continue;
+      log("Fleeting: removing", item.name, "from", actor.name, "as the clock moved on");
+      await remove(item, actor, item.name);
+    }
+  }
+  for (const scene of game.scenes) {
+    for (const token of [...scene.tokens]) {
+      if (!due(token.getFlag(MODULE, FLAG), worldTime)) continue;
+      log("Fleeting: removing token", token.name, "as the clock moved on");
+      await remove(token, token.actor ?? null, token.name);
+    }
+  }
+}
+
 Hooks.on("updateCombat", (combat, changed) => {
   if (!("turn" in changed || "round" in changed) || !enabled("fleeting") || game.users.activeGM?.id !== game.user.id) return;
   expire(combat, false).catch((error) => console.error(MODULE, error));
+});
+
+// Outside combat, remove what has outlived its time when the world clock moves forward (Foundry's +10 minutes and +1 hour buttons, or any other advance).
+Hooks.on("updateWorldTime", (worldTime, delta) => {
+  if (delta <= 0 || !enabled("fleeting") || game.users.activeGM?.id !== game.user.id) return;
+  expireByClock(worldTime).catch((error) => console.error(MODULE, error));
 });
 
 Hooks.on("deleteCombat", (combat) => {

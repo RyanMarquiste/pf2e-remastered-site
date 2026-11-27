@@ -1,5 +1,5 @@
 // Quick Vial: an Alchemist with a free hand creates a volatile vial or the field vial for their research field, held in that hand.
-import { MODULE, itemUsed, say } from "../common/shared.js";
+import { MODULE, itemUsed, say, lifetimeStamp, expireWithClock } from "../common/shared.js";
 import { enabled } from "../common/settings.js";
 import { PACK } from "./alchemist.js";
 import { pickRow, coatableWeapons, pickWeapon } from "../common/weapon-picker.js";
@@ -93,10 +93,7 @@ export async function createQuickVial(actor) {
   }
   data.system.equipped = { carryType: "held", handsHeld: 1 };
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
-  data.flags = {
-    ...data.flags,
-    [MODULE]: { quickVial: combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null } },
-  };
+  data.flags = { ...data.flags, [MODULE]: { quickVial: lifetimeStamp(actor) } };
   const [vial] = await actor.createEmbeddedDocuments("Item", [data]);
   if (!vial) return;
 
@@ -104,7 +101,7 @@ export async function createQuickVial(actor) {
     actor,
     combatant
       ? `<p>${actor.name} creates ${vial.name}, held in a free hand. It becomes inert at the end of this turn.</p>`
-      : `<p>${actor.name} creates ${vial.name}, held in a free hand. It becomes inert at the end of the turn, so remove it yourself, as there is no combat running.</p>`,
+      : `<p>${actor.name} creates ${vial.name}, held in a free hand. It becomes inert when the world clock moves on.</p>`,
   );
 }
 
@@ -114,6 +111,9 @@ Hooks.on("createChatMessage", async (message) => {
   const action = await itemUsed(message);
   if (action?.type === "action" && action.slug === "quick-vial") await createQuickVial(action.actor);
 });
+
+// A vial made outside combat is removed when the world clock moves on, and every one made in a combat when it ends.
+expireWithClock({ flags: ["quickVial"], isOn: () => enabled("alchemistActions"), text: (item) => `<p>${item.name} becomes inert and is gone.</p>` });
 
 // A vial made in combat is removed once its creator's turn is over.
 Hooks.on("updateCombat", async (combat, changed) => {

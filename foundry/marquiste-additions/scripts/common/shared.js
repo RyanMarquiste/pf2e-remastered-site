@@ -17,10 +17,19 @@ export function say(actor, html) {
 // Items a feature makes for a single turn (what Create Consumable and Create Food make, and the Food Projectile) are stamped when they are made, so they can be cleared away later.
 // In a combat the stamp is the combat, the creator's combatant and the round; the features' own updateCombat handlers remove the item when that turn is over. Outside combat there are
 // no turns, so the stamp is the world time at which a turn would be over (a round from now), and expireWithClock removes the item once the clock reaches it.
-export function lifetimeStamp(actor) {
-  const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
+// With `seconds` the item lasts that long from now by the world clock, in or out of combat (a processed food that stays potent for its activation time).
+export function lifetimeStamp(actor, seconds) {
+  const combatant = seconds ? null : game.combat?.combatants.find((c) => c.actor?.id === actor.id);
   if (combatant) return { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round };
-  return { combatId: null, expiresAt: game.time.worldTime + (CONFIG.time?.roundTime ?? 6) };
+  return { combatId: null, expiresAt: game.time.worldTime + (seconds ?? CONFIG.time?.roundTime ?? 6) };
+}
+
+// How long an item takes to Activate, in seconds, when that is a length of time (10 minutes, 1 hour) and not actions; null for an item that takes actions.
+export function activationSeconds(item) {
+  const text = item.system?.description?.value ?? "";
+  const found = text.match(/Activate(?:<[^>]*>|\s|&nbsp;)*(\d+)\s*(minute|hour|day)s?\b/i);
+  if (!found) return null;
+  return Number(found[1]) * { minute: 60, hour: 3600, day: 86400 }[found[2].toLowerCase()];
 }
 
 // Remove stamped items (those with any of the `flags` set) in two more cases: when the world clock moves on (the clock's +10 minutes or +1 hour buttons, or any other advance)

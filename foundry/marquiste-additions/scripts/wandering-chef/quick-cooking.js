@@ -2,10 +2,11 @@
 //   - Create Food spends one food packet and makes one alchemical food from the character's formulas. The action item carries a CraftingAbility
 //     rule, so PF2e itself shows the formula picker, spends the packet and puts the item in a hand. This script adds the checks and the end-of-turn expiry.
 //   - Create Processed Food is the same for foods with the Processed trait, which take 1 minute to make. It also spends a food packet and opens the formula picker
-//     (limited to the processed foods the character knows), but nothing is removed afterwards: it is made outside combat.
+//     (limited to the processed foods the character knows). It is removed when the world clock passes the time it stays potent: its activation time when that is a length of time
+//     (10 minutes, 1 hour), or a round otherwise, since it is made outside combat.
 //   - Flash Cook (the Flash Cook feat) creates a Food Projectile for free; scripts/wandering-chef/flash-cook.js does that.
 // Flash Cook only appears for a character who has it. Like Quick Alchemy, neither option checks for the toolkit.
-import { MODULE, itemUsed, say, lifetimeStamp, expireWithClock } from "../common/shared.js";
+import { MODULE, itemUsed, say, lifetimeStamp, activationSeconds, expireWithClock } from "../common/shared.js";
 import { enabled, log } from "../common/settings.js";
 
 const QUICK_COOKING = "quick-cooking";
@@ -16,6 +17,8 @@ const FLAG = "cookConsumable";
 
 // A Wandering Chef's food packets are a special resource PF2e links to the quantity of their Food Packet item.
 export const foodPackets = (actor) => actor.getResource?.("food-packets")?.value ?? 0;
+
+const duration = (seconds) => (seconds % 3600 === 0 ? `${seconds / 3600} hour${seconds === 3600 ? "" : "s"}` : seconds % 60 === 0 ? `${seconds / 60} minute${seconds === 60 ? "" : "s"}` : `${seconds} seconds`);
 
 const action = (actor, ...slugs) => actor.items.find((i) => i.type === "action" && slugs.includes(i.slug));
 
@@ -107,7 +110,13 @@ Hooks.on("createChatMessage", async (message) => {
   const uuid = holder.querySelector("a[data-uuid]")?.dataset.uuid;
   const created = uuid ? await fromUuid(uuid) : null;
   if (!created?.actor || !created.system.temporary) return;
-  if (create.slug === PROCESSED) return say(create.actor, `<p>${create.actor.name} spends 1 minute preparing ${created.name}.</p>`);
+  if (create.slug === PROCESSED) {
+    // A processed food stays potent until the start of the next turn, or, if its activation takes a length of time (10 minutes, 1 hour), for that long. Either way the clock runs it out.
+    const seconds = activationSeconds(created);
+    await created.setFlag(MODULE, FLAG, lifetimeStamp(create.actor, seconds ?? CONFIG.time?.roundTime ?? 6));
+    const potent = seconds ? ` It stays potent for ${duration(seconds)}.` : " It stays potent until the start of their next turn.";
+    return say(create.actor, `<p>${create.actor.name} spends 1 minute preparing ${created.name}.${potent}</p>`);
+  }
 
   await created.setFlag(MODULE, FLAG, lifetimeStamp(create.actor));
 });
