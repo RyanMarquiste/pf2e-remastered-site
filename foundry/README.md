@@ -113,6 +113,7 @@ The settings window groups them under headings:
 | **Splash** | **Splash targets** | on | Splash works as in PF2e. See Splash targets below. |
 | **Splash** | **Apply splash automatically** | off | Each creature's row has a Splash button. When on, the active GM's screen applies the splash as soon as the damage is rolled. |
 | **Wandering Chef** | **Wandering Chef enhancements** | on | Quick Cooking, Create Food, Create Processed Food and Flash Cook do nothing. See Wandering Chef below. |
+| **Game Master** | **Call for Recall Knowledge** | on | The Call for Recall Knowledge macro and its Recall Knowledge button do nothing. See Call for Recall Knowledge below. |
 | **Cauldron** | **Insulating Paste** | on | No chat message with the "use up one instance" button. |
 | **Troubleshooting** | **Troubleshooting mode** | off | The switches below it are hidden and ignored. See Troubleshooting below. |
 
@@ -151,6 +152,15 @@ The Bard feat **Versatile Performance** lets a Bard use Performance for three ac
 - **Demoralize (Versatile Performance)**, under **Actions** (one action): Performance instead of Intimidation.
 
 Drag the ones the character needs onto the sheet. Using one posts its card and then rolls PF2e's own action (`scripts/bard/versatile-performance.js` calls `game.pf2e.actions`) with the **Performance** statistic in place of the usual skill, so the DC (Will for the first two, Perception for Impersonate), the degrees of success and the roll options such as `action:demoralize` are PF2e's own. Select the token and target the creature before using it. The module does not check that the character has the feat or the polymath muse. The **Bard actions** switch under Troubleshooting turns the rolling off, leaving the actions as plain description cards.
+
+### Call for Recall Knowledge
+
+The **Marquiste Macros** compendium (GM only) has a **Call for Recall Knowledge** macro; drag it to the hotbar. It asks which skills could recall the knowledge (Arcana, Crafting, Medicine, Nature, Occultism, Religion, Society, and any Lore by name), and a DC, either typed or set from a creature's level (the standard DC for levels 0 to 25 with an adjustment from incredibly easy to incredibly hard). It then posts two cards:
+
+- A **prompt card** in the chat for everyone, with a **Recall Knowledge** button. It says nothing about the skills or the DC.
+- A **private summary** whispered to the GM, which starts empty and fills in as players press the button: a row for each character and a column for each skill, showing Critical success, Success, Failure or Critical failure and the total for each, in green or red, and who has not rolled yet.
+
+When a player presses the button, their client sends a request over the module's socket (the module has `socket: true`), and the **GM's client** does the rolling: it runs PF2e's own Recall Knowledge action (`game.pf2e.actions.get("recall-knowledge")`) for that player's character with each chosen skill, against the hidden DC, without posting a card for each roll. PF2e gives the roll the `action:recall-knowledge` and `action:recall-knowledge:<skill>` options, so bonuses such as the Cognitive Mutagen's apply. A GM has to be connected, and each player can answer a card once (it is remembered in a flag on their user). A player with several characters is asked which one rolls. The skills and DC are kept in the prompt card's flags so the card does not show them, but a player who inspects the card's data could read them. A GM sees the button switched off. The macro is `game.modules.get("marquiste-additions").api.callForRecallKnowledge()`, and the code is `scripts/common/recall-knowledge.js`.
 
 ### Wandering Chef
 

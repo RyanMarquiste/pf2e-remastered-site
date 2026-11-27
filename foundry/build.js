@@ -15,6 +15,7 @@ const CLASS_PACK = "marquiste-alchemist-class"; // labelled "Alchemist Enhanceme
 const COMMON_PACK = "marquiste-common-enhancements";
 const BARD_PACK = "marquiste-bard-class"; // labelled "Bard Enhancements"
 const CHEF_PACK = "marquiste-wandering-chef"; // labelled "Wandering Chef Enhancements"
+const MACRO_PACK = "marquiste-macros"; // labelled "Marquiste Macros": macros for the GM
 const IMG = `modules/${CAULDRON_ID}/images/mind-doubling-mutagen.png`;
 const ICHTHYS_IMG = `modules/${CAULDRON_ID}/images/ichthys-mutagen.png`;
 const PASTE_IMG = `modules/${CAULDRON_ID}/images/insulating-paste.png`;
@@ -578,7 +579,7 @@ for (const family of require("./mutagen-formulas")) {
 // only granted by another item, so they don't carry one.
 const SOURCE_TRAITS = { [MODULE_ID]: "marquiste", [CAULDRON_ID]: "cauldron" };
 
-function writePack(moduleId, pack, list) {
+function writePack(moduleId, pack, list, docType = "items") {
   const out = sourceDir(moduleId, pack);
   fs.rmSync(out, { recursive: true, force: true });
   fs.mkdirSync(out, { recursive: true });
@@ -600,7 +601,7 @@ function writePack(moduleId, pack, list) {
     // Two items can share a name (such as a feat and an action), so a repeated name gets its type added to the file name.
     const file = slugOf(item.name) + (nameCounts[slugOf(item.name)] > 1 ? "-" + item.type : "") + ".json";
     // The Foundry CLI silently skips source files that have no _key, so every document needs one to be packed.
-    const doc = { _key: `!items!${item._id}`, ...item };
+    const doc = { _key: `!${docType}!${item._id}`, ...item };
     fs.writeFileSync(path.join(out, file), JSON.stringify(doc, null, 4) + "\n");
   }
   console.log(`Wrote ${list.length} items to ${path.relative(process.cwd(), out)}`);
@@ -622,6 +623,22 @@ writePack(MODULE_ID, COMMON_PACK, commonItems);
 writePack(MODULE_ID, CLASS_PACK, classItems);
 writePack(MODULE_ID, BARD_PACK, bardItems);
 writePack(MODULE_ID, CHEF_PACK, chefItems);
+
+// Marquiste Macros: macros for the GM. Call for Recall Knowledge (scripts/common/recall-knowledge.js) asks which skills could apply and a DC, and prompts the players to roll.
+const macros = [
+  {
+    _id: makeId("macro:Call for Recall Knowledge"),
+    name: "Call for Recall Knowledge",
+    type: "script",
+    img: "icons/sundries/books/book-backed-blue-gold.webp",
+    scope: "global",
+    command: 'game.modules.get("marquiste-additions").api.callForRecallKnowledge();',
+    folder: null,
+    sort: 0,
+    flags: {},
+  },
+];
+writePack(MODULE_ID, MACRO_PACK, macros, "macros");
 writePack(CAULDRON_ID, CAULDRON_PACK, items);
 writePack(CAULDRON_ID, FORMULA_PACK, formulaItems);
 
@@ -634,6 +651,7 @@ const moduleJson = {
   compatibility: { minimum: "13", verified: "14" },
   relationships: { systems: [{ id: "pf2e", type: "system" }] },
   styles: ["styles/source-traits.css"],
+  socket: true,
   esmodules: [
     // Common Enhancements
     "scripts/common/settings.js",
@@ -641,6 +659,7 @@ const moduleJson = {
     "scripts/common/mutable-trait.js",
     "scripts/common/formula-trait.js",
     "scripts/common/source-traits.js",
+    "scripts/common/recall-knowledge.js",
     "scripts/common/formula-books.js",
     "scripts/common/crafting-tab.js",
     "scripts/common/compendium-browser.js",
@@ -695,6 +714,14 @@ const moduleJson = {
       type: "Item",
       system: "pf2e",
       ownership: { PLAYER: "OBSERVER", ASSISTANT: "OWNER" },
+    },
+    {
+      name: MACRO_PACK,
+      label: "Marquiste Macros",
+      path: `packs/${MACRO_PACK}`,
+      type: "Macro",
+      system: "pf2e",
+      ownership: { PLAYER: "NONE", ASSISTANT: "OWNER" },
     },
   ],
 };

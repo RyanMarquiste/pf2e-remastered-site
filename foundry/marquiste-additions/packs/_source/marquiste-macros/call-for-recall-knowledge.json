@@ -1,0 +1,12 @@
+{
+    "_key": "!macros!48RSdBJUi1TdOuaD",
+    "_id": "48RSdBJUi1TdOuaD",
+    "name": "Call for Recall Knowledge",
+    "type": "script",
+    "img": "icons/sundries/books/book-backed-blue-gold.webp",
+    "scope": "global",
+    "command": "game.modules.get(\"marquiste-additions\").api.callForRecallKnowledge();",
+    "folder": null,
+    "sort": 0,
+    "flags": {}
+}

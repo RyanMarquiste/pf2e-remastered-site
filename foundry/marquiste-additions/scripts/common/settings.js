@@ -63,6 +63,13 @@ const OPTIONS = {
       "in a free hand, tiered to the character's level, and removes it when their turn is over; what Create Food makes is removed when the next turn starts. " +
       "The Bite Ginger Chew action (given by a Ginger Chew's effect) reduces sickened by 1 and ends the effect. Off: those actions do nothing.",
   },
+  recallKnowledge: {
+    name: "Call for Recall Knowledge",
+    hint:
+      "The GM's Call for Recall Knowledge macro (in the Marquiste Macros compendium) asks for the skills that could apply and a DC, and posts a card that asks every player to Recall Knowledge. " +
+      "When a player presses its button their character rolls every chosen skill, and the GM gets a private summary of who succeeded. The players aren't told the skills or the DC. " +
+      "A GM has to be connected. Off: the macro does nothing and the button does nothing.",
+  },
   toxicologistMutableAcid: {
     name: "Mutable Acid",
     hint: "Infused poison items a Toxicologist creates also get the Mutable Acid trait, so their damage can change to acid. Off: items are left as PF2e creates them.",
@@ -146,6 +153,8 @@ const LAYOUT = [
   { key: "bombSplashAutoApply" },
   { level: 1, heading: "Wandering Chef" },
   { key: "wanderingChef" },
+  { level: 1, heading: "Game Master" },
+  { key: "recallKnowledge" },
   { level: 1, heading: "Cauldron" },
   { key: "insulatingPasteCounter" },
   { level: 1, heading: "Troubleshooting" },

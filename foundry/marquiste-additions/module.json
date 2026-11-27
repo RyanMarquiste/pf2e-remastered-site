@@ -23,12 +23,14 @@
     "styles": [
         "styles/source-traits.css"
     ],
+    "socket": true,
     "esmodules": [
         "scripts/common/settings.js",
         "scripts/common/fleeting-trait.js",
         "scripts/common/mutable-trait.js",
         "scripts/common/formula-trait.js",
         "scripts/common/source-traits.js",
+        "scripts/common/recall-knowledge.js",
         "scripts/common/formula-books.js",
         "scripts/common/crafting-tab.js",
         "scripts/common/compendium-browser.js",
@@ -89,6 +91,17 @@
             "system": "pf2e",
             "ownership": {
                 "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            }
+        },
+        {
+            "name": "marquiste-macros",
+            "label": "Marquiste Macros",
+            "path": "packs/marquiste-macros",
+            "type": "Macro",
+            "system": "pf2e",
+            "ownership": {
+                "PLAYER": "NONE",
                 "ASSISTANT": "OWNER"
             }
         }
