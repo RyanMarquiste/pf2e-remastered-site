@@ -8,7 +8,8 @@
 // latest Recall Knowledge check, removes the effect (which takes the action with it) and gives you an immunity effect that lasts until your next daily preparations. While that
 // effect is on you the seers' bonus and the Bite action are switched off by their predicates. A Formula: Cinnamon Seers item covers all three tiers.
 module.exports = function buildCinnamonSeers({ items, publication, makeId, uuidOf, formulaItem }) {
-  const IMG = "icons/consumables/food/candy-pattie-pink-white.webp";
+  // A red recolour of the core swirl candy icon (icons/consumables/food/candy-pattie-pink-white.webp), kept in the module so it does not depend on the core file.
+  const IMG = "modules/marquiste-additions/images/cinnamon-seers.png";
   const biteId = makeId("action:Bite Cinnamon Seers");
   const immuneId = makeId("effect:Cinnamon Seers Immunity");
   const IMMUNE_SLUG = "effect-cinnamon-seers-immunity";
