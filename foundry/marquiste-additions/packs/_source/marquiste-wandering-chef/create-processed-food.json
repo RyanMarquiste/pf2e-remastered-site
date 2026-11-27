@@ -26,26 +26,7 @@
             {
                 "key": "CraftingAbility",
                 "craftableItems": [
-                    {
-                        "or": [
-                            "item:tag:alchemical-food",
-                            "item:slug:bravos-brew-lesser",
-                            "item:slug:bravos-brew-moderate",
-                            "item:slug:bravos-brew-greater",
-                            "item:slug:bookthief-brew",
-                            "item:slug:spiderfoot-brew-lesser",
-                            "item:slug:spiderfoot-brew-moderate",
-                            "item:slug:spiderfoot-brew-greater",
-                            "item:slug:lastwall-soup",
-                            "item:slug:lastwall-soup-improved",
-                            "item:slug:lastwall-soup-greater",
-                            "item:slug:moon-radish-soup",
-                            "item:slug:spiced-demonade",
-                            "item:slug:impossible-cake",
-                            "item:slug:impossible-cake-greater",
-                            "item:slug:impossible-cake-major"
-                        ]
-                    },
+                    "item:tag:alchemical-food",
                     "item:trait:processed"
                 ],
                 "priority": 15,
