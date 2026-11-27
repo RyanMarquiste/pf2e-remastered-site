@@ -6,7 +6,7 @@ menu: wandering-chef-feats
 title: "Overcooked"
 category: Archetypes
 date: 2026-11-25
-summary: "A Wandering Chef feat that adds an Overcook option to Quick Alchemy, turning a spare scrap of food into a Food Projectile you can fling at enemies."
+summary: "A Wandering Chef feat that adds an Overcook option to Quick Cooking, turning a spare scrap of food into a Food Projectile you can fling at enemies."
 ---
 
 <div class="stat-block" id="overcooked">
@@ -15,12 +15,12 @@ summary: "A Wandering Chef feat that adds an Overcook option to Quick Alchemy, t
     <span class="trait">Archetype</span>
   </div>
   <p><strong>Prerequisites</strong> Wandering Chef Dedication</p>
-  <p>You use alchemical ingredients to overcook a spare bit of food until it hardens into a scorched, throwable lump. <a href="{{ 'quick-alchemy' | articleUrl(collections.articles) | url }}">Quick Alchemy</a> gains a new option for you, Overcook, in addition to Create Consumable.</p>
+  <p>You use alchemical ingredients to overcook a spare bit of food until it hardens into a scorched, throwable lump. <a href="{{ 'quick-cooking' | articleUrl(collections.articles) | url }}">Quick Cooking</a> gains a new option for you, Overcook, in addition to Create Consumable.</p>
 
   <div class="stat-block-section"><span>Overcook</span></div>
-  <p><strong>Requirements</strong> You're either holding or wearing an alchemist's toolkit and you have a free hand</p>
-  <p>Choose Overcook as your action for Quick Alchemy. You overcook a spare bit of food into a Food Projectile that you can fling at an enemy. The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart.</p>
-  <p>Using Overcook does not expend a versatile vial and does not consume any food or other food resources.</p>
+  <p><strong>Requirements</strong> You're either holding or wearing a <a href="{{ 'cooking-toolkit' | articleUrl(collections.articles) | url }}">cooking toolkit</a> and you have a free hand</p>
+  <p>Choose Overcook as your action for Quick Cooking. You overcook a spare bit of food into a Food Projectile that you can fling at an enemy. The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart.</p>
+  <p>Using Overcook does not expend a food packet and does not consume any food or other food resources.</p>
   <p>The overcooking leaves the food inedible. The Food Projectile has no nutritional value and none of the other properties the food would otherwise have.</p>
   <p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. This costs no action and uses nothing up.</p>
 

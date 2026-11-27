@@ -1,0 +1,47 @@
+{
+    "_key": "!items!jZrRIRg9a9VG5mP5",
+    "_id": "jZrRIRg9a9VG5mP5",
+    "img": "icons/containers/bags/coinpouch-simple-leather-tan.webp",
+    "name": "Food Packet",
+    "type": "equipment",
+    "system": {
+        "slug": "food-packet",
+        "bulk": {
+            "value": 0
+        },
+        "containerId": null,
+        "description": {
+            "value": "<p>A small parcel of foraged and prepared ingredients. Its quantity is your food packets: it is set when you make your daily preparations, and one is used up each time you use Create Consumable with Quick Cooking.</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 0
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {}
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "traits": {
+            "rarity": "common",
+            "value": []
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

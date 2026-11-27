@@ -1,5 +1,5 @@
-// Overcook (the Overcooked feat's option for Quick Alchemy): a Wandering Chef with a free hand creates a Food Projectile, held in that hand and removed when their
-// turn is over. Like Quick Vial, it does not check for the alchemist's toolkit. With the Food Fight feat the projectile is stronger and the character can Strike with it
+// Overcook (the Overcooked feat's option for Quick Cooking): a Wandering Chef with a free hand creates a Food Projectile, held in that hand and removed when their
+// turn is over. Like Quick Vial, it does not check for the toolkit. With the Food Fight feat the projectile is stronger and the character can Strike with it
 // straight away.
 import { MODULE, itemUsed, say } from "../common/shared.js";
 import { enabled } from "../common/settings.js";

@@ -1,9 +1,213 @@
-// The Wandering Chef Enhancements: the Overcook action from the Overcooked feat, and the Food Projectile it makes (one item for each tier, at the same levels
-// and with the same scaling as the Volatile Vial, but without splash). Called from build.js, which supplies the shared helpers.
+// The Wandering Chef Enhancements: the Wandering Chef Dedication (Marquiste) with its food packets, Quick Cooking and its two options (Create Consumable and
+// Overcook), the Cooking Toolkit, and the Food Projectile Overcook makes (one item for each tier, at the same levels and with the same scaling as the Volatile
+// Vial, but without splash). Called from build.js, which supplies the shared helpers.
 //
-// Using the Overcook action posts its card and the module script (scripts/wandering-chef/overcook.js) creates the best Food Projectile the character's level
-// allows, held in a free hand and removed when their turn is over.
-module.exports = function buildWanderingChef({ items, publication, makeId }) {
+// Using the Quick Cooking action asks which option to use (scripts/wandering-chef/quick-cooking.js). Using the Overcook action posts its card and the module
+// script (scripts/wandering-chef/overcook.js) creates the best Food Projectile the character's level allows, held in a free hand and removed when their turn is over.
+const tags = require("./tags");
+
+module.exports = function buildWanderingChef({ items, publication, makeId, uuidOf }) {
+  const CRAFTING_FEAT = "Compendium.pf2e.feats-srd.Item.is3Oz9wt11lNq62K"; // Alchemical Crafting
+  const SUBSIST = "Compendium.pf2e.actionspf2e.Item.49y9Ec4bDii8pcD3";
+
+  // The Cooking Toolkit: the chef's version of the alchemist's toolkit, with the same price, bulk and handling.
+  items.push({
+    _id: makeId("item:Cooking Toolkit"),
+    img: "icons/tools/cooking/mortar-herbs-yellow.webp",
+    name: "Cooking Toolkit",
+    type: "equipment",
+    system: {
+      slug: "cooking-toolkit",
+      bulk: { value: 1 },
+      containerId: null,
+      description: {
+        value:
+          "<p>This mobile collection of spices, food packs, and basic cooking implements can be used for quick work in the kitchen or at a campfire. " +
+          "If you wear your cooking toolkit, you can draw and replace it as part of the action that uses it.</p>",
+      },
+      hardness: 0,
+      hp: { max: 0, value: 0 },
+      level: { value: 0 },
+      material: { grade: null, type: null },
+      price: { value: { gp: 3 } },
+      publication,
+      quantity: 1,
+      rules: [],
+      size: "med",
+      traits: { rarity: "common", value: [] },
+      usage: { value: "held-in-two-hands" },
+    },
+  });
+
+  // The Food Packet: the item whose quantity is the character's food packets, the way the Versatile Vial is for versatile vials.
+  items.push({
+    _id: makeId("item:Food Packet"),
+    img: "icons/containers/bags/coinpouch-simple-leather-tan.webp",
+    name: "Food Packet",
+    type: "equipment",
+    system: {
+      slug: "food-packet",
+      bulk: { value: 0 },
+      containerId: null,
+      description: {
+        value:
+          "<p>A small parcel of foraged and prepared ingredients. Its quantity is your food packets: it is set when you make your daily preparations, and one is used up each time you use " +
+          "Create Consumable with Quick Cooking.</p>",
+      },
+      hardness: 0,
+      hp: { max: 0, value: 0 },
+      level: { value: 0 },
+      material: { grade: null, type: null },
+      price: { value: {} },
+      publication,
+      quantity: 1,
+      rules: [],
+      size: "med",
+      traits: { rarity: "common", value: [] },
+      usage: { value: "carried" },
+    },
+  });
+
+  // Create Consumable (Cooking): the same kind of action as the Alchemist's, but it spends a food packet and can only make alchemical food. The module script
+  // (scripts/wandering-chef/quick-cooking.js) does the checks and the end-of-turn expiry.
+  const createId = makeId("action:Create Consumable (Cooking)");
+  items.push({
+    _id: createId,
+    img: "systems/pf2e/icons/actions/OneAction.webp",
+    name: "Create Consumable (Cooking)",
+    type: "action",
+    system: {
+      slug: "create-cooking-consumable",
+      actionType: { value: "action" },
+      actions: { value: 1 },
+      category: "interaction",
+      description: {
+        value:
+          "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr />" +
+          "<p>This is the Create Consumable option of Quick Cooking. Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. " +
+          "Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn " +
+          "or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make.</p>",
+      },
+      frequency: null,
+      publication,
+      rules: [
+        {
+          key: "CraftingAbility",
+          craftableItems: ["item:tag:alchemical-food", { not: "item:trait:processed" }],
+          priority: 15,
+          resource: "food-packets",
+          slug: "create-cooking-consumable",
+        },
+      ],
+      traits: { otherTags: [], rarity: "common", value: ["manipulate"] },
+    },
+  });
+
+  // Quick Cooking: the chef's Quick Alchemy. Adding it also gives the character Create Consumable (Cooking); Overcook comes with the Overcooked feat.
+  const quickId = makeId("action:Quick Cooking");
+  items.push({
+    _id: quickId,
+    img: "systems/pf2e/icons/actions/OneAction.webp",
+    name: "Quick Cooking",
+    type: "action",
+    system: {
+      slug: "quick-cooking",
+      actionType: { value: "action" },
+      actions: { value: 1 },
+      category: "interaction",
+      description: {
+        value:
+          "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit and you have a free hand</p><hr />" +
+          "<p>You cook quickly using a cooking toolkit. Choose either Create Consumable or, if you have the Overcooked feat, Overcook as your action for Quick Cooking.</p>" +
+          "<p>Any effect created by an item made with Quick Cooking that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions " +
+          "such as slow acting poisons (as described in the infused trait).</p>" +
+          "<h2>Create Consumable</h2>" +
+          "<p><strong>Requirements</strong> You have at least one food packet</p>" +
+          "<p>Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. Skip the normal monetary cost in raw materials and " +
+          "the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait " +
+          "can't be created this way, because they take too long to make.</p>" +
+          "<h2>Overcook</h2>" +
+          "<p>See the Overcooked feat. Using Overcook does not expend a food packet.</p>" +
+          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Consumable or Overcook. It can be switched off in the module settings under Wandering Chef.</p>",
+      },
+      frequency: null,
+      publication,
+      rules: [{ key: "GrantItem", allowDuplicate: false, uuid: uuidOf(createId) }],
+      traits: { otherTags: [], rarity: "common", value: ["manipulate"] },
+    },
+  });
+
+  // The Wandering Chef Dedication (Marquiste): the dedication from the Tian Xia Character Guide with food packets and Quick Cooking in place of versatile vials
+  // and Quick Alchemy. The food packets are a SpecialResource tied to the Food Packet item's quantity, which PF2e refills at daily preparations.
+  const dedicationName = `Wandering Chef Dedication (${tags.marquiste.long})`;
+  items.push({
+    _id: makeId("feat:Wandering Chef Dedication (Marquiste)"),
+    img: "icons/sundries/books/book-red-exclamation.webp",
+    name: dedicationName,
+    type: "feat",
+    system: {
+      slug: "wandering-chef-dedication-marquiste",
+      actionType: { value: "passive" },
+      actions: { value: null },
+      category: "class",
+      description: {
+        value:
+          "<p>Whether trained in a noble kitchen or a humble home, you know how to cook delicious dishes and source ingredients from the wilderness or urban settings. " +
+          "You become trained in Crafting; if you were already trained in Crafting, you instead become trained in a skill of your choice. You can use a cooking toolkit or cookware " +
+          `instead of an alchemist's toolkit to craft alchemical foods. When using the @UUID[${SUBSIST}]{Subsist} downtime activity, you can use Crafting or Cooking Lore in place of Survival, ` +
+          "and if you roll a failure, you get a success instead.</p>" +
+          "<p>You gain the Quick Cooking action, which works like Quick Alchemy but only makes alchemical food. Any items you choose with " +
+          `@UUID[${CRAFTING_FEAT}]{Alchemical Crafting} must be alchemical food, but they can be 1st level or 2nd level instead of only 1st level.</p>` +
+          "<p>You create up to 4 food packets during your daily preparations. Food packets work like versatile vials, but can only be used for Quick Cooking. " +
+          "They are parcels of foraged ingredients.</p>" +
+          "<hr /><p><strong>Module</strong> This replaces the Wandering Chef Dedication from the Tian Xia Character Guide. Its food packets are the quantity of the Food Packet item, " +
+          "which is set again each time you make your daily preparations.</p>",
+      },
+      level: { value: 2 },
+      prerequisites: { value: [] },
+      publication,
+      rules: [
+        { key: "ActiveEffectLike", mode: "upgrade", path: "system.skills.crafting.rank", value: 1 },
+        { key: "GrantItem", uuid: CRAFTING_FEAT },
+        { key: "GrantItem", allowDuplicate: false, uuid: uuidOf(quickId) },
+        {
+          key: "SpecialResource",
+          itemUUID: uuidOf(makeId("item:Food Packet")),
+          label: "Food Packets",
+          max: 4,
+          slug: "food-packets",
+        },
+      ],
+      traits: { otherTags: [], rarity: "common", value: ["archetype", "dedication"] },
+    },
+  });
+
+  // Additional Servings (Marquiste): raises the number of food packets, up to three times.
+  items.push({
+    _id: makeId("feat:Additional Servings (Marquiste)"),
+    img: "icons/sundries/books/book-red-exclamation.webp",
+    name: `Additional Servings (${tags.marquiste.long})`,
+    type: "feat",
+    system: {
+      slug: "additional-servings-marquiste",
+      actionType: { value: "passive" },
+      actions: { value: null },
+      category: "class",
+      description: {
+        value:
+          "<p><strong>Prerequisites</strong> Wandering Chef Dedication, expert in Crafting or Cooking Lore</p><hr />" +
+          "<p>Your number of food packets per day increases to 5.</p>" +
+          "<p><strong>Special</strong> At 12th level or higher, you can select this feat a second time to increase your number of food packets per day to 6. " +
+          "At 18th level or higher, you can select this feat a third time to increase your number of food packets per day to 7.</p>",
+      },
+      level: { value: 6 },
+      maxTakable: 3,
+      prerequisites: { value: [{ value: "Wandering Chef Dedication" }, { value: "expert in Crafting or Cooking Lore" }] },
+      publication,
+      rules: [{ key: "ActiveEffectLike", mode: "upgrade", path: "system.resources.foodPackets.max", value: "4 + @item.timesTaken" }],
+      traits: { otherTags: [], rarity: "common", value: ["archetype"] },
+    },
+  });
   const tiers = [
     { name: "Lesser", level: 1, dice: 1, bonus: 0 },
     { name: "Moderate", level: 4, dice: 2, bonus: 1 },
@@ -33,8 +237,9 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
     },
   ];
 
+  const overcookId = makeId("action:Overcook");
   items.push({
-    _id: makeId("action:Overcook"),
+    _id: overcookId,
     img: "systems/pf2e/icons/actions/OneAction.webp",
     name: "Overcook",
     type: "action",
@@ -45,10 +250,10 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
       category: "interaction",
       description: {
         value:
-          "<p><strong>Requirements</strong> You have the Overcooked feat, you're either holding or wearing an alchemist's toolkit, and you have a free hand</p><hr />" +
-          "<p>This is the Overcook option of Quick Alchemy. You use alchemical ingredients to overcook a spare bit of food into a Food Projectile that you can fling at an enemy. " +
+          "<p><strong>Requirements</strong> You have the Overcooked feat, you're either holding or wearing a cooking toolkit, and you have a free hand</p><hr />" +
+          "<p>This is the Overcook option of Quick Cooking. You use alchemical ingredients to overcook a spare bit of food into a Food Projectile that you can fling at an enemy. " +
           "The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart.</p>" +
-          "<p>Using Overcook does not expend a versatile vial and does not consume any food or other food resources. The overcooking leaves the food inedible: the Food Projectile " +
+          "<p>Using Overcook does not expend a food packet and does not consume any food or other food resources. The overcooking leaves the food inedible: the Food Projectile " +
           "has no nutritional value and none of the other properties the food would otherwise have.</p>" +
           "<p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. " +
           "This costs no action and uses nothing up.</p>" +
@@ -59,6 +264,31 @@ module.exports = function buildWanderingChef({ items, publication, makeId }) {
       publication,
       rules: [],
       traits: { otherTags: [], rarity: "common", value: ["manipulate"] },
+    },
+  });
+
+  // Overcooked: a feat item that gives the character the Overcook action, which then appears among the Quick Cooking options.
+  items.push({
+    _id: makeId("feat:Overcooked"),
+    img: "icons/consumables/food/bread-toast-tan.webp",
+    name: "Overcooked",
+    type: "feat",
+    system: {
+      slug: "overcooked",
+      actionType: { value: "passive" },
+      actions: { value: null },
+      category: "class",
+      description: {
+        value:
+          "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr />" +
+          "<p>You use alchemical ingredients to overcook a spare bit of food until it hardens into a scorched, throwable lump. Quick Cooking gains a new option for you, Overcook, " +
+          "in addition to Create Consumable. Overcook creates a Food Projectile and does not expend a food packet.</p>",
+      },
+      level: { value: 4 },
+      prerequisites: { value: [{ value: "Wandering Chef Dedication" }] },
+      publication,
+      rules: [{ key: "GrantItem", allowDuplicate: false, uuid: uuidOf(overcookId) }],
+      traits: { otherTags: [], rarity: "common", value: ["archetype"] },
     },
   });
 

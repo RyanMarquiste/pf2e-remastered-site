@@ -1,0 +1,63 @@
+{
+    "_key": "!items!LaCE3QSwp70KXp9T",
+    "_id": "LaCE3QSwp70KXp9T",
+    "img": "icons/sundries/books/book-red-exclamation.webp",
+    "name": "Wandering Chef Dedication (Marquiste)",
+    "type": "feat",
+    "system": {
+        "slug": "wandering-chef-dedication-marquiste",
+        "actionType": {
+            "value": "passive"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "class",
+        "description": {
+            "value": "<p>Whether trained in a noble kitchen or a humble home, you know how to cook delicious dishes and source ingredients from the wilderness or urban settings. You become trained in Crafting; if you were already trained in Crafting, you instead become trained in a skill of your choice. You can use a cooking toolkit or cookware instead of an alchemist's toolkit to craft alchemical foods. When using the @UUID[Compendium.pf2e.actionspf2e.Item.49y9Ec4bDii8pcD3]{Subsist} downtime activity, you can use Crafting or Cooking Lore in place of Survival, and if you roll a failure, you get a success instead.</p><p>You gain the Quick Cooking action, which works like Quick Alchemy but only makes alchemical food. Any items you choose with @UUID[Compendium.pf2e.feats-srd.Item.is3Oz9wt11lNq62K]{Alchemical Crafting} must be alchemical food, but they can be 1st level or 2nd level instead of only 1st level.</p><p>You create up to 4 food packets during your daily preparations. Food packets work like versatile vials, but can only be used for Quick Cooking. They are parcels of foraged ingredients.</p><hr /><p><strong>Module</strong> This replaces the Wandering Chef Dedication from the Tian Xia Character Guide. Its food packets are the quantity of the Food Packet item, which is set again each time you make your daily preparations.</p>"
+        },
+        "level": {
+            "value": 2
+        },
+        "prerequisites": {
+            "value": []
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "ActiveEffectLike",
+                "mode": "upgrade",
+                "path": "system.skills.crafting.rank",
+                "value": 1
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.pf2e.feats-srd.Item.is3Oz9wt11lNq62K"
+            },
+            {
+                "key": "GrantItem",
+                "allowDuplicate": false,
+                "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.amtTY1XcEyzlaMsV"
+            },
+            {
+                "key": "SpecialResource",
+                "itemUUID": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.jZrRIRg9a9VG5mP5",
+                "label": "Food Packets",
+                "max": 4,
+                "slug": "food-packets"
+            }
+        ],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "archetype",
+                "dedication"
+            ]
+        }
+    }
+}

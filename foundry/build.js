@@ -27,6 +27,7 @@ const makeId = (seed) => {
 };
 const uuidOf = (id) => `Compendium.${CAULDRON_ID}.${CAULDRON_PACK}.Item.${id}`;
 const classUuidOf = (id) => `Compendium.${MODULE_ID}.${CLASS_PACK}.Item.${id}`;
+const chefUuidOf = (id) => `Compendium.${MODULE_ID}.${CHEF_PACK}.Item.${id}`;
 
 const publication = { license: "ORC", remaster: true, title: tags.cauldron.long }; // the Cauldron's items
 const modulePublication = { license: "ORC", remaster: true, title: "Marquiste Additions" }; // the Alchemist items
@@ -687,9 +688,9 @@ function writePack(moduleId, pack, list) {
 const bardItems = [];
 require("./bard")({ items: bardItems, publication: modulePublication, makeId });
 
-// Wandering Chef Enhancements: the Overcook action and the Food Projectile.
+// Wandering Chef Enhancements: the Wandering Chef Dedication, Quick Cooking, Overcook, the Cooking Toolkit and the Food Projectile.
 const chefItems = [];
-require("./wandering-chef")({ items: chefItems, publication: modulePublication, makeId });
+require("./wandering-chef")({ items: chefItems, publication: modulePublication, makeId, uuidOf: chefUuidOf });
 
 // Common Enhancements: items that apply across the whole game. Nothing is needed yet: the injury poison rules work on PF2e's own poisons.
 const commonItems = [];
@@ -732,6 +733,7 @@ const moduleJson = {
     "scripts/bard/versatile-performance.js",
     // Wandering Chef Enhancements
     "scripts/wandering-chef/overcook.js",
+    "scripts/wandering-chef/quick-cooking.js",
     // Behaviour for items in the CorpseCap's Cauldron module (the Insulating Paste counter)
     "scripts/cauldron/insulating-paste.js",
   ],

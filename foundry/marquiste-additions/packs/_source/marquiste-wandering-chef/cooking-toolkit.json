@@ -1,0 +1,49 @@
+{
+    "_key": "!items!lNUm3ul8MD2L2n6Z",
+    "_id": "lNUm3ul8MD2L2n6Z",
+    "img": "icons/tools/cooking/mortar-herbs-yellow.webp",
+    "name": "Cooking Toolkit",
+    "type": "equipment",
+    "system": {
+        "slug": "cooking-toolkit",
+        "bulk": {
+            "value": 1
+        },
+        "containerId": null,
+        "description": {
+            "value": "<p>This mobile collection of spices, food packs, and basic cooking implements can be used for quick work in the kitchen or at a campfire. If you wear your cooking toolkit, you can draw and replace it as part of the action that uses it.</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 0
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 3
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "traits": {
+            "rarity": "common",
+            "value": []
+        },
+        "usage": {
+            "value": "held-in-two-hands"
+        }
+    }
+}

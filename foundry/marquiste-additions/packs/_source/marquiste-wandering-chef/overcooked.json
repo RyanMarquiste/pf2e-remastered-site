@@ -1,0 +1,49 @@
+{
+    "_key": "!items!10PCZ3glisPwd6Ft",
+    "_id": "10PCZ3glisPwd6Ft",
+    "img": "icons/consumables/food/bread-toast-tan.webp",
+    "name": "Overcooked",
+    "type": "feat",
+    "system": {
+        "slug": "overcooked",
+        "actionType": {
+            "value": "passive"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "class",
+        "description": {
+            "value": "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr /><p>You use alchemical ingredients to overcook a spare bit of food until it hardens into a scorched, throwable lump. Quick Cooking gains a new option for you, Overcook, in addition to Create Consumable. Overcook creates a Food Projectile and does not expend a food packet.</p>"
+        },
+        "level": {
+            "value": 4
+        },
+        "prerequisites": {
+            "value": [
+                {
+                    "value": "Wandering Chef Dedication"
+                }
+            ]
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "GrantItem",
+                "allowDuplicate": false,
+                "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.NJAOlxABoikHooM0"
+            }
+        ],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "archetype"
+            ]
+        }
+    }
+}

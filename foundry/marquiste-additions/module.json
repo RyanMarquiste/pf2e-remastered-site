@@ -39,6 +39,7 @@
         "scripts/alchemist/daily-preparations.js",
         "scripts/bard/versatile-performance.js",
         "scripts/wandering-chef/overcook.js",
+        "scripts/wandering-chef/quick-cooking.js",
         "scripts/cauldron/insulating-paste.js"
     ],
     "packs": [

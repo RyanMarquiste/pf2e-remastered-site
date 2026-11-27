@@ -1,0 +1,40 @@
+{
+    "_key": "!items!amtTY1XcEyzlaMsV",
+    "_id": "amtTY1XcEyzlaMsV",
+    "img": "systems/pf2e/icons/actions/OneAction.webp",
+    "name": "Quick Cooking",
+    "type": "action",
+    "system": {
+        "slug": "quick-cooking",
+        "actionType": {
+            "value": "action"
+        },
+        "actions": {
+            "value": 1
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit and you have a free hand</p><hr /><p>You cook quickly using a cooking toolkit. Choose either Create Consumable or, if you have the Overcooked feat, Overcook as your action for Quick Cooking.</p><p>Any effect created by an item made with Quick Cooking that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions such as slow acting poisons (as described in the infused trait).</p><h2>Create Consumable</h2><p><strong>Requirements</strong> You have at least one food packet</p><p>Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make.</p><h2>Overcook</h2><p>See the Overcooked feat. Using Overcook does not expend a food packet.</p><hr /><p><strong>Module</strong> Using this action asks you to choose Create Consumable or Overcook. It can be switched off in the module settings under Wandering Chef.</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "GrantItem",
+                "allowDuplicate": false,
+                "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.q1Xsg12wZ31o1UdD"
+            }
+        ],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "manipulate"
+            ]
+        }
+    }
+}
