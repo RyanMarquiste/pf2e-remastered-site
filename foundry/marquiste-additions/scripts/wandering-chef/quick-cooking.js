@@ -4,7 +4,7 @@
 //   - Create Processed Food is the same for foods with the Processed trait, which take 1 minute to make. It also spends a food packet and opens the formula picker
 //     (limited to the processed foods the character knows), but nothing is removed afterwards: it is made outside combat.
 //   - Overcook (the Overcooked feat) creates a Food Projectile for free; scripts/wandering-chef/overcook.js does that.
-// Like Quick Alchemy, neither option checks for the toolkit.
+// Overcook only appears for a character who has it. Like Quick Alchemy, neither option checks for the toolkit.
 import { MODULE, itemUsed, say } from "../common/shared.js";
 import { enabled, log } from "../common/settings.js";
 
@@ -49,8 +49,9 @@ Hooks.on("createChatMessage", async (message) => {
     content:
       `<p>What does ${actor.name} do with Quick Cooking?</p>` +
       `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Consumable and Create Processed Food need one." : ""}</p>`,
+    // Overcook is only offered to a character who has it (the Overcooked feat gives the action).
     buttons: [
-      { action: "overcook", label: "Overcook" },
+      ...(overcook ? [{ action: "overcook", label: "Overcook" }] : []),
       { action: "consumable", label: "Create Consumable", default: true },
       { action: "processed", label: "Create Processed Food (takes 1 minute)" },
     ],
@@ -69,7 +70,6 @@ Hooks.on("createChatMessage", async (message) => {
         disable("consumable", "No food packets left");
         disable("processed", "No food packets left");
       }
-      if (!overcook) disable("overcook", "Needs the Overcooked feat");
     },
     rejectClose: false,
   });
