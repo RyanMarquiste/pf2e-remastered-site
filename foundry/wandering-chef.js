@@ -9,6 +9,19 @@ const tags = require("./tags");
 module.exports = function buildWanderingChef({ items, publication, makeId, uuidOf }) {
   const SUBSIST = "Compendium.pf2e.actionspf2e.Item.49y9Ec4bDii8pcD3";
 
+  // The foods the chef can make: the items PF2e tags alchemical-food, plus these food and drink items it leaves untagged (matched by slug). Add a slug here to
+  // include another item.
+  const EXTRA_FOODS = [
+    "bravos-brew-lesser", "bravos-brew-moderate", "bravos-brew-greater",
+    "bookthief-brew",
+    "spiderfoot-brew-lesser", "spiderfoot-brew-moderate", "spiderfoot-brew-greater",
+    "lastwall-soup", "lastwall-soup-improved", "lastwall-soup-greater",
+    "moon-radish-soup",
+    "spiced-demonade",
+    "impossible-cake", "impossible-cake-greater", "impossible-cake-major",
+  ];
+  const isFood = { or: ["item:tag:alchemical-food", ...EXTRA_FOODS.map((slug) => `item:slug:${slug}`)] };
+
   const PROCESSED_TEXT =
     "Expend one food packet to create a single processed alchemical food of your level or lower that you know the formula for. This takes 1 minute instead of a single action, because processed foods are too complex to make quickly. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and remains potent until the start of your next turn, or, if the item would take more than 3 actions to Activate, for a time equal to its activation time.";
 
@@ -95,7 +108,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       rules: [
         {
           key: "CraftingAbility",
-          craftableItems: ["item:tag:alchemical-food", { not: "item:trait:processed" }],
+          craftableItems: [isFood, { not: "item:trait:processed" }],
           priority: 15,
           resource: "food-packets",
           slug: "create-cooking-consumable",
@@ -128,7 +141,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       rules: [
         {
           key: "CraftingAbility",
-          craftableItems: ["item:tag:alchemical-food", "item:trait:processed"],
+          craftableItems: [isFood, "item:trait:processed"],
           priority: 15,
           resource: "food-packets",
           slug: "create-processed-food",
