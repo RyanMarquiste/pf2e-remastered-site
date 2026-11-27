@@ -7,7 +7,6 @@
 const tags = require("./tags");
 
 module.exports = function buildWanderingChef({ items, publication, makeId, uuidOf }) {
-  const CRAFTING_FEAT = "Compendium.pf2e.feats-srd.Item.is3Oz9wt11lNq62K"; // Alchemical Crafting
   const SUBSIST = "Compendium.pf2e.actionspf2e.Item.49y9Ec4bDii8pcD3";
 
   // The Cooking Toolkit: the chef's version of the alchemist's toolkit, with the same price, bulk and handling.
@@ -137,6 +136,32 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
+  // Alchemical Cooking: the chef's Alchemical Crafting, limited to alchemical food. The dedication gives it to the character.
+  const cookingId = makeId("feat:Alchemical Cooking");
+  items.push({
+    _id: cookingId,
+    img: "icons/sundries/books/book-red-exclamation.webp",
+    name: "Alchemical Cooking",
+    type: "feat",
+    system: {
+      slug: "alchemical-cooking",
+      actionType: { value: "passive" },
+      actions: { value: null },
+      category: "skill",
+      description: {
+        value:
+          "<p><strong>Prerequisites</strong> Trained in Crafting</p><hr />" +
+          "<p>You can use the Craft activity to create alchemical foods, but not other alchemical items. When you select this feat, you immediately gain the formulas for four " +
+          "common alchemical foods of 1st level or 2nd level.</p>",
+      },
+      level: { value: 1 },
+      prerequisites: { value: [{ value: "trained in Crafting" }] },
+      publication,
+      rules: [],
+      traits: { otherTags: [], rarity: "common", value: ["general", "skill"] },
+    },
+  });
+
   // The Wandering Chef Dedication (Marquiste): the dedication from the Tian Xia Character Guide with food packets and Quick Cooking in place of versatile vials
   // and Quick Alchemy. The food packets are a SpecialResource tied to the Food Packet item's quantity, which PF2e refills at daily preparations.
   const dedicationName = `Wandering Chef Dedication (${tags.marquiste.long})`;
@@ -156,8 +181,8 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           "You become trained in Crafting; if you were already trained in Crafting, you instead become trained in a skill of your choice. You can use a cooking toolkit or cookware " +
           `instead of an alchemist's toolkit to craft alchemical foods. When using the @UUID[${SUBSIST}]{Subsist} downtime activity, you can use Crafting or Cooking Lore in place of Survival, ` +
           "and if you roll a failure, you get a success instead.</p>" +
-          "<p>You gain the Quick Cooking action, which works like Quick Alchemy but only makes alchemical food. Any items you choose with " +
-          `@UUID[${CRAFTING_FEAT}]{Alchemical Crafting} must be alchemical food, but they can be 1st level or 2nd level instead of only 1st level.</p>` +
+          "<p>You gain the Quick Cooking action, which works like Quick Alchemy but only makes alchemical food. You also gain the " +
+          `@UUID[${uuidOf(cookingId)}]{Alchemical Cooking} skill feat, which is Alchemical Crafting limited to alchemical food, with formulas of 1st level or 2nd level.</p>` +
           "<p>You create up to 4 food packets during your daily preparations. Food packets work like versatile vials, but can only be used for Quick Cooking. " +
           "They are parcels of foraged ingredients.</p>" +
           "<hr /><p><strong>Module</strong> This replaces the Wandering Chef Dedication from the Tian Xia Character Guide. Its food packets are the quantity of the Food Packet item, " +
@@ -168,7 +193,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       publication,
       rules: [
         { key: "ActiveEffectLike", mode: "upgrade", path: "system.skills.crafting.rank", value: 1 },
-        { key: "GrantItem", uuid: CRAFTING_FEAT },
+        { key: "GrantItem", allowDuplicate: false, uuid: uuidOf(cookingId) },
         { key: "GrantItem", allowDuplicate: false, uuid: uuidOf(quickId) },
         {
           key: "SpecialResource",

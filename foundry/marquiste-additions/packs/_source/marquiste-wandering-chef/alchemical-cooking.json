@@ -1,0 +1,44 @@
+{
+    "_key": "!items!wX2yLK7xSxIhQD97",
+    "_id": "wX2yLK7xSxIhQD97",
+    "img": "icons/sundries/books/book-red-exclamation.webp",
+    "name": "Alchemical Cooking",
+    "type": "feat",
+    "system": {
+        "slug": "alchemical-cooking",
+        "actionType": {
+            "value": "passive"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "skill",
+        "description": {
+            "value": "<p><strong>Prerequisites</strong> Trained in Crafting</p><hr /><p>You can use the Craft activity to create alchemical foods, but not other alchemical items. When you select this feat, you immediately gain the formulas for four common alchemical foods of 1st level or 2nd level.</p>"
+        },
+        "level": {
+            "value": 1
+        },
+        "prerequisites": {
+            "value": [
+                {
+                    "value": "trained in Crafting"
+                }
+            ]
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "general",
+                "skill"
+            ]
+        }
+    }
+}
