@@ -617,6 +617,9 @@ require("./wandering-chef")({ items: chefItems, publication: modulePublication, 
 // The Ginger Chew in two tiers, Lesser (level 2) and Moderate (PF2e's level 5 Ginger Chew), with the Bite Ginger Chew action their effects give (see ginger-chew.js).
 require("./ginger-chew")({ items: chefItems, publication: modulePublication, makeId, uuidOf: chefUuidOf, formulaItem });
 
+// Cinnamon Seers in the same two tiers (Lesser level 2, Moderate is PF2e's level 4), with the Bite Cinnamon Seers reaction their effects give (see cinnamon-seers.js).
+require("./cinnamon-seers")({ items: chefItems, publication: modulePublication, makeId, uuidOf: chefUuidOf, formulaItem });
+
 // Common Enhancements: items that apply across the whole game. It holds the mutagens copied from PF2e and their formulas (built above).
 
 writePack(MODULE_ID, COMMON_PACK, commonItems);
@@ -680,6 +683,7 @@ const moduleJson = {
     "scripts/wandering-chef/flash-cook.js",
     "scripts/wandering-chef/quick-cooking.js",
     "scripts/wandering-chef/ginger-chew.js",
+    "scripts/wandering-chef/cinnamon-seers.js",
     // Behaviour for items in the CorpseCap's Cauldron module (the Insulating Paste counter)
     "scripts/cauldron/insulating-paste.js",
   ],

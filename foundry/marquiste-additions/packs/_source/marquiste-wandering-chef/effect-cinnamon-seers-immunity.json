@@ -1,0 +1,39 @@
+{
+    "_key": "!items!uBbWVpxe2QHTp3AN",
+    "_id": "uBbWVpxe2QHTp3AN",
+    "img": "icons/consumables/potions/bottle-corked-empty.webp",
+    "name": "Effect: Cinnamon Seers Immunity",
+    "type": "effect",
+    "system": {
+        "slug": "effect-cinnamon-seers-immunity",
+        "description": {
+            "value": "<p>You bit a cinnamon seer to reroll a Recall Knowledge check, so you are temporarily immune to cinnamon seers until the next time you make your daily preparations. While this effect is on you, a cinnamon seer gives you neither its bonus nor its Bite action.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "sustained": false,
+            "unit": "unlimited",
+            "value": -1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

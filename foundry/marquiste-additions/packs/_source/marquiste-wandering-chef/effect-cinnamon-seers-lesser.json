@@ -1,0 +1,68 @@
+{
+    "_key": "!items!nJaa6KVqpu3h0N6X",
+    "_id": "nJaa6KVqpu3h0N6X",
+    "img": "icons/consumables/potions/bottle-corked-empty.webp",
+    "name": "Effect: Cinnamon Seers (Lesser)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-cinnamon-seers-lesser",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.GZIkzgnO1D4uiKFq]{Cinnamon Seers (Lesser)}</p><p>You gain a +1 item bonus to checks to Recall Knowledge.</p><p>This effect also gives you @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr]{Bite Cinnamon Seers}.</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 10
+        },
+        "level": {
+            "value": 2
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "predicate": [
+                    "action:recall-knowledge",
+                    {
+                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                    }
+                ],
+                "selector": [
+                    "arcana",
+                    "occultism",
+                    "nature",
+                    "religion",
+                    "lore"
+                ],
+                "type": "item",
+                "value": 1
+            },
+            {
+                "key": "GrantItem",
+                "allowDuplicate": false,
+                "predicate": [
+                    {
+                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                    }
+                ],
+                "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

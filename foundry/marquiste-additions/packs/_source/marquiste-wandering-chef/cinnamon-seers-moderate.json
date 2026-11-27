@@ -1,0 +1,65 @@
+{
+    "_key": "!items!w2L2NIeyBKZior2q",
+    "_id": "w2L2NIeyBKZior2q",
+    "img": "icons/consumables/potions/bottle-corked-empty.webp",
+    "name": "Cinnamon Seers (Moderate)",
+    "type": "consumable",
+    "system": {
+        "slug": "cinnamon-seers-moderate",
+        "baseItem": null,
+        "bulk": {
+            "value": 0.1
+        },
+        "category": "other",
+        "containerId": null,
+        "damage": null,
+        "description": {
+            "value": "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr /><p>Zippy, alchemically treated cinnamon suffuses cinnamon seers, a rock candy with a lively taste that provides a mental boost. A cinnamon seer remains in your mouth for 1 hour, its stimulating flavor granting you a +1 item bonus to checks to Recall Knowledge.</p><p>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.73D5lpnmHeEwuoJi]{Effect: Cinnamon Seers (Moderate)}</p><hr /><p><strong>Secondary Effect</strong> <span class=\"action-glyph\">r</span> (fortune)</p><p><strong>Trigger</strong> You gain no information from a Recall Knowledge check</p><hr /><p><strong>Effect</strong> Reroll the triggering check. If this was a secret check, the GM rerolls rather than you; the candy doesn't give you any insight into what the GM rolled, so in that case you're rerolling based only on guesswork. The seer becomes inert. You become temporarily immune to cinnamon seers until the next time you make your daily preparations. While the effect lasts it gives you the @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr]{Bite Cinnamon Seers} action, which does this.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 4
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 14
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "traits": {
+            "otherTags": [
+                "alchemical-food"
+            ],
+            "rarity": "common",
+            "value": [
+                "alchemical",
+                "consumable",
+                "lozenge",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "held-in-one-hand"
+        },
+        "uses": {
+            "autoDestroy": true,
+            "max": 1,
+            "value": 1
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "_key": "!items!0hrGR0GGg4f83cOr",
+    "_id": "0hrGR0GGg4f83cOr",
+    "img": "icons/consumables/potions/bottle-corked-empty.webp",
+    "name": "Bite Cinnamon Seers",
+    "type": "action",
+    "system": {
+        "slug": "bite-cinnamon-seers",
+        "actionType": {
+            "value": "reaction"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Trigger</strong> You gain no information from a Recall Knowledge check</p><p><strong>Requirements</strong> A cinnamon seer is in your mouth: its effect is on you</p><hr /><p>You bite down on the cinnamon seer. Reroll the triggering check. If this was a secret check, the GM rerolls rather than you; the candy doesn't give you any insight into what the GM rolled, so in that case you're rerolling based only on guesswork. The seer becomes inert, and its effect ends. You become temporarily immune to cinnamon seers until the next time you make your daily preparations.</p><hr /><p><strong>Module</strong> Using this action rerolls your latest Recall Knowledge check, removes the effect that gave you this action and gives you @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.uBbWVpxe2QHTp3AN]{Effect: Cinnamon Seers Immunity}, which ends when you rest for the night. It can be switched off in the module settings under Wandering Chef.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "fortune",
+                "marquiste"
+            ]
+        }
+    }
+}
