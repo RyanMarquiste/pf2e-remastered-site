@@ -14,7 +14,7 @@
         },
         "category": "class",
         "description": {
-            "value": "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr /><p>You use alchemical ingredients to flash-cook a spare bit of food until it hardens into a scorched, throwable lump. Quick Cooking gains a new option for you, Flash Cook, in addition to Create Consumable. Flash Cook creates a Food Projectile and does not expend a food packet.</p>"
+            "value": "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr /><p>You use alchemical ingredients to flash-cook a spare bit of food until it hardens into a scorched, throwable lump. Quick Cooking gains a new option for you, Flash Cook, in addition to Create Food. Flash Cook creates a Food Projectile and does not expend a food packet.</p>"
         },
         "level": {
             "value": 4

@@ -1,5 +1,5 @@
-// Quick Cooking: the Wandering Chef's version of Quick Alchemy. Using the Quick Cooking action asks the character to choose Create Consumable, Create Processed Food or Flash Cook.
-//   - Create Consumable (Cooking) spends one food packet and makes one alchemical food from the character's formulas. The action item carries a CraftingAbility
+// Quick Cooking: the Wandering Chef's version of Quick Alchemy. Using the Quick Cooking action asks the character to choose Create Food, Create Processed Food or Flash Cook.
+//   - Create Food spends one food packet and makes one alchemical food from the character's formulas. The action item carries a CraftingAbility
 //     rule, so PF2e itself shows the formula picker, spends the packet and puts the item in a hand. This script adds the checks and the end-of-turn expiry.
 //   - Create Processed Food is the same for foods with the Processed trait, which take 1 minute to make. It also spends a food packet and opens the formula picker
 //     (limited to the processed foods the character knows), but nothing is removed afterwards: it is made outside combat.
@@ -9,7 +9,7 @@ import { MODULE, itemUsed, say } from "../common/shared.js";
 import { enabled, log } from "../common/settings.js";
 
 const QUICK_COOKING = "quick-cooking";
-const CREATE = "create-cooking-consumable";
+const CREATE_SLUGS = ["create-food", "create-cooking-consumable"]; // the action's slug, and its earlier one
 const PROCESSED = "create-processed-food";
 const FLASH_SLUGS = ["flash-cook", "overcook"]; // the action's slug, and its earlier one
 const FLAG = "cookConsumable";
@@ -19,16 +19,16 @@ export const foodPackets = (actor) => actor.getResource?.("food-packets")?.value
 
 const action = (actor, ...slugs) => actor.items.find((i) => i.type === "action" && slugs.includes(i.slug));
 
-// Small outline icons for the chooser: a flame for Flash Cook and a cooking pot for Create Consumable.
+// Small outline icons for the chooser: a flame for Flash Cook and a cooking pot for Create Food.
 const svg = (inner) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; vertical-align: middle; margin-right: .5em;">${inner}</svg>`;
 const PROCESSED_ICON = svg('<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.8 1.8M9.5 3h5"/>');
 const FLASH_ICON = svg('<path d="M12 3c.6 3.6 5 5 5 10a5 5 0 0 1-10 0c0-2 .8-3.2 2-4.2.1 1.6.8 2.6 1.8 2.9C10.2 8.4 10.6 5.4 12 3z"/>');
 const CONSUMABLE_ICON = svg('<path d="M4 10h16v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM2 10h20M9 6.5c0-1.2 1-1.6 1-3M14 6.5c0-1.2 1-1.6 1-3"/>');
 
-// Run Create Consumable (Cooking) or Create Processed Food through PF2e's own action flow, which opens the formula picker.
-async function createFood(actor, slug, name) {
-  const create = action(actor, slug);
+// Run Create Food or Create Processed Food through PF2e's own action flow, which opens the formula picker.
+async function createFood(actor, slugs, name) {
+  const create = action(actor, ...slugs);
   if (!create) return ui.notifications.warn(`${actor.name} needs the ${name} action from the Wandering Chef Enhancements compendium.`);
   await game.pf2e.rollItemMacro(create.uuid);
 }
@@ -48,11 +48,11 @@ Hooks.on("createChatMessage", async (message) => {
     window: { title: "Quick Cooking" },
     content:
       `<p>What does ${actor.name} do with Quick Cooking?</p>` +
-      `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Consumable and Create Processed Food need one." : ""}</p>`,
+      `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Food and Create Processed Food need one." : ""}</p>`,
     // Flash Cook is only offered to a character who has it (the Flash Cook feat gives the action).
     buttons: [
       ...(flash ? [{ action: "flash", label: "Flash Cook" }] : []),
-      { action: "consumable", label: "Create Consumable", default: true },
+      { action: "consumable", label: "Create Food", default: true },
       { action: "processed", label: "Create Processed Food (takes 1 minute)" },
     ],
     render: (event, dialog) => {
@@ -73,17 +73,17 @@ Hooks.on("createChatMessage", async (message) => {
     },
     rejectClose: false,
   });
-  if (choice === "consumable") return createFood(actor, CREATE, "Create Consumable (Cooking)");
-  if (choice === "processed") return createFood(actor, PROCESSED, "Create Processed Food");
+  if (choice === "consumable") return createFood(actor, CREATE_SLUGS, "Create Food");
+  if (choice === "processed") return createFood(actor, [PROCESSED], "Create Processed Food");
   if (choice === "flash") return game.pf2e.rollItemMacro(flash.uuid);
 });
 
-// PF2e opens its formula picker for Create Consumable (Cooking) and Create Processed Food. Refuse to go on without a food packet or a free hand.
+// PF2e opens its formula picker for Create Food and Create Processed Food. Refuse to go on without a food packet or a free hand.
 Hooks.on("renderApplicationV2", (app) => {
   if (!enabled("wanderingChef") || app.constructor.name !== "FormulaPicker") return;
   const { actor, item, mode } = app.options;
-  if (mode !== "craft" || ![CREATE, PROCESSED].includes(item?.slug)) return;
-  const what = item.slug === PROCESSED ? "Create Processed Food" : "Create Consumable";
+  if (mode !== "craft" || ![...CREATE_SLUGS, PROCESSED].includes(item?.slug)) return;
+  const what = item.slug === PROCESSED ? "Create Processed Food" : "Create Food";
 
   if (foodPackets(actor) < 1) {
     say(actor, `<p>${actor.name} has no food packets left, so ${what} creates nothing.</p>`);
@@ -96,11 +96,11 @@ Hooks.on("renderApplicationV2", (app) => {
   }
 });
 
-// After PF2e posts its card for Create Consumable (Cooking), mark the item it created so that it can expire.
+// After PF2e posts its card for Create Food, mark the item it created so that it can expire.
 Hooks.on("createChatMessage", async (message) => {
   if (!enabled("wanderingChef")) return;
   const create = await itemUsed(message);
-  if (create?.type !== "action" || ![CREATE, PROCESSED].includes(create.slug)) return;
+  if (create?.type !== "action" || ![...CREATE_SLUGS, PROCESSED].includes(create.slug)) return;
 
   const holder = document.createElement("div");
   holder.innerHTML = message.content;

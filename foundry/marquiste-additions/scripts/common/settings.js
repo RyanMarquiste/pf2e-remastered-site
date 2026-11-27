@@ -59,8 +59,8 @@ const OPTIONS = {
   wanderingChef: {
     name: "Wandering Chef enhancements",
     hint:
-      "Using the Quick Cooking action asks whether to Create Consumable or Create Processed Food (each spends a food packet) or Flash Cook. Flash Cook (the Flash Cook feat's option) creates a Food Projectile " +
-      "in a free hand, tiered to the character's level, and removes it when their turn is over; what Create Consumable makes is removed when the next turn starts. " +
+      "Using the Quick Cooking action asks whether to Create Food or Create Processed Food (each spends a food packet) or Flash Cook. Flash Cook (the Flash Cook feat's option) creates a Food Projectile " +
+      "in a free hand, tiered to the character's level, and removes it when their turn is over; what Create Food makes is removed when the next turn starts. " +
       "Off: those actions do nothing.",
   },
   toxicologistMutableAcid: {

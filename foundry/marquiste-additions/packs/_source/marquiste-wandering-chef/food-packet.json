@@ -11,7 +11,7 @@
         },
         "containerId": null,
         "description": {
-            "value": "<p>A small parcel of foraged and prepared ingredients. Its quantity is your food packets: it is set when you make your daily preparations, and one is used up each time you use Create Consumable with Quick Cooking.</p>"
+            "value": "<p>A small parcel of foraged and prepared ingredients. Its quantity is your food packets: it is set when you make your daily preparations, and one is used up each time you use Create Food with Quick Cooking.</p>"
         },
         "hardness": 0,
         "hp": {

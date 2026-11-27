@@ -15,7 +15,7 @@ summary: "A Wandering Chef feat that adds a Flash Cook option to Quick Cooking, 
     <span class="trait">Archetype</span>
   </div>
   <p><strong>Prerequisites</strong> Wandering Chef Dedication</p>
-  <p>You use alchemical ingredients to flash-cook a spare bit of food until it hardens into a scorched, throwable lump. <a href="{{ 'quick-cooking' | articleUrl(collections.articles) | url }}">Quick Cooking</a> gains a new option for you, Flash Cook, in addition to Create Consumable.</p>
+  <p>You use alchemical ingredients to flash-cook a spare bit of food until it hardens into a scorched, throwable lump. <a href="{{ 'quick-cooking' | articleUrl(collections.articles) | url }}">Quick Cooking</a> gains a new option for you, Flash Cook, in addition to Create Food.</p>
 
   <div class="stat-block-section"><span>Flash Cook</span></div>
   <p><strong>Requirements</strong> You're either holding or wearing a <a href="{{ 'cooking-toolkit' | articleUrl(collections.articles) | url }}">cooking toolkit</a> and you have a free hand</p>

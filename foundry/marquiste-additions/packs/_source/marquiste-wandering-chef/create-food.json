@@ -2,10 +2,10 @@
     "_key": "!items!q1Xsg12wZ31o1UdD",
     "_id": "q1Xsg12wZ31o1UdD",
     "img": "systems/pf2e/icons/actions/OneAction.webp",
-    "name": "Create Consumable (Cooking)",
+    "name": "Create Food",
     "type": "action",
     "system": {
-        "slug": "create-cooking-consumable",
+        "slug": "create-food",
         "actionType": {
             "value": "action"
         },
@@ -14,7 +14,7 @@
         },
         "category": "interaction",
         "description": {
-            "value": "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr /><p>This is the Create Consumable option of Quick Cooking. Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make: use Create Processed Food for those.</p>"
+            "value": "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr /><p>This is the Create Food option of Quick Cooking. Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make: use Create Processed Food for those.</p>"
         },
         "frequency": null,
         "publication": {
@@ -33,7 +33,7 @@
                 ],
                 "priority": 15,
                 "resource": "food-packets",
-                "slug": "create-cooking-consumable"
+                "slug": "create-food"
             }
         ],
         "traits": {

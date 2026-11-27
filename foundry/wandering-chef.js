@@ -1,4 +1,4 @@
-// The Wandering Chef Enhancements: the Wandering Chef Dedication (Marquiste) with its food packets, Quick Cooking and its two options (Create Consumable and
+// The Wandering Chef Enhancements: the Wandering Chef Dedication (Marquiste) with its food packets, Quick Cooking and its two options (Create Food and
 // Flash Cook), the Cooking Toolkit, and the Food Projectile Flash Cook makes (one item for each tier, at the same levels and with the same scaling as the Volatile
 // Vial, but without splash). Called from build.js, which supplies the shared helpers.
 //
@@ -57,7 +57,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       description: {
         value:
           "<p>A small parcel of foraged and prepared ingredients. Its quantity is your food packets: it is set when you make your daily preparations, and one is used up each time you use " +
-          "Create Consumable with Quick Cooking.</p>",
+          "Create Food with Quick Cooking.</p>",
       },
       hardness: 0,
       hp: { max: 0, value: 0 },
@@ -73,23 +73,24 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // Create Consumable (Cooking): the same kind of action as the Alchemist's, but it spends a food packet and can only make alchemical food. The module script
+  // Create Food: the same kind of action as the Alchemist's, but it spends a food packet and can only make alchemical food. The module script
   // (scripts/wandering-chef/quick-cooking.js) does the checks and the end-of-turn expiry.
+  // (The id comes from the earlier name Create Consumable (Cooking), so characters' links to it keep working.)
   const createId = makeId("action:Create Consumable (Cooking)");
   items.push({
     _id: createId,
     img: "systems/pf2e/icons/actions/OneAction.webp",
-    name: "Create Consumable (Cooking)",
+    name: "Create Food",
     type: "action",
     system: {
-      slug: "create-cooking-consumable",
+      slug: "create-food",
       actionType: { value: "action" },
       actions: { value: 1 },
       category: "interaction",
       description: {
         value:
           "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr />" +
-          "<p>This is the Create Consumable option of Quick Cooking. Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. " +
+          "<p>This is the Create Food option of Quick Cooking. Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. " +
           "Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn " +
           "or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make: use Create Processed Food for those.</p>",
       },
@@ -101,7 +102,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           craftableItems: [isFood, { not: "item:trait:processed" }],
           priority: 15,
           resource: "food-packets",
-          slug: "create-cooking-consumable",
+          slug: "create-food",
         },
       ],
       traits: { otherTags: [], rarity: "common", value: ["manipulate"] },
@@ -141,7 +142,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // Quick Cooking: the chef's Quick Alchemy. Adding it also gives the character Create Consumable (Cooking) and Create Processed Food; Flash Cook comes with the Flash Cook feat.
+  // Quick Cooking: the chef's Quick Alchemy. Adding it also gives the character Create Food and Create Processed Food; Flash Cook comes with the Flash Cook feat.
   const quickId = makeId("action:Quick Cooking");
   items.push({
     _id: quickId,
@@ -156,10 +157,10 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       description: {
         value:
           "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit and you have a free hand</p><hr />" +
-          "<p>You cook quickly using a cooking toolkit. Choose Create Consumable, Create Processed Food, or, if you have the Flash Cook feat, Flash Cook as your action for Quick Cooking.</p>" +
+          "<p>You cook quickly using a cooking toolkit. Choose Create Food, Create Processed Food, or, if you have the Flash Cook feat, Flash Cook as your action for Quick Cooking.</p>" +
           "<p>Any effect created by an item made with Quick Cooking that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions " +
           "such as slow acting poisons (as described in the infused trait).</p>" +
-          "<h2>Create Consumable</h2>" +
+          "<h2>Create Food</h2>" +
           "<p><strong>Requirements</strong> You have at least one food packet</p>" +
           "<p>Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. Skip the normal monetary cost in raw materials and " +
           "the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait " +
@@ -169,7 +170,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           "<p>" + PROCESSED_TEXT + "</p>" +
           "<h2>Flash Cook</h2>" +
           "<p>See the Flash Cook feat. Using Flash Cook does not expend a food packet.</p>" +
-          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Consumable, Create Processed Food or Flash Cook. It can be switched off in the module settings under Wandering Chef.</p>",
+          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Food, Create Processed Food or Flash Cook. It can be switched off in the module settings under Wandering Chef.</p>",
       },
       frequency: null,
       publication,
@@ -355,7 +356,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
         value:
           "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr />" +
           "<p>You use alchemical ingredients to flash-cook a spare bit of food until it hardens into a scorched, throwable lump. Quick Cooking gains a new option for you, Flash Cook, " +
-          "in addition to Create Consumable. Flash Cook creates a Food Projectile and does not expend a food packet.</p>",
+          "in addition to Create Food. Flash Cook creates a Food Projectile and does not expend a food packet.</p>",
       },
       level: { value: 4 },
       prerequisites: { value: [{ value: "Wandering Chef Dedication" }] },
