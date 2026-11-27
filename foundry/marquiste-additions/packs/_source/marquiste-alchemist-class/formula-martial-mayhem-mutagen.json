@@ -34,7 +34,7 @@
             "value": 0
         },
         "description": {
-            "value": "<p><strong>Source</strong> Marquiste Additions</p><p>The formula for Martial Mayhem Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Martial Mayhem Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.2EzE8fdNzD4Cp2ST]{Martial Mayhem Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.9Wt5Jokp8IHAQZHy]{Martial Mayhem Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.4JPLGSOoAJi0g5Qp]{Martial Mayhem Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.AXlHVbcQINWgbHNa]{Martial Mayhem Mutagen (Major)} (level 17)</li></ul>"
+            "value": "<p>The formula for Martial Mayhem Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Martial Mayhem Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.2EzE8fdNzD4Cp2ST]{Martial Mayhem Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.9Wt5Jokp8IHAQZHy]{Martial Mayhem Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.4JPLGSOoAJi0g5Qp]{Martial Mayhem Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.AXlHVbcQINWgbHNa]{Martial Mayhem Mutagen (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
         },
         "hardness": 0,
         "hp": {

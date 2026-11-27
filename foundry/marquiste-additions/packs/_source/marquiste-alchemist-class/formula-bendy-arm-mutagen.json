@@ -34,7 +34,7 @@
             "value": 0
         },
         "description": {
-            "value": "<p><strong>Source</strong> Marquiste Additions</p><p>The formula for Bendy-Arm Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Bendy-Arm Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.9F3d43xMDCJNIkDo]{Bendy-Arm Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.6VCaHBbUBk4eBlPC]{Bendy-Arm Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.RsAoEbp28Za4hlLH]{Bendy-Arm Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.bvIVxDq1wh6IavHP]{Bendy-Arm Mutagen (Major)} (level 17)</li></ul>"
+            "value": "<p>The formula for Bendy-Arm Mutagen. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Bendy-Arm Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.9F3d43xMDCJNIkDo]{Bendy-Arm Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.6VCaHBbUBk4eBlPC]{Bendy-Arm Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.RsAoEbp28Za4hlLH]{Bendy-Arm Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.bvIVxDq1wh6IavHP]{Bendy-Arm Mutagen (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
         },
         "hardness": 0,
         "hp": {

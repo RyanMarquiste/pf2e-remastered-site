@@ -590,11 +590,11 @@ function writePack(moduleId, pack, list, docType = "items") {
   for (const item of list) {
     const traits = item.system?.traits?.value;
     if (sourceTrait && item.type !== "effect" && Array.isArray(traits) && !traits.includes(sourceTrait)) traits.push(sourceTrait);
-    // The Source line goes at the top of the description, as PF2e's own items print one.
+    // The Source line goes at the bottom of the description, after a rule, so the source chip is the prominent label and the text stays out of the way.
     const description = item.system?.description;
     const title = item.system?.publication?.title;
     if (item.type !== "effect" && title && typeof description?.value === "string" && !description.value.includes("<strong>Source</strong>")) {
-      description.value = `<p><strong>Source</strong> ${title}</p>` + description.value;
+      description.value = description.value + `<hr /><p><strong>Source</strong> ${title}</p>`;
     }
   }
   for (const item of list) {

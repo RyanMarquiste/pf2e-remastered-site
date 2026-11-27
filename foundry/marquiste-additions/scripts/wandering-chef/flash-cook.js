@@ -33,7 +33,11 @@ export async function flashCook(actor) {
   if (foodFight) {
     data.system.range = 15;
     data.system.traits.value = [...data.system.traits.value, "deadly-d8"];
-    data.system.description.value += "<p><strong>Food Fight</strong> This Food Projectile has the deadly d8 trait: on a critical hit it deals an extra d8 damage after the damage is doubled.</p>";
+    // The description ends with the Source line (after a rule), so the note goes before that.
+    const note = "<p><strong>Food Fight</strong> This Food Projectile has the deadly d8 trait: on a critical hit it deals an extra d8 damage after the damage is doubled.</p>";
+    const description = data.system.description.value;
+    const at = description.lastIndexOf("<hr /><p><strong>Source</strong>");
+    data.system.description.value = at >= 0 ? description.slice(0, at) + note + description.slice(at) : description + note;
   }
   data.system.equipped = { carryType: "held", handsHeld: 1 };
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);

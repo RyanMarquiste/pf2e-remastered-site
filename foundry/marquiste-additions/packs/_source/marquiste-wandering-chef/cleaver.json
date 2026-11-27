@@ -24,7 +24,7 @@
             "die": "d6"
         },
         "description": {
-            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><em>A heavy, broad-bladed knife made for chopping through meat and bone. It chops through just about anything else the same way.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>"
+            "value": "<p><em>A heavy, broad-bladed knife made for chopping through meat and bone. It chops through just about anything else the same way.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
         },
         "expend": null,
         "grade": null,

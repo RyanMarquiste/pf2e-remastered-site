@@ -14,7 +14,7 @@
         },
         "category": "interaction",
         "description": {
-            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr /><p><strong>Time</strong> 1 minute</p><p>This is the processed food option of Quick Cooking. Expend one food packet to create a single processed alchemical food of your level or lower that you know the formula for. This takes 1 minute instead of a single action, because processed foods are too complex to make quickly. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and remains potent until the start of your next turn, or, if the item would take more than 3 actions to Activate, for a time equal to its activation time.</p>"
+            "value": "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr /><p><strong>Time</strong> 1 minute</p><p>This is the processed food option of Quick Cooking. Expend one food packet to create a single processed alchemical food of your level or lower that you know the formula for. This takes 1 minute instead of a single action, because processed foods are too complex to make quickly. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and remains potent until the start of your next turn, or, if the item would take more than 3 actions to Activate, for a time equal to its activation time.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
         },
         "frequency": null,
         "publication": {
