@@ -457,33 +457,33 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // The Kitchen Armaments weapons: simple, uncommon cookware weapons for the Wandering Chef, and the feat that trains the character in them.
-  const ACCESS =
-    "<p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>";
+  // The Kitchen Armaments weapons: simple, common cookware weapons for the Wandering Chef, and the feat that trains the character in them. They carry the Makeshift trait
+  // (scripts/common/makeshift.js): a critical failure with one breaks it. Their Hardness and HP are PF2e's thin wood (3 / 12) or thin iron (5 / 20) object values, so that
+  // PF2e can tell when the weapon is broken; weapons are not otherwise damaged.
   const kitchenWeapons = [
     {
       name: "Chef's Knife", slug: "chefs-knife", img: "icons/tools/cooking/knife-chef-steel-brown.webp",
-      group: "knife", die: "d4", type: "slashing", traits: ["deadly-d6", "finesse"], price: { sp: 2 },
+      group: "knife", die: "d4", type: "slashing", traits: ["deadly-d6", "finesse"], price: { sp: 2 }, hardness: 5, hp: 20,
       text: "A broad, razor-sharp blade made for chopping and slicing. In a practiced hand it works as well on a monster as on an onion.",
     },
     {
       name: "Cleaver", slug: "cleaver", img: "icons/tools/cooking/knife-cleaver-steel-grey.webp",
-      group: "axe", die: "d6", type: "slashing", traits: [], price: { sp: 5 },
+      group: "axe", die: "d6", type: "slashing", traits: [], price: { sp: 5 }, hardness: 5, hp: 20,
       text: "A heavy, broad-bladed knife made for chopping through meat and bone. It chops through just about anything else the same way.",
     },
     {
       name: "Tenderizer", slug: "tenderizer", img: "icons/tools/hand/hammer-mallet-brown.webp",
-      group: "hammer", die: "d6", type: "bludgeoning", traits: [], price: { sp: 1 },
+      group: "hammer", die: "d6", type: "bludgeoning", traits: [], price: { sp: 1 }, hardness: 5, hp: 20,
       text: "A heavy, studded mallet for pounding tough cuts of meat until they give. It does the same to anything else you hit with it.",
     },
     {
       name: "Skewer", slug: "skewer", img: "icons/consumables/meat/kebab-skewer-vegetable-brown.webp",
-      group: "spear", die: "d4", type: "piercing", traits: ["fatal-d8", "finesse"], price: { sp: 1 },
+      group: "spear", die: "d4", type: "piercing", traits: ["fatal-d8", "finesse"], price: { sp: 1 }, hardness: 5, hp: 20,
       text: "A long, thin metal spike for threading meat and vegetables over a fire, with a point sharp enough to pierce more than dinner.",
     },
     {
       name: "Rolling Pin", slug: "rolling-pin", img: "systems/pf2e/icons/equipment/weapons/club.webp",
-      group: "club", die: "d4", type: "bludgeoning", traits: ["nonlethal"], price: { sp: 1 },
+      group: "club", die: "d4", type: "bludgeoning", traits: ["nonlethal"], price: { sp: 1 }, hardness: 3, hp: 12,
       text: "A smooth, heavy wooden cylinder for flattening dough. It leaves a bruise, but it is made for flattening and not for killing.",
     },
   ];
@@ -502,12 +502,12 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
         bulk: { value: 0.1 },
         category: "simple",
         damage: { damageType: w.type, dice: 1, die: w.die },
-        description: { value: `<p><em>${w.text}</em></p>${ACCESS}` },
+        description: { value: `<p><em>${w.text}</em></p>` },
         expend: null,
         grade: null,
         group: w.group,
-        hardness: 0,
-        hp: { max: 0, value: 0 },
+        hardness: w.hardness,
+        hp: { max: w.hp, value: w.hp },
         level: { value: 0 },
         material: { grade: null, type: null },
         price: { value: w.price },
@@ -518,7 +518,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
         rules: [],
         runes: { potency: 0, property: [], striking: 0 },
         size: "med",
-        traits: { rarity: "uncommon", value: w.traits },
+        traits: { rarity: "common", value: [...w.traits, "makeshift"] },
         usage: { canBeAmmo: false, value: "held-in-one-hand" },
       },
     });

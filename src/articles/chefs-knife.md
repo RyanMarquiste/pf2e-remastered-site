@@ -14,12 +14,12 @@ summary: "A broad kitchen blade for chopping and slicing, with the Deadly d6 and
   <div class="stat-block-traits">
     <span class="trait">Deadly d6</span>
     <span class="trait">Finesse</span>
-    <span class="trait">Uncommon</span>
+    <span class="trait">Makeshift</span>
   </div>
-  <p><strong>Price</strong> 2 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
-  <strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>
+  <p><strong>Price</strong> 2 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Knife<br>
-  <strong>Damage</strong> 1d4 slashing</p>
+  <strong>Damage</strong> 1d4 slashing<br>
+  <strong>Hardness</strong> 5; <strong>HP</strong> 20 (BT 10)</p>
   <p>A broad, razor-sharp blade made for chopping and slicing. In a practiced hand it works as well on a monster as on an onion.</p>
 </div>
 

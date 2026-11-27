@@ -13,12 +13,12 @@ summary: "A wooden dough roller with the Nonlethal trait."
   <h4 class="stat-block-title">Rolling Pin</h4>
   <div class="stat-block-traits">
     <span class="trait">Nonlethal</span>
-    <span class="trait">Uncommon</span>
+    <span class="trait">Makeshift</span>
   </div>
-  <p><strong>Price</strong> 1 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
-  <strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>
+  <p><strong>Price</strong> 1 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Club<br>
-  <strong>Damage</strong> 1d4 bludgeoning</p>
+  <strong>Damage</strong> 1d4 bludgeoning<br>
+  <strong>Hardness</strong> 3; <strong>HP</strong> 12 (BT 6)</p>
   <p>A smooth, heavy wooden cylinder for flattening dough. It leaves a bruise, but it is made for flattening and not for killing.</p>
 </div>
 

@@ -659,6 +659,7 @@ const moduleJson = {
     "scripts/common/mutable-trait.js",
     "scripts/common/formula-trait.js",
     "scripts/common/source-traits.js",
+    "scripts/common/makeshift.js",
     "scripts/common/recall-knowledge.js",
     "scripts/common/formula-books.js",
     "scripts/common/crafting-tab.js",

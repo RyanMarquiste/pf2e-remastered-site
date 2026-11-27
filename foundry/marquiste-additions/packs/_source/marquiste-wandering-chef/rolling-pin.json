@@ -24,15 +24,15 @@
             "die": "d4"
         },
         "description": {
-            "value": "<p><em>A smooth, heavy wooden cylinder for flattening dough. It leaves a bruise, but it is made for flattening and not for killing.</em></p><p><strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+            "value": "<p><em>A smooth, heavy wooden cylinder for flattening dough. It leaves a bruise, but it is made for flattening and not for killing.</em></p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
         },
         "expend": null,
         "grade": null,
         "group": "club",
-        "hardness": 0,
+        "hardness": 3,
         "hp": {
-            "max": 0,
-            "value": 0
+            "max": 12,
+            "value": 12
         },
         "level": {
             "value": 0
@@ -64,9 +64,10 @@
         },
         "size": "med",
         "traits": {
-            "rarity": "uncommon",
+            "rarity": "common",
             "value": [
                 "nonlethal",
+                "makeshift",
                 "marquiste"
             ]
         },

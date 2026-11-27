@@ -14,12 +14,12 @@ summary: "A long cooking spike with the Fatal d8 and Finesse traits."
   <div class="stat-block-traits">
     <span class="trait">Fatal d8</span>
     <span class="trait">Finesse</span>
-    <span class="trait">Uncommon</span>
+    <span class="trait">Makeshift</span>
   </div>
-  <p><strong>Price</strong> 1 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
-  <strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>
+  <p><strong>Price</strong> 1 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Spear<br>
-  <strong>Damage</strong> 1d4 piercing</p>
+  <strong>Damage</strong> 1d4 piercing<br>
+  <strong>Hardness</strong> 5; <strong>HP</strong> 20 (BT 10)</p>
   <p>A long, thin metal spike for threading meat and vegetables over a fire, with a point sharp enough to pierce more than dinner.</p>
 </div>
 

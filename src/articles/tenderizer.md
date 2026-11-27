@@ -12,12 +12,12 @@ summary: "A heavy meat mallet, a simple Hammer-group weapon."
 <div class="stat-block" id="tenderizer">
   <h4 class="stat-block-title">Tenderizer</h4>
   <div class="stat-block-traits">
-    <span class="trait">Uncommon</span>
+    <span class="trait">Makeshift</span>
   </div>
-  <p><strong>Price</strong> 1 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L<br>
-  <strong>Access</strong> Characters who spend a lot of time in the kitchen, such as those with the Cook background, the Seasoned skill feat, or the Wandering Chef archetype, generally have access to this weapon.</p>
+  <p><strong>Price</strong> 1 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Hammer<br>
-  <strong>Damage</strong> 1d6 bludgeoning</p>
+  <strong>Damage</strong> 1d6 bludgeoning<br>
+  <strong>Hardness</strong> 5; <strong>HP</strong> 20 (BT 10)</p>
   <p>A heavy, studded mallet for pounding tough cuts of meat until they give. It does the same to anything else you hit with it.</p>
 </div>
 

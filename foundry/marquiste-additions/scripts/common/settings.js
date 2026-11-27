@@ -70,6 +70,13 @@ const OPTIONS = {
       "When a player presses its button their character rolls every chosen skill, and the GM gets a private summary of who succeeded. The players aren't told the skills or the DC. " +
       "A GM has to be connected. Off: the macro does nothing and the button does nothing.",
   },
+  makeshift: {
+    name: "Makeshift items",
+    hint:
+      "A weapon with the Makeshift trait breaks (its Hit Points drop to its Broken Threshold) when its wielder rolls a critical failure with it, and can't Strike until it is repaired. " +
+      "A raised makeshift shield breaks when an attack against its owner is a critical hit; with no shield raised, worn makeshift armor breaks instead. A reroll that changes the " +
+      "result saves the item. This needs a GM to be connected. Off: Makeshift is only a label.",
+  },
   toxicologistMutableAcid: {
     name: "Mutable Acid",
     hint: "Infused poison items a Toxicologist creates also get the Mutable Acid trait, so their damage can change to acid. Off: items are left as PF2e creates them.",
@@ -153,6 +160,8 @@ const LAYOUT = [
   { key: "bombSplashAutoApply" },
   { level: 1, heading: "Wandering Chef" },
   { key: "wanderingChef" },
+  { level: 1, heading: "Makeshift" },
+  { key: "makeshift" },
   { level: 1, heading: "Game Master" },
   { key: "recallKnowledge" },
   { level: 1, heading: "Cauldron" },
