@@ -29,7 +29,7 @@
                 "predicate": [
                     "action:recall-knowledge",
                     {
-                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                        "not": "self:effect:cinnamon-seers-immunity"
                     }
                 ],
                 "selector": "skill-check",
@@ -41,7 +41,7 @@
                 "allowDuplicate": false,
                 "predicate": [
                     {
-                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                        "not": "self:effect:cinnamon-seers-immunity"
                     }
                 ],
                 "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr"

@@ -13,7 +13,8 @@ module.exports = function buildCinnamonSeers({ items, publication, makeId, uuidO
   const biteId = makeId("action:Bite Cinnamon Seers");
   const immuneId = makeId("effect:Cinnamon Seers Immunity");
   const IMMUNE_SLUG = "effect-cinnamon-seers-immunity";
-  const notImmune = { not: `self:effect:${IMMUNE_SLUG}` };
+  // PF2e's roll option for an effect is self:effect:<slug> with the slug's leading "effect-" removed, so the immunity's is self:effect:cinnamon-seers-immunity.
+  const notImmune = { not: `self:effect:${IMMUNE_SLUG.replace(/^(?:[a-z]+-)?(?:effect|stance)-/, "")}` };
 
   items.push({
     _id: biteId,

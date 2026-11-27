@@ -30,7 +30,7 @@
                 "prompt": "Choose the skill the cinnamon seer sharpens",
                 "predicate": [
                     {
-                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                        "not": "self:effect:cinnamon-seers-immunity"
                     }
                 ],
                 "choices": [
@@ -61,7 +61,7 @@
                 "predicate": [
                     "action:recall-knowledge",
                     {
-                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                        "not": "self:effect:cinnamon-seers-immunity"
                     }
                 ],
                 "selector": "{item|flags.pf2e.rulesSelections.skill}",
@@ -73,7 +73,7 @@
                 "allowDuplicate": false,
                 "predicate": [
                     {
-                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                        "not": "self:effect:cinnamon-seers-immunity"
                     }
                 ],
                 "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr"
