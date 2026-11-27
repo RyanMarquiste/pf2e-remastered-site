@@ -1,0 +1,55 @@
+{
+    "_key": "!items!2mFUxHKDp2kaYAPC",
+    "_id": "2mFUxHKDp2kaYAPC",
+    "img": "icons/consumables/food/bread-toast-tan.webp",
+    "name": "Advanced Cooking",
+    "type": "feat",
+    "system": {
+        "slug": "advanced-cooking",
+        "actionType": {
+            "value": "passive"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "class",
+        "description": {
+            "value": "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr /><p>You know how to prepare a day's worth of food ahead of time. During your daily preparations, you spend some time to prepare alchemical foods that you can eat over the course of the day. You don't need to attempt a Crafting check to do this, you can use a cooking toolkit instead of an alchemist's lab, and you ignore both the number of days typically required to make the foods and any raw material requirements.</p><p>You can prepare up to 5 alchemical foods. Each must be a food you know the formula for and have an item level equal to or lower than your level. These foods have the infused trait and remain potent for 24 hours or until your next daily preparations, whichever comes first.</p><hr /><p><strong>Module</strong> This gives the character an Advanced Cooking entry on the Crafting tab, with 5 daily preparation slots for alchemical foods (the items PF2e tags as alchemical food).</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "level": {
+            "value": 4
+        },
+        "prerequisites": {
+            "value": [
+                {
+                    "value": "Wandering Chef Dedication"
+                }
+            ]
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "CraftingAbility",
+                "craftableItems": [
+                    "item:tag:alchemical-food"
+                ],
+                "isDailyPrep": true,
+                "label": "Advanced Cooking",
+                "maxSlots": 5,
+                "slug": "advanced-cooking"
+            }
+        ],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "archetype",
+                "marquiste"
+            ]
+        }
+    }
+}

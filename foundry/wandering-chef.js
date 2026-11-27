@@ -253,6 +253,45 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
+  // Advanced Cooking: the chef's Advanced Alchemy, a daily preparation of alchemical foods. It is the Wandering Chef's Morning Side Dishes feat from the Tian Xia Character Guide
+  // (feat 4, 5 alchemical foods each day), with the same kind of crafting rule that Advanced Alchemy uses and an entry of its own on the Crafting tab.
+  items.push({
+    _id: makeId("feat:Advanced Cooking"),
+    img: "icons/consumables/food/bread-toast-tan.webp",
+    name: "Advanced Cooking",
+    type: "feat",
+    system: {
+      slug: "advanced-cooking",
+      actionType: { value: "passive" },
+      actions: { value: null },
+      category: "class",
+      description: {
+        value:
+          "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr />" +
+          "<p>You know how to prepare a day's worth of food ahead of time. During your daily preparations, you spend some time to prepare alchemical foods that you can eat over the course of the day. " +
+          "You don't need to attempt a Crafting check to do this, you can use a cooking toolkit instead of an alchemist's lab, and you ignore both the number of days typically required to make " +
+          "the foods and any raw material requirements.</p>" +
+          "<p>You can prepare up to 5 alchemical foods. Each must be a food you know the formula for and have an item level equal to or lower than your level. These foods have the infused trait " +
+          "and remain potent for 24 hours or until your next daily preparations, whichever comes first.</p>" +
+          "<hr /><p><strong>Module</strong> This gives the character an Advanced Cooking entry on the Crafting tab, with 5 daily preparation slots for alchemical foods (the items PF2e tags as alchemical food).</p>",
+      },
+      level: { value: 4 },
+      prerequisites: { value: [{ value: "Wandering Chef Dedication" }] },
+      publication,
+      rules: [
+        {
+          key: "CraftingAbility",
+          craftableItems: ["item:tag:alchemical-food"],
+          isDailyPrep: true,
+          label: "Advanced Cooking",
+          maxSlots: 5,
+          slug: "advanced-cooking",
+        },
+      ],
+      traits: { otherTags: [], rarity: "common", value: ["archetype"] },
+    },
+  });
+
   // Additional Servings (the Marquiste one): raises the number of food packets, up to three times.
   items.push({
     _id: makeId("feat:Additional Servings (Marquiste)"),
