@@ -1,12 +1,24 @@
 // The Add recipes list of a cookbook. PF2e's Compendium Browser can't filter by the alchemical-food tag, so a cookbook gets a list of its own: every alchemical food in the item compendiums,
 // searchable, with a Common only box, and the formula items whose tiers are foods (Formula: Ginger Chew teaches every tier up to the character's level). The ones ticked go in the cookbook.
 // Uncommon and rare foods are listed with their rarity, so a GM who allows one can have a character pick it.
-import { MODULE } from "./shared.js";
+import { MODULE, say } from "./shared.js";
 import { entriesOf, esc, FOOD_TAG, isFood, placeEntries } from "./formula-books.js";
 
 const COMMON_ONLY = `${MODULE}.cookbook.commonOnly`;
 // The system's own item compendiums are big, and food is only in the equipment one; the other packs (modules and the world) are all looked at.
 const SYSTEM_PACKS = ["equipment-srd"];
+
+// What buying a formula costs by level: PF2e's Formula Price table, in copper. A formula item that teaches several tiers costs only what its lowest tier does.
+const FORMULA_GP = [0.5, 1, 2, 3, 5, 8, 13, 18, 25, 35, 50, 70, 100, 150, 225, 325, 500, 750, 1200, 2000, 3500];
+export const formulaCost = (level) => Math.round(FORMULA_GP[Math.max(0, Math.min(20, level))] * 100);
+const COIN_YELLOW = "#e6b422";
+const COIN_ORANGE = "#e8731a";
+const coinColor = (affordable) => (affordable ? COIN_YELLOW : COIN_ORANGE);
+const price = (cp) => {
+  const parts = [[Math.floor(cp / 100), "gp"], [Math.floor((cp % 100) / 10), "sp"], [cp % 10, "cp"]].filter(([n]) => n);
+  return parts.length ? parts.map(([n, unit]) => `${n.toLocaleString()} ${unit}`).join(" ") : "0 gp";
+};
+const coinsOf = (actor) => actor.inventory?.coins?.copperValue ?? 0;
 
 let loading = null;
 
@@ -84,6 +96,7 @@ export async function pickRecipes(actor, book) {
   const rows = await loadRecipes();
   if (!rows.length) return ui.notifications.warn("No alchemical foods were found in the compendiums.");
   const inBook = new Set(entriesOf(book));
+  const wealth = coinsOf(actor);
 
   const list = rows
     .map((row) => {
@@ -94,7 +107,9 @@ export async function pickRecipes(actor, book) {
         `<input type="checkbox" name="recipe" value="${esc(row.uuid)}"${have ? " checked disabled" : ""}>` +
         `<img class="mq-recipe-icon" src="${esc(row.img ?? "icons/svg/item-bag.svg")}" width="28" height="28" data-uuid="${esc(row.uuid)}" data-action="share" data-tooltip="Share ${esc(row.itemName)} in chat" style="flex:none;border:none;cursor:pointer;">` +
         `<span style="flex:1;"><a class="mq-recipe-name" data-uuid="${esc(row.uuid)}" data-action="open" data-tooltip="Read ${esc(row.itemName)}">${esc(row.name)}</a>${rarity}</span>` +
-        `<span style="opacity:.7;">${have ? "in book" : `Level ${row.level}`}</span></div>`
+        `<span style="opacity:.7;white-space:nowrap;">${have ? "in book" : `Level ${row.level}`}</span>` +
+        (have ? "" : `<span class="mq-price" data-cp="${formulaCost(row.level)}" style="white-space:nowrap;min-width:5.5em;text-align:right;"><i class="fa-solid fa-coins" style="color:${coinColor(formulaCost(row.level) <= wealth)};"></i> ${price(formulaCost(row.level))}</span>`) +
+        `</div>`
       );
     })
     .join("");
@@ -106,13 +121,21 @@ export async function pickRecipes(actor, book) {
     `<label style="display:flex;align-items:center;gap:.3em;white-space:nowrap;"><input type="checkbox" name="common"${remembered() ? " checked" : ""}> Common only</label>` +
     `</div>` +
     `<div class="mq-recipes" style="max-height:50vh;overflow-y:auto;border:1px solid var(--color-border-light-tertiary, #888);border-radius:4px;">${list}</div>` +
-    `<p class="mq-recipe-count" style="margin:0;opacity:.7;"></p>` +
+    `<div style="display:flex;justify-content:space-between;gap:.5rem;opacity:.8;"><span class="mq-recipe-count"></span>` +
+    `<span class="mq-wealth"><i class="fa-solid fa-coins" style="color:${COIN_YELLOW};"></i> ${esc(actor.name)} has ${price(wealth)}</span></div>` +
     `</div>`;
 
-  const chosen = await foundry.applications.api.DialogV2.prompt({
+  const ticked = (button) => [...button.form.querySelectorAll('input[name="recipe"]:checked:not(:disabled)')].map((box) => box.value);
+  const result = await foundry.applications.api.DialogV2.wait({
     window: { title: `Add recipes to ${book.name}`, icon: "fa-solid fa-utensils" },
-    position: { width: 480 },
+    position: { width: 520 },
     content,
+    buttons: [
+      // Neither is the default button, so pressing Enter in the search box never buys anything.
+      { action: "take", label: "Take formulas", icon: "fa-solid fa-hand", callback: (event, button) => ({ mode: "take", uuids: ticked(button) }) },
+      { action: "buy", label: "Buy formulas", icon: "fa-solid fa-coins", callback: (event, button) => ({ mode: "buy", uuids: ticked(button) }) },
+      { action: "cancel", label: "Cancel", icon: "fa-solid fa-xmark", callback: () => null },
+    ],
     render: (event, dialog) => {
       const root = dialog.element;
       const search = root.querySelector('input[name="search"]');
@@ -144,18 +167,38 @@ export async function pickRecipes(actor, book) {
           if (!box.disabled) box.checked = !box.checked;
         }
       });
+      // Taking is free; buying costs the ticked formulas' prices. The Buy button shows the total, in a yellow coin when the character can pay it and an orange one when they can't, and it can't be used then.
+      const update = () => {
+        const picked = [...root.querySelectorAll('input[name="recipe"]:checked:not(:disabled)')];
+        const total = picked.reduce((sum, box) => sum + Number(box.closest(".mq-recipe").querySelector(".mq-price")?.dataset.cp ?? 0), 0);
+        const affordable = total <= wealth;
+        const take = root.querySelector('button[data-action="take"]');
+        const buy = root.querySelector('button[data-action="buy"]');
+        take.disabled = !picked.length;
+        buy.disabled = !picked.length || !affordable;
+        buy.innerHTML = `<i class="fa-solid fa-coins" style="color:${coinColor(affordable)};"></i> Buy formulas${picked.length ? ` (${price(total)})` : ""}`;
+        buy.dataset.tooltip = affordable ? "Pay the formula price for each ticked recipe" : `Not enough money: ${price(total)} costs more than the ${price(wealth)} ${actor.name} has`;
+      };
+      root.querySelector(".mq-recipes").addEventListener("click", () => setTimeout(update));
+      root.querySelector(".mq-recipes").addEventListener("change", update);
       search.addEventListener("input", apply);
       common.addEventListener("change", () => {
         remember(common.checked);
         apply();
       });
       apply();
-    },
-    ok: {
-      label: "Add to cookbook",
-      callback: (event, button) => [...button.form.querySelectorAll('input[name="recipe"]:checked:not(:disabled)')].map((box) => box.value),
+      update();
     },
     rejectClose: false,
   });
-  if (Array.isArray(chosen) && chosen.length) await placeEntries(actor, chosen, book);
+  if (!result?.uuids?.length) return;
+
+  const names = new Map(rows.map((row) => [row.uuid, row.name.replace(/ \(every tier\)$/, "")]));
+  const picked = result.uuids;
+  if (result.mode === "buy") {
+    const total = picked.reduce((sum, uuid) => sum + formulaCost(rows.find((row) => row.uuid === uuid)?.level ?? 0), 0);
+    if (!(await actor.inventory.removeCoins({ cp: total }))) return ui.notifications.warn(`${actor.name} doesn't have ${price(total)}.`);
+    await say(actor, `<p>${actor.name} buys ${picked.length === 1 ? "a formula" : `${picked.length} formulas`} for ${price(total)}: ${picked.map((uuid) => names.get(uuid)).join(", ")}.</p>`);
+  }
+  await placeEntries(actor, picked, book);
 }
