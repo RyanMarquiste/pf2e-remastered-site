@@ -29,6 +29,6 @@ summary: "A Wandering Chef feat that adds an Overcook option to Quick Cooking, t
 
   <div class="stat-block special-block">
     <p class="special-label">Special</p>
-    <p>The Food Projectile is a simple weapon, so Strikes with it use your proficiency with simple weapons. Unlike a volatile vial it is not a bomb and has no splash, so abilities that apply to bombs or to splash damage don't apply to it.</p>
+    <p>The Food Projectile is a simple weapon, so Strikes with it use your proficiency with simple weapons. Unlike a volatile vial it is not a bomb and has no splash, so abilities that apply to bombs or to splash damage don't apply to it. It is a Propulsive ranged weapon and not a thrown one, so it adds half your Strength modifier to damage if that is positive.</p>
   </div>
 </div>
