@@ -28,7 +28,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
   // The Cooking Toolkit: the chef's version of the alchemist's toolkit, with the same price, bulk and handling.
   items.push({
     _id: makeId("item:Cooking Toolkit"),
-    img: "icons/tools/cooking/mortar-herbs-yellow.webp",
+    img: "modules/marquiste-additions/images/cooking-toolkit.png",
     name: "Cooking Toolkit",
     type: "equipment",
     system: {

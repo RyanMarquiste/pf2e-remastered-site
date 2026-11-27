@@ -1,7 +1,7 @@
 {
     "_key": "!items!lNUm3ul8MD2L2n6Z",
     "_id": "lNUm3ul8MD2L2n6Z",
-    "img": "icons/tools/cooking/mortar-herbs-yellow.webp",
+    "img": "modules/marquiste-additions/images/cooking-toolkit.png",
     "name": "Cooking Toolkit",
     "type": "equipment",
     "system": {
