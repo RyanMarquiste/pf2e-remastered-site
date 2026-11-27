@@ -253,10 +253,13 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // Advanced Cooking: the chef's Advanced Alchemy, a daily preparation of alchemical foods. It is the Wandering Chef's Morning Side Dishes feat from the Tian Xia Character Guide
-  // (feat 4, 5 alchemical foods each day), with the same kind of crafting rule that Advanced Alchemy uses and an entry of its own on the Crafting tab.
+  // Morning Side Dishes and Advanced Cooking: the Wandering Chef's version of the Alchemist's Advanced Alchemy. Morning Side Dishes is the feat from the Tian Xia Character Guide
+  // (feat 4, 5 alchemical foods each day) with the same name; here it does not carry the crafting rule itself but grants the Advanced Cooking feature, which does. That gives
+  // the character an Advanced Cooking section on the Crafting tab of its own (separate from an Alchemist's Advanced Alchemy), limited to alchemical foods, with 5 daily slots.
+  // The feature keeps the id it had when it was a feat, so links to it keep working.
+  const advancedCookingId = makeId("feat:Advanced Cooking");
   items.push({
-    _id: makeId("feat:Advanced Cooking"),
+    _id: advancedCookingId,
     img: "icons/consumables/food/bread-toast-tan.webp",
     name: "Advanced Cooking",
     type: "feat",
@@ -264,19 +267,17 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       slug: "advanced-cooking",
       actionType: { value: "passive" },
       actions: { value: null },
-      category: "class",
+      category: "classfeature",
       description: {
         value:
-          "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr />" +
-          "<p>You know how to prepare a day's worth of food ahead of time. During your daily preparations, you spend some time to prepare alchemical foods that you can eat over the course of the day. " +
-          "You don't need to attempt a Crafting check to do this, you can use a cooking toolkit instead of an alchemist's lab, and you ignore both the number of days typically required to make " +
-          "the foods and any raw material requirements.</p>" +
+          "<p>During your daily preparations, you spend some time to prepare alchemical foods that you can eat over the course of the day. You don't need to attempt a Crafting check " +
+          "to do this, you can use a cooking toolkit instead of an alchemist's lab, and you ignore both the number of days typically required to make the foods and any raw material requirements.</p>" +
           "<p>You can prepare up to 5 alchemical foods. Each must be a food you know the formula for and have an item level equal to or lower than your level. These foods have the infused trait " +
           "and remain potent for 24 hours or until your next daily preparations, whichever comes first.</p>" +
-          "<hr /><p><strong>Module</strong> This gives the character an Advanced Cooking entry on the Crafting tab, with 5 daily preparation slots for alchemical foods (the items PF2e tags as alchemical food).</p>",
+          "<hr /><p><strong>Module</strong> This gives the character an Advanced Cooking section on the Crafting tab, with 5 daily preparation slots for alchemical foods (the items PF2e tags as alchemical food).</p>",
       },
       level: { value: 4 },
-      prerequisites: { value: [{ value: "Wandering Chef Dedication" }] },
+      prerequisites: { value: [] },
       publication,
       rules: [
         {
@@ -288,6 +289,29 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           slug: "advanced-cooking",
         },
       ],
+      traits: { otherTags: [], rarity: "common", value: ["archetype"] },
+    },
+  });
+  items.push({
+    _id: makeId("feat:Morning Side Dishes"),
+    img: "icons/consumables/food/bread-toast-tan.webp",
+    name: "Morning Side Dishes",
+    type: "feat",
+    system: {
+      slug: "morning-side-dishes",
+      actionType: { value: "passive" },
+      actions: { value: null },
+      category: "class",
+      description: {
+        value:
+          "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr />" +
+          "<p>You know a proper breakfast should have a variety of sides. You gain the @UUID[" + uuidOf(advancedCookingId) + "]{Advanced Cooking} feature, so that you can prepare 5 alchemical foods during your daily preparations.</p>" +
+          "<hr /><p><strong>Module</strong> This replaces the Morning Side Dishes feat from the Tian Xia Character Guide, so use it instead of that one. The crafting section is on the Advanced Cooking feature it grants.</p>",
+      },
+      level: { value: 4 },
+      prerequisites: { value: [{ value: "Wandering Chef Dedication" }] },
+      publication,
+      rules: [{ key: "GrantItem", allowDuplicate: false, uuid: uuidOf(advancedCookingId) }],
       traits: { otherTags: [], rarity: "common", value: ["archetype"] },
     },
   });

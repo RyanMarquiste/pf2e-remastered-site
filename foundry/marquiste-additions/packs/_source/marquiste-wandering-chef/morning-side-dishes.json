@@ -1,0 +1,50 @@
+{
+    "_key": "!items!Rwostn6ZWjprtvWV",
+    "_id": "Rwostn6ZWjprtvWV",
+    "img": "icons/consumables/food/bread-toast-tan.webp",
+    "name": "Morning Side Dishes",
+    "type": "feat",
+    "system": {
+        "slug": "morning-side-dishes",
+        "actionType": {
+            "value": "passive"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "class",
+        "description": {
+            "value": "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr /><p>You know a proper breakfast should have a variety of sides. You gain the @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.2mFUxHKDp2kaYAPC]{Advanced Cooking} feature, so that you can prepare 5 alchemical foods during your daily preparations.</p><hr /><p><strong>Module</strong> This replaces the Morning Side Dishes feat from the Tian Xia Character Guide, so use it instead of that one. The crafting section is on the Advanced Cooking feature it grants.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "level": {
+            "value": 4
+        },
+        "prerequisites": {
+            "value": [
+                {
+                    "value": "Wandering Chef Dedication"
+                }
+            ]
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "GrantItem",
+                "allowDuplicate": false,
+                "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.2mFUxHKDp2kaYAPC"
+            }
+        ],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "archetype",
+                "marquiste"
+            ]
+        }
+    }
+}
