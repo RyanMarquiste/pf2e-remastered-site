@@ -597,6 +597,65 @@ for (const t of pasteTiers) {
   });
 }
 
+// Ginger Chew (Lesser): a level 2 version of PF2e's Ginger Chew (Treasure Vault, level 5), with a much shorter duration, so the Wandering Chef has a common
+// alchemical food to learn at 1st or 2nd level. It carries the alchemical-food tag the chef's Quick Cooking looks for. It reduces sickened and lasts 1 minute.
+const GINGER_IMG = "icons/consumables/vegetable/root-ginger-yellow.webp";
+const GINGER_CHEW_UUID = "Compendium.pf2e.equipment-srd.Item.uPP678KODkgDy8UO"; // PF2e's own Ginger Chew
+const gingerId = makeId("item:Ginger Chew (Lesser)");
+const gingerEffectId = makeId("effect:Ginger Chew (Lesser)");
+items.push({
+  _id: gingerId,
+  img: GINGER_IMG,
+  name: "Ginger Chew (Lesser)",
+  type: "consumable",
+  system: {
+    slug: "ginger-chew-lesser",
+    baseItem: null,
+    bulk: { value: 0.1 },
+    category: "other",
+    containerId: null,
+    damage: null,
+    description: {
+      value:
+        "<p><strong>Activate</strong> <span class=\"action-glyph\">1</span> (manipulate)</p><hr />" +
+        "<p>A small, chewy lozenge of candied ginger that settles an unsettled stomach. It is a weaker, shorter-lasting version of the Ginger Chew. " +
+        "A lesser ginger chew lasts for 1 minute and grants you a +1 item bonus to Fortitude saves against being sickened.</p>" +
+        `<p>@UUID[${uuidOf(gingerEffectId)}]{Effect: Ginger Chew (Lesser)}</p><hr />` +
+        "<p><strong>Secondary Effect</strong> <span class=\"action-glyph\">1</span></p>" +
+        "<p><strong>Effect</strong> Reduce your sickened value by 1, if any. The chew becomes inert.</p>",
+    },
+    hardness: 0,
+    hp: { max: 0, value: 0 },
+    level: { value: 2 },
+    material: { grade: null, type: null },
+    price: { value: { gp: 7 } },
+    publication,
+    quantity: 1,
+    rules: [],
+    size: "med",
+    traits: { otherTags: ["alchemical-food"], rarity: "common", value: ["alchemical", "consumable", "lozenge"] },
+    usage: { value: "held-in-one-hand" },
+    uses: { autoDestroy: true, max: 1, value: 1 },
+  },
+});
+items.push({
+  _id: gingerEffectId,
+  img: GINGER_IMG,
+  name: "Effect: Ginger Chew (Lesser)",
+  type: "effect",
+  system: {
+    slug: "effect-ginger-chew-lesser",
+    description: { value: `<p>Granted by @UUID[${uuidOf(gingerId)}]{Ginger Chew (Lesser)}</p><p>You gain a +1 item bonus to Fortitude saves against being sickened.</p>` },
+    duration: { expiry: "turn-start", sustained: false, unit: "minutes", value: 1 },
+    level: { value: 2 },
+    publication,
+    rules: [{ key: "FlatModifier", predicate: ["inflicts:sickened"], selector: "fortitude", type: "item", value: 1 }],
+    start: { initiative: null, value: 0 },
+    tokenIcon: { show: true },
+    traits: { rarity: "common", value: [] },
+  },
+});
+
 // Formulas: one blueprint-like item for each craftable family, carrying the Formula trait, so a formula can be found by trait in the Compendium
 // Browser and put in a formula book. Each item lists its family's tiers in its flags; the formula book scripts turn that into the formulas a
 // character knows. The field vials and coatings are not formulas: they are made only by the Quick Vial action.
@@ -647,6 +706,19 @@ for (const [family, img, made] of [
   });
   formulaItems.push(formulaItem({ family, img, made, tiers: tierItems, pub: publication }));
 }
+// Ginger Chew: the lesser version at level 2, then PF2e's own Ginger Chew at level 5.
+formulaItems.push(
+  formulaItem({
+    family: "Ginger Chew",
+    img: GINGER_IMG,
+    made: "a ginger lozenge that settles the stomach",
+    pub: publication,
+    tiers: [
+      { name: "Ginger Chew (Lesser)", level: 2, uuid: uuidOf(gingerId) },
+      { name: "Ginger Chew", level: 5, uuid: GINGER_CHEW_UUID },
+    ],
+  }),
+);
 
 // The Alchemist-only items go in their own pack, so they can be kept out of the general equipment lists.
 const classItems = [];

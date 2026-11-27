@@ -1,0 +1,49 @@
+{
+    "_key": "!items!unX3jKhLaT6MZpw6",
+    "_id": "unX3jKhLaT6MZpw6",
+    "img": "icons/consumables/vegetable/root-ginger-yellow.webp",
+    "name": "Effect: Ginger Chew (Lesser)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-ginger-chew-lesser",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.Q4CTkl0S9pTtD6f7]{Ginger Chew (Lesser)}</p><p>You gain a +1 item bonus to Fortitude saves against being sickened.</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 1
+        },
+        "level": {
+            "value": 2
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "predicate": [
+                    "inflicts:sickened"
+                ],
+                "selector": "fortitude",
+                "type": "item",
+                "value": 1
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

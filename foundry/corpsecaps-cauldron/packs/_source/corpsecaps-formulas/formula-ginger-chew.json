@@ -1,0 +1,67 @@
+{
+    "_key": "!items!bnN4pYZ4oFSYayQ3",
+    "_id": "bnN4pYZ4oFSYayQ3",
+    "img": "icons/consumables/vegetable/root-ginger-yellow.webp",
+    "name": "Formula: Ginger Chew",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 2,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.Q4CTkl0S9pTtD6f7"
+                    },
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.uPP678KODkgDy8UO"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for a ginger lozenge that settles the stomach. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Ginger Chew your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.Q4CTkl0S9pTtD6f7]{Ginger Chew (Lesser)} (level 2)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.uPP678KODkgDy8UO]{Ginger Chew} (level 5)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 2
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-ginger-chew",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
