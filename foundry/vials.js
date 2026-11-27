@@ -375,7 +375,7 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
   // Create Consumable. The id is still made from the earlier name "Quick Alchemy (House Rule)", so links to it keep working.
   items.push({
     _id: makeId("action:Quick Alchemy (House Rule)"),
-    img: "systems/pf2e/icons/actions/OneAction.webp",
+    img: "icons/consumables/potions/bottle-round-flask-fumes-purple.webp",
     name: "Quick Alchemy", // the Marquiste source trait and Source line tell it from PF2e's own
     type: "action",
     system: {

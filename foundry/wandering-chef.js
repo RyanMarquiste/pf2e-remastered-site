@@ -144,7 +144,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
   const quickId = makeId("action:Quick Cooking");
   items.push({
     _id: quickId,
-    img: "systems/pf2e/icons/actions/OneAction.webp",
+    img: "icons/tools/laboratory/cauldron-filled-gold.webp",
     name: "Quick Cooking",
     type: "action",
     system: {
