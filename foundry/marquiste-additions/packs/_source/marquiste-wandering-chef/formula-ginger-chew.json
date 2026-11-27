@@ -14,7 +14,8 @@
                     },
                     {
                         "level": 5,
-                        "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.nXOtnu75KqIBuvA1"
+                        "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.nXOtnu75KqIBuvA1",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.uPP678KODkgDy8UO"
                     }
                 ]
             }

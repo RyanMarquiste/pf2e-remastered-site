@@ -1,0 +1,76 @@
+{
+    "_key": "!items!MWr6Fj783DeN2yhP",
+    "_id": "MWr6Fj783DeN2yhP",
+    "img": "systems/pf2e/icons/equipment/consumables/other-consumables/crackling-bubblegum.webp",
+    "name": "Formula: Crackling Bubble Gum",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.0Y0fmvvKSgFvUtA2"
+                    },
+                    {
+                        "level": 9,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Bajwrol5y2n2ZIVm"
+                    },
+                    {
+                        "level": 13,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.ex1kVj3SUbTd1smt"
+                    },
+                    {
+                        "level": 15,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.rpqgJkCepHecj1eA"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for crackling bubble gum. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Crackling Bubble Gum your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.0Y0fmvvKSgFvUtA2]{Crackling Bubble Gum (Lesser)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.Bajwrol5y2n2ZIVm]{Crackling Bubble Gum (Moderate)} (level 9)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.ex1kVj3SUbTd1smt]{Crackling Bubble Gum (Greater)} (level 13)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.rpqgJkCepHecj1eA]{Crackling Bubble Gum (Major)} (level 15)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 5
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-crackling-bubble-gum",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

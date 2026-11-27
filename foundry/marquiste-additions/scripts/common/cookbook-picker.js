@@ -48,7 +48,11 @@ export function loadRecipes() {
     for (const { entry, tiers } of formulaItems) {
       const first = await fromUuid(tiers[0].uuid).catch(() => null);
       if (!isFood(first)) continue;
-      for (const tier of tiers) covered.add(tier.uuid);
+      // Hide what the formula stands in for: its tiers, and the PF2e items its tiers are copies of (the Ginger Chew and Cinnamon Seers Moderates), so nothing is listed twice.
+      for (const tier of tiers) {
+        covered.add(tier.uuid);
+        if (tier.replaces) covered.add(tier.replaces);
+      }
       rows.push({
         uuid: entry.uuid,
         name: `${entry.name.replace(/^Formula:\s*/i, "")} (every tier)`,

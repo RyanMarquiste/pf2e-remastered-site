@@ -1,0 +1,72 @@
+{
+    "_key": "!items!lU1QZKuE8ylzHyeI",
+    "_id": "lU1QZKuE8ylzHyeI",
+    "img": "icons/consumables/potions/bottle-pear-corked-labeled-green.webp",
+    "name": "Formula: Poison Fizz",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 8,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.XdHMroAomWalt7I9"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.GDbDpe7W7vOEwnEr"
+                    },
+                    {
+                        "level": 15,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.D8i3OBVMkxmCCREV"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for poison fizz. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Poison Fizz your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.XdHMroAomWalt7I9]{Poison Fizz (Lesser)} (level 8)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.GDbDpe7W7vOEwnEr]{Poison Fizz (Moderate)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.D8i3OBVMkxmCCREV]{Poison Fizz (Greater)} (level 15)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 8
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-poison-fizz",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

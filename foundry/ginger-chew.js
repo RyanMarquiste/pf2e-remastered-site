@@ -125,7 +125,8 @@ module.exports = function buildGingerChew({ items, publication, makeId, uuidOf, 
       },
     });
 
-    tierItems.push({ name, level: t.level, uuid: uuidOf(itemId) });
+    // The Moderate is a copy of PF2e's Ginger Chew, so the cookbook list hides the original.
+    tierItems.push({ name, level: t.level, uuid: uuidOf(itemId), ...(t.name === "Moderate" ? { replaces: "Compendium.pf2e.equipment-srd.Item.uPP678KODkgDy8UO" } : {}) });
   }
 
   items.push(

@@ -1,0 +1,68 @@
+{
+    "_key": "!items!M655QiU3DVkXLl9P",
+    "_id": "M655QiU3DVkXLl9P",
+    "img": "icons/consumables/grains/bread-loaf-boule-tan.webp",
+    "name": "Formula: Journeybread",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.pBq1cHXnic8dGxx8"
+                    },
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.7Sm8NhvQcwi84Nsh"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for journeybread. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Journeybread your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.pBq1cHXnic8dGxx8]{Journeybread} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.7Sm8NhvQcwi84Nsh]{Journeybread (Power)} (level 4)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-journeybread",
+        "traits": {
+            "rarity": "uncommon",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

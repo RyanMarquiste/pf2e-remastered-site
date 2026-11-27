@@ -481,7 +481,8 @@ function formulaItem({ family, img, made, rarity = "common", tiers, pub, idSeed 
     img,
     name: `Formula: ${family}`,
     type: "equipment",
-    flags: { [MODULE_ID]: { formula: { tiers: tiers.map((t) => ({ level: t.level, uuid: t.uuid })) } } },
+    // A tier that is a copy of a PF2e item says which one (replaces), so the cookbook list can hide the original that the formula now stands in for.
+    flags: { [MODULE_ID]: { formula: { tiers: tiers.map((t) => ({ level: t.level, uuid: t.uuid, ...(t.replaces ? { replaces: t.replaces } : {}) })) } } },
     system: {
       baseItem: null,
       bulk: { value: 0 },
@@ -634,6 +635,20 @@ chefItems.push(
     ],
   }),
 );
+
+// The other PF2e foods that come in tiers get the same (see tiered-foods.js; Sprite Apples are left out, as their colours are separate items).
+for (const food of require("./tiered-foods")) {
+  chefItems.push(
+    formulaItem({
+      family: food.family,
+      img: food.img,
+      made: food.family.toLowerCase(),
+      rarity: food.rarity,
+      pub: modulePublication,
+      tiers: food.tiers.map((t) => ({ name: t.name, level: t.level, uuid: `Compendium.pf2e.equipment-srd.Item.${t.id}` })),
+    }),
+  );
+}
 
 // Common Enhancements: items that apply across the whole game. It holds the mutagens copied from PF2e and their formulas (built above).
 

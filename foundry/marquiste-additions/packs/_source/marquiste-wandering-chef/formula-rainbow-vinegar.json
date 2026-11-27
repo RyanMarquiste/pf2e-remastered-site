@@ -1,0 +1,68 @@
+{
+    "_key": "!items!bhZ16V3KF3dXYV6q",
+    "_id": "bhZ16V3KF3dXYV6q",
+    "img": "icons/consumables/potions/potion-flask-corked-green.webp",
+    "name": "Formula: Rainbow Vinegar",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.NVssWHKyKlaRmHog"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.iq7hL6HDsPCPU4pt"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for rainbow vinegar. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Rainbow Vinegar your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.NVssWHKyKlaRmHog]{Rainbow Vinegar (Moderate)} (level 4)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.iq7hL6HDsPCPU4pt]{Rainbow Vinegar (Greater)} (level 12)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 4
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-rainbow-vinegar",
+        "traits": {
+            "rarity": "uncommon",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

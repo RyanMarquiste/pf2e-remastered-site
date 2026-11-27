@@ -1,0 +1,72 @@
+{
+    "_key": "!items!Wod3M2LqJPZ0SgeS",
+    "_id": "Wod3M2LqJPZ0SgeS",
+    "img": "icons/consumables/food/candy-taffy-blue-white.webp",
+    "name": "Formula: Silver Crescent",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 6,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Pjxotvrj7uXe92Qc"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.2wV9SHAWbC4rUlcc"
+                    },
+                    {
+                        "level": 16,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.XWO5pMQcYNybqWzf"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for silver crescent. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Silver Crescent your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.Pjxotvrj7uXe92Qc]{Silver Crescent (Lesser)} (level 6)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.2wV9SHAWbC4rUlcc]{Silver Crescent (Moderate)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.XWO5pMQcYNybqWzf]{Silver Crescent (Greater)} (level 16)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 6
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-silver-crescent",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

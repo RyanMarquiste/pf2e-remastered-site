@@ -208,7 +208,8 @@ module.exports = function buildCinnamonSeers({ items, publication, makeId, uuidO
       },
     });
 
-    tierItems.push({ name, level: t.level, uuid: uuidOf(itemId) });
+    // The Moderate is a copy of PF2e's Cinnamon Seers, so the cookbook list hides the original.
+    tierItems.push({ name, level: t.level, uuid: uuidOf(itemId), ...(t.name === "Moderate" ? { replaces: "Compendium.pf2e.equipment-srd.Item.Hm0dZYfXHMNcTCo3" } : {}) });
   }
 
   items.push(

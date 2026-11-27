@@ -1,0 +1,72 @@
+{
+    "_key": "!items!suCsXzto7p0xpzaj",
+    "_id": "suCsXzto7p0xpzaj",
+    "img": "icons/consumables/drinks/wine-amphora-clay-gray.webp",
+    "name": "Formula: Insight Coffee",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 6,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.sPceDzKeOA8PpK2v"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.vzP0pLxes9bn0zV8"
+                    },
+                    {
+                        "level": 19,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.CorMilTH3XKGW49D"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for insight coffee. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Insight Coffee your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.sPceDzKeOA8PpK2v]{Insight Coffee (Lesser)} (level 6)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.vzP0pLxes9bn0zV8]{Insight Coffee (Moderate)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.CorMilTH3XKGW49D]{Insight Coffee (Greater)} (level 19)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 6
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-insight-coffee",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
