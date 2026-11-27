@@ -44,6 +44,7 @@
         "scripts/bard/versatile-performance.js",
         "scripts/wandering-chef/flash-cook.js",
         "scripts/wandering-chef/quick-cooking.js",
+        "scripts/wandering-chef/ginger-chew.js",
         "scripts/cauldron/insulating-paste.js"
     ],
     "packs": [

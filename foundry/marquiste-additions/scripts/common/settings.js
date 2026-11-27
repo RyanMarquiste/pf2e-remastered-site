@@ -61,7 +61,7 @@ const OPTIONS = {
     hint:
       "Using the Quick Cooking action asks whether to Create Food or Create Processed Food (each spends a food packet) or Flash Cook. Flash Cook (the Flash Cook feat's option) creates a Food Projectile " +
       "in a free hand, tiered to the character's level, and removes it when their turn is over; what Create Food makes is removed when the next turn starts. " +
-      "Off: those actions do nothing.",
+      "The Bite Ginger Chew action (given by a Ginger Chew's effect) reduces sickened by 1 and ends the effect. Off: those actions do nothing.",
   },
   toxicologistMutableAcid: {
     name: "Mutable Acid",

@@ -1,0 +1,34 @@
+{
+    "_key": "!items!ACePA7keAQsoB6OE",
+    "_id": "ACePA7keAQsoB6OE",
+    "img": "icons/consumables/vegetable/root-ginger-yellow.webp",
+    "name": "Bite Ginger Chew",
+    "type": "action",
+    "system": {
+        "slug": "bite-ginger-chew",
+        "actionType": {
+            "value": "action"
+        },
+        "actions": {
+            "value": 1
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Requirements</strong> A ginger chew is in your mouth: its effect is on you</p><hr /><p>You bite down on the ginger chew. Reduce your sickened value by 1, if any. The chew becomes inert, and its effect ends.</p><hr /><p><strong>Module</strong> Using this action reduces your sickened value by 1 and removes the effect that gave you this action. It can be switched off in the module settings under Wandering Chef.</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "marquiste"
+            ]
+        }
+    }
+}
