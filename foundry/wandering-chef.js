@@ -9,6 +9,9 @@ const tags = require("./tags");
 module.exports = function buildWanderingChef({ items, publication, makeId, uuidOf }) {
   const SUBSIST = "Compendium.pf2e.actionspf2e.Item.49y9Ec4bDii8pcD3";
 
+  const PROCESSED_TEXT =
+    "Expend one food packet to create a single processed alchemical food of your level or lower that you know the formula for. This takes 1 minute instead of a single action, because processed foods are too complex to make quickly. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and remains potent until the start of your next turn, or, if the item would take more than 3 actions to Activate, for a time equal to its activation time.";
+
   // The Cooking Toolkit: the chef's version of the alchemist's toolkit, with the same price, bulk and handling.
   items.push({
     _id: makeId("item:Cooking Toolkit"),
@@ -85,7 +88,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr />" +
           "<p>This is the Create Consumable option of Quick Cooking. Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. " +
           "Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and must be activated before the start of your next turn " +
-          "or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make.</p>",
+          "or else it becomes inert. Items with the processed trait can't be created this way, because they take too long to make: use Create Processed Food for those.</p>",
       },
       frequency: null,
       publication,
@@ -102,7 +105,40 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // Quick Cooking: the chef's Quick Alchemy. Adding it also gives the character Create Consumable (Cooking); Overcook comes with the Overcooked feat.
+  // Create Processed Food: the same, but for the processed foods, which take 1 minute to make instead of one action.
+  const processedId = makeId("action:Create Processed Food");
+  items.push({
+    _id: processedId,
+    img: "systems/pf2e/icons/actions/Passive.webp",
+    name: "Create Processed Food",
+    type: "action",
+    system: {
+      slug: "create-processed-food",
+      actionType: { value: "action" },
+      actions: { value: null },
+      category: "interaction",
+      description: {
+        value:
+          "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr />" +
+          "<p><strong>Time</strong> 1 minute</p>" +
+          "<p>This is the processed food option of Quick Cooking. " + PROCESSED_TEXT + "</p>",
+      },
+      frequency: null,
+      publication,
+      rules: [
+        {
+          key: "CraftingAbility",
+          craftableItems: ["item:tag:alchemical-food", "item:trait:processed"],
+          priority: 15,
+          resource: "food-packets",
+          slug: "create-processed-food",
+        },
+      ],
+      traits: { otherTags: [], rarity: "common", value: ["manipulate"] },
+    },
+  });
+
+  // Quick Cooking: the chef's Quick Alchemy. Adding it also gives the character Create Consumable (Cooking) and Create Processed Food; Overcook comes with the Overcooked feat.
   const quickId = makeId("action:Quick Cooking");
   items.push({
     _id: quickId,
@@ -117,7 +153,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       description: {
         value:
           "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit and you have a free hand</p><hr />" +
-          "<p>You cook quickly using a cooking toolkit. Choose either Create Consumable or, if you have the Overcooked feat, Overcook as your action for Quick Cooking.</p>" +
+          "<p>You cook quickly using a cooking toolkit. Choose Create Consumable, Create Processed Food, or, if you have the Overcooked feat, Overcook as your action for Quick Cooking.</p>" +
           "<p>Any effect created by an item made with Quick Cooking that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions " +
           "such as slow acting poisons (as described in the infused trait).</p>" +
           "<h2>Create Consumable</h2>" +
@@ -125,13 +161,19 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           "<p>Expend one food packet to create a single alchemical food of your level or lower that you know the formula for. Skip the normal monetary cost in raw materials and " +
           "the Crafting check. This item has the infused trait and must be activated before the start of your next turn or else it becomes inert. Items with the processed trait " +
           "can't be created this way, because they take too long to make.</p>" +
+          "<h2>Create Processed Food</h2>" +
+          "<p><strong>Requirements</strong> You have at least one food packet</p>" +
+          "<p>" + PROCESSED_TEXT + "</p>" +
           "<h2>Overcook</h2>" +
           "<p>See the Overcooked feat. Using Overcook does not expend a food packet.</p>" +
-          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Consumable or Overcook. It can be switched off in the module settings under Wandering Chef.</p>",
+          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Consumable, Create Processed Food or Overcook. It can be switched off in the module settings under Wandering Chef.</p>",
       },
       frequency: null,
       publication,
-      rules: [{ key: "GrantItem", allowDuplicate: false, uuid: uuidOf(createId) }],
+      rules: [
+        { key: "GrantItem", allowDuplicate: false, uuid: uuidOf(createId) },
+        { key: "GrantItem", allowDuplicate: false, uuid: uuidOf(processedId) },
+      ],
       traits: { otherTags: [], rarity: "common", value: ["manipulate"] },
     },
   });

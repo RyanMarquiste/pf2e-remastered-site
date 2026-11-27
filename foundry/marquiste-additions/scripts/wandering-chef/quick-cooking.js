@@ -1,6 +1,8 @@
-// Quick Cooking: the Wandering Chef's version of Quick Alchemy. Using the Quick Cooking action asks the character to choose Create Consumable or Overcook.
+// Quick Cooking: the Wandering Chef's version of Quick Alchemy. Using the Quick Cooking action asks the character to choose Create Consumable, Create Processed Food or Overcook.
 //   - Create Consumable (Cooking) spends one food packet and makes one alchemical food from the character's formulas. The action item carries a CraftingAbility
 //     rule, so PF2e itself shows the formula picker, spends the packet and puts the item in a hand. This script adds the checks and the end-of-turn expiry.
+//   - Create Processed Food is the same for foods with the Processed trait, which take 1 minute to make. It also spends a food packet and opens the formula picker
+//     (limited to the processed foods the character knows), but nothing is removed afterwards: it is made outside combat.
 //   - Overcook (the Overcooked feat) creates a Food Projectile for free; scripts/wandering-chef/overcook.js does that.
 // Like Quick Alchemy, neither option checks for the toolkit.
 import { MODULE, itemUsed, say } from "../common/shared.js";
@@ -8,6 +10,7 @@ import { enabled, log } from "../common/settings.js";
 
 const QUICK_COOKING = "quick-cooking";
 const CREATE = "create-cooking-consumable";
+const PROCESSED = "create-processed-food";
 const OVERCOOK = "overcook";
 const FLAG = "cookConsumable";
 
@@ -19,13 +22,14 @@ const action = (actor, slug) => actor.items.find((i) => i.type === "action" && i
 // Small outline icons for the chooser: a flame for Overcook and a cooking pot for Create Consumable.
 const svg = (inner) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; vertical-align: middle; margin-right: .5em;">${inner}</svg>`;
+const PROCESSED_ICON = svg('<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.8 1.8M9.5 3h5"/>');
 const OVERCOOK_ICON = svg('<path d="M12 3c.6 3.6 5 5 5 10a5 5 0 0 1-10 0c0-2 .8-3.2 2-4.2.1 1.6.8 2.6 1.8 2.9C10.2 8.4 10.6 5.4 12 3z"/>');
 const CONSUMABLE_ICON = svg('<path d="M4 10h16v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM2 10h20M9 6.5c0-1.2 1-1.6 1-3M14 6.5c0-1.2 1-1.6 1-3"/>');
 
-// Run Create Consumable (Cooking) through PF2e's own action flow, which opens the formula picker.
-async function createConsumable(actor) {
-  const create = action(actor, CREATE);
-  if (!create) return ui.notifications.warn(`${actor.name} needs the Create Consumable (Cooking) action from the Wandering Chef Enhancements compendium.`);
+// Run Create Consumable (Cooking) or Create Processed Food through PF2e's own action flow, which opens the formula picker.
+async function createFood(actor, slug, name) {
+  const create = action(actor, slug);
+  if (!create) return ui.notifications.warn(`${actor.name} needs the ${name} action from the Wandering Chef Enhancements compendium.`);
   await game.pf2e.rollItemMacro(create.uuid);
 }
 
@@ -44,13 +48,14 @@ Hooks.on("createChatMessage", async (message) => {
     window: { title: "Quick Cooking" },
     content:
       `<p>What does ${actor.name} do with Quick Cooking?</p>` +
-      `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Consumable needs one." : ""}</p>`,
+      `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Consumable and Create Processed Food need one." : ""}</p>`,
     buttons: [
       { action: "consumable", label: "Create Consumable", default: true },
+      { action: "processed", label: "Create Processed Food (takes 1 minute)" },
       { action: "overcook", label: "Overcook" },
     ],
     render: (event, dialog) => {
-      for (const [name, icon] of [["consumable", CONSUMABLE_ICON], ["overcook", OVERCOOK_ICON]]) {
+      for (const [name, icon] of [["consumable", CONSUMABLE_ICON], ["processed", PROCESSED_ICON], ["overcook", OVERCOOK_ICON]]) {
         dialog.element.querySelector(`button[data-action="${name}"]`)?.insertAdjacentHTML("afterbegin", icon);
       }
       const disable = (name, reason) => {
@@ -60,28 +65,33 @@ Hooks.on("createChatMessage", async (message) => {
           button.dataset.tooltip = reason;
         }
       };
-      if (packets < 1) disable("consumable", "No food packets left");
+      if (packets < 1) {
+        disable("consumable", "No food packets left");
+        disable("processed", "No food packets left");
+      }
       if (!overcook) disable("overcook", "Needs the Overcooked feat");
     },
     rejectClose: false,
   });
-  if (choice === "consumable") return createConsumable(actor);
+  if (choice === "consumable") return createFood(actor, CREATE, "Create Consumable (Cooking)");
+  if (choice === "processed") return createFood(actor, PROCESSED, "Create Processed Food");
   if (choice === "overcook") return game.pf2e.rollItemMacro(overcook.uuid);
 });
 
-// PF2e opens its formula picker for Create Consumable (Cooking). Refuse to go on without a food packet or a free hand.
+// PF2e opens its formula picker for Create Consumable (Cooking) and Create Processed Food. Refuse to go on without a food packet or a free hand.
 Hooks.on("renderApplicationV2", (app) => {
   if (!enabled("wanderingChef") || app.constructor.name !== "FormulaPicker") return;
   const { actor, item, mode } = app.options;
-  if (mode !== "craft" || item?.slug !== CREATE) return;
+  if (mode !== "craft" || ![CREATE, PROCESSED].includes(item?.slug)) return;
+  const what = item.slug === PROCESSED ? "Create Processed Food" : "Create Consumable";
 
   if (foodPackets(actor) < 1) {
-    say(actor, `<p>${actor.name} has no food packets left, so Create Consumable creates nothing.</p>`);
+    say(actor, `<p>${actor.name} has no food packets left, so ${what} creates nothing.</p>`);
     ui.notifications.warn(`${actor.name} has no food packets.`);
     app.close();
   } else if (!(actor.handsFree > 0)) {
-    say(actor, `<p>${actor.name} has no free hand, so Create Consumable creates nothing.</p>`);
-    ui.notifications.warn(`${actor.name} needs a free hand to use Create Consumable.`);
+    say(actor, `<p>${actor.name} has no free hand, so ${what} creates nothing.</p>`);
+    ui.notifications.warn(`${actor.name} needs a free hand to use ${what}.`);
     app.close();
   }
 });
@@ -90,13 +100,14 @@ Hooks.on("renderApplicationV2", (app) => {
 Hooks.on("createChatMessage", async (message) => {
   if (!enabled("wanderingChef")) return;
   const create = await itemUsed(message);
-  if (create?.type !== "action" || create.slug !== CREATE) return;
+  if (create?.type !== "action" || ![CREATE, PROCESSED].includes(create.slug)) return;
 
   const holder = document.createElement("div");
   holder.innerHTML = message.content;
   const uuid = holder.querySelector("a[data-uuid]")?.dataset.uuid;
   const created = uuid ? await fromUuid(uuid) : null;
   if (!created?.actor || !created.system.temporary) return;
+  if (create.slug === PROCESSED) return say(create.actor, `<p>${create.actor.name} spends 1 minute preparing ${created.name}.</p>`);
 
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === create.actor.id);
   await created.setFlag(MODULE, FLAG, combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null });

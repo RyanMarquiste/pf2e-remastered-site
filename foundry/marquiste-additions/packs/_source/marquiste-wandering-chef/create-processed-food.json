@@ -1,0 +1,45 @@
+{
+    "_key": "!items!iVsDIe9kcVwrRfxK",
+    "_id": "iVsDIe9kcVwrRfxK",
+    "img": "systems/pf2e/icons/actions/Passive.webp",
+    "name": "Create Processed Food",
+    "type": "action",
+    "system": {
+        "slug": "create-processed-food",
+        "actionType": {
+            "value": "action"
+        },
+        "actions": {
+            "value": null
+        },
+        "category": "interaction",
+        "description": {
+            "value": "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit, you have a free hand, and you have at least one food packet</p><hr /><p><strong>Time</strong> 1 minute</p><p>This is the processed food option of Quick Cooking. Expend one food packet to create a single processed alchemical food of your level or lower that you know the formula for. This takes 1 minute instead of a single action, because processed foods are too complex to make quickly. Skip the normal monetary cost in raw materials and the Crafting check. This item has the infused trait and remains potent until the start of your next turn, or, if the item would take more than 3 actions to Activate, for a time equal to its activation time.</p>"
+        },
+        "frequency": null,
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "CraftingAbility",
+                "craftableItems": [
+                    "item:tag:alchemical-food",
+                    "item:trait:processed"
+                ],
+                "priority": 15,
+                "resource": "food-packets",
+                "slug": "create-processed-food"
+            }
+        ],
+        "traits": {
+            "otherTags": [],
+            "rarity": "common",
+            "value": [
+                "manipulate"
+            ]
+        }
+    }
+}
