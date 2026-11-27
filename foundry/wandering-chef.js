@@ -1,9 +1,9 @@
 // The Wandering Chef Enhancements: the Wandering Chef Dedication (Marquiste) with its food packets, Quick Cooking and its two options (Create Consumable and
-// Overcook), the Cooking Toolkit, and the Food Projectile Overcook makes (one item for each tier, at the same levels and with the same scaling as the Volatile
+// Flash Cook), the Cooking Toolkit, and the Food Projectile Flash Cook makes (one item for each tier, at the same levels and with the same scaling as the Volatile
 // Vial, but without splash). Called from build.js, which supplies the shared helpers.
 //
-// Using the Quick Cooking action asks which option to use (scripts/wandering-chef/quick-cooking.js). Using the Overcook action posts its card and the module
-// script (scripts/wandering-chef/overcook.js) creates the best Food Projectile the character's level allows, held in a free hand and removed when their turn is over.
+// Using the Quick Cooking action asks which option to use (scripts/wandering-chef/quick-cooking.js). Using the Flash Cook action posts its card and the module
+// script (scripts/wandering-chef/flash-cook.js) creates the best Food Projectile the character's level allows, held in a free hand and removed when their turn is over.
 const tags = require("./tags");
 
 module.exports = function buildWanderingChef({ items, publication, makeId, uuidOf }) {
@@ -141,7 +141,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // Quick Cooking: the chef's Quick Alchemy. Adding it also gives the character Create Consumable (Cooking) and Create Processed Food; Overcook comes with the Overcooked feat.
+  // Quick Cooking: the chef's Quick Alchemy. Adding it also gives the character Create Consumable (Cooking) and Create Processed Food; Flash Cook comes with the Flash Cook feat.
   const quickId = makeId("action:Quick Cooking");
   items.push({
     _id: quickId,
@@ -156,7 +156,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       description: {
         value:
           "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit and you have a free hand</p><hr />" +
-          "<p>You cook quickly using a cooking toolkit. Choose Create Consumable, Create Processed Food, or, if you have the Overcooked feat, Overcook as your action for Quick Cooking.</p>" +
+          "<p>You cook quickly using a cooking toolkit. Choose Create Consumable, Create Processed Food, or, if you have the Flash Cook feat, Flash Cook as your action for Quick Cooking.</p>" +
           "<p>Any effect created by an item made with Quick Cooking that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions " +
           "such as slow acting poisons (as described in the infused trait).</p>" +
           "<h2>Create Consumable</h2>" +
@@ -167,9 +167,9 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           "<h2>Create Processed Food</h2>" +
           "<p><strong>Requirements</strong> You have at least one food packet</p>" +
           "<p>" + PROCESSED_TEXT + "</p>" +
-          "<h2>Overcook</h2>" +
-          "<p>See the Overcooked feat. Using Overcook does not expend a food packet.</p>" +
-          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Consumable, Create Processed Food or Overcook. It can be switched off in the module settings under Wandering Chef.</p>",
+          "<h2>Flash Cook</h2>" +
+          "<p>See the Flash Cook feat. Using Flash Cook does not expend a food packet.</p>" +
+          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Consumable, Create Processed Food or Flash Cook. It can be switched off in the module settings under Wandering Chef.</p>",
       },
       frequency: null,
       publication,
@@ -309,23 +309,24 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   ];
 
-  const overcookId = makeId("action:Overcook");
+  // (The ids come from the earlier names Overcook and Overcooked, so characters' links to them keep working.)
+  const flashCookId = makeId("action:Overcook");
   items.push({
-    _id: overcookId,
+    _id: flashCookId,
     img: "systems/pf2e/icons/actions/OneAction.webp",
-    name: "Overcook",
+    name: "Flash Cook",
     type: "action",
     system: {
-      slug: "overcook",
+      slug: "flash-cook",
       actionType: { value: "action" },
       actions: { value: 1 },
       category: "interaction",
       description: {
         value:
-          "<p><strong>Requirements</strong> You have the Overcooked feat, you're either holding or wearing a cooking toolkit, and you have a free hand</p><hr />" +
-          "<p>This is the Overcook option of Quick Cooking. You use alchemical ingredients to overcook a spare bit of food into a Food Projectile that you can fling at an enemy. " +
+          "<p><strong>Requirements</strong> You have the Flash Cook feat, you're either holding or wearing a cooking toolkit, and you have a free hand</p><hr />" +
+          "<p>This is the Flash Cook option of Quick Cooking. You use alchemical ingredients to flash-cook a spare bit of food into a Food Projectile that you can fling at an enemy. " +
           "The Food Projectile has the fleeting trait, so it must be used by the end of your current turn or else it falls apart.</p>" +
-          "<p>Using Overcook does not expend a food packet and does not consume any food or other food resources. The overcooking leaves the food inedible: the Food Projectile " +
+          "<p>Using Flash Cook does not expend a food packet and does not consume any food or other food resources. The flash cooking leaves the food inedible: the Food Projectile " +
           "has no nutritional value and none of the other properties the food would otherwise have.</p>" +
           "<p><strong>Flambé</strong> When you Strike with a Food Projectile you can flambé it, setting it on fire, so that it deals fire damage instead of bludgeoning damage. " +
           "This costs no action and uses nothing up.</p>" +
@@ -339,27 +340,27 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
-  // Overcooked: a feat item that gives the character the Overcook action, which then appears among the Quick Cooking options.
+  // Flash Cook: a feat item that gives the character the Flash Cook action, which then appears among the Quick Cooking options.
   items.push({
     _id: makeId("feat:Overcooked"),
     img: "icons/consumables/food/bread-toast-tan.webp",
-    name: "Overcooked",
+    name: "Flash Cook",
     type: "feat",
     system: {
-      slug: "overcooked",
+      slug: "flash-cook-feat",
       actionType: { value: "passive" },
       actions: { value: null },
       category: "class",
       description: {
         value:
           "<p><strong>Prerequisites</strong> Wandering Chef Dedication</p><hr />" +
-          "<p>You use alchemical ingredients to overcook a spare bit of food until it hardens into a scorched, throwable lump. Quick Cooking gains a new option for you, Overcook, " +
-          "in addition to Create Consumable. Overcook creates a Food Projectile and does not expend a food packet.</p>",
+          "<p>You use alchemical ingredients to flash-cook a spare bit of food until it hardens into a scorched, throwable lump. Quick Cooking gains a new option for you, Flash Cook, " +
+          "in addition to Create Consumable. Flash Cook creates a Food Projectile and does not expend a food packet.</p>",
       },
       level: { value: 4 },
       prerequisites: { value: [{ value: "Wandering Chef Dedication" }] },
       publication,
-      rules: [{ key: "GrantItem", allowDuplicate: false, uuid: uuidOf(overcookId) }],
+      rules: [{ key: "GrantItem", allowDuplicate: false, uuid: uuidOf(flashCookId) }],
       traits: { otherTags: [], rarity: "common", value: ["archetype"] },
     },
   });
@@ -377,17 +378,17 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       category: "class",
       description: {
         value:
-          "<p><strong>Prerequisites</strong> Wandering Chef Dedication, Overcooked</p><hr />" +
+          "<p><strong>Prerequisites</strong> Wandering Chef Dedication, Flash Cook</p><hr />" +
           "<p>You have learned to turn whatever is on the table into a weapon, and to throw it the moment it leaves the pan.</p>" +
-          "<p><strong>Overcook and Strike</strong> When you use Overcook, you can Strike with the Food Projectile it creates as part of the same action. " +
+          "<p><strong>Flash Cook and Strike</strong> When you use Flash Cook, you can Strike with the Food Projectile it creates as part of the same action. " +
           "This Strike counts toward your multiple attack penalty as normal.</p>" +
-          "<p><strong>Deadlier and farther</strong> The Food Projectiles you create with Overcook gain the deadly d8 trait, so on a critical hit they deal an extra d8 damage after the damage is doubled. " +
+          "<p><strong>Deadlier and farther</strong> The Food Projectiles you create with Flash Cook gain the deadly d8 trait, so on a critical hit they deal an extra d8 damage after the damage is doubled. " +
           "Their range also increases from 10 feet to 15 feet.</p>" +
-          "<hr /><p><strong>Module</strong> With this feat on a character, the Overcook action makes the deadlier projectile and offers the Strike. " +
+          "<hr /><p><strong>Module</strong> With this feat on a character, the Flash Cook action makes the deadlier projectile and offers the Strike. " +
           "It can be switched off in the module settings under Wandering Chef.</p>",
       },
       level: { value: 6 },
-      prerequisites: { value: [{ value: "Wandering Chef Dedication" }, { value: "Overcooked" }] },
+      prerequisites: { value: [{ value: "Wandering Chef Dedication" }, { value: "Flash Cook" }] },
       publication,
       rules: [],
       traits: { otherTags: [], rarity: "common", value: ["archetype"] },
@@ -521,7 +522,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           value:
             `<p><strong>Activate</strong> <span class="action-glyph">A</span> Strike</p><hr />` +
             "<p><em>A hard, blackened lump of food, scorched and charred through and smelling of smoke, with a few stubborn flecks of seasoning still clinging to it.</em></p>" +
-            "<p>A spare bit of food, overcooked with alchemical ingredients until it is inedible and has none of the properties it had before. " +
+            "<p>A spare bit of food, flash-cooked with alchemical ingredients until it is inedible and has none of the properties it had before. " +
             "You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p>" +
             `<p>The Food Projectile deals ${t.dice}d6 bludgeoning damage, or fire damage if flambéed.${bonusText(t)}</p>`,
         },

@@ -677,8 +677,12 @@ function writePack(moduleId, pack, list) {
   const out = sourceDir(moduleId, pack);
   fs.rmSync(out, { recursive: true, force: true });
   fs.mkdirSync(out, { recursive: true });
+  const slugOf = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  const nameCounts = {};
+  for (const item of list) nameCounts[slugOf(item.name)] = (nameCounts[slugOf(item.name)] ?? 0) + 1;
   for (const item of list) {
-    const file = item.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + ".json";
+    // Two items can share a name (such as a feat and an action), so a repeated name gets its type added to the file name.
+    const file = slugOf(item.name) + (nameCounts[slugOf(item.name)] > 1 ? "-" + item.type : "") + ".json";
     // The Foundry CLI silently skips source files that have no _key, so every document needs one to be packed.
     const doc = { _key: `!items!${item._id}`, ...item };
     fs.writeFileSync(path.join(out, file), JSON.stringify(doc, null, 4) + "\n");
@@ -689,7 +693,7 @@ function writePack(moduleId, pack, list) {
 const bardItems = [];
 require("./bard")({ items: bardItems, publication: modulePublication, makeId });
 
-// Wandering Chef Enhancements: the Wandering Chef Dedication, Quick Cooking, Overcook, the Cooking Toolkit and the Food Projectile.
+// Wandering Chef Enhancements: the Wandering Chef Dedication, Quick Cooking, Flash Cook, the Cooking Toolkit and the Food Projectile.
 const chefItems = [];
 require("./wandering-chef")({ items: chefItems, publication: modulePublication, makeId, uuidOf: chefUuidOf });
 
@@ -806,7 +810,7 @@ const moduleJson = {
     // Bard Enhancements
     "scripts/bard/versatile-performance.js",
     // Wandering Chef Enhancements
-    "scripts/wandering-chef/overcook.js",
+    "scripts/wandering-chef/flash-cook.js",
     "scripts/wandering-chef/quick-cooking.js",
     // Behaviour for items in the CorpseCap's Cauldron module (the Insulating Paste counter)
     "scripts/cauldron/insulating-paste.js",

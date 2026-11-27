@@ -6,7 +6,7 @@ menu: wandering-chef-items
 title: "Food Projectile"
 category: Equipment
 date: 2026-11-25
-summary: "A short-lived lump of overcooked food that a Wandering Chef flings at enemies, made with the Overcooked feat."
+summary: "A short-lived lump of flash-cooked food that a Wandering Chef flings at enemies, made with the Flash Cook feat."
 ---
 
 <div class="stat-block" id="food-projectile">
@@ -29,7 +29,7 @@ summary: "A short-lived lump of overcooked food that a Wandering Chef flings at 
   <p><strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> &mdash;<br>
   <strong>Category</strong> Simple; <strong>Group</strong> Sling; <strong>Range</strong> 10 feet<br>
   <strong>Activate</strong> {% actionIcon "one" %} Strike</p>
-  <p>A spare bit of food, overcooked with alchemical ingredients until it is inedible and has none of the properties it had before. You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p>
+  <p>A spare bit of food, flash-cooked with alchemical ingredients until it is inedible and has none of the properties it had before. You can flambé it when you Strike, setting it on fire so that it deals fire damage instead of bludgeoning damage.</p>
 
   <div class="stat-block-section"><span>Lesser</span><span>Item 1</span></div>
   <p>The weapon deals 1d6 bludgeoning damage.</p>
@@ -44,4 +44,4 @@ summary: "A short-lived lump of overcooked food that a Wandering Chef flings at 
   <p>You gain a +3 item bonus to attack rolls. The weapon deals 4d6 bludgeoning damage.</p>
 </div>
 
-<p>A Wandering Chef makes a Food Projectile with the Overcook option from the <a href="{{ 'overcooked' | articleUrl(collections.articles) | url }}">Overcooked</a> feat, and the <a href="{{ 'food-fight' | articleUrl(collections.articles) | url }}">Food Fight</a> feat gives it the Deadly d8 trait and extends its range from 10 feet to 15 feet.</p>
+<p>A Wandering Chef makes a Food Projectile with the Flash Cook option from the <a href="{{ 'flash-cook' | articleUrl(collections.articles) | url }}">Flash Cook</a> feat, and the <a href="{{ 'food-fight' | articleUrl(collections.articles) | url }}">Food Fight</a> feat gives it the Deadly d8 trait and extends its range from 10 feet to 15 feet.</p>

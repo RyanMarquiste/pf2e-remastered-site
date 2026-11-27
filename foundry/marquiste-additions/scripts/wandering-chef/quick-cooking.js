@@ -1,29 +1,29 @@
-// Quick Cooking: the Wandering Chef's version of Quick Alchemy. Using the Quick Cooking action asks the character to choose Create Consumable, Create Processed Food or Overcook.
+// Quick Cooking: the Wandering Chef's version of Quick Alchemy. Using the Quick Cooking action asks the character to choose Create Consumable, Create Processed Food or Flash Cook.
 //   - Create Consumable (Cooking) spends one food packet and makes one alchemical food from the character's formulas. The action item carries a CraftingAbility
 //     rule, so PF2e itself shows the formula picker, spends the packet and puts the item in a hand. This script adds the checks and the end-of-turn expiry.
 //   - Create Processed Food is the same for foods with the Processed trait, which take 1 minute to make. It also spends a food packet and opens the formula picker
 //     (limited to the processed foods the character knows), but nothing is removed afterwards: it is made outside combat.
-//   - Overcook (the Overcooked feat) creates a Food Projectile for free; scripts/wandering-chef/overcook.js does that.
-// Overcook only appears for a character who has it. Like Quick Alchemy, neither option checks for the toolkit.
+//   - Flash Cook (the Flash Cook feat) creates a Food Projectile for free; scripts/wandering-chef/flash-cook.js does that.
+// Flash Cook only appears for a character who has it. Like Quick Alchemy, neither option checks for the toolkit.
 import { MODULE, itemUsed, say } from "../common/shared.js";
 import { enabled, log } from "../common/settings.js";
 
 const QUICK_COOKING = "quick-cooking";
 const CREATE = "create-cooking-consumable";
 const PROCESSED = "create-processed-food";
-const OVERCOOK = "overcook";
+const FLASH_SLUGS = ["flash-cook", "overcook"]; // the action's slug, and its earlier one
 const FLAG = "cookConsumable";
 
 // A Wandering Chef's food packets are a special resource PF2e links to the quantity of their Food Packet item.
 export const foodPackets = (actor) => actor.getResource?.("food-packets")?.value ?? 0;
 
-const action = (actor, slug) => actor.items.find((i) => i.type === "action" && i.slug === slug);
+const action = (actor, ...slugs) => actor.items.find((i) => i.type === "action" && slugs.includes(i.slug));
 
-// Small outline icons for the chooser: a flame for Overcook and a cooking pot for Create Consumable.
+// Small outline icons for the chooser: a flame for Flash Cook and a cooking pot for Create Consumable.
 const svg = (inner) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; vertical-align: middle; margin-right: .5em;">${inner}</svg>`;
 const PROCESSED_ICON = svg('<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.8 1.8M9.5 3h5"/>');
-const OVERCOOK_ICON = svg('<path d="M12 3c.6 3.6 5 5 5 10a5 5 0 0 1-10 0c0-2 .8-3.2 2-4.2.1 1.6.8 2.6 1.8 2.9C10.2 8.4 10.6 5.4 12 3z"/>');
+const FLASH_ICON = svg('<path d="M12 3c.6 3.6 5 5 5 10a5 5 0 0 1-10 0c0-2 .8-3.2 2-4.2.1 1.6.8 2.6 1.8 2.9C10.2 8.4 10.6 5.4 12 3z"/>');
 const CONSUMABLE_ICON = svg('<path d="M4 10h16v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM2 10h20M9 6.5c0-1.2 1-1.6 1-3M14 6.5c0-1.2 1-1.6 1-3"/>');
 
 // Run Create Consumable (Cooking) or Create Processed Food through PF2e's own action flow, which opens the formula picker.
@@ -41,22 +41,22 @@ Hooks.on("createChatMessage", async (message) => {
 
   const actor = used.actor;
   const packets = foodPackets(actor);
-  const overcook = action(actor, OVERCOOK);
-  log(`Quick Cooking used by ${actor.name}; food packets: ${packets}; Overcook: ${!!overcook}`);
+  const flash = action(actor, ...FLASH_SLUGS);
+  log(`Quick Cooking used by ${actor.name}; food packets: ${packets}; Flash Cook: ${!!flash}`);
 
   const choice = await foundry.applications.api.DialogV2.wait({
     window: { title: "Quick Cooking" },
     content:
       `<p>What does ${actor.name} do with Quick Cooking?</p>` +
       `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Consumable and Create Processed Food need one." : ""}</p>`,
-    // Overcook is only offered to a character who has it (the Overcooked feat gives the action).
+    // Flash Cook is only offered to a character who has it (the Flash Cook feat gives the action).
     buttons: [
-      ...(overcook ? [{ action: "overcook", label: "Overcook" }] : []),
+      ...(flash ? [{ action: "flash", label: "Flash Cook" }] : []),
       { action: "consumable", label: "Create Consumable", default: true },
       { action: "processed", label: "Create Processed Food (takes 1 minute)" },
     ],
     render: (event, dialog) => {
-      for (const [name, icon] of [["consumable", CONSUMABLE_ICON], ["processed", PROCESSED_ICON], ["overcook", OVERCOOK_ICON]]) {
+      for (const [name, icon] of [["consumable", CONSUMABLE_ICON], ["processed", PROCESSED_ICON], ["flash", FLASH_ICON]]) {
         dialog.element.querySelector(`button[data-action="${name}"]`)?.insertAdjacentHTML("afterbegin", icon);
       }
       const disable = (name, reason) => {
@@ -75,7 +75,7 @@ Hooks.on("createChatMessage", async (message) => {
   });
   if (choice === "consumable") return createFood(actor, CREATE, "Create Consumable (Cooking)");
   if (choice === "processed") return createFood(actor, PROCESSED, "Create Processed Food");
-  if (choice === "overcook") return game.pf2e.rollItemMacro(overcook.uuid);
+  if (choice === "flash") return game.pf2e.rollItemMacro(flash.uuid);
 });
 
 // PF2e opens its formula picker for Create Consumable (Cooking) and Create Processed Food. Refuse to go on without a food packet or a free hand.
