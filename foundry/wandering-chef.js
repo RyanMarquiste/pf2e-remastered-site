@@ -47,7 +47,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
   // The Food Packet: the item whose quantity is the character's food packets, the way the Versatile Vial is for versatile vials.
   items.push({
     _id: makeId("item:Food Packet"),
-    img: "icons/containers/bags/coinpouch-simple-leather-tan.webp",
+    img: "modules/marquiste-additions/images/food-packet.png",
     name: "Food Packet",
     type: "equipment",
     system: {
