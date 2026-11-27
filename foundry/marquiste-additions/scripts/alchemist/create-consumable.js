@@ -1,7 +1,7 @@
 // Create Consumable: expend a versatile vial to create one alchemical consumable from the Alchemist's formulas, the way PF2e's Quick Alchemy does.
 // The action item carries a CraftingAbility rule, so PF2e itself shows its formula picker, spends the vial and puts the item in a hand.
 // This script adds the checks and the end-of-turn expiry around that.
-import { MODULE, itemUsed, say } from "../common/shared.js";
+import { MODULE, itemUsed, say, lifetimeStamp, expireWithClock } from "../common/shared.js";
 import { enabled } from "../common/settings.js";
 import { versatileVials } from "./alchemist.js";
 
@@ -45,10 +45,11 @@ Hooks.on("createChatMessage", async (message) => {
   const created = uuid ? await fromUuid(uuid) : null;
   if (!created?.actor || !created.system.temporary) return;
 
-  const actor = action.actor;
-  const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
-  await created.setFlag(MODULE, "createConsumable", combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null });
+  await created.setFlag(MODULE, "createConsumable", lifetimeStamp(action.actor));
 });
+
+// An item made outside combat is removed when the world clock moves on, and every item made in a combat when it ends.
+expireWithClock({ flags: ["createConsumable"], isOn: () => enabled("alchemistActions"), text: (item) => `<p>${item.name} becomes inert and is gone.</p>` });
 
 // An item made in combat is removed when its creator's next turn begins.
 Hooks.on("updateCombat", async (combat, changed) => {

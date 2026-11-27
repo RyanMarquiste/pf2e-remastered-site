@@ -1,7 +1,7 @@
 // Flash Cook (the Flash Cook feat's option for Quick Cooking): a Wandering Chef with a free hand creates a Food Projectile, held in that hand and removed when their
 // turn is over. Like Quick Vial, it does not check for the toolkit. With the Food Fight feat the projectile is stronger and the character can Strike with it
 // straight away.
-import { MODULE, itemUsed, say } from "../common/shared.js";
+import { MODULE, itemUsed, say, lifetimeStamp, expireWithClock } from "../common/shared.js";
 import { enabled } from "../common/settings.js";
 import { tierFor } from "../alchemist/alchemist.js";
 
@@ -41,10 +41,7 @@ export async function flashCook(actor) {
   }
   data.system.equipped = { carryType: "held", handsHeld: 1 };
   const combatant = game.combat?.combatants.find((c) => c.actor?.id === actor.id);
-  data.flags = {
-    ...data.flags,
-    [MODULE]: { [FLAG]: combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null } },
-  };
+  data.flags = { ...data.flags, [MODULE]: { [FLAG]: lifetimeStamp(actor) } };
   const [projectile] = await actor.createEmbeddedDocuments("Item", [data]);
   if (!projectile) return;
 
@@ -52,7 +49,7 @@ export async function flashCook(actor) {
     actor,
     combatant
       ? `<p>${actor.name} flash-cooks a spare bit of food into ${projectile.name}, held in a free hand. It falls apart at the end of this turn.</p>`
-      : `<p>${actor.name} flash-cooks a spare bit of food into ${projectile.name}, held in a free hand. It falls apart at the end of the turn, so remove it yourself, as there is no combat running.</p>`,
+      : `<p>${actor.name} flash-cooks a spare bit of food into ${projectile.name}, held in a free hand. It falls apart when the world clock moves on.</p>`,
   );
 
   // Food Fight: Flash Cook and Strike as part of the same action.
@@ -73,6 +70,9 @@ Hooks.on("createChatMessage", async (message) => {
   const action = await itemUsed(message);
   if (action?.type === "action" && SLUGS.includes(action.slug)) await flashCook(action.actor);
 });
+
+// A Food Projectile made outside combat is removed when the world clock moves on, and every one made in a combat when it ends.
+expireWithClock({ flags: [FLAG, OLD_FLAG], isOn: () => enabled("wanderingChef"), text: (item) => `<p>${item.name} falls apart and is gone.</p>` });
 
 // A Food Projectile made in combat is removed once its creator's turn is over.
 Hooks.on("updateCombat", async (combat, changed) => {

@@ -5,7 +5,7 @@
 //     (limited to the processed foods the character knows), but nothing is removed afterwards: it is made outside combat.
 //   - Flash Cook (the Flash Cook feat) creates a Food Projectile for free; scripts/wandering-chef/flash-cook.js does that.
 // Flash Cook only appears for a character who has it. Like Quick Alchemy, neither option checks for the toolkit.
-import { MODULE, itemUsed, say } from "../common/shared.js";
+import { MODULE, itemUsed, say, lifetimeStamp, expireWithClock } from "../common/shared.js";
 import { enabled, log } from "../common/settings.js";
 
 const QUICK_COOKING = "quick-cooking";
@@ -109,9 +109,11 @@ Hooks.on("createChatMessage", async (message) => {
   if (!created?.actor || !created.system.temporary) return;
   if (create.slug === PROCESSED) return say(create.actor, `<p>${create.actor.name} spends 1 minute preparing ${created.name}.</p>`);
 
-  const combatant = game.combat?.combatants.find((c) => c.actor?.id === create.actor.id);
-  await created.setFlag(MODULE, FLAG, combatant ? { combatId: game.combat.id, combatantId: combatant.id, round: game.combat.round } : { combatId: null });
+  await created.setFlag(MODULE, FLAG, lifetimeStamp(create.actor));
 });
+
+// An item made outside combat is removed when the world clock moves on, and every item made in a combat when it ends.
+expireWithClock({ flags: [FLAG], isOn: () => enabled("wanderingChef"), text: (item) => `<p>${item.name} becomes inert and is gone.</p>` });
 
 // An item made in combat is removed when its creator's next turn begins.
 Hooks.on("updateCombat", async (combat, changed) => {
