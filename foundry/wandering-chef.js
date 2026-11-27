@@ -197,7 +197,9 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
         value:
           "<p><strong>Prerequisites</strong> Trained in Crafting</p><hr />" +
           "<p>You can use the Craft activity to create alchemical foods, but not other alchemical items. When you select this feat, you immediately gain the formulas for four " +
-          "common alchemical foods of 1st level or 2nd level.</p>",
+          "common alchemical foods of 1st level or 2nd level, which you choose. If you want to choose an uncommon alchemical food of that level, the GM decides whether you can, " +
+          "such as when the food's Access entry applies to you.</p>" +
+          "<hr /><p><strong>Module</strong> The formulas are not granted automatically. Add the four formulas you choose to the character yourself.</p>",
       },
       level: { value: 1 },
       prerequisites: { value: [{ value: "trained in Crafting" }] },
