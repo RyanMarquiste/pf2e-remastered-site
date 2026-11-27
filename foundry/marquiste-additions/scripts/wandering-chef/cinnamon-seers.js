@@ -27,7 +27,7 @@ Hooks.on("createChatMessage", async (message) => {
   if (check.flags.pf2e.context.isReroll) return ui.notifications.warn("That Recall Knowledge check was already rerolled, so Bite Cinnamon Seers can't reroll it again.");
 
   // The effect that gave the action; deleting it removes the action too. If it can't be found, look for a Cinnamon Seers effect on the character.
-  const effect = action.grantedBy ?? actor.itemTypes.effect.find((e) => /^effect-cinnamon-seers-(lesser|moderate)$/.test(e.slug ?? ""));
+  const effect = action.grantedBy ?? actor.itemTypes.effect.find((e) => /^effect-cinnamon-seers-(lesser|moderate|greater)$/.test(e.slug ?? ""));
 
   // A lesser seer sharpens the skill chosen when it was activated, and rerolls only a check with that skill. The choice is a roll domain of the check: the skill's slug, or
   // lore-skill-check for any Lore skill.

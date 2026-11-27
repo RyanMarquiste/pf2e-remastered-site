@@ -1,7 +1,7 @@
 {
     "_key": "!items!UFSFcJ1aT6oJTaYH",
     "_id": "UFSFcJ1aT6oJTaYH",
-    "img": "icons/consumables/potions/bottle-corked-empty.webp",
+    "img": "icons/consumables/food/candy-pattie-pink-white.webp",
     "name": "Formula: Cinnamon Seers",
     "type": "equipment",
     "flags": {
@@ -15,6 +15,10 @@
                     {
                         "level": 4,
                         "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.w2L2NIeyBKZior2q"
+                    },
+                    {
+                        "level": 8,
+                        "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.pPf7G5Q7tTPBXI8j"
                     }
                 ]
             }
@@ -26,7 +30,7 @@
             "value": 0
         },
         "description": {
-            "value": "<p>The formula for a cinnamon lozenge that sharpens recall. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Cinnamon Seers your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.GZIkzgnO1D4uiKFq]{Cinnamon Seers (Lesser)} (level 1)</li><li>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.w2L2NIeyBKZior2q]{Cinnamon Seers (Moderate)} (level 4)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+            "value": "<p>The formula for a cinnamon lozenge that sharpens recall. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Cinnamon Seers your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.GZIkzgnO1D4uiKFq]{Cinnamon Seers (Lesser)} (level 1)</li><li>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.w2L2NIeyBKZior2q]{Cinnamon Seers (Moderate)} (level 4)</li><li>@UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.pPf7G5Q7tTPBXI8j]{Cinnamon Seers (Greater)} (level 8)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
         },
         "hardness": 0,
         "hp": {

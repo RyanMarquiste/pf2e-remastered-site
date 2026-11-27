@@ -1,13 +1,14 @@
-// Cinnamon Seers: a Lozenge that sharpens recall, in two tiers for the Wandering Chef. Called from build.js, which supplies the shared helpers.
+// Cinnamon Seers: a Lozenge that sharpens recall, in three tiers for the Wandering Chef. Called from build.js, which supplies the shared helpers.
 //   - Cinnamon Seers (Lesser): level 1, 3 gp, a weaker version that lasts 10 minutes. It is common, so the Wandering Chef can learn it at 1st level. Its bonus applies to one skill the
 //     character chooses when activating it (Arcana, Nature, Occultism, Religion or Lore, a ChoiceSet), and Bite Cinnamon Seers rerolls only a check with that skill.
 //   - Cinnamon Seers (Moderate): a copy of PF2e's own Cinnamon Seers (Pathfinder Treasure Vault, level 4, 14 gp, 1 hour), named like the Lesser so the two read as tiers.
+//   - Cinnamon Seers (Greater): level 8, 60 gp (a placeholder price), 1 hour, a +2 item bonus to Recall Knowledge with any skill (Society, Crafting and Medicine too). Not in PF2e.
 // Each carries the alchemical-food tag the chef's Quick Cooking looks for. Activating one puts it in your mouth and applies its effect, a +1 item bonus to checks to Recall Knowledge.
 // The effect also grants a Bite Cinnamon Seers action while it lasts, the Lozenge's secondary effect (a reaction): using it (scripts/wandering-chef/cinnamon-seers.js) rerolls your
 // latest Recall Knowledge check, removes the effect (which takes the action with it) and gives you an immunity effect that lasts until your next daily preparations. While that
-// effect is on you the seers' bonus and the Bite action are switched off by their predicates. A Formula: Cinnamon Seers item covers both tiers.
+// effect is on you the seers' bonus and the Bite action are switched off by their predicates. A Formula: Cinnamon Seers item covers all three tiers.
 module.exports = function buildCinnamonSeers({ items, publication, makeId, uuidOf, formulaItem }) {
-  const IMG = "icons/consumables/potions/bottle-corked-empty.webp";
+  const IMG = "icons/consumables/food/candy-pattie-pink-white.webp";
   const biteId = makeId("action:Bite Cinnamon Seers");
   const immuneId = makeId("effect:Cinnamon Seers Immunity");
   const IMMUNE_SLUG = "effect-cinnamon-seers-immunity";
@@ -90,6 +91,21 @@ module.exports = function buildCinnamonSeers({ items, publication, makeId, uuidO
         "its stimulating flavor granting you a +1 item bonus to checks to Recall Knowledge.",
       reroll: "Reroll the triggering check. ",
     },
+    {
+      // Not in PF2e: a step above the Moderate. The bonus is +2 and covers Recall Knowledge with any skill, Society, Crafting and Medicine included.
+      name: "Greater",
+      level: 8,
+      gp: 60,
+      bonus: 2,
+      anySkill: true,
+      duration: { unit: "hours", value: 1, text: "1 hour" },
+      itemSeed: "item:Cinnamon Seers (Greater)",
+      effectSeed: "effect:Cinnamon Seers (Greater)",
+      text:
+        "Zippy, alchemically treated cinnamon suffuses cinnamon seers, a rock candy with a lively taste that provides a mental boost. This is a stronger version of the cinnamon seer. " +
+        "A greater cinnamon seer remains in your mouth for 1 hour, its stimulating flavor granting you a +2 item bonus to checks to Recall Knowledge with any skill.",
+      reroll: "Reroll the triggering check. ",
+    },
   ];
 
   // The skills a Lesser can sharpen. A Lore skill's check has the lore-skill-check domain, so Lore means any Lore skill the character has.
@@ -158,7 +174,9 @@ module.exports = function buildCinnamonSeers({ items, publication, makeId, uuidO
             `<p>Granted by @UUID[${uuidOf(itemId)}]{${name}}</p>` +
             (t.chooseSkill
               ? `<p>You gain a +1 item bonus to checks to Recall Knowledge with the skill you chose when you activated it. Bite Cinnamon Seers can reroll only a check with that skill.</p>`
-              : `<p>You gain a +1 item bonus to checks to Recall Knowledge.</p>`) +
+              : t.anySkill
+                ? `<p>You gain a +${t.bonus} item bonus to checks to Recall Knowledge with any skill.</p>`
+                : `<p>You gain a +1 item bonus to checks to Recall Knowledge.</p>`) +
             `<p>This effect also gives you @UUID[${uuidOf(biteId)}]{Bite Cinnamon Seers}.</p>`,
         },
         duration: { expiry: "turn-start", sustained: false, unit: t.duration.unit, value: t.duration.value },
@@ -172,7 +190,14 @@ module.exports = function buildCinnamonSeers({ items, publication, makeId, uuidO
               ]
             : [
                 // PF2e's own effect names "lore", which no check has as a domain; a Lore skill's check has lore-skill-check, so that is added too.
-                { key: "FlatModifier", predicate: ["action:recall-knowledge", notImmune], selector: ["arcana", "occultism", "nature", "religion", "lore", "lore-skill-check"], type: "item", value: 1 },
+                // The Greater covers any skill: every skill check, a Lore skill's included, has the skill-check domain.
+                {
+                  key: "FlatModifier",
+                  predicate: ["action:recall-knowledge", notImmune],
+                  selector: t.anySkill ? "skill-check" : ["arcana", "occultism", "nature", "religion", "lore", "lore-skill-check"],
+                  type: "item",
+                  value: t.bonus ?? 1,
+                },
               ]),
           { key: "GrantItem", allowDuplicate: false, predicate: [notImmune], uuid: uuidOf(biteId) },
         ],

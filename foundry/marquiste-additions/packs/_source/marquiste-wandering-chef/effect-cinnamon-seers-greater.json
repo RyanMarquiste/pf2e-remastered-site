@@ -1,0 +1,62 @@
+{
+    "_key": "!items!Pu39dOwWh5ANoHbG",
+    "_id": "Pu39dOwWh5ANoHbG",
+    "img": "icons/consumables/food/candy-pattie-pink-white.webp",
+    "name": "Effect: Cinnamon Seers (Greater)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-cinnamon-seers-greater",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.pPf7G5Q7tTPBXI8j]{Cinnamon Seers (Greater)}</p><p>You gain a +2 item bonus to checks to Recall Knowledge with any skill.</p><p>This effect also gives you @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr]{Bite Cinnamon Seers}.</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 8
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "predicate": [
+                    "action:recall-knowledge",
+                    {
+                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                    }
+                ],
+                "selector": "skill-check",
+                "type": "item",
+                "value": 2
+            },
+            {
+                "key": "GrantItem",
+                "allowDuplicate": false,
+                "predicate": [
+                    {
+                        "not": "self:effect:effect-cinnamon-seers-immunity"
+                    }
+                ],
+                "uuid": "Compendium.marquiste-additions.marquiste-wandering-chef.Item.0hrGR0GGg4f83cOr"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}
