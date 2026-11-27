@@ -5,7 +5,8 @@
 // book goes in that book. Formulas that no book gives stay in Known Formulas. Books with nothing in them are shown, with a note.
 import { MODULE } from "./shared.js";
 import { enabled } from "./settings.js";
-import { booksOf, chooseBook, dropOnBook, esc, forgetFormula, moveFormula, supply, sync } from "./formula-books.js";
+import { booksFor, booksOf, chooseBook, describe, dropOnBook, esc, forgetFormula, isCookbook, moveFormula, supply, sync } from "./formula-books.js";
+import { pickRecipes } from "./cookbook-picker.js";
 
 const STYLE_ID = `${MODULE}-formula-books`;
 
@@ -82,7 +83,7 @@ const rowLevel = (row) => Number(row.dataset.formulaLvl ?? 0);
 // Give the book a name of the player's choosing; it is the name of the item as well.
 async function renameBook(book) {
   const value = await foundry.applications.api.DialogV2.prompt({
-    window: { title: "Name this formula book" },
+    window: { title: isCookbook(book) ? "Name this cookbook" : "Name this formula book" },
     content: `<div class="form-group"><label>Name</label><div class="form-fields"><input type="text" name="name" value="${esc(book.name)}" autofocus></div></div>`,
     ok: { label: "Rename", callback: (event, button) => button.form.elements.name.value },
     rejectClose: false,
@@ -158,14 +159,24 @@ async function decorate(app, root) {
     }
     // Two ways to find things to put in the book, both from the Compendium Browser's equipment tab: PF2e's own Browse button, which shows
     // every item, and one that has the Formula trait already chosen. What is found there can be dragged onto the book.
-    const browse = headerButton("fa-search", "Browse items in the Compendium Browser", "Items");
-    browse.dataset.action = "browse-equipment";
-    const formulas = headerButton("fa-scroll", "Browse formulas in the Compendium Browser", "Formulas");
-    formulas.addEventListener("click", (event) => {
-      event.stopPropagation();
-      browseFormulas().catch((error) => console.error(MODULE, error));
-    });
-    controls.append(browse, formulas);
+    if (isCookbook(book)) {
+      // A cookbook holds only alchemical foods, which the Compendium Browser can't list by themselves, so it has a list of its own.
+      const recipes = headerButton("fa-utensils", "Choose alchemical foods to add to this cookbook", "Add recipes");
+      recipes.addEventListener("click", (event) => {
+        event.stopPropagation();
+        pickRecipes(actor, book).catch((error) => console.error(MODULE, error));
+      });
+      if (editable) controls.append(recipes);
+    } else {
+      const browse = headerButton("fa-search", "Browse items in the Compendium Browser", "Items");
+      browse.dataset.action = "browse-equipment";
+      const formulas = headerButton("fa-scroll", "Browse formulas in the Compendium Browser", "Formulas");
+      formulas.addEventListener("click", (event) => {
+        event.stopPropagation();
+        browseFormulas().catch((error) => console.error(MODULE, error));
+      });
+      controls.append(browse, formulas);
+    }
     header.append(controls);
     header.addEventListener("click", (event) => {
       if (event.target.closest(".controls")) return;
@@ -208,7 +219,7 @@ async function decorate(app, root) {
     }
     if (!mine.length) {
       const empty = make("li", "formula-header empty");
-      empty.append(make("h4", "", "Empty (drag a formula here)"));
+      empty.append(make("h4", "", isCookbook(book) ? "Empty (add recipes, or drag an alchemical food here)" : "Empty (drag a formula here)"));
       list.append(empty);
     }
     group.append(header, list);
@@ -242,7 +253,9 @@ async function decorate(app, root) {
       move.addEventListener("click", async (event) => {
         event.preventDefault();
         event.stopPropagation();
-        const target = await chooseBook(books, { current: currentId, title: `Move ${rowName(row)}` });
+        // Only a food can go in a cookbook.
+        const choices = booksFor(actor, await describe(uuid));
+        const target = await chooseBook(choices, { current: currentId, title: `Move ${rowName(row)}` });
         if (target !== undefined) await moveFormula(actor, uuid, target);
       });
       rowControls.prepend(move);

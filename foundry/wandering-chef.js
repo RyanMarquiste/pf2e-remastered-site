@@ -42,6 +42,37 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
     },
   });
 
+  // The Cookbook (Blank): a formula book that holds only alchemical foods. The module (scripts/common/formula-books.js) treats it as a formula book by its slug, and refuses anything
+  // that does not have the alchemical-food tag; the Crafting tab gives it an Add recipes button (scripts/common/cookbook-picker.js).
+  items.push({
+    _id: makeId("item:Cookbook (Blank)"),
+    img: "icons/sundries/books/book-plain-orange.webp",
+    name: "Cookbook (Blank)",
+    type: "equipment",
+    system: {
+      slug: "cookbook-blank",
+      bulk: { value: 0.1 },
+      containerId: null,
+      description: {
+        value:
+          "<p>A cookbook is a formula book kept by a cook. It holds the formulas for alchemical foods, and only alchemical foods: a character who wants one book for everything keeps a formula book instead. " +
+          "A cook can keep as many cookbooks as they like, for example one for camp meals and one for feasts. Formulas can also appear on recipe cards, menus, and almost any other medium; " +
+          "there's no need to copy them into a cookbook as long as you can keep them on hand to reference them.</p>",
+      },
+      hardness: 0,
+      hp: { max: 0, value: 0 },
+      level: { value: 0 },
+      material: { grade: null, type: null },
+      price: { value: { gp: 1 } },
+      publication,
+      quantity: 1,
+      rules: [],
+      size: "med",
+      traits: { rarity: "common", value: [] },
+      usage: { value: "held-in-one-hand" },
+    },
+  });
+
   // The Food Packet: the item whose quantity is the character's food packets, the way the Versatile Vial is for versatile vials.
   items.push({
     _id: makeId("item:Food Packet"),
