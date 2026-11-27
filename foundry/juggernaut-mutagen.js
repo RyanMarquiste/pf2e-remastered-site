@@ -35,6 +35,12 @@ module.exports = function buildJuggernautMutagen(context) {
       drawbackRules: [
         { key: "FlatModifier", selector: ["initiative", "perception", "will"], slug: "juggernaut-mutagen-drawback", type: "untyped", value: -2 },
       ],
+      // PF2e's own Mutant Physique feat only gives this to PF2e's own Juggernaut effects, so the copy gives it itself.
+      featBenefit: {
+        feat: "Mutant Physique",
+        text: "you gain resistance to all physical damage equal to half your level.",
+        rules: () => [{ key: "Resistance", type: "physical", value: "floor(@actor.level / 2)" }],
+      },
     },
     context,
   );

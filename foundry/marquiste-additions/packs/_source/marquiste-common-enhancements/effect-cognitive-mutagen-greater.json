@@ -7,7 +7,7 @@
     "system": {
         "slug": "effect-cognitive-mutagen-marquiste-greater",
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.Vj3PtgnDBRoUsYLN]</p><p><strong>Benefit</strong> You gain a +3 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}. Your critical failures on Recall Knowledge checks become failures instead. You become trained in one Intelligence-based skill [Arcana, Crafting, Lore, Occultism, Society], chosen at creation.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.bcVxhhyLMpfAqbuD].</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.Vj3PtgnDBRoUsYLN]</p><p><strong>Benefit</strong> You gain a +3 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}. Your critical failures on Recall Knowledge checks become failures instead. You become trained in one Intelligence-based skill [Arcana, Crafting, Lore, Occultism, Society], chosen at creation.</p><p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, you also gain the mutagen's item bonus to Deception, Diplomacy, Intimidation, Medicine, Nature, Performance, Religion, and Survival checks. In addition, you can communicate telepathically with creatures within 60 feet with whom you share a language. The communication is two-way once you establish it, so a creature you contact can also communicate with you.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.bcVxhhyLMpfAqbuD].</p>"
         },
         "duration": {
             "expiry": "turn-start",
@@ -57,6 +57,25 @@
                 ],
                 "selector": "skill-check",
                 "type": "skill"
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "deception",
+                    "diplomacy",
+                    "intimidation",
+                    "medicine",
+                    "nature",
+                    "performance",
+                    "religion",
+                    "survival"
+                ],
+                "slug": "cognitive-mutagen-mutant-innervation-bonus",
+                "type": "item",
+                "value": 3,
+                "predicate": [
+                    "feat:mutant-innervation"
+                ]
             },
             {
                 "key": "GrantItem",

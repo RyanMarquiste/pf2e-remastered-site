@@ -37,6 +37,22 @@ module.exports = function buildCognitiveMutagen(context) {
           type: "skill",
         },
       ],
+      // PF2e leaves the Mutant Innervation feat as text, so the copy gives the extra skill bonus itself. The telepathy is text only, as in PF2e.
+      featBenefit: {
+        feat: "Mutant Innervation",
+        text:
+          "you also gain the mutagen's item bonus to Deception, Diplomacy, Intimidation, Medicine, Nature, Performance, Religion, and Survival checks. In addition, you can communicate " +
+          "telepathically with creatures within 60 feet with whom you share a language. The communication is two-way once you establish it, so a creature you contact can also communicate with you.",
+        rules: (t) => [
+          {
+            key: "FlatModifier",
+            selector: ["deception", "diplomacy", "intimidation", "medicine", "nature", "performance", "religion", "survival"],
+            slug: "cognitive-mutagen-mutant-innervation-bonus",
+            type: "item",
+            value: t.bonus,
+          },
+        ],
+      },
       drawbackRules: [
         { key: "FlatModifier", selector: ["acrobatics", "athletics", "strike-attack-roll"], slug: "cognitive-mutagen-drawback", value: -2 },
         { key: "ActiveEffectLike", mode: "subtract", path: "inventory.bulk.encumberedAfterAddend", value: 2 },

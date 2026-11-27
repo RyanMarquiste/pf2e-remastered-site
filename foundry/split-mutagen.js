@@ -12,8 +12,15 @@
 //   drawback                    - the Drawback text (the same for every tier)
 //   benefitRules(t)             - the rules the benefit effect has for tier t
 //   drawbackRules               - the rules the drawback effect has; each is switched off by the Drawback suppressed toggle
+//   featBenefit (optional)      - the extra benefit of an alchemist feat that names this mutagen (Mutant Physique or Mutant Innervation): { feat, text, rules(t) }. PF2e's Mutant
+//                                 Physique only works for PF2e's own effects, and Mutant Innervation is only text, so the copy carries the benefit itself: the text goes in the item and
+//                                 effect descriptions, and the rules go in the benefit effect, each applying only to a character with the feat (its slug is in the rules' predicate).
 module.exports = function buildSplitMutagen(spec, { items, publication, makeId, uuidOf, tiers }) {
-  const { name, idKey, slugBase, img, intro, benefit, drawback, benefitRules, drawbackRules } = spec;
+  const { name, idKey, slugBase, img, intro, benefit, drawback, benefitRules, drawbackRules, featBenefit } = spec;
+  // The feat's paragraph, such as "Mutant Physique If you have the Mutant Physique feat, ...", and its rules, which only apply to a character with the feat.
+  const featPara = featBenefit ? `<p><strong>${featBenefit.feat}</strong> If you have the ${featBenefit.feat} feat, ${featBenefit.text}</p>` : "";
+  const featSlug = featBenefit ? featBenefit.feat.toLowerCase().replace(/ /g, "-") : null;
+  const featRules = (t) => (featBenefit ? featBenefit.rules(t).map((rule) => ({ ...rule, predicate: [...(rule.predicate ?? []), `feat:${featSlug}`] })) : []);
   const effectBenefit = spec.effectBenefit ?? benefit;
   const SUPPRESSED = `${slugBase.replace(/-mutagen$/, "")}-drawback-suppressed`;
 
@@ -62,6 +69,7 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
             `<p>${intro}</p>` +
             `<p>${benefit(t)}</p>` +
             `<p>${drawback}</p>` +
+            featPara +
             `<p><strong>Duration</strong> ${t.duration.text}.</p>` +
             `<p>@UUID[${uuidOf(effectId)}]{Effect: ${name} (${t.name})}</p>`,
         },
@@ -89,12 +97,12 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
       system: {
         slug: `effect-${slugBase}-marquiste-${slugTier}`,
         description: {
-          value: `<p>Granted by @UUID[${uuidOf(itemId)}]</p><p>${effectBenefit(t)}</p><p>This effect also applies @UUID[${uuidOf(drawbackId)}].</p>`,
+          value: `<p>Granted by @UUID[${uuidOf(itemId)}]</p><p>${effectBenefit(t)}</p>${featPara}<p>This effect also applies @UUID[${uuidOf(drawbackId)}].</p>`,
         },
         duration: { expiry: "turn-start", sustained: false, unit: t.duration.unit, value: t.duration.value },
         level: { value: t.level },
         publication,
-        rules: [...benefitRules(t), { key: "GrantItem", uuid: uuidOf(drawbackId) }],
+        rules: [...benefitRules(t), ...featRules(t), { key: "GrantItem", uuid: uuidOf(drawbackId) }],
         start: { initiative: null, value: 0 },
         tokenIcon: { show: true },
         traits: { rarity: "common", value: [] },

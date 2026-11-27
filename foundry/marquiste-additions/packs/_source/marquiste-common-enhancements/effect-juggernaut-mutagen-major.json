@@ -7,7 +7,7 @@
     "system": {
         "slug": "effect-juggernaut-mutagen-marquiste-major",
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.24Lov7PSPIMKGMmd]</p><p><strong>Benefit</strong> You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and your critical failures on Fortitude saves become failures instead.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.EF6Sm2liz2HOJ52x].</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.24Lov7PSPIMKGMmd]</p><p><strong>Benefit</strong> You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and your critical failures on Fortitude saves become failures instead.</p><p><strong>Mutant Physique</strong> If you have the Mutant Physique feat, you gain resistance to all physical damage equal to half your level.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.EF6Sm2liz2HOJ52x].</p>"
         },
         "duration": {
             "expiry": "turn-start",
@@ -42,6 +42,14 @@
                 },
                 "selector": "fortitude",
                 "type": "save"
+            },
+            {
+                "key": "Resistance",
+                "type": "physical",
+                "value": "floor(@actor.level / 2)",
+                "predicate": [
+                    "feat:mutant-physique"
+                ]
             },
             {
                 "key": "GrantItem",
