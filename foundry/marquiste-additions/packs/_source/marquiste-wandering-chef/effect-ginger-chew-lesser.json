@@ -7,7 +7,7 @@
     "system": {
         "slug": "effect-ginger-chew-lesser",
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.Q4CTkl0S9pTtD6f7]{Ginger Chew (Lesser)}</p><p>You gain a +1 item bonus to Fortitude saves against being sickened.</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-wandering-chef.Item.Q4CTkl0S9pTtD6f7]{Ginger Chew (Lesser)}</p><p>You gain a +1 item bonus to Fortitude saves against being sickened.</p>"
         },
         "duration": {
             "expiry": "turn-start",
@@ -21,7 +21,7 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "rules": [
             {
