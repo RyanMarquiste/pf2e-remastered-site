@@ -47,8 +47,8 @@ Hooks.on("createChatMessage", async (message) => {
   const choice = await foundry.applications.api.DialogV2.wait({
     window: { title: "Quick Cooking" },
     content:
-      `<p>What does ${actor.name} do with Quick Cooking?</p>` +
-      `<p style="margin: 0; font-size: 12px; opacity: .6;">Food packets: ${packets}${packets < 1 ? ". Create Food and Create Processed Food need one." : ""}</p>`,
+      `<p style="margin: 0 0 .25em; text-align: center; font-size: 1.75em; font-weight: bold;">Food packets: ${packets}</p>` +
+      (packets < 1 ? `<p style="margin: 0; text-align: center; font-size: 12px; opacity: .7;">Create Food and Create Processed Food need one.</p>` : ""),
     // Flash Cook is only offered to a character who has it (the Flash Cook feat gives the action).
     buttons: [
       ...(flash ? [{ action: "flash", label: "Flash Cook" }] : []),

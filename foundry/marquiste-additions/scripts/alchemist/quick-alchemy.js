@@ -24,8 +24,8 @@ Hooks.on("createChatMessage", async (message) => {
   const choice = await foundry.applications.api.DialogV2.wait({
     window: { title: "Quick Alchemy" },
     content:
-      `<p>What does ${actor.name} do with Quick Alchemy?</p>` +
-      `<p style="margin: 0; font-size: 12px; opacity: .6;">Versatile vials: ${vials}${vials < 1 ? ". Create Consumable needs one." : ""}</p>`,
+      `<p style="margin: 0 0 .25em; text-align: center; font-size: 1.75em; font-weight: bold;">Versatile vials: ${vials}</p>` +
+      (vials < 1 ? `<p style="margin: 0; text-align: center; font-size: 12px; opacity: .7;">Create Consumable needs one.</p>` : ""),
     buttons: [
       { action: "vial", label: "Quick Vial", default: true },
       { action: "consumable", label: "Create Consumable" },
