@@ -620,6 +620,21 @@ require("./ginger-chew")({ items: chefItems, publication: modulePublication, mak
 // Cinnamon Seers in the same two tiers (Lesser level 2, Moderate is PF2e's level 4), with the Bite Cinnamon Seers reaction their effects give (see cinnamon-seers.js).
 require("./cinnamon-seers")({ items: chefItems, publication: modulePublication, makeId, uuidOf: chefUuidOf, formulaItem });
 
+// PF2e's Cooperative Waffles come in two tiers (level 2 and the level 5 Greater), so they get a formula item for the cookbook, like the Ginger Chew and Cinnamon Seers.
+// The items are PF2e's own, so the formula points at the system compendium.
+chefItems.push(
+  formulaItem({
+    family: "Cooperative Waffles",
+    img: "icons/consumables/grains/waffle-golden-yellow.webp",
+    made: "waffles two creatures share, which bolster Follow the Expert",
+    pub: modulePublication,
+    tiers: [
+      { name: "Cooperative Waffles", level: 2, uuid: "Compendium.pf2e.equipment-srd.Item.T28lI7becoK1ZGqr" },
+      { name: "Cooperative Waffles (Greater)", level: 5, uuid: "Compendium.pf2e.equipment-srd.Item.awPkC6AWcHS3T4oz" },
+    ],
+  }),
+);
+
 // Common Enhancements: items that apply across the whole game. It holds the mutagens copied from PF2e and their formulas (built above).
 
 writePack(MODULE_ID, COMMON_PACK, commonItems);
