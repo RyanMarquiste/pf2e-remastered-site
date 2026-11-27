@@ -1,0 +1,76 @@
+{
+    "_key": "!items!rAfHmioddr1dA7G3",
+    "_id": "rAfHmioddr1dA7G3",
+    "img": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+    "name": "Formula: Juggernaut Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.IeR5pzVjqlcFv1Zy"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.aU89bx7wHumTfLwL"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.l5tz5XAP65juixWL"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.24Lov7PSPIMKGMmd"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p><strong>Source</strong> CorpseCap's Cauldron</p><p>The formula for a mutagen that makes the body sturdy and ponderous. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Juggernaut Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.IeR5pzVjqlcFv1Zy]{Juggernaut Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.aU89bx7wHumTfLwL]{Juggernaut Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.l5tz5XAP65juixWL]{Juggernaut Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.24Lov7PSPIMKGMmd]{Juggernaut Mutagen (Major)} (level 17)</li></ul>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-juggernaut-mutagen-ccc",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "cauldron"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

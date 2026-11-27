@@ -1,0 +1,64 @@
+{
+    "_key": "!items!EF6Sm2liz2HOJ52x",
+    "_id": "EF6Sm2liz2HOJ52x",
+    "img": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+    "name": "Effect: Juggernaut Mutagen Drawback",
+    "type": "effect",
+    "system": {
+        "slug": "effect-juggernaut-mutagen-ccc-drawback",
+        "description": {
+            "value": "<p>Granted by the Juggernaut Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a -2 penalty to Will saves, Perception checks and initiative rolls.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "sustained": false,
+            "unit": "unlimited",
+            "value": -1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "juggernaut-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "initiative",
+                    "perception",
+                    "will"
+                ],
+                "slug": "juggernaut-mutagen-drawback",
+                "type": "untyped",
+                "value": -2,
+                "predicate": [
+                    {
+                        "not": "juggernaut-drawback-suppressed"
+                    }
+                ]
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

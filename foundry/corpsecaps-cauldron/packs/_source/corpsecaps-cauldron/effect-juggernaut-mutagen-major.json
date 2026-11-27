@@ -1,0 +1,63 @@
+{
+    "_key": "!items!0g103zmQUz5B4EPd",
+    "_id": "0g103zmQUz5B4EPd",
+    "img": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+    "name": "Effect: Juggernaut Mutagen (Major)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-juggernaut-mutagen-ccc-major",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.24Lov7PSPIMKGMmd]</p><p><strong>Benefit</strong> You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and your critical failures on Fortitude saves become failures instead.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.EF6Sm2liz2HOJ52x].</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 17
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "CorpseCap's Cauldron"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": "fortitude",
+                "type": "item",
+                "value": 4
+            },
+            {
+                "key": "TempHP",
+                "value": 45
+            },
+            {
+                "key": "AdjustDegreeOfSuccess",
+                "adjustment": {
+                    "criticalFailure": "one-degree-better",
+                    "success": "one-degree-better"
+                },
+                "selector": "fortitude",
+                "type": "save"
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.EF6Sm2liz2HOJ52x"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

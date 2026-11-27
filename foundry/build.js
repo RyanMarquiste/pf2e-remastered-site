@@ -638,18 +638,21 @@ function formulaItem({ family, img, made, rarity = "common", tiers, pub, idSeed 
   };
 }
 
-// The Cognitive Mutagen from PF2e, with its benefit and drawback as separate effects (see cognitive-mutagen.js).
-const cognitive = require("./cognitive-mutagen")({ items, publication, makeId, uuidOf, tiers });
+// PF2e mutagens with their benefit and drawback as separate effects (see split-mutagen.js and one spec file for each mutagen).
+const splitContext = { items, publication, makeId, uuidOf, tiers };
+const cognitive = require("./cognitive-mutagen")(splitContext);
+const juggernaut = require("./juggernaut-mutagen")(splitContext);
 
 // CorpseCap's Cauldron: the mutagens and Insulating Paste.
 const formulaItems = [];
 // Mutagens that share their name with a PF2e mutagen: their formulas keep a "ccc" in the id seed and slug, so they stay apart from the Alchemist pack's formula for PF2e's.
-const SAME_NAME_AS_PF2E = new Set([DRAKE, "Cognitive Mutagen"]);
+const SAME_NAME_AS_PF2E = new Set([DRAKE, "Cognitive Mutagen", "Juggernaut Mutagen"]);
 for (const [family, img, made] of [
   ["Mind Doubling Mutagen", IMG, "a mutagen that doubles the mind"],
   ["Ichthys Mutagen", ICHTHYS_IMG, "a mutagen that gives a fish-like form"],
   [DRAKE, DRAKE_IMG, "a mutagen that gives you a drake's scales and keen eyes"],
   ["Cognitive Mutagen", cognitive.img, "a mutagen that clears the mind but dulls the body"],
+  ["Juggernaut Mutagen", juggernaut.img, "a mutagen that makes the body sturdy and ponderous"],
   ["Insulating Paste", PASTE_IMG, "a paste that insulates against energy"],
 ]) {
   const tierItems = tiers.map((t) => {
