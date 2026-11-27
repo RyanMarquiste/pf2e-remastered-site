@@ -186,7 +186,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       description: {
         value:
           "<p><strong>Requirements</strong> You're either holding or wearing a cooking toolkit and you have a free hand</p><hr />" +
-          "<p>You cook quickly using a cooking toolkit. Choose Create Food, Create Processed Food, or, if you have the Flash Cook feat, Flash Cook as your action for Quick Cooking.</p>" +
+          "<p>You cook quickly using a cooking toolkit. Choose Create Food or Create Processed Food as your action for Quick Cooking.</p>" +
           "<p>Any effect created by an item made with Quick Cooking that would have a duration longer than 10 minutes lasts for 10 minutes instead. This excludes afflictions " +
           "such as slow acting poisons (as described in the infused trait).</p>" +
           "<h2>Create Food</h2>" +
@@ -197,9 +197,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
           "<h2>Create Processed Food</h2>" +
           "<p><strong>Requirements</strong> You have at least one food packet</p>" +
           "<p>" + PROCESSED_TEXT + "</p>" +
-          "<h2>Flash Cook</h2>" +
-          "<p>See the Flash Cook feat. Using Flash Cook does not expend a food packet.</p>" +
-          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Food, Create Processed Food or Flash Cook. It can be switched off in the module settings under Wandering Chef.</p>",
+          "<hr /><p><strong>Module</strong> Using this action asks you to choose Create Food or Create Processed Food, and Flash Cook as well for a character who has that feat. It can be switched off in the module settings under Wandering Chef.</p>",
       },
       frequency: null,
       publication,
