@@ -1,9 +1,9 @@
-// A PF2e mutagen copied into CorpseCap's Cauldron with its benefit and its drawback as separate effects (like the Drakeheart Mutagen), so the drawback can be suppressed on its own.
+// A PF2e mutagen copied into Marquiste Additions' Common Enhancements pack with its benefit and its drawback as separate effects (like the Drakeheart Mutagen), so the drawback can be suppressed on its own.
 // Each mutagen has a small spec file (such as cognitive-mutagen.js) that gives its text and rules; this builds the items from it. Called from those files, which build.js calls with
 // the shared helpers and the four tiers (Lesser, Moderate, Greater and Major at levels 1, 3, 11 and 17).
 //
 // For each tier there is the consumable and a benefit effect that grants the drawback effect, and the drawback goes with it. One drawback effect serves every tier, since the
-// drawback is the same in all of them. The names match PF2e's; the Cauldron trait and Source line tell them apart, and the slugs keep a "ccc" so they never clash with PF2e's.
+// drawback is the same in all of them. The names match PF2e's; the Cauldron trait and Source line tell them apart, and the slugs keep a "marquiste" so they never clash with PF2e's.
 //
 // The spec:
 //   name, idKey, slugBase, img  - the name ("Cognitive Mutagen"), the key its ids are made from, its slug ("cognitive-mutagen") and its icon
@@ -24,7 +24,7 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
     name: `Effect: ${name} Drawback`,
     type: "effect",
     system: {
-      slug: `effect-${slugBase}-ccc-drawback`,
+      slug: `effect-${slugBase}-marquiste-drawback`,
       description: { value: `<p>Granted by the ${name} effect, and removed with it.</p><p>${drawback}</p>` },
       duration: { expiry: null, sustained: false, unit: "unlimited", value: -1 },
       level: { value: 1 },
@@ -50,7 +50,7 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
       name: `${name} (${t.name})`,
       type: "consumable",
       system: {
-        slug: `${slugBase}-ccc-${slugTier}`,
+        slug: `${slugBase}-marquiste-${slugTier}`,
         baseItem: null,
         bulk: { value: 0.1 },
         category: "mutagen",
@@ -87,7 +87,7 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
       name: `Effect: ${name} (${t.name})`,
       type: "effect",
       system: {
-        slug: `effect-${slugBase}-ccc-${slugTier}`,
+        slug: `effect-${slugBase}-marquiste-${slugTier}`,
         description: {
           value: `<p>Granted by @UUID[${uuidOf(itemId)}]</p><p>${effectBenefit(t)}</p><p>This effect also applies @UUID[${uuidOf(drawbackId)}].</p>`,
         },
@@ -102,5 +102,5 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
     });
   }
 
-  return { img };
+  return { name, img };
 };

@@ -5,7 +5,7 @@
     "name": "Effect: Juggernaut Mutagen Drawback",
     "type": "effect",
     "system": {
-        "slug": "effect-juggernaut-mutagen-ccc-drawback",
+        "slug": "effect-juggernaut-mutagen-marquiste-drawback",
         "description": {
             "value": "<p>Granted by the Juggernaut Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a -2 penalty to Will saves, Perception checks and initiative rolls.</p>"
         },
@@ -21,7 +21,7 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "rules": [
             {

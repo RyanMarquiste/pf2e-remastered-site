@@ -1,11 +1,11 @@
 {
-    "_key": "!items!l5tz5XAP65juixWL",
-    "_id": "l5tz5XAP65juixWL",
+    "_key": "!items!aU89bx7wHumTfLwL",
+    "_id": "aU89bx7wHumTfLwL",
     "img": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
-    "name": "Juggernaut Mutagen (Greater)",
+    "name": "Juggernaut Mutagen (Moderate)",
     "type": "consumable",
     "system": {
-        "slug": "juggernaut-mutagen-ccc-greater",
+        "slug": "juggernaut-mutagen-marquiste-moderate",
         "baseItem": null,
         "bulk": {
             "value": 0.1
@@ -14,7 +14,7 @@
         "containerId": null,
         "damage": null,
         "description": {
-            "value": "<p><strong>Source</strong> CorpseCap's Cauldron</p><p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Your body becomes sturdy and ponderous.</p><p><strong>Benefit</strong> You gain a +3 item bonus to Fortitude saves and 30 temporary Hit Points. Whenever you are at maximum Hit Points for at least 1 full minute, you regain the temporary Hit Points. When you roll a success on a Fortitude save, you get a critical success instead.</p><p><strong>Drawback</strong> You take a -2 penalty to Will saves, Perception checks and initiative rolls.</p><p><strong>Duration</strong> 1 hour.</p><p>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.E3xfNefTRFeAinEc]{Effect: Juggernaut Mutagen (Greater)}</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Your body becomes sturdy and ponderous.</p><p><strong>Benefit</strong> You gain a +2 item bonus to Fortitude saves and 10 temporary Hit Points. Whenever you are at maximum Hit Points for at least 1 full minute, you regain the temporary Hit Points.</p><p><strong>Drawback</strong> You take a -2 penalty to Will saves, Perception checks and initiative rolls.</p><p><strong>Duration</strong> 10 minutes.</p><p>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.QrXkbIn5XJFLaJ37]{Effect: Juggernaut Mutagen (Moderate)}</p>"
         },
         "hardness": 0,
         "hp": {
@@ -22,7 +22,7 @@
             "value": 0
         },
         "level": {
-            "value": 11
+            "value": 3
         },
         "material": {
             "grade": null,
@@ -30,13 +30,13 @@
         },
         "price": {
             "value": {
-                "gp": 300
+                "gp": 12
             }
         },
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "quantity": 1,
         "rules": [],
@@ -49,7 +49,7 @@
                 "elixir",
                 "mutagen",
                 "polymorph",
-                "cauldron"
+                "marquiste"
             ]
         },
         "usage": {

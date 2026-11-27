@@ -5,7 +5,7 @@
     "name": "Effect: Drakeheart Mutagen Drawback",
     "type": "effect",
     "system": {
-        "slug": "effect-drakeheart-mutagen-ccc-drawback",
+        "slug": "effect-drakeheart-mutagen-marquiste-drawback",
         "description": {
             "value": "<p>Granted by the Drakeheart Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a -1 penalty to Will saves, Reflex saves, and all skill checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}.</p>"
         },
@@ -21,7 +21,7 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "rules": [
             {

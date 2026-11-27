@@ -1,6 +1,6 @@
 // Generates the Foundry VTT (PF2e system) source files for two modules:
 //   - Marquiste Additions (the functional module): the scripts and the Common and Alchemist Enhancements packs.
-//   - CorpseCap's Cauldron (the content module): the custom alchemical items, such as the mutagens and Insulating Paste.
+//   - CorpseCap's Cauldron (the content module): the custom alchemical items: the Mind Doubling and Ichthys mutagens and Insulating Paste.
 // Usage: node foundry/build.js   (then see foundry/README.md to compile the compendium packs)
 const fs = require("fs");
 const path = require("path");
@@ -245,139 +245,6 @@ for (const t of tiers) {
   });
 }
 
-// The Drakeheart Mutagen from PF2e, with its text, numbers and art unchanged, but with the benefit and the drawback as separate effects (like the Mind Doubling Mutagen),
-// so the drawback can be suppressed on its own. The levels, prices and durations are the same as the other mutagens' tiers above. The Final Surge action is PF2e's own.
-// It has the same name as PF2e's mutagen. The source trait and the Source line tell them apart, and the slugs below keep the "-ccc" they have always had so they
-// never clash with PF2e's.
-const DRAKE = "Drakeheart Mutagen";
-const DRAKE_IMG = "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp";
-const FINAL_SURGE = "Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf";
-const RECALL_KNOWLEDGE = "@UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}";
-// PF2e's flavour text; its Moderate item has a different line from the other three tiers, and it is kept as written.
-const drakeBody = "Your skin grows scales like a drake, and your eyesight become sharp and your pupils slitted, but your mind and reflexes slow.";
-const drakeModerateBody =
-  "Your skin grows tough scales like a drake, your eyesight become sharp and your pupils slitted, and your limbs grow wiry and quick, but your mind and reflexes become slow.";
-const drakeDrawbackText = `<p><strong>Drawback</strong> You take a -1 penalty to Will saves, Reflex saves, and all skill checks to ${RECALL_KNOWLEDGE}.</p>`;
-
-// The drawback doesn't change with the mutagen's tier either, so one effect serves them all. It is granted by the benefits effect and removed with it.
-const drakeDrawbackId = makeId("effect:Drakeheart:drawback");
-items.push({
-  _id: drakeDrawbackId,
-  img: DRAKE_IMG,
-  name: `Effect: ${DRAKE} Drawback`,
-  type: "effect",
-  system: {
-    slug: "effect-drakeheart-mutagen-ccc-drawback",
-    description: { value: `<p>Granted by the ${DRAKE} effect, and removed with it.</p>` + drakeDrawbackText },
-    duration: { expiry: null, sustained: false, unit: "unlimited", value: -1 },
-    level: { value: 1 },
-    publication,
-    rules: [
-      {
-        key: "RollOption",
-        domain: "all",
-        label: "Drawback suppressed",
-        option: "drakeheart-drawback-suppressed",
-        toggleable: true,
-        value: false,
-      },
-      {
-        key: "FlatModifier",
-        selector: ["reflex", "will"],
-        slug: "drakeheart-mutagen-drawback-saves",
-        value: -1,
-        predicate: [{ not: "drakeheart-drawback-suppressed" }],
-      },
-      {
-        key: "FlatModifier",
-        selector: "skill-check",
-        slug: "drakeheart-mutagen-drawback-recall-knowledge",
-        value: -1,
-        predicate: ["action:recall-knowledge", { not: "drakeheart-drawback-suppressed" }],
-      },
-    ],
-    start: { initiative: null, value: 0 },
-    tokenIcon: { show: true },
-    traits: { rarity: "common", value: [] },
-  },
-});
-
-for (const t of tiers) {
-  const effectId = makeId(`effect:Drakeheart:${t.name}`);
-  const itemId = makeId(`item:Drakeheart:${t.name}`);
-  const dur = t.duration;
-  const ac = t.bonus + 3; // +4, +5, +6, +7
-  const perception = t.bonus; // +1, +2, +3, +4
-
-  const benefitShort = `<p><strong>Benefit</strong> You gain +${ac} item bonus to AC, a Dexterity cap of +2, and a +${perception} item bonus to Perception checks.</p>`;
-  const benefit =
-    `<p><strong>Benefit</strong> You gain +${ac} item bonus to AC, a Dexterity cap of +2 (as usual, use your lowest Dexterity cap if you have more than one), ` +
-    `and a +${perception} item bonus to Perception checks. If you're wearing armor, you still calculate your proficiency bonus to AC based on your ` +
-    `proficiency in the armor you're wearing, even if the drakeheart mutagen has a higher item bonus. You also gain the @UUID[${FINAL_SURGE}]{Final Surge} action.</p>`;
-
-  items.push({
-    _id: itemId,
-    img: DRAKE_IMG,
-    name: `${DRAKE} (${t.name})`,
-    type: "consumable",
-    system: {
-      slug: `drakeheart-mutagen-ccc-${t.name.toLowerCase()}`,
-      baseItem: null,
-      bulk: { value: 0.1 },
-      category: "mutagen",
-      containerId: null,
-      damage: null,
-      description: {
-        value:
-          `<p><strong>Activate</strong> <span class="action-glyph">A</span> (manipulate)</p><hr />` +
-          `<p>${t.name === "Moderate" ? drakeModerateBody : drakeBody}</p>` +
-          benefit +
-          drakeDrawbackText +
-          `<p><strong>Duration</strong> ${dur.text} or until you use Final Surge, whichever comes first.</p>` +
-          `<p>@UUID[${uuidOf(effectId)}]</p>`,
-      },
-      hardness: 0,
-      hp: { max: 0, value: 0 },
-      level: { value: t.level },
-      material: { grade: null, type: null },
-      price: { value: { gp: t.gp } },
-      publication,
-      quantity: 1,
-      rules: [],
-      size: "med",
-      traits: { rarity: "common", value: ["alchemical", "consumable", "elixir", "mutagen", "polymorph"] },
-      usage: { value: "held-in-one-hand" },
-      uses: { autoDestroy: true, max: 1, value: 1 },
-    },
-  });
-
-  // Benefits: the main effect, which also grants Final Surge and the drawback effect.
-  items.push({
-    _id: effectId,
-    img: DRAKE_IMG,
-    name: `Effect: ${DRAKE} (${t.name})`,
-    type: "effect",
-    system: {
-      slug: `effect-drakeheart-mutagen-ccc-${t.name.toLowerCase()}`,
-      description: {
-        value: `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` + benefitShort + `<p>This effect also applies @UUID[${uuidOf(drakeDrawbackId)}].</p>`,
-      },
-      duration: { expiry: "turn-start", sustained: false, unit: dur.unit, value: dur.value },
-      level: { value: t.level },
-      publication,
-      rules: [
-        { key: "DexterityModifierCap", value: 2 },
-        { key: "FlatModifier", selector: "ac", slug: "drakeheart-mutagen-ac", type: "item", value: ac },
-        { key: "FlatModifier", selector: "perception", slug: "drakeheart-mutagen-perception", type: "item", value: perception },
-        { key: "GrantItem", uuid: FINAL_SURGE },
-        { key: "GrantItem", uuid: uuidOf(drakeDrawbackId) },
-      ],
-      start: { initiative: null, value: 0 },
-      tokenIcon: { show: true },
-      traits: { rarity: "common", value: [] },
-    },
-  });
-}
 
 const ichthysTiers = [
   { name: "Lesser", level: 1, bonus: 1, die: 6, dice: 1, gp: 4, duration: { unit: "minutes", value: 1, text: "1 minute" } },
@@ -605,7 +472,7 @@ for (const t of pasteTiers) {
 // Formulas: one blueprint-like item for each craftable family, carrying the Formula trait, so a formula can be found by trait in the Compendium
 // Browser and put in a formula book. Each item lists its family's tiers in its flags; the formula book scripts turn that into the formulas a
 // character knows. The field vials and coatings are not formulas: they are made only by the Quick Vial action.
-// idSeed and slug are only given where two formulas would otherwise share a name (the Drakeheart Mutagen's and PF2e's), to keep their ids and slugs apart.
+// idSeed and slug are only given where two formulas would otherwise share a name (a copied PF2e mutagen's and PF2e's), to keep their ids and slugs apart.
 function formulaItem({ family, img, made, rarity = "common", tiers, pub, idSeed = family, slug = null }) {
   const links = tiers.map((t) => `<li>@UUID[${t.uuid}]{${t.name}} (level ${t.level})</li>`).join("");
   return {
@@ -638,21 +505,41 @@ function formulaItem({ family, img, made, rarity = "common", tiers, pub, idSeed 
   };
 }
 
-// PF2e mutagens with their benefit and drawback as separate effects (see split-mutagen.js and one spec file for each mutagen).
-const splitContext = { items, publication, makeId, uuidOf, tiers };
-const cognitive = require("./cognitive-mutagen")(splitContext);
-const juggernaut = require("./juggernaut-mutagen")(splitContext);
+// The mutagens copied from PF2e (Drakeheart, Cognitive and Juggernaut), with their benefit and drawback as separate effects, go in Marquiste Additions' Common Enhancements
+// pack with a formula for each. Each has its own spec file (see split-mutagen.js). They carry the Marquiste source trait, since they are not part of the Cauldron's own items.
+const commonItems = [];
+const commonUuidOf = (id) => `Compendium.${MODULE_ID}.${COMMON_PACK}.Item.${id}`;
+const pf2eMutagenContext = { items: commonItems, publication: modulePublication, makeId, uuidOf: commonUuidOf, tiers };
+const pf2eMutagens = [
+  [require("./drakeheart-mutagen")(pf2eMutagenContext), "a mutagen that gives you a drake's scales and keen eyes"],
+  [require("./cognitive-mutagen")(pf2eMutagenContext), "a mutagen that clears the mind but dulls the body"],
+  [require("./juggernaut-mutagen")(pf2eMutagenContext), "a mutagen that makes the body sturdy and ponderous"],
+];
+for (const [{ name, img }, made] of pf2eMutagens) {
+  const tierItems = tiers.map((t) => {
+    const found = commonItems.find((i) => i.name === `${name} (${t.name})`);
+    if (!found) throw new Error(`No ${name} (${t.name}) item for its formula`);
+    return { name: found.name, level: found.system.level.value, uuid: commonUuidOf(found._id) };
+  });
+  // The formulas share their names with the Alchemist pack's formulas for PF2e's own mutagens, so each keeps its own id seed and slug.
+  commonItems.push(
+    formulaItem({
+      family: name,
+      img,
+      made,
+      tiers: tierItems,
+      pub: modulePublication,
+      idSeed: `${name} (CCC)`,
+      slug: `formula-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}-marquiste`,
+    }),
+  );
+}
 
-// CorpseCap's Cauldron: the mutagens and Insulating Paste.
+// CorpseCap's Cauldron: its own mutagens (Mind Doubling and Ichthys) and Insulating Paste.
 const formulaItems = [];
-// Mutagens that share their name with a PF2e mutagen: their formulas keep a "ccc" in the id seed and slug, so they stay apart from the Alchemist pack's formula for PF2e's.
-const SAME_NAME_AS_PF2E = new Set([DRAKE, "Cognitive Mutagen", "Juggernaut Mutagen"]);
 for (const [family, img, made] of [
   ["Mind Doubling Mutagen", IMG, "a mutagen that doubles the mind"],
   ["Ichthys Mutagen", ICHTHYS_IMG, "a mutagen that gives a fish-like form"],
-  [DRAKE, DRAKE_IMG, "a mutagen that gives you a drake's scales and keen eyes"],
-  ["Cognitive Mutagen", cognitive.img, "a mutagen that clears the mind but dulls the body"],
-  ["Juggernaut Mutagen", juggernaut.img, "a mutagen that makes the body sturdy and ponderous"],
   ["Insulating Paste", PASTE_IMG, "a paste that insulates against energy"],
 ]) {
   const tierItems = tiers.map((t) => {
@@ -660,12 +547,8 @@ for (const [family, img, made] of [
     if (!found) throw new Error(`No ${family} (${t.name}) item for its formula`);
     return { name: found.name, level: found.system.level.value, uuid: uuidOf(found._id) };
   });
-  const sameName = SAME_NAME_AS_PF2E.has(family)
-    ? { idSeed: `${family} (CCC)`, slug: `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}-ccc` }
-    : {};
-  formulaItems.push(formulaItem({ family, img, made, tiers: tierItems, pub: publication, ...sameName }));
+  formulaItems.push(formulaItem({ family, img, made, tiers: tierItems, pub: publication }));
 }
-
 
 // The Alchemist-only items go in their own pack, so they can be kept out of the general equipment lists.
 const classItems = [];
@@ -803,8 +686,7 @@ chefItems.push(
   }),
 );
 
-// Common Enhancements: items that apply across the whole game. Nothing is needed yet: the injury poison rules work on PF2e's own poisons.
-const commonItems = [];
+// Common Enhancements: items that apply across the whole game. It holds the mutagens copied from PF2e and their formulas (built above).
 
 writePack(MODULE_ID, COMMON_PACK, commonItems);
 writePack(MODULE_ID, CLASS_PACK, classItems);
@@ -891,7 +773,7 @@ fs.writeFileSync(path.join(__dirname, MODULE_ID, "module.json"), JSON.stringify(
 const cauldronJson = {
   id: CAULDRON_ID,
   title: tags.cauldron.long,
-  description: "Custom alchemical items from ryanmarquiste.github.io/pf2e-remastered-site: the mutagens and Insulating Paste.",
+  description: "Custom alchemical items from ryanmarquiste.github.io/pf2e-remastered-site: the Mind Doubling and Ichthys mutagens and Insulating Paste.",
   version: "1.1.0",
   authors: [{ name: "Ryan Marquiste" }],
   compatibility: { minimum: "13", verified: "14" },

@@ -10,19 +10,19 @@
                 "tiers": [
                     {
                         "level": 1,
-                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.L6pcAiJZb73PiKBB"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.L6pcAiJZb73PiKBB"
                     },
                     {
                         "level": 3,
-                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.1tMrJT6R6quc6Y3Y"
                     },
                     {
                         "level": 11,
-                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.fYiW71wPQVMwF1uK"
                     },
                     {
                         "level": 17,
-                        "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.2m7na7huct4eQZNI"
                     }
                 ]
             }
@@ -34,7 +34,7 @@
             "value": 0
         },
         "description": {
-            "value": "<p><strong>Source</strong> CorpseCap's Cauldron</p><p>The formula for a mutagen that gives you a drake's scales and keen eyes. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Drakeheart Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.L6pcAiJZb73PiKBB]{Drakeheart Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y]{Drakeheart Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK]{Drakeheart Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI]{Drakeheart Mutagen (Major)} (level 17)</li></ul>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p>The formula for a mutagen that gives you a drake's scales and keen eyes. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Drakeheart Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.L6pcAiJZb73PiKBB]{Drakeheart Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.1tMrJT6R6quc6Y3Y]{Drakeheart Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.fYiW71wPQVMwF1uK]{Drakeheart Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.2m7na7huct4eQZNI]{Drakeheart Mutagen (Major)} (level 17)</li></ul>"
         },
         "hardness": 0,
         "hp": {
@@ -56,17 +56,17 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "quantity": 1,
         "rules": [],
         "size": "med",
-        "slug": "formula-drakeheart-mutagen-ccc",
+        "slug": "formula-drakeheart-mutagen-marquiste",
         "traits": {
             "rarity": "common",
             "value": [
                 "formula",
-                "cauldron"
+                "marquiste"
             ]
         },
         "usage": {

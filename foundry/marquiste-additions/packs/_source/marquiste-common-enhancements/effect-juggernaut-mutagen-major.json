@@ -5,9 +5,9 @@
     "name": "Effect: Juggernaut Mutagen (Major)",
     "type": "effect",
     "system": {
-        "slug": "effect-juggernaut-mutagen-ccc-major",
+        "slug": "effect-juggernaut-mutagen-marquiste-major",
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.24Lov7PSPIMKGMmd]</p><p><strong>Benefit</strong> You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and your critical failures on Fortitude saves become failures instead.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.EF6Sm2liz2HOJ52x].</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.24Lov7PSPIMKGMmd]</p><p><strong>Benefit</strong> You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and your critical failures on Fortitude saves become failures instead.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.EF6Sm2liz2HOJ52x].</p>"
         },
         "duration": {
             "expiry": "turn-start",
@@ -21,7 +21,7 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "rules": [
             {
@@ -45,7 +45,7 @@
             },
             {
                 "key": "GrantItem",
-                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.EF6Sm2liz2HOJ52x"
+                "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.EF6Sm2liz2HOJ52x"
             }
         ],
         "start": {

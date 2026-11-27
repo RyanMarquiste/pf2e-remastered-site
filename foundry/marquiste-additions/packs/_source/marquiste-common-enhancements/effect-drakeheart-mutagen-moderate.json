@@ -1,27 +1,27 @@
 {
-    "_key": "!items!xQ0cI1Ox4r6gL66s",
-    "_id": "xQ0cI1Ox4r6gL66s",
+    "_key": "!items!L0EFHD71Hp8ORiZ4",
+    "_id": "L0EFHD71Hp8ORiZ4",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Effect: Drakeheart Mutagen (Major)",
+    "name": "Effect: Drakeheart Mutagen (Moderate)",
     "type": "effect",
     "system": {
-        "slug": "effect-drakeheart-mutagen-ccc-major",
+        "slug": "effect-drakeheart-mutagen-marquiste-moderate",
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI]</p><p><strong>Benefit</strong> You gain +7 item bonus to AC, a Dexterity cap of +2, and a +4 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz].</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.1tMrJT6R6quc6Y3Y]</p><p><strong>Benefit</strong> You gain +5 item bonus to AC, a Dexterity cap of +2, and a +2 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.iPZ1Oj8fVLv68XHz].</p>"
         },
         "duration": {
             "expiry": "turn-start",
             "sustained": false,
-            "unit": "hours",
-            "value": 1
+            "unit": "minutes",
+            "value": 10
         },
         "level": {
-            "value": 17
+            "value": 3
         },
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "rules": [
             {
@@ -33,14 +33,14 @@
                 "selector": "ac",
                 "slug": "drakeheart-mutagen-ac",
                 "type": "item",
-                "value": 7
+                "value": 5
             },
             {
                 "key": "FlatModifier",
                 "selector": "perception",
                 "slug": "drakeheart-mutagen-perception",
                 "type": "item",
-                "value": 4
+                "value": 2
             },
             {
                 "key": "GrantItem",
@@ -48,7 +48,7 @@
             },
             {
                 "key": "GrantItem",
-                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz"
+                "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.iPZ1Oj8fVLv68XHz"
             }
         ],
         "start": {

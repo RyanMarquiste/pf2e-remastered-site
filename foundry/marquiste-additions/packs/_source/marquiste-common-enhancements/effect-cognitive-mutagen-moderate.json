@@ -1,27 +1,27 @@
 {
-    "_key": "!items!X5M9ZZjovQ6WJqd7",
-    "_id": "X5M9ZZjovQ6WJqd7",
+    "_key": "!items!hWYTzlMJ4qqvtgpj",
+    "_id": "hWYTzlMJ4qqvtgpj",
     "img": "icons/consumables/potions/potion-vial-corked-purple.webp",
-    "name": "Effect: Cognitive Mutagen (Lesser)",
+    "name": "Effect: Cognitive Mutagen (Moderate)",
     "type": "effect",
     "system": {
-        "slug": "effect-cognitive-mutagen-ccc-lesser",
+        "slug": "effect-cognitive-mutagen-marquiste-moderate",
         "description": {
-            "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.tLNce8MNoGnlRvQT]</p><p><strong>Benefit</strong> You gain a +1 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}. Your critical failures on Recall Knowledge checks become failures instead.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.bcVxhhyLMpfAqbuD].</p>"
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.5phrMQ8nfFDKWfc4]</p><p><strong>Benefit</strong> You gain a +2 item bonus to Arcana, Crafting, Lore, Occultism, and Society checks and all checks to @UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}. Your critical failures on Recall Knowledge checks become failures instead.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.bcVxhhyLMpfAqbuD].</p>"
         },
         "duration": {
             "expiry": "turn-start",
             "sustained": false,
             "unit": "minutes",
-            "value": 1
+            "value": 10
         },
         "level": {
-            "value": 1
+            "value": 3
         },
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "rules": [
             {
@@ -35,7 +35,7 @@
                 ],
                 "slug": "cognitive-mutagen-bonus",
                 "type": "item",
-                "value": 1
+                "value": 2
             },
             {
                 "key": "FlatModifier",
@@ -45,7 +45,7 @@
                 "selector": "skill-check",
                 "slug": "cognitive-mutagen-recall-knowledge-bonus",
                 "type": "item",
-                "value": 1
+                "value": 2
             },
             {
                 "key": "AdjustDegreeOfSuccess",
@@ -60,7 +60,7 @@
             },
             {
                 "key": "GrantItem",
-                "uuid": "Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.bcVxhhyLMpfAqbuD"
+                "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.bcVxhhyLMpfAqbuD"
             }
         ],
         "start": {

@@ -5,7 +5,7 @@
     "name": "Juggernaut Mutagen (Major)",
     "type": "consumable",
     "system": {
-        "slug": "juggernaut-mutagen-ccc-major",
+        "slug": "juggernaut-mutagen-marquiste-major",
         "baseItem": null,
         "bulk": {
             "value": 0.1
@@ -14,7 +14,7 @@
         "containerId": null,
         "damage": null,
         "description": {
-            "value": "<p><strong>Source</strong> CorpseCap's Cauldron</p><p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Your body becomes sturdy and ponderous.</p><p><strong>Benefit</strong> You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. Whenever you are at maximum Hit Points for at least 1 full minute, you regain the temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and your critical failures on Fortitude saves become failures instead.</p><p><strong>Drawback</strong> You take a -2 penalty to Will saves, Perception checks and initiative rolls.</p><p><strong>Duration</strong> 1 hour.</p><p>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.0g103zmQUz5B4EPd]{Effect: Juggernaut Mutagen (Major)}</p>"
+            "value": "<p><strong>Source</strong> Marquiste Additions</p><p><strong>Activate</strong> <span class=\"action-glyph\">A</span> (manipulate)</p><hr /><p>Your body becomes sturdy and ponderous.</p><p><strong>Benefit</strong> You gain a +4 item bonus to Fortitude saves and 45 temporary Hit Points. Whenever you are at maximum Hit Points for at least 1 full minute, you regain the temporary Hit Points. When you roll a success on a Fortitude save you get a critical success instead, and your critical failures on Fortitude saves become failures instead.</p><p><strong>Drawback</strong> You take a -2 penalty to Will saves, Perception checks and initiative rolls.</p><p><strong>Duration</strong> 1 hour.</p><p>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.0g103zmQUz5B4EPd]{Effect: Juggernaut Mutagen (Major)}</p>"
         },
         "hardness": 0,
         "hp": {
@@ -36,7 +36,7 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "CorpseCap's Cauldron"
+            "title": "Marquiste Additions"
         },
         "quantity": 1,
         "rules": [],
@@ -49,7 +49,7 @@
                 "elixir",
                 "mutagen",
                 "polymorph",
-                "cauldron"
+                "marquiste"
             ]
         },
         "usage": {
