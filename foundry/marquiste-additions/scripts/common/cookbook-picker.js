@@ -10,7 +10,7 @@ const SYSTEM_PACKS = ["equipment-srd"];
 
 let loading = null;
 
-// Every food and every food formula item, as rows: { uuid, name, level, rarity, formula }. Looked up once and kept.
+// Every food and every food formula item, as rows: { uuid, name, itemName, img, level, rarity, formula }. Looked up once and kept.
 export function loadRecipes() {
   loading ??= (async () => {
     const fields = ["system.traits.otherTags", "system.traits.value", "system.traits.rarity", "system.level.value", `flags.${MODULE}.formula`];
@@ -23,7 +23,7 @@ export function loadRecipes() {
       for (const entry of index) {
         const traits = entry.system?.traits;
         if (traits?.otherTags?.includes(FOOD_TAG)) {
-          foods.push({ uuid: entry.uuid, name: entry.name, level: entry.system?.level?.value ?? 0, rarity: traits.rarity ?? "common", formula: false });
+          foods.push({ uuid: entry.uuid, name: entry.name, itemName: entry.name, img: entry.img, level: entry.system?.level?.value ?? 0, rarity: traits.rarity ?? "common", formula: false });
         } else if (traits?.value?.includes("formula") && entry.flags?.[MODULE]?.formula?.tiers?.length) {
           formulaItems.push({ entry, tiers: entry.flags[MODULE].formula.tiers });
         }
@@ -40,6 +40,8 @@ export function loadRecipes() {
       rows.push({
         uuid: entry.uuid,
         name: `${entry.name.replace(/^Formula:\s*/i, "")} (every tier)`,
+        itemName: entry.name,
+        img: entry.img,
         level: Math.min(...tiers.map((t) => t.level ?? 0)),
         rarity: first.system.traits.rarity ?? "common",
         formula: true,
@@ -52,6 +54,14 @@ export function loadRecipes() {
     throw error;
   });
   return loading;
+}
+
+// Post the item or formula to the chat for everyone to see: its picture and a link that opens it.
+function share(actor, doc) {
+  const content =
+    `<div style="display:flex;align-items:center;gap:.5em;"><img src="${esc(doc.img ?? "icons/svg/item-bag.svg")}" width="36" height="36" style="flex:none;border:none;">` +
+    `<strong>@UUID[${doc.uuid}]{${doc.name.replace(/[\]}]/g, "")}}</strong></div>`;
+  return ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content });
 }
 
 const remembered = () => {
@@ -80,10 +90,11 @@ export async function pickRecipes(actor, book) {
       const have = inBook.has(row.uuid);
       const rarity = row.rarity === "common" ? "" : `<span class="mq-rarity" style="margin-left:.5em;font-size:.85em;opacity:.8;text-transform:capitalize;">${esc(row.rarity)}</span>`;
       return (
-        `<label class="mq-recipe" data-name="${esc(row.name.toLowerCase())}" data-rarity="${esc(row.rarity)}" style="display:flex;align-items:center;gap:.5em;padding:2px 6px;${have ? "opacity:.55;" : ""}">` +
+        `<div class="mq-recipe" data-name="${esc(row.name.toLowerCase())}" data-rarity="${esc(row.rarity)}" style="display:flex;align-items:center;gap:.5em;padding:2px 6px;cursor:pointer;${have ? "opacity:.6;" : ""}">` +
         `<input type="checkbox" name="recipe" value="${esc(row.uuid)}"${have ? " checked disabled" : ""}>` +
-        `<span style="flex:1;">${esc(row.name)}${rarity}</span>` +
-        `<span style="opacity:.7;">${have ? "in book" : `Level ${row.level}`}</span></label>`
+        `<img class="mq-recipe-icon" src="${esc(row.img ?? "icons/svg/item-bag.svg")}" width="28" height="28" data-uuid="${esc(row.uuid)}" data-action="share" data-tooltip="Share ${esc(row.itemName)} in chat" style="flex:none;border:none;cursor:pointer;">` +
+        `<span style="flex:1;"><a class="mq-recipe-name" data-uuid="${esc(row.uuid)}" data-action="open" data-tooltip="Read ${esc(row.itemName)}">${esc(row.name)}</a>${rarity}</span>` +
+        `<span style="opacity:.7;">${have ? "in book" : `Level ${row.level}`}</span></div>`
       );
     })
     .join("");
@@ -118,6 +129,21 @@ export async function pickRecipes(actor, book) {
         }
         count.textContent = `${shown} of ${labels.length} recipes shown`;
       };
+      // The name opens the item or formula to read; the picture shares it in chat; anywhere else on the row ticks it.
+      root.querySelector(".mq-recipes").addEventListener("click", async (event) => {
+        const target = event.target.closest("[data-action]");
+        const row = event.target.closest(".mq-recipe");
+        if (target) {
+          event.preventDefault();
+          const doc = await fromUuid(target.dataset.uuid).catch(() => null);
+          if (!doc) return ui.notifications.warn("Could not find that item.");
+          if (target.dataset.action === "open") doc.sheet.render(true);
+          else await share(actor, doc);
+        } else if (row && event.target.type !== "checkbox") {
+          const box = row.querySelector('input[name="recipe"]');
+          if (!box.disabled) box.checked = !box.checked;
+        }
+      });
       search.addEventListener("input", apply);
       common.addEventListener("change", () => {
         remember(common.checked);
