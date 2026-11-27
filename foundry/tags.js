@@ -1,7 +1,7 @@
 // The global tags: the name of each package, in a long and a short form, for use in item, feat and ability names. Change a tag here, run
 // `node foundry/build.js`, and every name built from it follows, including the links between items (their ids come from the names' seeds, not the tags).
-//   long  - the full name, such as for "Drakeheart Mutagen (CCC)" or a publication title
-//   short - the short form added to a name, such as "Drakeheart Mutagen (CCC)"
+//   long  - the full name, such as for a publication title
+//   short - the short form that can be added to a name (no item uses it now: each item names its source with a trait and a Source line instead)
 // Marquiste is the Marquiste Additions module and its homebrew in general; the Cauldron is the CorpseCap's Cauldron module.
 // The module scripts (foundry/marquiste-additions/scripts) are not built and cannot read these. The items that carry the Marquiste tag in their names no longer
 // do (they are told apart by the source trait and the Source line), but quick-alchemy.js still accepts the old name "Quick Alchemy (Marquiste)" for characters who have it.

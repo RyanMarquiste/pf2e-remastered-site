@@ -2,9 +2,10 @@
     "_key": "!items!2m7na7huct4eQZNI",
     "_id": "2m7na7huct4eQZNI",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Drakeheart Mutagen (CCC) (Major)",
+    "name": "Drakeheart Mutagen (Major)",
     "type": "consumable",
     "system": {
+        "slug": "drakeheart-mutagen-ccc-major",
         "baseItem": null,
         "bulk": {
             "value": 0.1

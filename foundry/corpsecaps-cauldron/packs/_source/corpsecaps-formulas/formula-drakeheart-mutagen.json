@@ -2,7 +2,7 @@
     "_key": "!items!KArFtdDETsZB5zG4",
     "_id": "KArFtdDETsZB5zG4",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Formula: Drakeheart Mutagen (CCC)",
+    "name": "Formula: Drakeheart Mutagen",
     "type": "equipment",
     "flags": {
         "marquiste-additions": {
@@ -34,7 +34,7 @@
             "value": 0
         },
         "description": {
-            "value": "<p><strong>Source</strong> CorpseCap's Cauldron</p><p>The formula for a mutagen that gives you a drake's scales and keen eyes. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Drakeheart Mutagen (CCC) your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.L6pcAiJZb73PiKBB]{Drakeheart Mutagen (CCC) (Lesser)} (level 1)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y]{Drakeheart Mutagen (CCC) (Moderate)} (level 3)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK]{Drakeheart Mutagen (CCC) (Greater)} (level 11)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI]{Drakeheart Mutagen (CCC) (Major)} (level 17)</li></ul>"
+            "value": "<p><strong>Source</strong> CorpseCap's Cauldron</p><p>The formula for a mutagen that gives you a drake's scales and keen eyes. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Drakeheart Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.L6pcAiJZb73PiKBB]{Drakeheart Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.1tMrJT6R6quc6Y3Y]{Drakeheart Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK]{Drakeheart Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.2m7na7huct4eQZNI]{Drakeheart Mutagen (Major)} (level 17)</li></ul>"
         },
         "hardness": 0,
         "hp": {

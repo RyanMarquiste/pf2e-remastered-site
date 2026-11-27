@@ -2,9 +2,10 @@
     "_key": "!items!OOP5o6yc4CscZmlf",
     "_id": "OOP5o6yc4CscZmlf",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Effect: Drakeheart Mutagen (CCC) (Greater)",
+    "name": "Effect: Drakeheart Mutagen (Greater)",
     "type": "effect",
     "system": {
+        "slug": "effect-drakeheart-mutagen-ccc-greater",
         "description": {
             "value": "<p>Granted by @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.fYiW71wPQVMwF1uK]</p><p><strong>Benefit</strong> You gain +6 item bonus to AC, a Dexterity cap of +2, and a +3 item bonus to Perception checks.</p><p>This effect also applies @UUID[Compendium.corpsecaps-cauldron.corpsecaps-cauldron.Item.iPZ1Oj8fVLv68XHz].</p>"
         },

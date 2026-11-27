@@ -247,7 +247,9 @@ for (const t of tiers) {
 
 // The Drakeheart Mutagen from PF2e, with its text, numbers and art unchanged, but with the benefit and the drawback as separate effects (like the Mind Doubling Mutagen),
 // so the drawback can be suppressed on its own. The levels, prices and durations are the same as the other mutagens' tiers above. The Final Surge action is PF2e's own.
-const DRAKE = `Drakeheart Mutagen ${tags.cauldron.short}`;
+// It has the same name as PF2e's mutagen. The source trait and the Source line tell them apart, and the slugs below keep the "-ccc" they have always had so they
+// never clash with PF2e's.
+const DRAKE = "Drakeheart Mutagen";
 const DRAKE_IMG = "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp";
 const FINAL_SURGE = "Compendium.pf2e.actionspf2e.Item.EHa0owz6mccnmSBf";
 const RECALL_KNOWLEDGE = "@UUID[Compendium.pf2e.actionspf2e.Item.1OagaWtBpVXExToo]{Recall Knowledge}";
@@ -265,6 +267,7 @@ items.push({
   name: `Effect: ${DRAKE} Drawback`,
   type: "effect",
   system: {
+    slug: "effect-drakeheart-mutagen-ccc-drawback",
     description: { value: `<p>Granted by the ${DRAKE} effect, and removed with it.</p>` + drakeDrawbackText },
     duration: { expiry: null, sustained: false, unit: "unlimited", value: -1 },
     level: { value: 1 },
@@ -318,6 +321,7 @@ for (const t of tiers) {
     name: `${DRAKE} (${t.name})`,
     type: "consumable",
     system: {
+      slug: `drakeheart-mutagen-ccc-${t.name.toLowerCase()}`,
       baseItem: null,
       bulk: { value: 0.1 },
       category: "mutagen",
@@ -354,6 +358,7 @@ for (const t of tiers) {
     name: `Effect: ${DRAKE} (${t.name})`,
     type: "effect",
     system: {
+      slug: `effect-drakeheart-mutagen-ccc-${t.name.toLowerCase()}`,
       description: {
         value: `<p>Granted by @UUID[${uuidOf(itemId)}]</p>` + benefitShort + `<p>This effect also applies @UUID[${uuidOf(drakeDrawbackId)}].</p>`,
       },
@@ -600,10 +605,11 @@ for (const t of pasteTiers) {
 // Formulas: one blueprint-like item for each craftable family, carrying the Formula trait, so a formula can be found by trait in the Compendium
 // Browser and put in a formula book. Each item lists its family's tiers in its flags; the formula book scripts turn that into the formulas a
 // character knows. The field vials and coatings are not formulas: they are made only by the Quick Vial action.
-function formulaItem({ family, img, made, rarity = "common", tiers, pub }) {
+// idSeed and slug are only given where two formulas would otherwise share a name (the Drakeheart Mutagen's and PF2e's), to keep their ids and slugs apart.
+function formulaItem({ family, img, made, rarity = "common", tiers, pub, idSeed = family, slug = null }) {
   const links = tiers.map((t) => `<li>@UUID[${t.uuid}]{${t.name}} (level ${t.level})</li>`).join("");
   return {
-    _id: makeId(`formula:${family}`),
+    _id: makeId(`formula:${idSeed}`),
     img,
     name: `Formula: ${family}`,
     type: "equipment",
@@ -625,7 +631,7 @@ function formulaItem({ family, img, made, rarity = "common", tiers, pub }) {
       quantity: 1,
       rules: [],
       size: "med",
-      slug: `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}`,
+      slug: slug ?? `formula-${family.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}`,
       traits: { rarity, value: ["formula"] },
       usage: { value: "carried" },
     },
@@ -645,7 +651,8 @@ for (const [family, img, made] of [
     if (!found) throw new Error(`No ${family} (${t.name}) item for its formula`);
     return { name: found.name, level: found.system.level.value, uuid: uuidOf(found._id) };
   });
-  formulaItems.push(formulaItem({ family, img, made, tiers: tierItems, pub: publication }));
+  const sameName = family === DRAKE ? { idSeed: "Drakeheart Mutagen (CCC)", slug: "formula-drakeheart-mutagen-ccc" } : {};
+  formulaItems.push(formulaItem({ family, img, made, tiers: tierItems, pub: publication, ...sameName }));
 }
 
 

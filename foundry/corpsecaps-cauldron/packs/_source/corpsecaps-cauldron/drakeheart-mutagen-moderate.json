@@ -2,9 +2,10 @@
     "_key": "!items!1tMrJT6R6quc6Y3Y",
     "_id": "1tMrJT6R6quc6Y3Y",
     "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/drakeheart-mutagen.webp",
-    "name": "Drakeheart Mutagen (CCC) (Moderate)",
+    "name": "Drakeheart Mutagen (Moderate)",
     "type": "consumable",
     "system": {
+        "slug": "drakeheart-mutagen-ccc-moderate",
         "baseItem": null,
         "bulk": {
             "value": 0.1
