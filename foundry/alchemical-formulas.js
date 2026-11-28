@@ -3,6 +3,28 @@
 // below the character's level, and the formula is priced at the lowest tier. A family with one item (the Infiltrator's Elixir) is a formula item with one tier.
 module.exports = [
   {
+    name: "Antidote",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/antidote.webp",
+    tiers: [
+      { name: "Antidote (Lesser)", level: 1, id: "ktjFOp3U0wQD9t0Z" },
+      { name: "Antidote (Moderate)", level: 6, id: "AJ1dC7EtTIfBey0M" },
+      { name: "Antidote (Greater)", level: 10, id: "XWkeL34yJK6t5qUE" },
+      { name: "Antidote (Major)", level: 14, id: "ANzB9WzlGQXDn76G" },
+    ],
+  },
+  {
+    name: "Antiplague",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/antiplague.webp",
+    tiers: [
+      { name: "Antiplague (Lesser)", level: 1, id: "UqinuuCWePTYGhVO" },
+      { name: "Antiplague (Moderate)", level: 6, id: "biRbqKo2C97XLfQ0" },
+      { name: "Antiplague (Greater)", level: 10, id: "ORDaAzMZLrf6Hn8A" },
+      { name: "Antiplague (Major)", level: 14, id: "kajpTXg3oHIJStQa" },
+    ],
+  },
+  {
     name: "Blood Booster",
     rarity: "common",
     img: "icons/consumables/potions/vial-cork-red.webp",
