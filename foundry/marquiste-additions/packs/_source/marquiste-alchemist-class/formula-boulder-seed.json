@@ -1,0 +1,68 @@
+{
+    "_key": "!items!VcBunoK7jPC0lddd",
+    "_id": "VcBunoK7jPC0lddd",
+    "img": "icons/commodities/stone/stone-chunk-moss-grey.webp",
+    "name": "Formula: Boulder Seed",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.sjOkiftTv4KbR2c0"
+                    },
+                    {
+                        "level": 18,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.OHwsumgfO1oyH7KL"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Boulder Seed. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Boulder Seed your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.sjOkiftTv4KbR2c0]{Boulder Seed} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.OHwsumgfO1oyH7KL]{Boulder Seed (Greater)} (level 18)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 12
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-boulder-seed",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

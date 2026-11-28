@@ -1,0 +1,76 @@
+{
+    "_key": "!items!W5kH7xbaUEFsZ7mQ",
+    "_id": "W5kH7xbaUEFsZ7mQ",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/bottled-lightning.webp",
+    "name": "Formula: Bottled Lightning",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.AFR01HVd7DcZvkpP"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.97QyNEOAyYLdGaYc"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.r2iTRbt1zpkAqHj2"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.rpbbfkexLhtadBDV"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Bottled Lightning. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Bottled Lightning your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.AFR01HVd7DcZvkpP]{Bottled Lightning (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.97QyNEOAyYLdGaYc]{Bottled Lightning (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.r2iTRbt1zpkAqHj2]{Bottled Lightning (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.rpbbfkexLhtadBDV]{Bottled Lightning (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-bottled-lightning",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

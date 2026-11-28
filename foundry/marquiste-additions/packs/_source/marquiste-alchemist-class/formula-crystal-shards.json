@@ -1,0 +1,72 @@
+{
+    "_key": "!items!Y0JU789tb8S3svz4",
+    "_id": "Y0JU789tb8S3svz4",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/crystal-shards.webp",
+    "name": "Formula: Crystal Shards",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.V4wgOWYmHlbSZsVG"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.ivaL0xt33k6QNwQK"
+                    },
+                    {
+                        "level": 18,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.V2knI4GpdJYLupjg"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Crystal Shards. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Crystal Shards your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.V4wgOWYmHlbSZsVG]{Crystal Shards (Moderate)} (level 4)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.ivaL0xt33k6QNwQK]{Crystal Shards (Greater)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.V2knI4GpdJYLupjg]{Crystal Shards (Major)} (level 18)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 4
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-crystal-shards",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

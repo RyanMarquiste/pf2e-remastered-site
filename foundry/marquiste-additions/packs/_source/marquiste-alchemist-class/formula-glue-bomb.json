@@ -1,0 +1,76 @@
+{
+    "_key": "!items!6xsZHOnFpQ6V49M4",
+    "_id": "6xsZHOnFpQ6V49M4",
+    "img": "icons/containers/bags/sack-simple-leather-tan.webp",
+    "name": "Formula: Glue Bomb",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.T6Appwwl6nUl56Xj"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.evBPzM1VsuYcoenn"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.5Qkz4RVJr2Kx3RL6"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.BxJNWWvpxacDIsdt"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Glue Bomb. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Glue Bomb your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.T6Appwwl6nUl56Xj]{Glue Bomb (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.evBPzM1VsuYcoenn]{Glue Bomb (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.5Qkz4RVJr2Kx3RL6]{Glue Bomb (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.BxJNWWvpxacDIsdt]{Glue Bomb (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-glue-bomb",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

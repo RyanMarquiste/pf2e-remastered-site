@@ -1,0 +1,76 @@
+{
+    "_key": "!items!qFqo2eXlEYoU4ocd",
+    "_id": "qFqo2eXlEYoU4ocd",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/necrotic-bomb.webp",
+    "name": "Formula: Necrotic Bomb",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.8JnOYyTdatqRnAV4"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.moBSgma1rtJqh7Rp"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.u41wQz3bgu6J1XKo"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.RC8EmoFiMITFUopr"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Necrotic Bomb. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Necrotic Bomb your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.8JnOYyTdatqRnAV4]{Necrotic Bomb (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.moBSgma1rtJqh7Rp]{Necrotic Bomb (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.u41wQz3bgu6J1XKo]{Necrotic Bomb (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.RC8EmoFiMITFUopr]{Necrotic Bomb (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-necrotic-bomb",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

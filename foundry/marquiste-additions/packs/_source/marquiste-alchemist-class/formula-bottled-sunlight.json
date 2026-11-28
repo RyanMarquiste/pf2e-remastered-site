@@ -1,0 +1,76 @@
+{
+    "_key": "!items!v18fFTgXJ98zzQvI",
+    "_id": "v18fFTgXJ98zzQvI",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/bottled-sunlight.webp",
+    "name": "Formula: Bottled Sunlight",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 2,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.iGT4UeQq3YFcNpEb"
+                    },
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.wIQjJGLZOKCY1es9"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.AH0u9DDvs4napvdh"
+                    },
+                    {
+                        "level": 18,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.xoucExiZTvCbjWMB"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Bottled Sunlight. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Bottled Sunlight your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.iGT4UeQq3YFcNpEb]{Bottled Sunlight (Lesser)} (level 2)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.wIQjJGLZOKCY1es9]{Bottled Sunlight (Moderate)} (level 4)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.AH0u9DDvs4napvdh]{Bottled Sunlight (Greater)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.xoucExiZTvCbjWMB]{Bottled Sunlight (Major)} (level 18)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 2
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-bottled-sunlight",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

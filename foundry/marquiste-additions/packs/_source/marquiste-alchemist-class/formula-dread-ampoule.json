@@ -1,0 +1,76 @@
+{
+    "_key": "!items!0yGBOqrxcCVnXdfE",
+    "_id": "0yGBOqrxcCVnXdfE",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/dread-ampoule.webp",
+    "name": "Formula: Dread Ampoule",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.ds0OdA989ZZw9km1"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.IvFEJqp2MUew65nQ"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.kpJmjm843vaMZjIu"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.MCHYtxP8E7njLC3s"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Dread Ampoule. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Dread Ampoule your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.ds0OdA989ZZw9km1]{Dread Ampoule (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.IvFEJqp2MUew65nQ]{Dread Ampoule (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.kpJmjm843vaMZjIu]{Dread Ampoule (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.MCHYtxP8E7njLC3s]{Dread Ampoule (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-dread-ampoule",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

@@ -1,6 +1,6 @@
-// Formula items for PF2e's tiered alchemical items that are not mutagens (see mutagen-formulas.js), including the bombs, one entry for each family. Each family lists its tiers in order, with the
-// item's name, level and its id in the equipment compendium. The Alchemist pack makes a formula item for each, so one formula in an alchemy formula book teaches every tier at or
-// below the character's level, and the formula is priced at the lowest tier. A family with one item (the Infiltrator's Elixir) is a formula item with one tier.
+// Formula items for PF2e's tiered alchemical items that are not mutagens (see mutagen-formulas.js), including the common alchemical bombs, one entry for each family. Each family lists its tiers
+// in order, with the item's name, level and its id in the equipment compendium. The Alchemist pack makes a formula item for each, so one formula in an alchemy formula book teaches every
+// tier at or below the character's level, and the formula is priced at the lowest tier. A family with one item (the Infiltrator's Elixir) is a formula item with one tier.
 module.exports = [
   {
     name: "Acid Flask",
@@ -47,6 +47,17 @@ module.exports = [
     ],
   },
   {
+    name: "Blasting Stone",
+    rarity: "common",
+    img: "icons/commodities/gems/pearl-rough-turquoise.webp",
+    tiers: [
+      { name: "Blasting Stone (Lesser)", level: 1, id: "Xnqglykl3Cif8rN9" },
+      { name: "Blasting Stone (Moderate)", level: 3, id: "JOaELkzLWTywhn5Z" },
+      { name: "Blasting Stone (Greater)", level: 11, id: "dsMkvuLgpOOGLWDy" },
+      { name: "Blasting Stone (Major)", level: 17, id: "IuGydh0En8LbfnWo" },
+    ],
+  },
+  {
     name: "Blight Bomb",
     rarity: "common",
     img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/blight-bomb.webp",
@@ -68,12 +79,53 @@ module.exports = [
     ],
   },
   {
+    name: "Bottled Lightning",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/bottled-lightning.webp",
+    tiers: [
+      { name: "Bottled Lightning (Lesser)", level: 1, id: "AFR01HVd7DcZvkpP" },
+      { name: "Bottled Lightning (Moderate)", level: 3, id: "97QyNEOAyYLdGaYc" },
+      { name: "Bottled Lightning (Greater)", level: 11, id: "r2iTRbt1zpkAqHj2" },
+      { name: "Bottled Lightning (Major)", level: 17, id: "rpbbfkexLhtadBDV" },
+    ],
+  },
+  {
+    name: "Bottled Sunlight",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/bottled-sunlight.webp",
+    tiers: [
+      { name: "Bottled Sunlight (Lesser)", level: 2, id: "iGT4UeQq3YFcNpEb" },
+      { name: "Bottled Sunlight (Moderate)", level: 4, id: "wIQjJGLZOKCY1es9" },
+      { name: "Bottled Sunlight (Greater)", level: 12, id: "AH0u9DDvs4napvdh" },
+      { name: "Bottled Sunlight (Major)", level: 18, id: "xoucExiZTvCbjWMB" },
+    ],
+  },
+  {
+    name: "Boulder Seed",
+    rarity: "common",
+    img: "icons/commodities/stone/stone-chunk-moss-grey.webp",
+    tiers: [
+      { name: "Boulder Seed", level: 12, id: "sjOkiftTv4KbR2c0" },
+      { name: "Boulder Seed (Greater)", level: 18, id: "OHwsumgfO1oyH7KL" },
+    ],
+  },
+  {
     name: "Comprehension Elixir",
     rarity: "common",
     img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/comprehension-elixir.webp",
     tiers: [
       { name: "Comprehension Elixir (Lesser)", level: 2, id: "3Klm2gPmzOw6ntVb" },
       { name: "Comprehension Elixir (Greater)", level: 7, id: "OcBPjVplvy2GbQ8P" },
+    ],
+  },
+  {
+    name: "Crystal Shards",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/crystal-shards.webp",
+    tiers: [
+      { name: "Crystal Shards (Moderate)", level: 4, id: "V4wgOWYmHlbSZsVG" },
+      { name: "Crystal Shards (Greater)", level: 12, id: "ivaL0xt33k6QNwQK" },
+      { name: "Crystal Shards (Major)", level: 18, id: "V2knI4GpdJYLupjg" },
     ],
   },
   {
@@ -84,6 +136,17 @@ module.exports = [
       { name: "Darkvision Elixir (Lesser)", level: 2, id: "88pGCHV0uKMskTVO" },
       { name: "Darkvision Elixir (Moderate)", level: 4, id: "Y8115p3cmQJBqk5d" },
       { name: "Darkvision Elixir (Greater)", level: 8, id: "bz8Y8bVUe7QfBk9g" },
+    ],
+  },
+  {
+    name: "Dread Ampoule",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/dread-ampoule.webp",
+    tiers: [
+      { name: "Dread Ampoule (Lesser)", level: 1, id: "ds0OdA989ZZw9km1" },
+      { name: "Dread Ampoule (Moderate)", level: 3, id: "IvFEJqp2MUew65nQ" },
+      { name: "Dread Ampoule (Greater)", level: 11, id: "kpJmjm843vaMZjIu" },
+      { name: "Dread Ampoule (Major)", level: 17, id: "MCHYtxP8E7njLC3s" },
     ],
   },
   {
@@ -100,11 +163,64 @@ module.exports = [
     ],
   },
   {
+    name: "Frost Vial",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/frost-vial.webp",
+    tiers: [
+      { name: "Frost Vial (Lesser)", level: 1, id: "EpxmUtLpCkE8R6KJ" },
+      { name: "Frost Vial (Moderate)", level: 3, id: "nVvH1ZcM7OwIVIs8" },
+      { name: "Frost Vial (Greater)", level: 11, id: "intVPcEzbE9o4NQd" },
+      { name: "Frost Vial (Major)", level: 17, id: "4DJQID8GIlxQ7b9C" },
+    ],
+  },
+  {
+    name: "Ghost Charge",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/ghost-charge.webp",
+    tiers: [
+      { name: "Ghost Charge (Lesser)", level: 1, id: "LNd5u19GqC51ngby" },
+      { name: "Ghost Charge (Moderate)", level: 3, id: "Wf94e8YNhZdIvWc9" },
+      { name: "Ghost Charge (Greater)", level: 11, id: "28osNZINXLWzqzUL" },
+      { name: "Ghost Charge (Major)", level: 17, id: "i7bJcib5TUJKOd4Z" },
+    ],
+  },
+  {
+    name: "Glue Bomb",
+    rarity: "common",
+    img: "icons/containers/bags/sack-simple-leather-tan.webp",
+    tiers: [
+      { name: "Glue Bomb (Lesser)", level: 1, id: "T6Appwwl6nUl56Xj" },
+      { name: "Glue Bomb (Moderate)", level: 3, id: "evBPzM1VsuYcoenn" },
+      { name: "Glue Bomb (Greater)", level: 11, id: "5Qkz4RVJr2Kx3RL6" },
+      { name: "Glue Bomb (Major)", level: 17, id: "BxJNWWvpxacDIsdt" },
+    ],
+  },
+  {
     name: "Infiltrator's Elixir",
     rarity: "common",
     img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/infiltrators-elixir.webp",
     tiers: [
       { name: "Infiltrator's Elixir", level: 2, id: "cuomhpenkqGM5lLG" },
+    ],
+  },
+  {
+    name: "Lodestone Bomb",
+    rarity: "common",
+    img: "icons/commodities/gems/pearl-swirl-teal.webp",
+    tiers: [
+      { name: "Lodestone Bomb", level: 12, id: "DBQ68Evl8PdLAVmt" },
+      { name: "Lodestone Bomb (Greater)", level: 18, id: "APJ0NWJ4DYUXNpNm" },
+    ],
+  },
+  {
+    name: "Necrotic Bomb",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/necrotic-bomb.webp",
+    tiers: [
+      { name: "Necrotic Bomb (Lesser)", level: 1, id: "8JnOYyTdatqRnAV4" },
+      { name: "Necrotic Bomb (Moderate)", level: 3, id: "moBSgma1rtJqh7Rp" },
+      { name: "Necrotic Bomb (Greater)", level: 11, id: "u41wQz3bgu6J1XKo" },
+      { name: "Necrotic Bomb (Major)", level: 17, id: "RC8EmoFiMITFUopr" },
     ],
   },
   {
@@ -118,6 +234,26 @@ module.exports = [
       { name: "Numbing Tonic (Greater)", level: 13, id: "wuVD3kolQaFAEeBK" },
       { name: "Numbing Tonic (Major)", level: 16, id: "EAgWYY1C4mDRfwqo" },
       { name: "Numbing Tonic (True)", level: 19, id: "7VDf5tQKh01XV6HQ" },
+    ],
+  },
+  {
+    name: "Shatterstone",
+    rarity: "common",
+    img: "icons/magic/earth/projectile-boulder-dust.webp",
+    tiers: [
+      { name: "Shatterstone", level: 12, id: "sBtfUPTLuyRPYI7g" },
+      { name: "Shatterstone (Greater)", level: 18, id: "CJesyj3lklJVujh0" },
+    ],
+  },
+  {
+    name: "Skunk Bomb",
+    rarity: "common",
+    img: "icons/magic/air/fog-gas-smoke-orange.webp",
+    tiers: [
+      { name: "Skunk Bomb (Lesser)", level: 1, id: "3Sij5RwC6Z1ZVuFp" },
+      { name: "Skunk Bomb (Moderate)", level: 3, id: "m091zbWD9EoH6kWC" },
+      { name: "Skunk Bomb (Greater)", level: 11, id: "7WwKI53IcXVIHbkh" },
+      { name: "Skunk Bomb (Major)", level: 17, id: "Dv1bozSbR39McpWd" },
     ],
   },
   {
@@ -139,6 +275,26 @@ module.exports = [
       { name: "Spiderfoot Brew (Lesser)", level: 3, id: "HuyWiPnkDZoAVhW9" },
       { name: "Spiderfoot Brew (Moderate)", level: 9, id: "L4Db3CncPcZFPzGN" },
       { name: "Spiderfoot Brew (Greater)", level: 17, id: "ETLSXa4Po518z9Qx" },
+    ],
+  },
+  {
+    name: "Sticky Algae Bomb",
+    rarity: "common",
+    img: "icons/magic/nature/plant-undersea-seaweed-glow-green.webp",
+    tiers: [
+      { name: "Sticky Algae Bomb (Lesser)", level: 1, id: "S1TrEDE8JNkchMca" },
+      { name: "Sticky Algae Bomb (Moderate)", level: 3, id: "h6O5uto0Ry1WDjXn" },
+      { name: "Sticky Algae Bomb (Greater)", level: 11, id: "cVUhP1qWxe9USvVp" },
+      { name: "Sticky Algae Bomb (Major)", level: 17, id: "AAoAQCBwAITvHJSu" },
+    ],
+  },
+  {
+    name: "Trueshape Bomb",
+    rarity: "common",
+    img: "icons/weapons/thrown/ball-spiked.webp",
+    tiers: [
+      { name: "Trueshape Bomb", level: 12, id: "PNs3SqMhJ3rTxpSI" },
+      { name: "Trueshape Bomb (Greater)", level: 18, id: "wtRDteH3D3ME4FU9" },
     ],
   },
 ];

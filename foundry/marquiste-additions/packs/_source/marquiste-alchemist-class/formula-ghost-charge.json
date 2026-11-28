@@ -1,0 +1,76 @@
+{
+    "_key": "!items!3214T54b1sBjWCwo",
+    "_id": "3214T54b1sBjWCwo",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/ghost-charge.webp",
+    "name": "Formula: Ghost Charge",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.LNd5u19GqC51ngby"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Wf94e8YNhZdIvWc9"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.28osNZINXLWzqzUL"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.i7bJcib5TUJKOd4Z"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Ghost Charge. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Ghost Charge your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.LNd5u19GqC51ngby]{Ghost Charge (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.Wf94e8YNhZdIvWc9]{Ghost Charge (Moderate)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.28osNZINXLWzqzUL]{Ghost Charge (Greater)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.i7bJcib5TUJKOd4Z]{Ghost Charge (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-ghost-charge",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
