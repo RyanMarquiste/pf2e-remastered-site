@@ -3,7 +3,7 @@
 // character's level). The alchemy formula book's list is every other alchemical item (elixirs, bombs, poisons, tools and so on) and the formula items whose tiers are those (such as the mutagens).
 // The ones ticked go in the book. Uncommon and rare items are listed with their rarity, so a GM who allows one can have a character pick it.
 import { MODULE, say } from "./shared.js";
-import { entriesOf, esc, FOOD_TAG, isAlchemical, isAlchemyBook, isFood, placeEntries } from "./formula-books.js";
+import { bookCategory, categoryLabel, categoryOf, entriesOf, esc, FOOD_TAG, isAlchemical, isAlchemyBook, isFood, placeEntries } from "./formula-books.js";
 
 // What each kind of book lists. `item` says whether a compendium entry is one of its items, `made` whether an item a formula item teaches is.
 const PHYSICAL = new Set(["consumable", "equipment", "weapon", "armor", "shield", "backpack", "treasure", "kit"]);
@@ -55,7 +55,7 @@ const loading = {};
 export function loadRecipes(kind = "food") {
   const spec = KINDS[kind];
   loading[kind] ??= (async () => {
-    const fields = ["system.traits.otherTags", "system.traits.value", "system.traits.rarity", "system.level.value", `flags.${MODULE}.formula`];
+    const fields = ["system.traits.otherTags", "system.traits.value", "system.traits.rarity", "system.level.value", "system.category", `flags.${MODULE}.formula`];
     const foods = [];
     const formulaItems = [];
     for (const pack of game.packs) {
@@ -65,7 +65,7 @@ export function loadRecipes(kind = "food") {
       for (const entry of index) {
         const traits = entry.system?.traits;
         if (spec.item(entry, pack)) {
-          foods.push({ uuid: entry.uuid, name: entry.name, itemName: entry.name, img: entry.img, level: entry.system?.level?.value ?? 0, rarity: traits.rarity ?? "common", formula: false });
+          foods.push({ uuid: entry.uuid, name: entry.name, itemName: entry.name, img: entry.img, level: entry.system?.level?.value ?? 0, rarity: traits.rarity ?? "common", formula: false, category: categoryOf(entry) });
         } else if (traits?.value?.includes("formula") && entry.flags?.[MODULE]?.formula?.tiers?.length) {
           formulaItems.push({ entry, tiers: entry.flags[MODULE].formula.tiers });
         }
@@ -97,6 +97,7 @@ export function loadRecipes(kind = "food") {
         level: Math.min(...tiers.map((t) => t.level ?? 0)),
         rarity: first.system.traits.rarity ?? "common",
         formula: true,
+        category: categoryOf(first),
       });
     }
     for (const uuid of replaced) covered.add(uuid);
@@ -135,8 +136,10 @@ const remember = (storage, value) => {
 // Open the list for a cookbook or an alchemy formula book, and put what the player ticks in it.
 export async function pickRecipes(actor, book) {
   const spec = KINDS[kindOf(book)];
-  const rows = await loadRecipes(kindOf(book));
-  if (!rows.length) return ui.notifications.warn(spec.none);
+  // An alchemy book set to one kind lists only that kind.
+  const kind = kindOf(book) === "alchemy" ? bookCategory(book) : "all";
+  const rows = (await loadRecipes(kindOf(book))).filter((row) => kind === "all" || row.category === kind);
+  if (!rows.length) return ui.notifications.warn(kind === "all" ? spec.none : `No ${categoryLabel(kind).toLowerCase()} were found in the compendiums.`);
   const inBook = new Set(entriesOf(book));
   const wealth = coinsOf(actor);
 
@@ -169,7 +172,7 @@ export async function pickRecipes(actor, book) {
 
   const ticked = (button) => [...button.form.querySelectorAll('input[name="recipe"]:checked:not(:disabled)')].map((box) => box.value);
   const result = await foundry.applications.api.DialogV2.wait({
-    window: { title: spec.title(book), icon: spec.icon },
+    window: { title: kind === "all" ? spec.title(book) : `${spec.title(book)} (${categoryLabel(kind).toLowerCase()})`, icon: spec.icon },
     position: { width: 520 },
     content,
     buttons: [

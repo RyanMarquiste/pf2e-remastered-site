@@ -5,7 +5,7 @@
 // book goes in that book. Formulas that no book gives stay in Known Formulas. Books with nothing in them are shown, with a note.
 import { MODULE } from "./shared.js";
 import { enabled } from "./settings.js";
-import { booksFor, booksOf, chooseBook, describe, dropOnBook, esc, forgetFormula, isAlchemyBook, isCookbook, moveFormula, supply, sync } from "./formula-books.js";
+import { bookCategory, booksFor, booksOf, CATEGORIES, CATEGORY_FLAG, categoryLabel, chooseBook, describe, dropOnBook, esc, forgetFormula, isAlchemyBook, isCookbook, moveFormula, supply, sync } from "./formula-books.js";
 import { pickRecipes } from "./cookbook-picker.js";
 
 const STYLE_ID = `${MODULE}-formula-books`;
@@ -21,6 +21,7 @@ function injectStyle() {
     .mq-formula-books .mq-book > header .mq-book-count { font-size: var(--font-size-12, 12px); font-weight: normal; opacity: 0.7; }
     .mq-formula-books .mq-book > header .mq-book-name { color: inherit; font-size: inherit; }
     .mq-formula-books .mq-book > header .controls { cursor: default; }
+    .mq-formula-books .mq-book > header .mq-book-category { width: auto; height: auto; margin: 0; padding: 0 0.2rem; font-size: var(--font-size-12, 12px); }
     .mq-formula-books .mq-chevron { transition: transform 0.15s; font-size: 0.8em; }
     .mq-formula-books .mq-book.mq-collapsed .mq-chevron { transform: rotate(-90deg); }
     .mq-formula-books .mq-book.mq-collapsed > .formula-list { display: none; }
@@ -169,6 +170,21 @@ async function decorate(app, root) {
         pickRecipes(actor, book).catch((error) => console.error(MODULE, error));
       });
       if (editable) controls.append(recipes);
+      // An alchemy formula book can be set to one kind of alchemical item.
+      if (isAlchemyBook(book)) {
+        const kind = make("select", "mq-book-category");
+        kind.dataset.tooltip = "Formula category: what this book holds and lists";
+        for (const [key, label] of CATEGORIES) {
+          const option = make("option", "", label);
+          option.value = key;
+          kind.append(option);
+        }
+        kind.value = bookCategory(book);
+        kind.disabled = !editable;
+        kind.addEventListener("click", (event) => event.stopPropagation());
+        kind.addEventListener("change", () => book.setFlag(MODULE, CATEGORY_FLAG, kind.value).catch((error) => console.error(MODULE, error)));
+        controls.prepend(kind);
+      }
     } else {
       const browse = headerButton("fa-search", "Browse items in the Compendium Browser", "Items");
       browse.dataset.action = "browse-equipment";
@@ -221,7 +237,7 @@ async function decorate(app, root) {
     }
     if (!mine.length) {
       const empty = make("li", "formula-header empty");
-      empty.append(make("h4", "", isCookbook(book) ? "Empty (add recipes, or drag an alchemical food here)" : isAlchemyBook(book) ? "Empty (add formulas, or drag an alchemical formula here)" : "Empty (drag a formula here)"));
+      empty.append(make("h4", "", isCookbook(book) ? "Empty (add recipes, or drag an alchemical food here)" : isAlchemyBook(book) ? `Empty (add formulas, or drag ${bookCategory(book) === "all" ? "an alchemical formula" : "a formula for " + categoryLabel(bookCategory(book)).toLowerCase()} here)` : "Empty (drag a formula here)"));
       list.append(empty);
     }
     group.append(header, list);
@@ -289,3 +305,30 @@ Hooks.on(`${MODULE}.settingChanged`, (key) => {
   if (!["formulaBooks", "craftingTabLayout", "troubleshooting"].includes(key)) return;
   for (const app of Object.values(ui.windows ?? {})) if (app.actor?.type === "character") app.render();
 });
+
+// The same Formula category dropdown on the book's own item sheet, at the top of its details. The select is named for the flag, so the sheet saves it with the rest of its form.
+const addCategory = (sheet, html) => {
+  const item = sheet.item;
+  if (!enabled("formulaBooks") || !isAlchemyBook(item)) return;
+  const root = html instanceof HTMLElement ? html : html?.[0];
+  const details = root?.querySelector(".inventory-details");
+  if (!details || details.querySelector(".mq-book-category")) return;
+  const group = make("div", "form-group mq-book-category");
+  group.append(make("label", "", "Formula category"));
+  const fields = make("div", "form-fields");
+  const select = make("select");
+  select.name = `flags.${MODULE}.${CATEGORY_FLAG}`;
+  select.disabled = !sheet.isEditable;
+  for (const [key, label] of CATEGORIES) {
+    const option = make("option", "", label);
+    option.value = key;
+    option.selected = key === bookCategory(item);
+    select.append(option);
+  }
+  fields.append(select);
+  const hint = make("p", "hint", "What this book holds and lists. It only restricts what is added; formulas already in the book stay.");
+  group.append(fields, hint);
+  details.prepend(group);
+};
+Hooks.on("renderItemSheetPF2e", addCategory);
+Hooks.on("renderPhysicalItemSheetPF2e", addCategory);

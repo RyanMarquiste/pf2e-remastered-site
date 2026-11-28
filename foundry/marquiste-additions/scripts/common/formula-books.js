@@ -22,12 +22,47 @@ export const FOOD_TAG = "alchemical-food";
 export const isFood = (doc) => !!doc?.system?.traits?.otherTags?.includes(FOOD_TAG);
 export const isAlchemical = (doc) => !!doc?.system?.traits?.value?.includes("alchemical");
 
+// An alchemy formula book can be set to one kind of alchemical item (its Formula category, a dropdown on the book's item sheet and in its section of the Crafting tab). A book on "all" takes
+// every alchemical item that is not food. The kind an item or a formula item is comes from the item itself (for a formula item, the first item it teaches):
+//   mutagens - the Mutagen trait; bombs - the Bomb trait; poisons - a consumable in the poison or drug category; elixirs - the Elixir trait (once mutagens are taken out);
+//   tools    - any other alchemical consumable or equipment. Alchemical ammunition, weapons and armor that are not bombs are in no kind, so a book set to a kind never takes them (a book on "all" does when one is dragged in; the Add formulas list does not show ammunition).
+export const CATEGORY_FLAG = "category";
+export const CATEGORIES = [
+  ["all", "All alchemical items"],
+  ["mutagens", "Mutagens"],
+  ["poisons", "Poisons"],
+  ["elixirs", "Elixirs"],
+  ["bombs", "Bombs"],
+  ["tools", "Tools"],
+];
+export function categoryOf(doc) {
+  if (!isAlchemical(doc) || isFood(doc)) return null;
+  const traits = doc.system?.traits?.value ?? [];
+  const category = doc.system?.category;
+  if (traits.includes("mutagen")) return "mutagens";
+  if (traits.includes("bomb")) return "bombs";
+  if (doc.type === "consumable" && (category === "poison" || category === "drug")) return "poisons";
+  if (traits.includes("elixir")) return "elixirs";
+  if (doc.type === "consumable" || doc.type === "equipment") return "tools";
+  return null;
+}
+export const bookCategory = (book) => {
+  const value = book?.getFlag?.(MODULE, CATEGORY_FLAG);
+  return CATEGORIES.some(([key]) => key === value) ? value : "all";
+};
+export const categoryLabel = (key) => CATEGORIES.find(([k]) => k === key)?.[1] ?? "All alchemical items";
+
 export const isBook = (item) =>
   item?.type === "equipment" && ((item.sourceId ?? item._stats?.compendiumSource) === BOOK_SOURCE || /^formula-book/.test(item.slug ?? "") || isCookbook(item) || isAlchemyBook(item));
 
 export const booksOf = (actor) => actor.items.filter(isBook).sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0) || a.name.localeCompare(b.name));
 // Whether a book takes something: a cookbook takes food, an alchemy formula book takes alchemical items that are not food, and any other book takes anything. `d` is what describe() says about it.
-export const accepts = (book, d) => (isCookbook(book) ? !!d?.food : isAlchemyBook(book) ? !!d?.alchemical && !d?.food : true);
+export const accepts = (book, d) => {
+  if (isCookbook(book)) return !!d?.food;
+  if (!isAlchemyBook(book)) return true;
+  const kind = bookCategory(book);
+  return !!d?.alchemical && !d?.food && (kind === "all" || d.category === kind);
+};
 // The books something can go in.
 export const booksFor = (actor, d) => booksOf(actor).filter((book) => accepts(book, d));
 export const entriesOf = (book) => [...(book.getFlag(MODULE, ENTRIES) ?? [])];
@@ -53,6 +88,7 @@ export function describe(uuid) {
         physical: !!doc.isOfType?.("physical"),
         food,
         alchemical: isAlchemical(made),
+        category: categoryOf(made),
       };
     })().catch(() => ({ ok: false }));
     cache.set(uuid, lookup);
@@ -136,7 +172,9 @@ export async function placeEntries(actor, entries, target) {
       ui.notifications.warn(
         isCookbook(target)
           ? `${names} ${refused.length === 1 ? "is" : "are"} not alchemical ${refused.length === 1 ? "food" : "foods"}, so can't go in ${target.name}. Use a formula book for that.`
-          : `${names} ${refused.length === 1 ? "is" : "are"} not ${refused.length === 1 ? "an alchemical item" : "alchemical items"} (or ${refused.length === 1 ? "is" : "are"} food), so can't go in ${target.name}. Use a formula book for that, or a cookbook for food.`,
+          : bookCategory(target) === "all"
+            ? `${names} ${refused.length === 1 ? "is" : "are"} not ${refused.length === 1 ? "an alchemical item" : "alchemical items"} (or ${refused.length === 1 ? "is" : "are"} food), so can't go in ${target.name}. Use a formula book for that, or a cookbook for food.`
+            : `${names} can't go in ${target.name}, which is set to ${categoryLabel(bookCategory(target)).toLowerCase()}. Change its Formula category, or use another book.`,
       );
     }
     if (!accepted.length) return;
