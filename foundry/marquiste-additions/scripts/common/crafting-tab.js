@@ -5,7 +5,7 @@
 // book goes in that book. Formulas that no book gives stay in Known Formulas. Books with nothing in them are shown, with a note.
 import { MODULE } from "./shared.js";
 import { enabled } from "./settings.js";
-import { booksFor, booksOf, chooseBook, describe, dropOnBook, esc, forgetFormula, isCookbook, moveFormula, supply, sync } from "./formula-books.js";
+import { booksFor, booksOf, chooseBook, describe, dropOnBook, esc, forgetFormula, isAlchemyBook, isCookbook, moveFormula, supply, sync } from "./formula-books.js";
 import { pickRecipes } from "./cookbook-picker.js";
 
 const STYLE_ID = `${MODULE}-formula-books`;
@@ -83,7 +83,7 @@ const rowLevel = (row) => Number(row.dataset.formulaLvl ?? 0);
 // Give the book a name of the player's choosing; it is the name of the item as well.
 async function renameBook(book) {
   const value = await foundry.applications.api.DialogV2.prompt({
-    window: { title: isCookbook(book) ? "Name this cookbook" : "Name this formula book" },
+    window: { title: isCookbook(book) ? "Name this cookbook" : isAlchemyBook(book) ? "Name this alchemy formula book" : "Name this formula book" },
     content: `<div class="form-group"><label>Name</label><div class="form-fields"><input type="text" name="name" value="${esc(book.name)}" autofocus></div></div>`,
     ok: { label: "Rename", callback: (event, button) => button.form.elements.name.value },
     rejectClose: false,
@@ -219,7 +219,7 @@ async function decorate(app, root) {
     }
     if (!mine.length) {
       const empty = make("li", "formula-header empty");
-      empty.append(make("h4", "", isCookbook(book) ? "Empty (add recipes, or drag an alchemical food here)" : "Empty (drag a formula here)"));
+      empty.append(make("h4", "", isCookbook(book) ? "Empty (add recipes, or drag an alchemical food here)" : isAlchemyBook(book) ? "Empty (drag an alchemical formula here)" : "Empty (drag a formula here)"));
       list.append(empty);
     }
     group.append(header, list);
@@ -253,7 +253,7 @@ async function decorate(app, root) {
       move.addEventListener("click", async (event) => {
         event.preventDefault();
         event.stopPropagation();
-        // Only a food can go in a cookbook.
+        // Only a food can go in a cookbook, and only an alchemical item that is not food in an alchemy formula book.
         const choices = booksFor(actor, await describe(uuid));
         const target = await chooseBook(choices, { current: currentId, title: `Move ${rowName(row)}` });
         if (target !== undefined) await moveFormula(actor, uuid, target);

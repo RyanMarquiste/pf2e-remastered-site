@@ -1,0 +1,51 @@
+{
+    "_key": "!items!QqJKJ39QrOgLJO09",
+    "_id": "QqJKJ39QrOgLJO09",
+    "img": "icons/sundries/books/book-worn-green.webp",
+    "name": "Alchemy Formula Book (Blank)",
+    "type": "equipment",
+    "system": {
+        "slug": "alchemy-formula-book-blank",
+        "bulk": {
+            "value": 0.1
+        },
+        "containerId": null,
+        "description": {
+            "value": "<p>An alchemy formula book is a formula book kept by an alchemist. It holds the formulas for alchemical items, such as elixirs, mutagens, bombs and poisons, and only those: alchemical food goes in a cookbook, and a character who wants one book for everything keeps a formula book instead. An alchemist can keep as many alchemy formula books as they like, for example one for mutagens and one for bombs.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 0
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 1
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "held-in-one-hand"
+        }
+    }
+}

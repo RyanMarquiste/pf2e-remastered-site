@@ -14,17 +14,22 @@ const OURS = "bookFormulas"; // flag on the actor: the formulas this script adde
 
 export const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
-// A cookbook (the Cookbook (Blank) of the Wandering Chef Enhancements) is a formula book that holds only alchemical foods.
+// A cookbook (the Cookbook (Blank) of the Wandering Chef Enhancements) is a formula book that holds only alchemical foods. An alchemy formula book (the Alchemy Formula Book (Blank)
+// of the Alchemist Enhancements) holds only alchemical items that are not food. Any other formula book holds anything.
 export const isCookbook = (item) => item?.type === "equipment" && /^cookbook/.test(item.slug ?? "");
+export const isAlchemyBook = (item) => item?.type === "equipment" && /^alchemy-formula-book/.test(item.slug ?? "");
 export const FOOD_TAG = "alchemical-food";
 export const isFood = (doc) => !!doc?.system?.traits?.otherTags?.includes(FOOD_TAG);
+export const isAlchemical = (doc) => !!doc?.system?.traits?.value?.includes("alchemical");
 
 export const isBook = (item) =>
-  item?.type === "equipment" && ((item.sourceId ?? item._stats?.compendiumSource) === BOOK_SOURCE || /^formula-book/.test(item.slug ?? "") || isCookbook(item));
+  item?.type === "equipment" && ((item.sourceId ?? item._stats?.compendiumSource) === BOOK_SOURCE || /^formula-book/.test(item.slug ?? "") || isCookbook(item) || isAlchemyBook(item));
 
 export const booksOf = (actor) => actor.items.filter(isBook).sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0) || a.name.localeCompare(b.name));
-// The books something can go in: every book for a food, and every book but the cookbooks for anything else. `d` is what describe() says about it.
-export const booksFor = (actor, d) => booksOf(actor).filter((book) => d?.food || !isCookbook(book));
+// Whether a book takes something: a cookbook takes food, an alchemy formula book takes alchemical items that are not food, and any other book takes anything. `d` is what describe() says about it.
+export const accepts = (book, d) => (isCookbook(book) ? !!d?.food : isAlchemyBook(book) ? !!d?.alchemical && !d?.food : true);
+// The books something can go in.
+export const booksFor = (actor, d) => booksOf(actor).filter((book) => accepts(book, d));
 export const entriesOf = (book) => [...(book.getFlag(MODULE, ENTRIES) ?? [])];
 
 // What an entry is, looked up once per entry. A formula item is a Formula-trait item that lists its tiers.
@@ -37,8 +42,9 @@ export function describe(uuid) {
       const traits = doc.system?.traits?.value ?? [];
       const tiers = doc.getFlag?.(MODULE, "formula")?.tiers;
       const isFormulaItem = doc.type === "equipment" && traits.includes("formula");
-      // A food is an item with the alchemical-food tag; a formula item is a food if the first item it teaches is.
-      const food = isFormulaItem ? (Array.isArray(tiers) && tiers.length ? isFood(await fromUuid(tiers[0].uuid).catch(() => null)) : false) : isFood(doc);
+      // A food is an item with the alchemical-food tag, and an alchemical item has the alchemical trait; a formula item is either if the first item it teaches is.
+      const made = isFormulaItem ? (Array.isArray(tiers) && tiers.length ? await fromUuid(tiers[0].uuid).catch(() => null) : null) : doc;
+      const food = isFood(made);
       return {
         ok: true,
         name: doc.name,
@@ -46,6 +52,7 @@ export function describe(uuid) {
         tiers: isFormulaItem && Array.isArray(tiers) ? tiers : null,
         physical: !!doc.isOfType?.("physical"),
         food,
+        alchemical: isAlchemical(made),
       };
     })().catch(() => ({ ok: false }));
     cache.set(uuid, lookup);
@@ -115,16 +122,23 @@ async function doSync(actor) {
 
 // Put entries in a book, taking them out of any other. With no book, they leave their books but the formulas stay known.
 export async function placeEntries(actor, entries, target) {
-  // A cookbook takes foods only: anything else is refused, and the rest still goes in.
-  if (target && isCookbook(target)) {
+  // A cookbook takes foods only and an alchemy formula book takes alchemical items other than food: anything else is refused, and the rest still goes in.
+  if (target && (isCookbook(target) || isAlchemyBook(target))) {
     const accepted = [];
     const refused = [];
     for (const entry of entries) {
       const d = await describe(entry);
-      if (d.ok && d.food) accepted.push(entry);
+      if (d.ok && accepts(target, d)) accepted.push(entry);
       else refused.push(d.ok ? d.name : entry);
     }
-    if (refused.length) ui.notifications.warn(`${[...new Set(refused)].join(", ")} ${refused.length === 1 ? "is" : "are"} not alchemical ${refused.length === 1 ? "food" : "foods"}, so can't go in ${target.name}. Use a formula book for that.`);
+    if (refused.length) {
+      const names = [...new Set(refused)].join(", ");
+      ui.notifications.warn(
+        isCookbook(target)
+          ? `${names} ${refused.length === 1 ? "is" : "are"} not alchemical ${refused.length === 1 ? "food" : "foods"}, so can't go in ${target.name}. Use a formula book for that.`
+          : `${names} ${refused.length === 1 ? "is" : "are"} not ${refused.length === 1 ? "an alchemical item" : "alchemical items"} (or ${refused.length === 1 ? "is" : "are"} food), so can't go in ${target.name}. Use a formula book for that, or a cookbook for food.`,
+      );
+    }
     if (!accepted.length) return;
     entries = accepted;
   }
@@ -229,7 +243,7 @@ async function redirectFormulaItems(actor) {
     const d = await describe(uuid);
     const books = booksFor(actor, d);
     if (!books.length) {
-      ui.notifications.warn(`${d.name} goes in a formula book${d.food ? " or a cookbook" : ""}. Add one to your inventory, then drop the formula on the book.`);
+      ui.notifications.warn(`${d.name} goes in a formula book${d.food ? " or a cookbook" : d.alchemical ? " or an alchemy formula book" : ""}. Add one to your inventory, then drop the formula on the book.`);
       continue;
     }
     const book = books.length === 1 ? books[0] : await chooseBook(books, { allowNone: false, title: `Which book for ${d.name}?` });

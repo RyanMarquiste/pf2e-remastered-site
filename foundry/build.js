@@ -563,6 +563,37 @@ require("./vials")({
   img: (name) => `modules/${MODULE_ID}/images/${name}.png`,
 });
 
+// The Alchemy Formula Book (Blank): a formula book that holds only alchemical items that are not food, for an Alchemist who wants their formulas kept apart from other crafting. The module
+// (scripts/common/formula-books.js) treats it as a formula book by its slug, and refuses anything that lacks the alchemical trait or has the alchemical-food tag (those go in a cookbook).
+classItems.push({
+  _id: makeId("item:Alchemy Formula Book (Blank)"),
+  img: "icons/sundries/books/book-worn-green.webp",
+  name: "Alchemy Formula Book (Blank)",
+  type: "equipment",
+  system: {
+    slug: "alchemy-formula-book-blank",
+    bulk: { value: 0.1 },
+    containerId: null,
+    description: {
+      value:
+        "<p>An alchemy formula book is a formula book kept by an alchemist. It holds the formulas for alchemical items, such as elixirs, mutagens, bombs and poisons, and only those: " +
+        "alchemical food goes in a cookbook, and a character who wants one book for everything keeps a formula book instead. An alchemist can keep as many alchemy formula books as they like, " +
+        "for example one for mutagens and one for bombs.</p>",
+    },
+    hardness: 0,
+    hp: { max: 0, value: 0 },
+    level: { value: 0 },
+    material: { grade: null, type: null },
+    price: { value: { gp: 1 } },
+    publication: modulePublication,
+    quantity: 1,
+    rules: [],
+    size: "med",
+    traits: { rarity: "common", value: [] },
+    usage: { value: "held-in-one-hand" },
+  },
+});
+
 // Formula items for PF2e's mutagens that start at level 1 (see mutagen-formulas.js), so an Alchemist's mutagen formulas can go in a formula book.
 for (const family of require("./mutagen-formulas")) {
   classItems.push(
