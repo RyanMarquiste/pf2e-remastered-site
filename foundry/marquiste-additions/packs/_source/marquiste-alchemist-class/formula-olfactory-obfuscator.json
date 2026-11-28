@@ -1,0 +1,68 @@
+{
+    "_key": "!items!mrczzdWDYax6WbbM",
+    "_id": "mrczzdWDYax6WbbM",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/olefactory-obfuscator.webp",
+    "name": "Formula: Olfactory Obfuscator",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.R0gsYr0jD1giTzpx"
+                    },
+                    {
+                        "level": 10,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.MBL8rOfvokYmUvwc"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Olfactory Obfuscator. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Olfactory Obfuscator your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.R0gsYr0jD1giTzpx]{Olfactory Obfuscator (Lesser)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.MBL8rOfvokYmUvwc]{Olfactory Obfuscator (Greater)} (level 10)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 3
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-olfactory-obfuscator",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "_key": "!items!e9sYBok2YPKoUG7S",
+    "_id": "e9sYBok2YPKoUG7S",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/cheetahs-elixir.webp",
+    "name": "Formula: Cheetah's Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.tyt6rFtv32MZ4DT9"
+                    },
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.AqLxu3ir4UGzdOaz"
+                    },
+                    {
+                        "level": 9,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.t4X6GDybqLmt7UkN"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Cheetah's Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Cheetah's Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.tyt6rFtv32MZ4DT9]{Cheetah's Elixir (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.AqLxu3ir4UGzdOaz]{Cheetah's Elixir (Moderate)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.t4X6GDybqLmt7UkN]{Cheetah's Elixir (Greater)} (level 9)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-cheetah-s-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

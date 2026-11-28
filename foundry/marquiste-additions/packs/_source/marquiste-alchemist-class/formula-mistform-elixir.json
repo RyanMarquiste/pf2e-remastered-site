@@ -1,0 +1,72 @@
+{
+    "_key": "!items!Mb7LJCn0PYvVmM2z",
+    "_id": "Mb7LJCn0PYvVmM2z",
+    "img": "icons/consumables/potions/bottle-conical-corked-blue.webp",
+    "name": "Formula: Mistform Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.GyO89RBVjAKFxsFm"
+                    },
+                    {
+                        "level": 6,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Ax8XcBd0rRd1Z7hN"
+                    },
+                    {
+                        "level": 10,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.04giYigfDL5geu5f"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Mistform Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Mistform Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.GyO89RBVjAKFxsFm]{Mistform Elixir (Lesser)} (level 4)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.Ax8XcBd0rRd1Z7hN]{Mistform Elixir (Moderate)} (level 6)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.04giYigfDL5geu5f]{Mistform Elixir (Greater)} (level 10)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 4
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-mistform-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

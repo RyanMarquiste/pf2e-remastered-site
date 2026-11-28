@@ -1,0 +1,64 @@
+{
+    "_key": "!items!nHSnOyW9dsPZBcDS",
+    "_id": "nHSnOyW9dsPZBcDS",
+    "img": "icons/consumables/potions/potion-tube-corked-orange.webp",
+    "name": "Formula: Frogskin Tincture",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 6,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.oEOfOdcxkSnzSHPC"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Frogskin Tincture. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Frogskin Tincture your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.oEOfOdcxkSnzSHPC]{Frogskin Tincture} (level 6)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 6
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-frogskin-tincture",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

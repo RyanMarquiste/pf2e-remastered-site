@@ -1,0 +1,72 @@
+{
+    "_key": "!items!s7k19Y63UbmGulZp",
+    "_id": "s7k19Y63UbmGulZp",
+    "img": "icons/consumables/potions/bottle-round-ring-teal.webp",
+    "name": "Formula: Witchwarg Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.n9VrmK9Us0viv20P"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.2prxM8Q0F4sdSwPx"
+                    },
+                    {
+                        "level": 16,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.aDn5blt2iiYJpzbe"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Witchwarg Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Witchwarg Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.n9VrmK9Us0viv20P]{Witchwarg Elixir (Lesser)} (level 4)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.2prxM8Q0F4sdSwPx]{Witchwarg Elixir (Moderate)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.aDn5blt2iiYJpzbe]{Witchwarg Elixir (Greater)} (level 16)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 4
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-witchwarg-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

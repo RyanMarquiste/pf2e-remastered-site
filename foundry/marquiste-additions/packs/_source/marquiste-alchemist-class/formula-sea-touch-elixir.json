@@ -1,0 +1,72 @@
+{
+    "_key": "!items!j6Pfg6dSdeXlkUud",
+    "_id": "j6Pfg6dSdeXlkUud",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/sea-touch-elixir.webp",
+    "name": "Formula: Sea Touch Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.zcJgT5RS8p2MEbOB"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.2hc1EEcb3pfr7Hac"
+                    },
+                    {
+                        "level": 15,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.i4D4B7tpYv9vMvQY"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Sea Touch Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Sea Touch Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.zcJgT5RS8p2MEbOB]{Sea Touch Elixir (Lesser)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.2hc1EEcb3pfr7Hac]{Sea Touch Elixir (Moderate)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.i4D4B7tpYv9vMvQY]{Sea Touch Elixir (Greater)} (level 15)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 5
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-sea-touch-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

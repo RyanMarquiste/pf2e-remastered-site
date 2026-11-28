@@ -1,0 +1,72 @@
+{
+    "_key": "!items!AsM2QYuhPD0UNrbg",
+    "_id": "AsM2QYuhPD0UNrbg",
+    "img": "icons/consumables/potions/potion-flash-open-blue.webp",
+    "name": "Formula: Chromatic Jellyfish Oil",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 9,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.BFre5eREvbqQdwPC"
+                    },
+                    {
+                        "level": 14,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.fDLABfn3nY1R670j"
+                    },
+                    {
+                        "level": 19,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.SeIweTBlvD1EipTQ"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Chromatic Jellyfish Oil. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Chromatic Jellyfish Oil your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.BFre5eREvbqQdwPC]{Chromatic Jellyfish Oil (Lesser)} (level 9)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.fDLABfn3nY1R670j]{Chromatic Jellyfish Oil (Moderate)} (level 14)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.SeIweTBlvD1EipTQ]{Chromatic Jellyfish Oil (Greater)} (level 19)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 9
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-chromatic-jellyfish-oil",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

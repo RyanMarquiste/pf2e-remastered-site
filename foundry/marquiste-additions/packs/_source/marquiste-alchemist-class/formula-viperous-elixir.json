@@ -1,0 +1,72 @@
+{
+    "_key": "!items!rto6Z57Xnv7VEScS",
+    "_id": "rto6Z57Xnv7VEScS",
+    "img": "icons/consumables/potions/potion-flask-corked-capped-green.webp",
+    "name": "Formula: Viperous Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.LmNp6og59w1KhlIX"
+                    },
+                    {
+                        "level": 8,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.HwDlOobl1bsTG5mA"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.avCckBXMRbzAudZG"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Viperous Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Viperous Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.LmNp6og59w1KhlIX]{Viperous Elixir (Lesser)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.HwDlOobl1bsTG5mA]{Viperous Elixir (Moderate)} (level 8)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.avCckBXMRbzAudZG]{Viperous Elixir (Greater)} (level 11)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 5
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-viperous-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

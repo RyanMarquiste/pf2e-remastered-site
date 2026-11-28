@@ -1,0 +1,76 @@
+{
+    "_key": "!items!DX1iskBiVuIAl8jF",
+    "_id": "DX1iskBiVuIAl8jF",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/eagle-eyes-elixir.webp",
+    "name": "Formula: Eagle Eye Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.7Y2yOr4ltpP2tyuL"
+                    },
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.lPcnDlBGz5QwCMYw"
+                    },
+                    {
+                        "level": 10,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.xWCdsGSwLLTeX6tQ"
+                    },
+                    {
+                        "level": 16,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.kicNrnZz1KjJYRVI"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Eagle Eye Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Eagle Eye Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.7Y2yOr4ltpP2tyuL]{Eagle Eye Elixir (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.lPcnDlBGz5QwCMYw]{Eagle Eye Elixir (Moderate)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.xWCdsGSwLLTeX6tQ]{Eagle Eye Elixir (Greater)} (level 10)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.kicNrnZz1KjJYRVI]{Eagle Eye Elixir (Major)} (level 16)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-eagle-eye-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

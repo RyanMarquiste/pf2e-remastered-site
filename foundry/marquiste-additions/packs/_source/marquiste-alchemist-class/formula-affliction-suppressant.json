@@ -1,0 +1,76 @@
+{
+    "_key": "!items!35LDukueSc3QQJJg",
+    "_id": "35LDukueSc3QQJJg",
+    "img": "icons/consumables/potions/potion-bottle-corked-stopper-ornate-yellow.webp",
+    "name": "Formula: Affliction Suppressant",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.2Vd9v0TvEXdVyMTP"
+                    },
+                    {
+                        "level": 6,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.CrOj1a997n9tku6x"
+                    },
+                    {
+                        "level": 10,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.F9VX2CR9NaFmbTj4"
+                    },
+                    {
+                        "level": 14,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.njXFDv63y1w0qvz0"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Affliction Suppressant. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Affliction Suppressant your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.2Vd9v0TvEXdVyMTP]{Affliction Suppressant (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.CrOj1a997n9tku6x]{Affliction Suppressant (Moderate)} (level 6)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.F9VX2CR9NaFmbTj4]{Affliction Suppressant (Greater)} (level 10)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.njXFDv63y1w0qvz0]{Affliction Suppressant (Major)} (level 14)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-affliction-suppressant",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

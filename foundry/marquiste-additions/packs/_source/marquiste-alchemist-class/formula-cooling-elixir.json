@@ -1,0 +1,72 @@
+{
+    "_key": "!items!JkycpyLF8oquZri9",
+    "_id": "JkycpyLF8oquZri9",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/salamander-elixir.webp",
+    "name": "Formula: Cooling Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Ekk7o1gPu8RotixD"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.EEJiqzU89Ofk7dr6"
+                    },
+                    {
+                        "level": 16,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.XMuLrJYL6fxv4YNA"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Cooling Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Cooling Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.Ekk7o1gPu8RotixD]{Cooling Elixir (Lesser)} (level 4)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.EEJiqzU89Ofk7dr6]{Cooling Elixir (Moderate)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.XMuLrJYL6fxv4YNA]{Cooling Elixir (Greater)} (level 16)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 4
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-cooling-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

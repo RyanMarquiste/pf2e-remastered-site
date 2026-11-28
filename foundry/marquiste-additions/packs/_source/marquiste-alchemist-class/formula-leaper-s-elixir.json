@@ -1,0 +1,68 @@
+{
+    "_key": "!items!Uh8IzP6jUk5mStJY",
+    "_id": "Uh8IzP6jUk5mStJY",
+    "img": "icons/consumables/potions/potion-jar-capped-teal.webp",
+    "name": "Formula: Leaper's Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.uG3xtNrs26scOVgW"
+                    },
+                    {
+                        "level": 7,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.6eQvHNHf1IC2X5Rx"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Leaper's Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Leaper's Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.uG3xtNrs26scOVgW]{Leaper's Elixir (Lesser)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.6eQvHNHf1IC2X5Rx]{Leaper's Elixir (Greater)} (level 7)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-leaper-s-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "_key": "!items!uYY3gHugs3zP5d4h",
+    "_id": "uYY3gHugs3zP5d4h",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/bravos-brew.webp",
+    "name": "Formula: Bravo's Brew",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 2,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.zM9VX3QwM81DzDUA"
+                    },
+                    {
+                        "level": 10,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.oCuwJ9IUDAuzsUwa"
+                    },
+                    {
+                        "level": 15,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.sWPkbSlWAEAStBqD"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Bravo's Brew. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Bravo's Brew your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.zM9VX3QwM81DzDUA]{Bravo's Brew (Lesser)} (level 2)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.oCuwJ9IUDAuzsUwa]{Bravo's Brew (Moderate)} (level 10)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.sWPkbSlWAEAStBqD]{Bravo's Brew (Greater)} (level 15)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 2
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-bravo-s-brew",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

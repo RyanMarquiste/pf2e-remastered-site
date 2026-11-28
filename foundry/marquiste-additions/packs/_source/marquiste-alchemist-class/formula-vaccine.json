@@ -1,0 +1,80 @@
+{
+    "_key": "!items!NI1A6E82XHzP8PA4",
+    "_id": "NI1A6E82XHzP8PA4",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/vaccine.webp",
+    "name": "Formula: Vaccine",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.yi1iL9dbLDSr4NZd"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.nzeTcOyQmZNrurVF"
+                    },
+                    {
+                        "level": 6,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.HilBL7oeSSXqDor7"
+                    },
+                    {
+                        "level": 12,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.9mXjEGJaESesndWh"
+                    },
+                    {
+                        "level": 18,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.JZZmDY1IJmKcdR2D"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Vaccine. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Vaccine your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.yi1iL9dbLDSr4NZd]{Vaccine (Minor)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.nzeTcOyQmZNrurVF]{Vaccine (Lesser)} (level 3)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.HilBL7oeSSXqDor7]{Vaccine (Moderate)} (level 6)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.9mXjEGJaESesndWh]{Vaccine (Greater)} (level 12)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.JZZmDY1IJmKcdR2D]{Vaccine (Major)} (level 18)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-vaccine",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

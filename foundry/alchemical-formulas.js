@@ -1,6 +1,6 @@
-// Formula items for PF2e's tiered alchemical items that are not mutagens (see mutagen-formulas.js), including the common alchemical bombs, one entry for each family. Each family lists its tiers
-// in order, with the item's name, level and its id in the equipment compendium. The Alchemist pack makes a formula item for each, so one formula in an alchemy formula book teaches every
-// tier at or below the character's level, and the formula is priced at the lowest tier. A family with one item (the Infiltrator's Elixir) is a formula item with one tier.
+// Formula items for PF2e's tiered alchemical items that are not mutagens (see mutagen-formulas.js), including the common alchemical bombs and elixirs, one entry for each family. Each family
+// lists its tiers in order, with the item's name, level and its id in the equipment compendium. The Alchemist pack makes a formula item for each, so one formula in an alchemy formula book
+// teaches every tier at or below the character's level, and the formula is priced at the lowest tier. A family with one item (the Infiltrator's Elixir) is a formula item with one tier.
 module.exports = [
   {
     name: "Acid Flask",
@@ -11,6 +11,17 @@ module.exports = [
       { name: "Acid Flask (Moderate)", level: 3, id: "SgtqZxt26BdjUmEB" },
       { name: "Acid Flask (Greater)", level: 11, id: "jC8GmH0Un6vDxdMj" },
       { name: "Acid Flask (Major)", level: 17, id: "GttLYMT2welSpwCd" },
+    ],
+  },
+  {
+    name: "Affliction Suppressant",
+    rarity: "common",
+    img: "icons/consumables/potions/potion-bottle-corked-stopper-ornate-yellow.webp",
+    tiers: [
+      { name: "Affliction Suppressant (Lesser)", level: 1, id: "2Vd9v0TvEXdVyMTP" },
+      { name: "Affliction Suppressant (Moderate)", level: 6, id: "CrOj1a997n9tku6x" },
+      { name: "Affliction Suppressant (Greater)", level: 10, id: "F9VX2CR9NaFmbTj4" },
+      { name: "Affliction Suppressant (Major)", level: 14, id: "njXFDv63y1w0qvz0" },
     ],
   },
   {
@@ -79,6 +90,27 @@ module.exports = [
     ],
   },
   {
+    name: "Bomber's Eye Elixir",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/bombers-eye-elixir.webp",
+    tiers: [
+      { name: "Bomber's Eye Elixir (Lesser)", level: 4, id: "T4ouD4mVFHA3EHs6" },
+      { name: "Bomber's Eye Elixir (Greater)", level: 14, id: "lasqzrPVEHI5MkQd" },
+    ],
+  },
+  {
+    name: "Bottled Catharsis",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/focus-cathartic.webp",
+    tiers: [
+      { name: "Bottled Catharsis (Minor)", level: 2, id: "e2II4yMBFBqVivnk" },
+      { name: "Bottled Catharsis (Lesser)", level: 4, id: "8KbayiwrUJtvif0a" },
+      { name: "Bottled Catharsis (Moderate)", level: 8, id: "XfcSVHwMA60JxUXJ" },
+      { name: "Bottled Catharsis (Greater)", level: 12, id: "vMs9n8oXlZttcJkX" },
+      { name: "Bottled Catharsis (Major)", level: 18, id: "Pnw4A7fhUhTS85Te" },
+    ],
+  },
+  {
     name: "Bottled Lightning",
     rarity: "common",
     img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/bottled-lightning.webp",
@@ -110,12 +142,70 @@ module.exports = [
     ],
   },
   {
+    name: "Bravo's Brew",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/bravos-brew.webp",
+    tiers: [
+      { name: "Bravo's Brew (Lesser)", level: 2, id: "zM9VX3QwM81DzDUA" },
+      { name: "Bravo's Brew (Moderate)", level: 10, id: "oCuwJ9IUDAuzsUwa" },
+      { name: "Bravo's Brew (Greater)", level: 15, id: "sWPkbSlWAEAStBqD" },
+    ],
+  },
+  {
+    name: "Cat's Eye Elixir",
+    rarity: "common",
+    img: "icons/consumables/potions/potion-tube-corked-glowing-red.webp",
+    tiers: [
+      { name: "Cat's Eye Elixir", level: 2, id: "bQPRKEpnLakJBAAh" },
+    ],
+  },
+  {
+    name: "Cheetah's Elixir",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/cheetahs-elixir.webp",
+    tiers: [
+      { name: "Cheetah's Elixir (Lesser)", level: 1, id: "tyt6rFtv32MZ4DT9" },
+      { name: "Cheetah's Elixir (Moderate)", level: 5, id: "AqLxu3ir4UGzdOaz" },
+      { name: "Cheetah's Elixir (Greater)", level: 9, id: "t4X6GDybqLmt7UkN" },
+    ],
+  },
+  {
+    name: "Chromatic Jellyfish Oil",
+    rarity: "common",
+    img: "icons/consumables/potions/potion-flash-open-blue.webp",
+    tiers: [
+      { name: "Chromatic Jellyfish Oil (Lesser)", level: 9, id: "BFre5eREvbqQdwPC" },
+      { name: "Chromatic Jellyfish Oil (Moderate)", level: 14, id: "fDLABfn3nY1R670j" },
+      { name: "Chromatic Jellyfish Oil (Greater)", level: 19, id: "SeIweTBlvD1EipTQ" },
+    ],
+  },
+  {
     name: "Comprehension Elixir",
     rarity: "common",
     img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/comprehension-elixir.webp",
     tiers: [
       { name: "Comprehension Elixir (Lesser)", level: 2, id: "3Klm2gPmzOw6ntVb" },
       { name: "Comprehension Elixir (Greater)", level: 7, id: "OcBPjVplvy2GbQ8P" },
+    ],
+  },
+  {
+    name: "Contagion Metabolizer",
+    rarity: "common",
+    img: "systems/pf2e/icons/default-icons/consumable.svg",
+    tiers: [
+      { name: "Contagion Metabolizer (Lesser)", level: 5, id: "EKhROfCklhZ7Je7h" },
+      { name: "Contagion Metabolizer (Moderate)", level: 11, id: "GWMrc8hZINhmDwvt" },
+      { name: "Contagion Metabolizer (Greater)", level: 19, id: "ommn7wIgLyWHGL11" },
+    ],
+  },
+  {
+    name: "Cooling Elixir",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/salamander-elixir.webp",
+    tiers: [
+      { name: "Cooling Elixir (Lesser)", level: 4, id: "Ekk7o1gPu8RotixD" },
+      { name: "Cooling Elixir (Moderate)", level: 12, id: "EEJiqzU89Ofk7dr6" },
+      { name: "Cooling Elixir (Greater)", level: 16, id: "XMuLrJYL6fxv4YNA" },
     ],
   },
   {
@@ -150,6 +240,27 @@ module.exports = [
     ],
   },
   {
+    name: "Eagle Eye Elixir",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/eagle-eyes-elixir.webp",
+    tiers: [
+      { name: "Eagle Eye Elixir (Lesser)", level: 1, id: "7Y2yOr4ltpP2tyuL" },
+      { name: "Eagle Eye Elixir (Moderate)", level: 5, id: "lPcnDlBGz5QwCMYw" },
+      { name: "Eagle Eye Elixir (Greater)", level: 10, id: "xWCdsGSwLLTeX6tQ" },
+      { name: "Eagle Eye Elixir (Major)", level: 16, id: "kicNrnZz1KjJYRVI" },
+    ],
+  },
+  {
+    name: "Elixir of Gender Transformation",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/elixir-of-gender-transformation.webp",
+    tiers: [
+      { name: "Elixir of Gender Transformation (Lesser)", level: 1, id: "GfegrEtbEs9L6NOg" },
+      { name: "Elixir of Gender Transformation (Moderate)", level: 3, id: "0KXqdhz2MYV0LBm2" },
+      { name: "Elixir of Gender Transformation (Greater)", level: 6, id: "rDM6rxWVzKtFQOKg" },
+    ],
+  },
+  {
     name: "Elixir of Life",
     rarity: "common",
     img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/elixir-of-life.webp",
@@ -160,6 +271,14 @@ module.exports = [
       { name: "Elixir of Life (Greater)", level: 13, id: "mYozcVg9fQY6zO7C" },
       { name: "Elixir of Life (Major)", level: 15, id: "AmxSqEoFhRLMYd1W" },
       { name: "Elixir of Life (True)", level: 19, id: "qK964kZz1ALcysOa" },
+    ],
+  },
+  {
+    name: "Frogskin Tincture",
+    rarity: "common",
+    img: "icons/consumables/potions/potion-tube-corked-orange.webp",
+    tiers: [
+      { name: "Frogskin Tincture", level: 6, id: "oEOfOdcxkSnzSHPC" },
     ],
   },
   {
@@ -204,12 +323,31 @@ module.exports = [
     ],
   },
   {
+    name: "Leaper's Elixir",
+    rarity: "common",
+    img: "icons/consumables/potions/potion-jar-capped-teal.webp",
+    tiers: [
+      { name: "Leaper's Elixir (Lesser)", level: 1, id: "uG3xtNrs26scOVgW" },
+      { name: "Leaper's Elixir (Greater)", level: 7, id: "6eQvHNHf1IC2X5Rx" },
+    ],
+  },
+  {
     name: "Lodestone Bomb",
     rarity: "common",
     img: "icons/commodities/gems/pearl-swirl-teal.webp",
     tiers: [
       { name: "Lodestone Bomb", level: 12, id: "DBQ68Evl8PdLAVmt" },
       { name: "Lodestone Bomb (Greater)", level: 18, id: "APJ0NWJ4DYUXNpNm" },
+    ],
+  },
+  {
+    name: "Mistform Elixir",
+    rarity: "common",
+    img: "icons/consumables/potions/bottle-conical-corked-blue.webp",
+    tiers: [
+      { name: "Mistform Elixir (Lesser)", level: 4, id: "GyO89RBVjAKFxsFm" },
+      { name: "Mistform Elixir (Moderate)", level: 6, id: "Ax8XcBd0rRd1Z7hN" },
+      { name: "Mistform Elixir (Greater)", level: 10, id: "04giYigfDL5geu5f" },
     ],
   },
   {
@@ -234,6 +372,25 @@ module.exports = [
       { name: "Numbing Tonic (Greater)", level: 13, id: "wuVD3kolQaFAEeBK" },
       { name: "Numbing Tonic (Major)", level: 16, id: "EAgWYY1C4mDRfwqo" },
       { name: "Numbing Tonic (True)", level: 19, id: "7VDf5tQKh01XV6HQ" },
+    ],
+  },
+  {
+    name: "Olfactory Obfuscator",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/olefactory-obfuscator.webp",
+    tiers: [
+      { name: "Olfactory Obfuscator (Lesser)", level: 3, id: "R0gsYr0jD1giTzpx" },
+      { name: "Olfactory Obfuscator (Greater)", level: 10, id: "MBL8rOfvokYmUvwc" },
+    ],
+  },
+  {
+    name: "Sea Touch Elixir",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/sea-touch-elixir.webp",
+    tiers: [
+      { name: "Sea Touch Elixir (Lesser)", level: 5, id: "zcJgT5RS8p2MEbOB" },
+      { name: "Sea Touch Elixir (Moderate)", level: 12, id: "2hc1EEcb3pfr7Hac" },
+      { name: "Sea Touch Elixir (Greater)", level: 15, id: "i4D4B7tpYv9vMvQY" },
     ],
   },
   {
@@ -289,12 +446,64 @@ module.exports = [
     ],
   },
   {
+    name: "Stone Fist Elixir",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/stone-fist-elixir.webp",
+    tiers: [
+      { name: "Stone Fist Elixir", level: 4, id: "YcvSw7Zn3oyqlJaw" },
+    ],
+  },
+  {
+    name: "Surging Serum",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/sinew-shock-serum.webp",
+    tiers: [
+      { name: "Surging Serum (Minor)", level: 2, id: "yE7PPagK0wsHMA8l" },
+      { name: "Surging Serum (Lesser)", level: 4, id: "1TWHN8RbimPVXM0U" },
+      { name: "Surging Serum (Moderate)", level: 8, id: "tslVf3qtQE7V1YvG" },
+      { name: "Surging Serum (Greater)", level: 12, id: "62HxCEDwhlZaeR0Q" },
+      { name: "Surging Serum (Major)", level: 18, id: "YIgIF1845n5UBFnE" },
+    ],
+  },
+  {
     name: "Trueshape Bomb",
     rarity: "common",
     img: "icons/weapons/thrown/ball-spiked.webp",
     tiers: [
       { name: "Trueshape Bomb", level: 12, id: "PNs3SqMhJ3rTxpSI" },
       { name: "Trueshape Bomb (Greater)", level: 18, id: "wtRDteH3D3ME4FU9" },
+    ],
+  },
+  {
+    name: "Vaccine",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/vaccine.webp",
+    tiers: [
+      { name: "Vaccine (Minor)", level: 1, id: "yi1iL9dbLDSr4NZd" },
+      { name: "Vaccine (Lesser)", level: 3, id: "nzeTcOyQmZNrurVF" },
+      { name: "Vaccine (Moderate)", level: 6, id: "HilBL7oeSSXqDor7" },
+      { name: "Vaccine (Greater)", level: 12, id: "9mXjEGJaESesndWh" },
+      { name: "Vaccine (Major)", level: 18, id: "JZZmDY1IJmKcdR2D" },
+    ],
+  },
+  {
+    name: "Viperous Elixir",
+    rarity: "common",
+    img: "icons/consumables/potions/potion-flask-corked-capped-green.webp",
+    tiers: [
+      { name: "Viperous Elixir (Lesser)", level: 5, id: "LmNp6og59w1KhlIX" },
+      { name: "Viperous Elixir (Moderate)", level: 8, id: "HwDlOobl1bsTG5mA" },
+      { name: "Viperous Elixir (Greater)", level: 11, id: "avCckBXMRbzAudZG" },
+    ],
+  },
+  {
+    name: "Witchwarg Elixir",
+    rarity: "common",
+    img: "icons/consumables/potions/bottle-round-ring-teal.webp",
+    tiers: [
+      { name: "Witchwarg Elixir (Lesser)", level: 4, id: "n9VrmK9Us0viv20P" },
+      { name: "Witchwarg Elixir (Moderate)", level: 12, id: "2prxM8Q0F4sdSwPx" },
+      { name: "Witchwarg Elixir (Greater)", level: 16, id: "aDn5blt2iiYJpzbe" },
     ],
   },
 ];

@@ -1,0 +1,72 @@
+{
+    "_key": "!items!rCzTcdictDaVsGPW",
+    "_id": "rCzTcdictDaVsGPW",
+    "img": "systems/pf2e/icons/default-icons/consumable.svg",
+    "name": "Formula: Contagion Metabolizer",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.EKhROfCklhZ7Je7h"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.GWMrc8hZINhmDwvt"
+                    },
+                    {
+                        "level": 19,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.ommn7wIgLyWHGL11"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Contagion Metabolizer. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Contagion Metabolizer your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.EKhROfCklhZ7Je7h]{Contagion Metabolizer (Lesser)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.GWMrc8hZINhmDwvt]{Contagion Metabolizer (Moderate)} (level 11)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.ommn7wIgLyWHGL11]{Contagion Metabolizer (Greater)} (level 19)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 5
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-contagion-metabolizer",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
