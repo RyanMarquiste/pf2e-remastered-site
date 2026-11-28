@@ -16,8 +16,7 @@ summary: "A heavy kitchen chopper, a simple Axe-group weapon."
   </div>
   <p><strong>Price</strong> 5 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Axe<br>
-  <strong>Damage</strong> 1d6 slashing<br>
-  <strong>Hardness</strong> 5; <strong>HP</strong> 20 (BT 10)</p>
+  <strong>Damage</strong> 1d6 slashing</p>
   <p>A heavy, broad-bladed knife made for chopping through meat and bone. It chops through just about anything else the same way.</p>
 </div>
 

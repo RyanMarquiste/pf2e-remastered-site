@@ -71,10 +71,17 @@ const OPTIONS = {
       "When a player presses its button their character rolls every chosen skill, and the GM gets a private summary of who succeeded. The players aren't told the skills or the DC. " +
       "A GM has to be connected. Off: the macro does nothing and the button does nothing.",
   },
+  brokenTrait: {
+    name: "Broken items",
+    hint:
+      "An item with the Broken trait can't be used for its purpose: a broken weapon can't Strike, a broken shield gives no bonus, a broken wand or scroll can't be cast, and a broken tool or " +
+      "other item gives no bonus. The trait comes off when the item's Hit Points are raised above its Broken Threshold, or, for an item with no Hit Points (or with Hit Points above its threshold), when a Repair check on it succeeds " +
+      "(a GM has to be connected for that). Off: Broken is only a label.",
+  },
   makeshift: {
     name: "Makeshift items",
     hint:
-      "A weapon with the Makeshift trait breaks (its Hit Points drop to its Broken Threshold) when its wielder rolls a critical failure with it, and can't Strike until it is repaired. " +
+      "A weapon with the Makeshift trait gains the Broken trait when its wielder rolls a critical failure with it. " +
       "A raised makeshift shield breaks when an attack against its owner is a critical hit; with no shield raised, worn makeshift armor breaks instead. A reroll that changes the " +
       "result saves the item. This needs a GM to be connected. Off: Makeshift is only a label.",
   },
@@ -161,8 +168,9 @@ const LAYOUT = [
   { key: "bombSplashAutoApply" },
   { level: 1, heading: "Wandering Chef" },
   { key: "wanderingChef" },
-  { level: 1, heading: "Makeshift" },
+  { level: 1, heading: "Makeshift and Broken" },
   { key: "makeshift" },
+  { key: "brokenTrait" },
   { level: 1, heading: "Game Master" },
   { key: "recallKnowledge" },
   { level: 1, heading: "Cauldron" },

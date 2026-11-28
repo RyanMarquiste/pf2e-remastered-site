@@ -18,8 +18,7 @@ summary: "A broad kitchen blade for chopping and slicing, with the Deadly d6 and
   </div>
   <p><strong>Price</strong> 2 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Knife<br>
-  <strong>Damage</strong> 1d4 slashing<br>
-  <strong>Hardness</strong> 5; <strong>HP</strong> 20 (BT 10)</p>
+  <strong>Damage</strong> 1d4 slashing</p>
   <p>A broad, razor-sharp blade made for chopping and slicing. In a practiced hand it works as well on a monster as on an onion.</p>
 </div>
 

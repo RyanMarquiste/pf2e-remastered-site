@@ -17,8 +17,7 @@ summary: "A wooden dough roller with the Nonlethal trait."
   </div>
   <p><strong>Price</strong> 1 sp; <strong>Usage</strong> held in 1 hand; <strong>Bulk</strong> L</p>
   <p><strong>Category</strong> Simple; <strong>Group</strong> Club<br>
-  <strong>Damage</strong> 1d4 bludgeoning<br>
-  <strong>Hardness</strong> 3; <strong>HP</strong> 12 (BT 6)</p>
+  <strong>Damage</strong> 1d4 bludgeoning</p>
   <p>A smooth, heavy wooden cylinder for flattening dough. It leaves a bruise, but it is made for flattening and not for killing.</p>
 </div>
 

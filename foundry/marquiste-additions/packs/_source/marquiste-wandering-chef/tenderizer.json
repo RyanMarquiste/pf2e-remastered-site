@@ -29,10 +29,10 @@
         "expend": null,
         "grade": null,
         "group": "hammer",
-        "hardness": 5,
+        "hardness": 0,
         "hp": {
-            "max": 20,
-            "value": 20
+            "max": 0,
+            "value": 0
         },
         "level": {
             "value": 0

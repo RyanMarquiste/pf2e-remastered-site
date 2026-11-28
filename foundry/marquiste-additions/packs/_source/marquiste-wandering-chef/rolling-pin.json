@@ -29,10 +29,10 @@
         "expend": null,
         "grade": null,
         "group": "club",
-        "hardness": 3,
+        "hardness": 0,
         "hp": {
-            "max": 12,
-            "value": 12
+            "max": 0,
+            "value": 0
         },
         "level": {
             "value": 0
