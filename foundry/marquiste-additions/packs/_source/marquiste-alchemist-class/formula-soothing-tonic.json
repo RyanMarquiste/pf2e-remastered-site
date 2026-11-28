@@ -1,0 +1,76 @@
+{
+    "_key": "!items!031g4Yryngq5R7Ja",
+    "_id": "031g4Yryngq5R7Ja",
+    "img": "icons/consumables/potions/bottle-round-corked-yellow.webp",
+    "name": "Formula: Soothing Tonic",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 2,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.zA2UPGE9RYwlLPZJ"
+                    },
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.RM7WoJYfd2edlNZ8"
+                    },
+                    {
+                        "level": 10,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.HIPkTfJLlLu4bWE3"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.UeUPNFw600HEdDgF"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Soothing Tonic. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Soothing Tonic your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.zA2UPGE9RYwlLPZJ]{Soothing Tonic (Lesser)} (level 2)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.RM7WoJYfd2edlNZ8]{Soothing Tonic (Moderate)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.HIPkTfJLlLu4bWE3]{Soothing Tonic (Greater)} (level 10)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.UeUPNFw600HEdDgF]{Soothing Tonic (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 2
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-soothing-tonic",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

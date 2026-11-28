@@ -1,0 +1,84 @@
+{
+    "_key": "!items!c6utinJMCQ7669Yx",
+    "_id": "c6utinJMCQ7669Yx",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/elixir-of-life.webp",
+    "name": "Formula: Elixir of Life",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.hDLbR56Id2OtU318"
+                    },
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.TZUskLT7yvP7N2co"
+                    },
+                    {
+                        "level": 9,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.c21stU5rhN4F2fZl"
+                    },
+                    {
+                        "level": 13,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.mYozcVg9fQY6zO7C"
+                    },
+                    {
+                        "level": 15,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.AmxSqEoFhRLMYd1W"
+                    },
+                    {
+                        "level": 19,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.qK964kZz1ALcysOa"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Elixir of Life. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Elixir of Life your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.hDLbR56Id2OtU318]{Elixir of Life (Minor)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.TZUskLT7yvP7N2co]{Elixir of Life (Lesser)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.c21stU5rhN4F2fZl]{Elixir of Life (Moderate)} (level 9)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.mYozcVg9fQY6zO7C]{Elixir of Life (Greater)} (level 13)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.AmxSqEoFhRLMYd1W]{Elixir of Life (Major)} (level 15)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.qK964kZz1ALcysOa]{Elixir of Life (True)} (level 19)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-elixir-of-life",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

@@ -91,7 +91,7 @@ export function loadRecipes(kind = "food") {
       }
       rows.push({
         uuid: entry.uuid,
-        name: `${entry.name.replace(/^Formula:\s*/i, "")} (every tier)`,
+        name: `${entry.name.replace(/^Formula:\s*/i, "")}${tiers.length > 1 ? " (every tier)" : ""}`,
         itemName: entry.name,
         img: entry.img,
         level: Math.min(...tiers.map((t) => t.level ?? 0)),

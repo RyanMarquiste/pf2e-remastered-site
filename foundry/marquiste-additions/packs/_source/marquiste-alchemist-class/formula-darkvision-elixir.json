@@ -1,0 +1,72 @@
+{
+    "_key": "!items!6mgkOFfVRQ7wDvlE",
+    "_id": "6mgkOFfVRQ7wDvlE",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/darkvision-elixir.webp",
+    "name": "Formula: Darkvision Elixir",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 2,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.88pGCHV0uKMskTVO"
+                    },
+                    {
+                        "level": 4,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.Y8115p3cmQJBqk5d"
+                    },
+                    {
+                        "level": 8,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.bz8Y8bVUe7QfBk9g"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Darkvision Elixir. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Darkvision Elixir your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.88pGCHV0uKMskTVO]{Darkvision Elixir (Lesser)} (level 2)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.Y8115p3cmQJBqk5d]{Darkvision Elixir (Moderate)} (level 4)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.bz8Y8bVUe7QfBk9g]{Darkvision Elixir (Greater)} (level 8)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 2
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-darkvision-elixir",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

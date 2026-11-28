@@ -1,0 +1,84 @@
+{
+    "_key": "!items!1L5NqHk7tvogPQ7j",
+    "_id": "1L5NqHk7tvogPQ7j",
+    "img": "icons/consumables/potions/bottle-round-label-cork-yellow.webp",
+    "name": "Formula: Numbing Tonic",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.V35j3JEJMUbuJZNX"
+                    },
+                    {
+                        "level": 5,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.7D6ENmL3mRfUOMwf"
+                    },
+                    {
+                        "level": 9,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.WnJwPbObxmTNvYJy"
+                    },
+                    {
+                        "level": 13,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.wuVD3kolQaFAEeBK"
+                    },
+                    {
+                        "level": 16,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.EAgWYY1C4mDRfwqo"
+                    },
+                    {
+                        "level": 19,
+                        "uuid": "Compendium.pf2e.equipment-srd.Item.7VDf5tQKh01XV6HQ"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for Numbing Tonic. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Numbing Tonic your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.pf2e.equipment-srd.Item.V35j3JEJMUbuJZNX]{Numbing Tonic (Minor)} (level 1)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.7D6ENmL3mRfUOMwf]{Numbing Tonic (Lesser)} (level 5)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.WnJwPbObxmTNvYJy]{Numbing Tonic (Moderate)} (level 9)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.wuVD3kolQaFAEeBK]{Numbing Tonic (Greater)} (level 13)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.EAgWYY1C4mDRfwqo]{Numbing Tonic (Major)} (level 16)</li><li>@UUID[Compendium.pf2e.equipment-srd.Item.7VDf5tQKh01XV6HQ]{Numbing Tonic (True)} (level 19)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-numbing-tonic",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
