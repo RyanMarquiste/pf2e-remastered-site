@@ -14,7 +14,7 @@
 //   benefit(t), effectBenefit(t)- the Benefit text of the item for tier t, and (if it differs) of its effect; no <p> tags
 //   drawback                    - the Drawback text (the same for every tier)
 //   benefitRules(t)             - the rules the benefit effect has for tier t
-//   drawbackRules               - the rules the drawback effect has; each is switched off by the Drawback suppressed toggle
+//   drawbackRules               - the rules the drawback effect has; each is switched off while the Mutagenist Field Vial suppresses the drawback
 //   featBenefit (optional)      - the extra benefit of an alchemist feat that names this mutagen (Mutant Physique or Mutant Innervation): { feat, text, rules(t) }. PF2e's Mutant
 //                                 Physique only works for PF2e's own effects, and Mutant Innervation is only text, so the copy carries the benefit itself: the text goes in the item and
 //                                 effect descriptions, and the rules go in the benefit effect, each applying only to a character with the feat (its slug is in the rules' predicate).
@@ -43,7 +43,8 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
       level: { value: 1 },
       publication,
       rules: [
-        { key: "RollOption", domain: "all", label: "Drawback suppressed", option: SUPPRESSED, toggleable: true, value: false },
+        // Not a toggle on the sheet: the Mutagenist Field Vial's script (scripts/alchemist/mutagenist-field-vial.js) sets this value while the vial lasts.
+        { key: "RollOption", domain: "all", option: SUPPRESSED, value: false },
         // A rule's own predicate is kept (the Serene Mutagen's spell DC penalty only applies while its toggle is on).
         ...drawbackRules.map((rule) => ({ ...rule, predicate: [...(rule.predicate ?? []), { not: SUPPRESSED }] })),
       ],

@@ -296,10 +296,11 @@ module.exports = function buildVials({ items, publication, makeId, uuidOf, img }
     name: "Effect: Mutagenist Field Vial",
     type: "effect",
     system: {
+      slug: "effect-mutagenist-field-vial",
       description: {
         value:
           `<p>Granted by @UUID[${uuidOf(mutagenistId)}]</p>` +
-          "<p>The drawback of one mutagen affecting you is suppressed for the duration. Switch on the **Drawback suppressed** toggle on that mutagen's effect while this lasts, and switch it off again when it ends.</p>" +
+          "<p>The drawback of one mutagen affecting you is suppressed for the duration. When this effect is applied the module picks the drawback (it asks you if there is more than one), switches it off and adds \"(suppressed)\" to its name in your effects list, and when this effect ends the drawback comes back.</p>" +
           "<p><strong>Advanced Vial (11th level)</strong> You also have resistance to physical damage equal to half your level.</p>",
       },
       duration: { expiry: "turn-start", sustained: false, unit: "minutes", value: 1 },

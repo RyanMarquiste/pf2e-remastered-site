@@ -27,14 +27,8 @@ module.exports = function buildDrakeheartMutagen({ items, publication, makeId, u
       level: { value: 1 },
       publication,
       rules: [
-        {
-          key: "RollOption",
-          domain: "all",
-          label: "Drawback suppressed",
-          option: "drakeheart-drawback-suppressed",
-          toggleable: true,
-          value: false,
-        },
+        // Set to true by the Mutagenist Field Vial's script (scripts/alchemist/mutagenist-field-vial.js) while the vial lasts.
+        { key: "RollOption", domain: "all", option: "drakeheart-drawback-suppressed", value: false },
         {
           key: "FlatModifier",
           selector: ["reflex", "will"],

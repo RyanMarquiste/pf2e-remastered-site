@@ -27,9 +27,7 @@
             {
                 "key": "RollOption",
                 "domain": "all",
-                "label": "Drawback suppressed",
                 "option": "bestial-drawback-suppressed",
-                "toggleable": true,
                 "value": false
             },
             {

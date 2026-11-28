@@ -90,14 +90,8 @@ items.push({
     level: { value: 1 },
     publication,
     rules: [
-      {
-        key: "RollOption",
-        domain: "all",
-        label: "Drawback suppressed",
-        option: "mind-doubling-drawback-suppressed",
-        toggleable: true,
-        value: false,
-      },
+      // Set to true by the Mutagenist Field Vial's script (scripts/alchemist/mutagenist-field-vial.js) while the vial lasts.
+      { key: "RollOption", domain: "all", option: "mind-doubling-drawback-suppressed", value: false },
       {
         key: "FlatModifier",
         selector: ["acrobatics", "stealth", "thievery"],
@@ -351,14 +345,8 @@ for (const t of ichthysTiers) {
           type: "item",
           value: b,
         },
-        {
-          key: "RollOption",
-          domain: "all",
-          label: "Drawback suppressed",
-          option: "ichthys-drawback-suppressed",
-          toggleable: true,
-          value: false,
-        },
+        // Set to true by the Mutagenist Field Vial's script (scripts/alchemist/mutagenist-field-vial.js) while the vial lasts.
+        { key: "RollOption", domain: "all", option: "ichthys-drawback-suppressed", value: false },
         {
           key: "FlatModifier",
           predicate: [{ not: "ichthys-drawback-suppressed" }],
@@ -743,6 +731,7 @@ const moduleJson = {
     "scripts/alchemist/create-consumable.js",
     "scripts/alchemist/quick-alchemy.js",
     "scripts/alchemist/toxicologist.js",
+    "scripts/alchemist/mutagenist-field-vial.js",
     "scripts/alchemist/daily-preparations.js",
     // Bard Enhancements
     "scripts/bard/versatile-performance.js",

@@ -1,8 +1,8 @@
 // The Quicksilver Mutagen from PF2e (Player Core 2), with its text, numbers and art unchanged, but with the benefit and the drawback as separate effects (see split-mutagen.js).
 //
 // PF2e's rules are kept as they are, the damage included: the drawback effect, which the benefit effect grants when the mutagen is drunk, has the rule that takes damage equal to twice
-// the character's level (once, when it is applied) and stops that Hit Points being recovered while it lasts. The Drawback suppressed toggle is on the drawback effect, which only exists once
-// the mutagen has been drunk, so it can't skip the damage: switching it on afterwards stops the Hit Points being unrecoverable and the Fortitude penalty, but does not give back the damage taken.
+// the character's level (once, when it is applied) and stops that Hit Points being recovered while it lasts. Suppressing the drawback (the Mutagenist Field Vial does it) only
+// happens once the mutagen has been drunk, so it can't skip the damage: it stops the Hit Points being unrecoverable and the Fortitude penalty, but does not give back the damage taken.
 const buildSplitMutagen = require("./split-mutagen");
 
 module.exports = function buildQuicksilverMutagen(context) {
