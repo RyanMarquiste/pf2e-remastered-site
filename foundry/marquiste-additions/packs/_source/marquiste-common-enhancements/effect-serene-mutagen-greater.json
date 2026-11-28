@@ -1,0 +1,78 @@
+{
+    "_key": "!items!WotZ2zAS4r7i2BXI",
+    "_id": "WotZ2zAS4r7i2BXI",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/serene-mutagen.webp",
+    "name": "Effect: Serene Mutagen (Greater)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-serene-mutagen-marquiste-greater",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.ufEfjaWQwgLezDva]</p><p><strong>Benefit</strong> You gain a +3 item bonus to Will saves and Perception, Medicine, Nature, Religion, and Survival checks. This bonus improves to +4 when you attempt Will saves against mental effects. When you roll a success on a Will save against a mental effect, you get a critical success instead.</p><p><strong>Mutant Innervation</strong> If you have the Mutant Innervation feat, detection, revelation, and scrying effects of 9th rank (or 17th level) or lower detect nothing from you or your possessions and auras. For instance, detect magic would still detect other magic in the area, but not any magic on you.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.XqrguQsLHE2fzbAy].</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 11
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "medicine",
+                    "nature",
+                    "perception",
+                    "religion",
+                    "survival",
+                    "will"
+                ],
+                "slug": "serene-mutagen-bonus",
+                "type": "item",
+                "value": 3
+            },
+            {
+                "key": "AdjustModifier",
+                "mode": "upgrade",
+                "predicate": [
+                    "item:trait:mental"
+                ],
+                "selector": "will",
+                "slug": "serene-mutagen-bonus",
+                "value": 4
+            },
+            {
+                "key": "AdjustDegreeOfSuccess",
+                "adjustment": {
+                    "success": "one-degree-better"
+                },
+                "predicate": [
+                    "item:trait:mental"
+                ],
+                "selector": "will"
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.XqrguQsLHE2fzbAy"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

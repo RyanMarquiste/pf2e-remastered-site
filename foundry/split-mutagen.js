@@ -38,7 +38,8 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
       publication,
       rules: [
         { key: "RollOption", domain: "all", label: "Drawback suppressed", option: SUPPRESSED, toggleable: true, value: false },
-        ...drawbackRules.map((rule) => ({ ...rule, predicate: [{ not: SUPPRESSED }] })),
+        // A rule's own predicate is kept (the Serene Mutagen's spell DC penalty only applies while its toggle is on).
+        ...drawbackRules.map((rule) => ({ ...rule, predicate: [...(rule.predicate ?? []), { not: SUPPRESSED }] })),
       ],
       start: { initiative: null, value: 0 },
       tokenIcon: { show: true },

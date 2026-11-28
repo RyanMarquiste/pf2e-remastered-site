@@ -1,0 +1,94 @@
+{
+    "_key": "!items!XqrguQsLHE2fzbAy",
+    "_id": "XqrguQsLHE2fzbAy",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/serene-mutagen.webp",
+    "name": "Effect: Serene Mutagen Drawback",
+    "type": "effect",
+    "system": {
+        "slug": "effect-serene-mutagen-marquiste-drawback",
+        "description": {
+            "value": "<p>Granted by the Serene Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a -1 penalty to attack rolls and save DCs of offensive spells, and a -1 penalty per damage die to all weapon, unarmed attack, and spell damage.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "sustained": false,
+            "unit": "unlimited",
+            "value": -1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "serene-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "RollOption",
+                "label": "PF2E.Mutagens.SereneMutagen.PenaltyLabel",
+                "option": "serene-mutagen-dc-penalty",
+                "placement": "spellcasting",
+                "toggleable": true,
+                "predicate": [
+                    {
+                        "not": "serene-drawback-suppressed"
+                    }
+                ]
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "attack-roll",
+                "slug": "serene-mutagen-attack-penalty",
+                "value": -1,
+                "predicate": [
+                    {
+                        "not": "serene-drawback-suppressed"
+                    }
+                ]
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "strike-damage",
+                "slug": "serene-mutagen-strike-damage-penalty",
+                "value": "-@weapon.system.damage.dice",
+                "predicate": [
+                    {
+                        "not": "serene-drawback-suppressed"
+                    }
+                ]
+            },
+            {
+                "key": "FlatModifier",
+                "predicate": [
+                    "serene-mutagen-dc-penalty",
+                    {
+                        "not": "serene-drawback-suppressed"
+                    }
+                ],
+                "selector": "spell-dc",
+                "slug": "serene-mutagen-spell-dc-penalty",
+                "value": -1
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}
