@@ -1,0 +1,62 @@
+{
+    "_key": "!items!iIv2zgiZI58UOrzG",
+    "_id": "iIv2zgiZI58UOrzG",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/quicksilver-mutagen.webp",
+    "name": "Effect: Quicksilver Mutagen (Greater)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-quicksilver-mutagen-marquiste-greater",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.k4ULSKdybx2E0Qvu]</p><p><strong>Benefit</strong> You gain a +3 item bonus to Acrobatics checks, Stealth checks, Thievery checks, Reflex saves, and Dexterity-based attack rolls, and you gain a +15 foot status bonus to your Speed.</p><p><strong>Mutant Physique</strong> If you have the Mutant Physique feat, you can stretch your legs and Step up to 10 feet, and you can squish and compress your body, allowing you to make it through tight spaces as if you were one size smaller, in addition to any effect from Squeezing.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.6HN3ltZulnOf94wp].</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 11
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "acrobatics",
+                    "dex-attack",
+                    "reflex",
+                    "stealth",
+                    "thievery"
+                ],
+                "type": "item",
+                "value": 3
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "land-speed",
+                "type": "status",
+                "value": 15
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.6HN3ltZulnOf94wp"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

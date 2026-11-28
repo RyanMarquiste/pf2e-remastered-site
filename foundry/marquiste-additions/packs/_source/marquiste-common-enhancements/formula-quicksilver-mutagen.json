@@ -1,0 +1,80 @@
+{
+    "_key": "!items!mJr49E5pi1lbTK47",
+    "_id": "mJr49E5pi1lbTK47",
+    "img": "systems/pf2e/icons/equipment/alchemical-items/alchemical-elixirs/quicksilver-mutagen.webp",
+    "name": "Formula: Quicksilver Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.gZwuhJugYMiH1tJZ",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.5MKBwpE401uz4kNN"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.UM8qxFM47ado0lC4",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.n52BSbZsnx4Vmt2p"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.k4ULSKdybx2E0Qvu",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.eQDTsetadI8u8Kc0"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.npOYc9l8fftrLLEm",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.4GXzTN6iSDGfYEAi"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for a mutagen that makes you swift and nimble but fragile. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Quicksilver Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.gZwuhJugYMiH1tJZ]{Quicksilver Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.UM8qxFM47ado0lC4]{Quicksilver Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.k4ULSKdybx2E0Qvu]{Quicksilver Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.npOYc9l8fftrLLEm]{Quicksilver Mutagen (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-quicksilver-mutagen-marquiste",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

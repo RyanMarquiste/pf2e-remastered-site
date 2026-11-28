@@ -507,7 +507,7 @@ function formulaItem({ family, img, made, rarity = "common", tiers, pub, idSeed 
   };
 }
 
-// The mutagens copied from PF2e (Drakeheart, Cognitive, Juggernaut and Serene), with their benefit and drawback as separate effects, go in Marquiste Additions' Common Enhancements
+// The mutagens copied from PF2e (Drakeheart, Cognitive, Juggernaut, Serene and Quicksilver), with their benefit and drawback as separate effects, go in Marquiste Additions' Common Enhancements
 // pack with a formula for each. Each has its own spec file (see split-mutagen.js). They carry the Marquiste source trait, since they are not part of the Cauldron's own items.
 const commonItems = [];
 const commonUuidOf = (id) => `Compendium.${MODULE_ID}.${COMMON_PACK}.Item.${id}`;
@@ -517,6 +517,7 @@ const pf2eMutagens = [
   [require("./cognitive-mutagen")(pf2eMutagenContext), "a mutagen that clears the mind but dulls the body"],
   [require("./juggernaut-mutagen")(pf2eMutagenContext), "a mutagen that makes the body sturdy and ponderous"],
   [require("./serene-mutagen")(pf2eMutagenContext), "a mutagen that brings inner serenity but dulls the urge to fight"],
+  [require("./quicksilver-mutagen")(pf2eMutagenContext), "a mutagen that makes you swift and nimble but fragile"],
 ];
 for (const [{ name, img }, made] of pf2eMutagens) {
   // Each tier says which PF2e mutagen it is a copy of (replaces), so the formula lists can hide PF2e's original and its formula.
