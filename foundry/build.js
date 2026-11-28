@@ -556,6 +556,37 @@ require("./vials")({
   img: (name) => `modules/${MODULE_ID}/images/${name}.png`,
 });
 
+// The Versatile Vial as a resource: PF2e's Versatile Vials class feature keeps an Alchemist's vials as the quantity of PF2e's Versatile Vial item, which is a bomb. Now that the Volatile Vial
+// (made by Quick Vial) is the bomb, this is a copy that is not a weapon, just the number of vials. scripts/alchemist/versatile-vial-resource.js points PF2e's resource rule at it. Its id
+// is written into that script (VERSATILE_VIAL_ID), so the id has to stay the one made from this seed.
+classItems.push({
+  _id: makeId("item:Versatile Vial (resource)"),
+  img: "icons/consumables/potions/potion-tube-corked-green.webp",
+  name: "Versatile Vial",
+  type: "equipment",
+  system: {
+    slug: "versatile-vial",
+    bulk: { value: 0 },
+    containerId: null,
+    description: {
+      value:
+        "<p>This tiny glass flask holds the fast-acting chemicals an Alchemist prepares each day. Its quantity is your versatile vials: PF2e sets it when you make your daily preparations, and " +
+        "Quick Alchemy and Create Consumable spend it. It is only a count and can't be thrown; the throwable bomb is the Volatile Vial that Quick Vial creates.</p>",
+    },
+    hardness: 0,
+    hp: { max: 0, value: 0 },
+    level: { value: 1 },
+    material: { grade: null, type: null },
+    price: { value: {} },
+    publication: modulePublication,
+    quantity: 1,
+    rules: [],
+    size: "med",
+    traits: { rarity: "common", value: ["alchemical", "infused"] },
+    usage: { value: "carried" },
+  },
+});
+
 // The Alchemy Formula Book (Blank): a formula book that holds only alchemical items that are not food, for an Alchemist who wants their formulas kept apart from other crafting. The module
 // (scripts/common/formula-books.js) treats it as a formula book by its slug, and refuses anything that lacks the alchemical trait or has the alchemical-food tag (those go in a cookbook).
 classItems.push({
@@ -746,6 +777,7 @@ const moduleJson = {
     "scripts/alchemist/create-consumable.js",
     "scripts/alchemist/quick-alchemy.js",
     "scripts/alchemist/toxicologist.js",
+    "scripts/alchemist/versatile-vial-resource.js",
     "scripts/alchemist/mutagenist-field-vial.js",
     "scripts/alchemist/daily-preparations.js",
     // Bard Enhancements

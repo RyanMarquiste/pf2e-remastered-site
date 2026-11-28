@@ -42,6 +42,13 @@ const OPTIONS = {
       "Off: that action does nothing. PF2e's own Quick Alchemy is not changed.",
     default: false,
   },
+  versatileVialResource: {
+    name: "Versatile vials as a resource",
+    hint:
+      "PF2e keeps an Alchemist's versatile vials as the quantity of its Versatile Vial item, which is a bomb. On: they are kept as the quantity of a Versatile Vial that is not a weapon, since the " +
+      "Volatile Vial from Quick Vial is the bomb, and a character's existing Versatile Vial weapon is replaced when the world loads (a GM has to be connected). Reload after changing it. " +
+      "Off: PF2e's own item.",
+  },
   bombSplash: {
     name: "Splash targets",
     hint:
@@ -160,6 +167,7 @@ const LAYOUT = [
   { key: "formulaBooks" },
   { level: 1, heading: "Alchemist" },
   { key: "volatileVialRules" },
+  { key: "versatileVialResource" },
   { level: 2, heading: "Toxicologist" },
   { key: "toxicologistMutableAcid" },
   { key: "infusedPoisonsEnd" },

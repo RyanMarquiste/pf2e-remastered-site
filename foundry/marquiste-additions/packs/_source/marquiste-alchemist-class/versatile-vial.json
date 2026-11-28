@@ -1,0 +1,51 @@
+{
+    "_key": "!items!gIGK3zQMwyuj9mlC",
+    "_id": "gIGK3zQMwyuj9mlC",
+    "img": "icons/consumables/potions/potion-tube-corked-green.webp",
+    "name": "Versatile Vial",
+    "type": "equipment",
+    "system": {
+        "slug": "versatile-vial",
+        "bulk": {
+            "value": 0
+        },
+        "containerId": null,
+        "description": {
+            "value": "<p>This tiny glass flask holds the fast-acting chemicals an Alchemist prepares each day. Its quantity is your versatile vials: PF2e sets it when you make your daily preparations, and Quick Alchemy and Create Consumable spend it. It is only a count and can't be thrown; the throwable bomb is the Volatile Vial that Quick Vial creates.</p><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {}
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "alchemical",
+                "infused",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

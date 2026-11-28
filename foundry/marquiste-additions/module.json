@@ -44,6 +44,7 @@
         "scripts/alchemist/create-consumable.js",
         "scripts/alchemist/quick-alchemy.js",
         "scripts/alchemist/toxicologist.js",
+        "scripts/alchemist/versatile-vial-resource.js",
         "scripts/alchemist/mutagenist-field-vial.js",
         "scripts/alchemist/daily-preparations.js",
         "scripts/bard/versatile-performance.js",
