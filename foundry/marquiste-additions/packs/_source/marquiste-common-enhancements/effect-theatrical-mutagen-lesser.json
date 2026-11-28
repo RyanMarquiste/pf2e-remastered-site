@@ -1,0 +1,71 @@
+{
+    "_key": "!items!jr3Ihi62skDGmwl5",
+    "_id": "jr3Ihi62skDGmwl5",
+    "img": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp",
+    "name": "Effect: Theatrical Mutagen (Lesser)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-theatrical-mutagen-marquiste-lesser",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.5wX10eUonXAZFCFt]</p><p><strong>Benefit</strong> You gain a +1 item bonus to Acrobatics checks, Crafting checks, and Performance checks. If you're untrained in any of these skills, your proficiency bonus is equal to your level instead of +0. You also gain a +5 feet status bonus to your Speed.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.BHVkBoLRXnDfbkjO].</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "minutes",
+            "value": 1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "acrobatics",
+                    "crafting",
+                    "performance"
+                ],
+                "type": "item",
+                "value": 1
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "acrobatics",
+                    "crafting",
+                    "performance"
+                ],
+                "slug": "theatrical-mutagen-proficiency",
+                "type": "proficiency",
+                "value": "@actor.level"
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "land-speed",
+                "type": "status",
+                "value": 5
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.BHVkBoLRXnDfbkjO"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

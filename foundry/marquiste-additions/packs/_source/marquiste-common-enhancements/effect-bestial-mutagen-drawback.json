@@ -1,0 +1,63 @@
+{
+    "_key": "!items!ouHqF14sAD0kNEHL",
+    "_id": "ouHqF14sAD0kNEHL",
+    "img": "icons/consumables/potions/bottle-round-flask-fumes-purple.webp",
+    "name": "Effect: Bestial Mutagen Drawback",
+    "type": "effect",
+    "system": {
+        "slug": "effect-bestial-mutagen-marquiste-drawback",
+        "description": {
+            "value": "<p>Granted by the Bestial Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a -2 penalty to Reflex saves, Acrobatics checks, and Stealth Checks.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "sustained": false,
+            "unit": "unlimited",
+            "value": -1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "bestial-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "reflex",
+                    "acrobatics",
+                    "stealth"
+                ],
+                "slug": "bestial-mutagen-drawback",
+                "value": -2,
+                "predicate": [
+                    {
+                        "not": "bestial-drawback-suppressed"
+                    }
+                ]
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

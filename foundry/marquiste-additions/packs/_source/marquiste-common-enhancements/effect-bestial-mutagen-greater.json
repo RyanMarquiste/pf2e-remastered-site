@@ -1,0 +1,114 @@
+{
+    "_key": "!items!FVe6QFRl36XL0SB1",
+    "_id": "FVe6QFRl36XL0SB1",
+    "img": "icons/consumables/potions/bottle-round-flask-fumes-purple.webp",
+    "name": "Effect: Bestial Mutagen (Greater)",
+    "type": "effect",
+    "system": {
+        "slug": "effect-bestial-mutagen-marquiste-greater",
+        "description": {
+            "value": "<p>Granted by @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.4cLhOEvfwTIK5JkY]</p><p><strong>Benefit</strong> You gain a +3 item bonus to Athletics checks and unarmed attack rolls. You gain a claw unarmed attack (3d8 slashing damage) with the agile trait and a jaws unarmed attack (3d10 piercing damage). @UUID[Compendium.pf2e.equipment-srd.Item.DxCuJKynlnMQZHgp]{Striking} runes don't modify the damage caused by these attacks.</p><p><strong>Mutant Physique</strong> If you have the Mutant Physique feat, you gain the mutagen's item bonus to your Intimidation checks. In addition, you increase the damage die size of your claws and jaws by one step, and they gain the deadly d10 trait.</p><p>This effect also applies @UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.ouHqF14sAD0kNEHL].</p>"
+        },
+        "duration": {
+            "expiry": "turn-start",
+            "sustained": false,
+            "unit": "hours",
+            "value": 1
+        },
+        "level": {
+            "value": 11
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "athletics",
+                    "unarmed-attack-roll"
+                ],
+                "type": "item",
+                "value": 3
+            },
+            {
+                "baseType": "jaws",
+                "category": "unarmed",
+                "damage": {
+                    "base": {
+                        "damageType": "piercing",
+                        "dice": 3,
+                        "die": "d10"
+                    }
+                },
+                "group": "brawling",
+                "img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+                "key": "Strike",
+                "label": "PF2E.Weapon.Base.jaws",
+                "range": null,
+                "slug": "jaws",
+                "traits": [
+                    "unarmed"
+                ]
+            },
+            {
+                "baseType": "claw",
+                "category": "unarmed",
+                "damage": {
+                    "base": {
+                        "damageType": "slashing",
+                        "dice": 3,
+                        "die": "d8"
+                    }
+                },
+                "group": "brawling",
+                "img": "icons/commodities/claws/claw-bear-brown-grey.webp",
+                "key": "Strike",
+                "label": "PF2E.Weapon.Base.claw",
+                "range": null,
+                "slug": "claw",
+                "traits": [
+                    "unarmed",
+                    "agile"
+                ]
+            },
+            {
+                "itemType": "weapon",
+                "key": "ItemAlteration",
+                "mode": "add",
+                "predicate": [
+                    "item:id:{item|id}"
+                ],
+                "property": "other-tags",
+                "value": "bestial-mutagen-strike"
+            },
+            {
+                "key": "FlatModifier",
+                "selector": "intimidation",
+                "slug": "bestial-mutagen-mutant-physique-bonus",
+                "type": "item",
+                "value": 3,
+                "predicate": [
+                    "feat:mutant-physique"
+                ]
+            },
+            {
+                "key": "GrantItem",
+                "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.ouHqF14sAD0kNEHL"
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

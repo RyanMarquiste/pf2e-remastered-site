@@ -7,7 +7,10 @@
 //
 // The spec:
 //   name, idKey, slugBase, img  - the name ("Cognitive Mutagen"), the key its ids are made from, its slug ("cognitive-mutagen") and its icon
-//   intro                       - the flavor line at the top of the description
+//   intro                       - the flavor line at the top of the description (or a function of the tier, for a line that gives the duration)
+//   activate (optional)         - the action glyph of the Activate line, "A" unless PF2e's item has another
+//   tier(t) (optional)          - what differs from the shared tiers for tier t, such as { gp, duration }, where PF2e's mutagen has its own price or duration
+//   durationLine (optional)     - false if the item has no Duration line (its flavor line gives the duration)
 //   benefit(t), effectBenefit(t)- the Benefit text of the item for tier t, and (if it differs) of its effect; no <p> tags
 //   drawback                    - the Drawback text (the same for every tier)
 //   benefitRules(t)             - the rules the benefit effect has for tier t
@@ -16,7 +19,10 @@
 //                                 Physique only works for PF2e's own effects, and Mutant Innervation is only text, so the copy carries the benefit itself: the text goes in the item and
 //                                 effect descriptions, and the rules go in the benefit effect, each applying only to a character with the feat (its slug is in the rules' predicate).
 module.exports = function buildSplitMutagen(spec, { items, publication, makeId, uuidOf, tiers }) {
-  const { name, idKey, slugBase, img, intro, benefit, drawback, benefitRules, drawbackRules, featBenefit } = spec;
+  const { name, idKey, slugBase, img, benefit, drawback, benefitRules, drawbackRules, featBenefit } = spec;
+  const intro = typeof spec.intro === "function" ? spec.intro : () => spec.intro;
+  const activate = spec.activate ?? "A";
+  const tierList = tiers.map((t) => ({ ...t, ...(spec.tier?.(t) ?? {}) }));
   // The feat's paragraph, such as "Mutant Physique If you have the Mutant Physique feat, ...", and its rules, which only apply to a character with the feat.
   const featPara = featBenefit ? `<p><strong>${featBenefit.feat}</strong> If you have the ${featBenefit.feat} feat, ${featBenefit.text}</p>` : "";
   const featSlug = featBenefit ? featBenefit.feat.toLowerCase().replace(/ /g, "-") : null;
@@ -47,7 +53,7 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
     },
   });
 
-  for (const t of tiers) {
+  for (const t of tierList) {
     const itemId = makeId(`item:${idKey}:${t.name}`);
     const effectId = makeId(`effect:${idKey}:${t.name}`);
     const slugTier = t.name.toLowerCase();
@@ -66,12 +72,12 @@ module.exports = function buildSplitMutagen(spec, { items, publication, makeId, 
         damage: null,
         description: {
           value:
-            `<p><strong>Activate</strong> <span class="action-glyph">A</span> (manipulate)</p><hr />` +
-            `<p>${intro}</p>` +
+            `<p><strong>Activate</strong> <span class="action-glyph">${activate}</span> (manipulate)</p><hr />` +
+            `<p>${intro(t)}</p>` +
             `<p>${benefit(t)}</p>` +
             `<p>${drawback}</p>` +
             featPara +
-            `<p><strong>Duration</strong> ${t.duration.text}.</p>` +
+            (spec.durationLine === false ? "" : `<p><strong>Duration</strong> ${t.duration.text}.</p>`) +
             `<p>@UUID[${uuidOf(effectId)}]{Effect: ${name} (${t.name})}</p>`,
         },
         hardness: 0,

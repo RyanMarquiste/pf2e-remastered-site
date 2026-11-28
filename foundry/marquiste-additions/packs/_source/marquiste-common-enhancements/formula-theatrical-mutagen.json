@@ -1,0 +1,80 @@
+{
+    "_key": "!items!29U5fLmb35Jq0EYj",
+    "_id": "29U5fLmb35Jq0EYj",
+    "img": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp",
+    "name": "Formula: Theatrical Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.5wX10eUonXAZFCFt",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.kScHu3XS3XPvN9Db"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.TzWONlr15KqUwZ8s",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.8rQ7HkUtSa8so0Et"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.RuGsj3iHQuSGVoYR",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.BB9ErvPViT4TtiYp"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.6spRivN5lSKeYz7E",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.Wv0ck7AMP0s0jIue"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for a mutagen that makes you quick and showy but easily distracted. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Theatrical Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.5wX10eUonXAZFCFt]{Theatrical Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.TzWONlr15KqUwZ8s]{Theatrical Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.RuGsj3iHQuSGVoYR]{Theatrical Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.6spRivN5lSKeYz7E]{Theatrical Mutagen (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-theatrical-mutagen-marquiste",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}

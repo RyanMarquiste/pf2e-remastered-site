@@ -1,0 +1,62 @@
+{
+    "_key": "!items!BHVkBoLRXnDfbkjO",
+    "_id": "BHVkBoLRXnDfbkjO",
+    "img": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp",
+    "name": "Effect: Theatrical Mutagen Drawback",
+    "type": "effect",
+    "system": {
+        "slug": "effect-theatrical-mutagen-marquiste-drawback",
+        "description": {
+            "value": "<p>Granted by the Theatrical Mutagen effect, and removed with it.</p><p><strong>Drawback</strong> You take a –1 penalty to Perception checks and Will saves. After any round where you don't spend at least 1 action to Interact with an object, @UUID[Compendium.pf2e.actionspf2e.Item.EEDElIyin4z60PXx]{Perform}, Step, or Stride, you're @UUID[Compendium.pf2e.conditionitems.Item.AJh5ex99aV6VTggg]{Off-Guard} until the start of your next turn.</p>"
+        },
+        "duration": {
+            "expiry": null,
+            "sustained": false,
+            "unit": "unlimited",
+            "value": -1
+        },
+        "level": {
+            "value": 1
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "rules": [
+            {
+                "key": "RollOption",
+                "domain": "all",
+                "label": "Drawback suppressed",
+                "option": "theatrical-drawback-suppressed",
+                "toggleable": true,
+                "value": false
+            },
+            {
+                "key": "FlatModifier",
+                "selector": [
+                    "perception",
+                    "will"
+                ],
+                "slug": "theatrical-mutagen-drawback",
+                "value": -1,
+                "predicate": [
+                    {
+                        "not": "theatrical-drawback-suppressed"
+                    }
+                ]
+            }
+        ],
+        "start": {
+            "initiative": null,
+            "value": 0
+        },
+        "tokenIcon": {
+            "show": true
+        },
+        "traits": {
+            "rarity": "common",
+            "value": []
+        }
+    }
+}

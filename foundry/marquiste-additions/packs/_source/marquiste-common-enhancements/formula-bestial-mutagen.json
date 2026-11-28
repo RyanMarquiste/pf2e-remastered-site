@@ -1,0 +1,80 @@
+{
+    "_key": "!items!7BlZ7FSiTixP5XSM",
+    "_id": "7BlZ7FSiTixP5XSM",
+    "img": "icons/consumables/potions/bottle-round-flask-fumes-purple.webp",
+    "name": "Formula: Bestial Mutagen",
+    "type": "equipment",
+    "flags": {
+        "marquiste-additions": {
+            "formula": {
+                "tiers": [
+                    {
+                        "level": 1,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.6WPxAPc5enNs8uSa",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.IQK9N2mEOyAj3iWU"
+                    },
+                    {
+                        "level": 3,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.0iNQJiqmrZQq9Af8",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.VISk5uLPVIvNWovB"
+                    },
+                    {
+                        "level": 11,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.4cLhOEvfwTIK5JkY",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.gDheph8YteBtnyKp"
+                    },
+                    {
+                        "level": 17,
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.W4VBaiN2s8payOo3",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.nS75vsM3x5jxlUqn"
+                    }
+                ]
+            }
+        }
+    },
+    "system": {
+        "baseItem": null,
+        "bulk": {
+            "value": 0
+        },
+        "description": {
+            "value": "<p>The formula for a mutagen that turns the body bestial and lumbering. It is not crafted or carried like other equipment: add it to a formula book on the Crafting tab, and the book teaches you the Bestial Mutagen your level allows.</p><p>It covers:</p><ul><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.6WPxAPc5enNs8uSa]{Bestial Mutagen (Lesser)} (level 1)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.0iNQJiqmrZQq9Af8]{Bestial Mutagen (Moderate)} (level 3)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.4cLhOEvfwTIK5JkY]{Bestial Mutagen (Greater)} (level 11)</li><li>@UUID[Compendium.marquiste-additions.marquiste-common-enhancements.Item.W4VBaiN2s8payOo3]{Bestial Mutagen (Major)} (level 17)</li></ul><hr /><p><strong>Source</strong> Marquiste Additions</p>"
+        },
+        "hardness": 0,
+        "hp": {
+            "max": 0,
+            "value": 0
+        },
+        "level": {
+            "value": 1
+        },
+        "material": {
+            "grade": null,
+            "type": null
+        },
+        "price": {
+            "value": {
+                "gp": 0
+            }
+        },
+        "publication": {
+            "license": "ORC",
+            "remaster": true,
+            "title": "Marquiste Additions"
+        },
+        "quantity": 1,
+        "rules": [],
+        "size": "med",
+        "slug": "formula-bestial-mutagen-marquiste",
+        "traits": {
+            "rarity": "common",
+            "value": [
+                "formula",
+                "marquiste"
+            ]
+        },
+        "usage": {
+            "value": "carried"
+        }
+    }
+}
