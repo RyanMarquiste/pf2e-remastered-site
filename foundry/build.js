@@ -519,10 +519,12 @@ const pf2eMutagens = [
   [require("./serene-mutagen")(pf2eMutagenContext), "a mutagen that brings inner serenity but dulls the urge to fight"],
 ];
 for (const [{ name, img }, made] of pf2eMutagens) {
-  const tierItems = tiers.map((t) => {
-    const found = commonItems.find((i) => i.name === `${name} (${t.name})`);
+  // Each tier says which PF2e mutagen it is a copy of (replaces), so the formula lists can hide PF2e's original and its formula.
+  const pf2eIds = require("./mutagen-formulas").find((family) => family.name === name)?.ids ?? [];
+  const tierItems = tiers.map((t, i) => {
+    const found = commonItems.find((item) => item.name === `${name} (${t.name})`);
     if (!found) throw new Error(`No ${name} (${t.name}) item for its formula`);
-    return { name: found.name, level: found.system.level.value, uuid: commonUuidOf(found._id) };
+    return { name: found.name, level: found.system.level.value, uuid: commonUuidOf(found._id), ...(pf2eIds[i] ? { replaces: `Compendium.pf2e.equipment-srd.Item.${pf2eIds[i]}` } : {}) };
   });
   // The formulas share their names with the Alchemist pack's formulas for PF2e's own mutagens, so each keeps its own id seed and slug.
   commonItems.push(

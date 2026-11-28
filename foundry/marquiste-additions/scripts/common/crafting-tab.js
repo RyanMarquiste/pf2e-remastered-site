@@ -159,9 +159,11 @@ async function decorate(app, root) {
     }
     // Two ways to find things to put in the book, both from the Compendium Browser's equipment tab: PF2e's own Browse button, which shows
     // every item, and one that has the Formula trait already chosen. What is found there can be dragged onto the book.
-    if (isCookbook(book)) {
-      // A cookbook holds only alchemical foods, which the Compendium Browser can't list by themselves, so it has a list of its own.
-      const recipes = headerButton("fa-utensils", "Choose alchemical foods to add to this cookbook", "Add recipes");
+    if (isCookbook(book) || isAlchemyBook(book)) {
+      // A cookbook holds only alchemical foods, which the Compendium Browser can't list by themselves, so it has a list of its own. An alchemy formula book has the same list for alchemical items.
+      const recipes = isCookbook(book)
+        ? headerButton("fa-utensils", "Choose alchemical foods to add to this cookbook", "Add recipes")
+        : headerButton("fa-flask", "Choose alchemical items and formulas to add to this book", "Add formulas");
       recipes.addEventListener("click", (event) => {
         event.stopPropagation();
         pickRecipes(actor, book).catch((error) => console.error(MODULE, error));
@@ -219,7 +221,7 @@ async function decorate(app, root) {
     }
     if (!mine.length) {
       const empty = make("li", "formula-header empty");
-      empty.append(make("h4", "", isCookbook(book) ? "Empty (add recipes, or drag an alchemical food here)" : isAlchemyBook(book) ? "Empty (drag an alchemical formula here)" : "Empty (drag a formula here)"));
+      empty.append(make("h4", "", isCookbook(book) ? "Empty (add recipes, or drag an alchemical food here)" : isAlchemyBook(book) ? "Empty (add formulas, or drag an alchemical formula here)" : "Empty (drag a formula here)"));
       list.append(empty);
     }
     group.append(header, list);

@@ -10,19 +10,23 @@
                 "tiers": [
                     {
                         "level": 1,
-                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.tLNce8MNoGnlRvQT"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.tLNce8MNoGnlRvQT",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.wbr6rkyaVYnDhdgV"
                     },
                     {
                         "level": 3,
-                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.5phrMQ8nfFDKWfc4"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.5phrMQ8nfFDKWfc4",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.qpzL9UnTi4cDhy6J"
                     },
                     {
                         "level": 11,
-                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.Vj3PtgnDBRoUsYLN"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.Vj3PtgnDBRoUsYLN",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.ZGojRKG1yYiVWemR"
                     },
                     {
                         "level": 17,
-                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.yjkNHPeBIaffh0zN"
+                        "uuid": "Compendium.marquiste-additions.marquiste-common-enhancements.Item.yjkNHPeBIaffh0zN",
+                        "replaces": "Compendium.pf2e.equipment-srd.Item.VBK9i74dry8yf8f0"
                     }
                 ]
             }

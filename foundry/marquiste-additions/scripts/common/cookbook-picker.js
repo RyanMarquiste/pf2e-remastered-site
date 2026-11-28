@@ -1,10 +1,39 @@
-// The Add recipes list of a cookbook. PF2e's Compendium Browser can't filter by the alchemical-food tag, so a cookbook gets a list of its own: every alchemical food in the item compendiums,
-// searchable, with a Common only box, and the formula items whose tiers are foods (Formula: Ginger Chew teaches every tier up to the character's level). The ones ticked go in the cookbook.
-// Uncommon and rare foods are listed with their rarity, so a GM who allows one can have a character pick it.
+// The Add recipes list of a cookbook, and the Add formulas list of an alchemy formula book (the same screen for both). PF2e's Compendium Browser can't filter by the alchemical-food tag, so a cookbook gets
+// a list of its own: every alchemical food in the item compendiums, searchable, with a Common only box, and the formula items whose tiers are foods (Formula: Ginger Chew teaches every tier up to the
+// character's level). The alchemy formula book's list is every other alchemical item (elixirs, bombs, poisons, tools and so on) and the formula items whose tiers are those (such as the mutagens).
+// The ones ticked go in the book. Uncommon and rare items are listed with their rarity, so a GM who allows one can have a character pick it.
 import { MODULE, say } from "./shared.js";
-import { entriesOf, esc, FOOD_TAG, isFood, placeEntries } from "./formula-books.js";
+import { entriesOf, esc, FOOD_TAG, isAlchemical, isAlchemyBook, isFood, placeEntries } from "./formula-books.js";
 
-const COMMON_ONLY = `${MODULE}.cookbook.commonOnly`;
+// What each kind of book lists. `item` says whether a compendium entry is one of its items, `made` whether an item a formula item teaches is.
+const PHYSICAL = new Set(["consumable", "equipment", "weapon", "armor", "shield", "backpack", "treasure", "kit"]);
+// The Alchemist pack's own items (the vials) come from Quick Vial and Create Consumable, not from formulas, so only its formula items are listed.
+const ALCHEMIST_PACK = `${MODULE}.marquiste-alchemist-class`;
+const KINDS = {
+  food: {
+    item: (entry) => entry.system?.traits?.otherTags?.includes(FOOD_TAG),
+    made: (doc) => isFood(doc),
+    storage: `${MODULE}.cookbook.commonOnly`,
+    title: (book) => `Add recipes to ${book.name}`,
+    icon: "fa-solid fa-utensils",
+    search: "Search recipes",
+    none: "No alchemical foods were found in the compendiums.",
+    noun: "recipes",
+  },
+  alchemy: {
+    item: (entry, pack) =>
+      pack.collection !== ALCHEMIST_PACK && PHYSICAL.has(entry.type) && entry.system?.traits?.value?.includes("alchemical") && !entry.system?.traits?.otherTags?.includes(FOOD_TAG),
+    made: (doc) => isAlchemical(doc) && !isFood(doc),
+    storage: `${MODULE}.alchemy.commonOnly`,
+    title: (book) => `Add formulas to ${book.name}`,
+    icon: "fa-solid fa-flask",
+    search: "Search formulas",
+    none: "No alchemical items were found in the compendiums.",
+    noun: "formulas",
+  },
+};
+const kindOf = (book) => (isAlchemyBook(book) ? "alchemy" : "food");
+
 // The system's own item compendiums are big, and food is only in the equipment one; the other packs (modules and the world) are all looked at.
 const SYSTEM_PACKS = ["equipment-srd"];
 
@@ -20,11 +49,12 @@ const price = (cp) => {
 };
 const coinsOf = (actor) => actor.inventory?.coins?.copperValue ?? 0;
 
-let loading = null;
+const loading = {};
 
-// Every food and every food formula item, as rows: { uuid, name, itemName, img, level, rarity, formula }. Looked up once and kept.
-export function loadRecipes() {
-  loading ??= (async () => {
+// Every item and every formula item of a kind ("food" or "alchemy"), as rows: { uuid, name, itemName, img, level, rarity, formula }. Looked up once and kept.
+export function loadRecipes(kind = "food") {
+  const spec = KINDS[kind];
+  loading[kind] ??= (async () => {
     const fields = ["system.traits.otherTags", "system.traits.value", "system.traits.rarity", "system.level.value", `flags.${MODULE}.formula`];
     const foods = [];
     const formulaItems = [];
@@ -34,7 +64,7 @@ export function loadRecipes() {
       const index = await pack.getIndex({ fields });
       for (const entry of index) {
         const traits = entry.system?.traits;
-        if (traits?.otherTags?.includes(FOOD_TAG)) {
+        if (spec.item(entry, pack)) {
           foods.push({ uuid: entry.uuid, name: entry.name, itemName: entry.name, img: entry.img, level: entry.system?.level?.value ?? 0, rarity: traits.rarity ?? "common", formula: false });
         } else if (traits?.value?.includes("formula") && entry.flags?.[MODULE]?.formula?.tiers?.length) {
           formulaItems.push({ entry, tiers: entry.flags[MODULE].formula.tiers });
@@ -42,13 +72,19 @@ export function loadRecipes() {
       }
     }
 
-    // A formula item is a food formula when the first item it teaches is a food. It stands in for the foods it teaches.
+    // A formula item is of the kind when the first item it teaches is. It stands in for the items it teaches.
     const rows = [];
     const covered = new Set();
+    const mine = [];
     for (const { entry, tiers } of formulaItems) {
       const first = await fromUuid(tiers[0].uuid).catch(() => null);
-      if (!isFood(first)) continue;
-      // Hide what the formula stands in for: its tiers, and the PF2e items its tiers are copies of (the Ginger Chew and Cinnamon Seers Moderates), so nothing is listed twice.
+      if (spec.made(first)) mine.push({ entry, tiers, first });
+    }
+    // Hide what a formula stands in for: its tiers, and the PF2e items its tiers are copies of (the Ginger Chew and Cinnamon Seers Moderates), so nothing is listed twice. That includes a PF2e
+    // formula item whose first tier is one of those (the Alchemist pack's formula for PF2e's Cognitive Mutagen, once the Marquiste copy has its own).
+    const replaced = new Set(mine.flatMap(({ tiers }) => tiers.map((t) => t.replaces).filter(Boolean)));
+    for (const { entry, tiers, first } of mine) {
+      if (replaced.has(tiers[0].uuid)) continue;
       for (const tier of tiers) {
         covered.add(tier.uuid);
         if (tier.replaces) covered.add(tier.replaces);
@@ -63,13 +99,14 @@ export function loadRecipes() {
         formula: true,
       });
     }
+    for (const uuid of replaced) covered.add(uuid);
     rows.push(...foods.filter((food) => !covered.has(food.uuid)));
     return rows.sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
   })().catch((error) => {
-    loading = null;
+    delete loading[kind];
     throw error;
   });
-  return loading;
+  return loading[kind];
 }
 
 // Post the item or formula to the chat for everyone to see: its picture and a link that opens it.
@@ -80,25 +117,26 @@ function share(actor, doc) {
   return ChatMessage.create({ speaker: ChatMessage.getSpeaker({ actor }), content });
 }
 
-const remembered = () => {
+const remembered = (storage) => {
   try {
-    return localStorage.getItem(COMMON_ONLY) !== "0";
+    return localStorage.getItem(storage) !== "0";
   } catch {
     return true;
   }
 };
-const remember = (value) => {
+const remember = (storage, value) => {
   try {
-    localStorage.setItem(COMMON_ONLY, value ? "1" : "0");
+    localStorage.setItem(storage, value ? "1" : "0");
   } catch {
     // not remembered; the box is simply on next time
   }
 };
 
-// Open the list for a cookbook, and put what the player ticks in it.
+// Open the list for a cookbook or an alchemy formula book, and put what the player ticks in it.
 export async function pickRecipes(actor, book) {
-  const rows = await loadRecipes();
-  if (!rows.length) return ui.notifications.warn("No alchemical foods were found in the compendiums.");
+  const spec = KINDS[kindOf(book)];
+  const rows = await loadRecipes(kindOf(book));
+  if (!rows.length) return ui.notifications.warn(spec.none);
   const inBook = new Set(entriesOf(book));
   const wealth = coinsOf(actor);
 
@@ -121,8 +159,8 @@ export async function pickRecipes(actor, book) {
   const content =
     `<div class="mq-cookbook-picker" style="display:flex;flex-direction:column;gap:.5rem;">` +
     `<div style="display:flex;align-items:center;gap:.75rem;">` +
-    `<input type="search" name="search" placeholder="Search recipes" autofocus style="flex:1;">` +
-    `<label style="display:flex;align-items:center;gap:.3em;white-space:nowrap;"><input type="checkbox" name="common"${remembered() ? " checked" : ""}> Common only</label>` +
+    `<input type="search" name="search" placeholder="${spec.search}" autofocus style="flex:1;">` +
+    `<label style="display:flex;align-items:center;gap:.3em;white-space:nowrap;"><input type="checkbox" name="common"${remembered(spec.storage) ? " checked" : ""}> Common only</label>` +
     `</div>` +
     `<div class="mq-recipes" style="max-height:50vh;overflow-y:auto;border:1px solid var(--color-border-light-tertiary, #888);border-radius:4px;">${list}</div>` +
     `<div style="display:flex;justify-content:space-between;gap:.5rem;opacity:.8;"><span class="mq-recipe-count"></span>` +
@@ -131,7 +169,7 @@ export async function pickRecipes(actor, book) {
 
   const ticked = (button) => [...button.form.querySelectorAll('input[name="recipe"]:checked:not(:disabled)')].map((box) => box.value);
   const result = await foundry.applications.api.DialogV2.wait({
-    window: { title: `Add recipes to ${book.name}`, icon: "fa-solid fa-utensils" },
+    window: { title: spec.title(book), icon: spec.icon },
     position: { width: 520 },
     content,
     buttons: [
@@ -154,7 +192,7 @@ export async function pickRecipes(actor, book) {
           label.style.display = show ? "flex" : "none";
           if (show) shown++;
         }
-        count.textContent = `${shown} of ${labels.length} recipes shown`;
+        count.textContent = `${shown} of ${labels.length} ${spec.noun} shown`;
       };
       // The name opens the item or formula to read; the picture shares it in chat; anywhere else on the row ticks it.
       root.querySelector(".mq-recipes").addEventListener("click", async (event) => {
@@ -187,7 +225,7 @@ export async function pickRecipes(actor, book) {
       root.querySelector(".mq-recipes").addEventListener("change", update);
       search.addEventListener("input", apply);
       common.addEventListener("change", () => {
-        remember(common.checked);
+        remember(spec.storage, common.checked);
         apply();
       });
       apply();
