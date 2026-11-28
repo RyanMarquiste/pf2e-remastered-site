@@ -1,7 +1,8 @@
 // The Mutagenist Field Vial suppresses the drawback of one mutagen. Every drawback in the module (the split mutagens' Drawback effects, the Drakeheart and Mind Doubling drawbacks and
 // the Ichthys mutagens, which carry theirs) has a RollOption rule whose option ends "drawback-suppressed", and its penalties and weaknesses only apply while that option is off. When the
-// vial's effect is applied to a character this picks a drawback, sets that rule's value to true and adds "(suppressed)" to the effect's name in the effects list; the vial's effect keeps
-// which one in a flag. When the vial's effect ends, however that happens, the drawback is switched back on and its name restored. One drawback is suppressed without asking; with several
+// vial's effect is applied to a character this picks a drawback, sets that rule's value to true, adds "(suppressed)" to the effect's name in the effects list and swaps its picture for a
+// greyed one with a red slash through it (images/suppressed/, made by foundry/make-suppressed-icons.cjs), so it shows in the effects panel and on the token; the vial's effect keeps which
+// one in a flag, and the drawback keeps its own picture in a flag. When the vial's effect ends, however that happens, the drawback is switched back on and its name and picture restored. One drawback is suppressed without asking; with several
 // the player chooses; with none the chat says so and nothing else happens. The drawback is never removed, so nothing is dealt or applied a second time (the Quicksilver Mutagen's damage,
 // taken when its drawback was applied, is not given back).
 import { MODULE, say } from "../common/shared.js";
@@ -10,6 +11,7 @@ import { enabled, log } from "../common/settings.js";
 const VIAL = "effect-mutagenist-field-vial";
 const FLAG = "suppressed"; // on the vial's effect: { id } of the drawback effect it suppressed
 const LABEL = " (suppressed)";
+const ORIGINAL_IMG = "originalImg"; // on the drawback effect while it is suppressed: its own picture
 
 const optionIndex = (effect) => effect.system.rules.findIndex((rule) => rule.key === "RollOption" && /drawback-suppressed$/.test(rule.option ?? ""));
 const isDrawback = (effect) => optionIndex(effect) >= 0;
@@ -23,13 +25,36 @@ const summary = (effect) => {
   return text.length > 150 ? `${text.slice(0, 147)}...` : text;
 };
 
+// The suppressed version of a picture, if there is one: images/suppressed/<name of the picture>.png.
+async function suppressedPicture(img) {
+  const name = (img ?? "").split("/").pop().replace(/\.[^.]+$/, "");
+  if (!name) return null;
+  const path = `modules/${MODULE}/images/suppressed/${name}.png`;
+  return (await foundry.utils.srcExists(path).catch(() => false)) ? path : null;
+}
+
 async function setSuppressed(effect, on) {
   const index = optionIndex(effect);
   if (index < 0) return;
   const rules = foundry.utils.deepClone(effect.system.rules);
   rules[index].value = on;
   const name = on ? (effect.name.endsWith(LABEL) ? effect.name : effect.name + LABEL) : effect.name.endsWith(LABEL) ? effect.name.slice(0, -LABEL.length) : effect.name;
-  await effect.update({ "system.rules": rules, name });
+  const update = { "system.rules": rules, name };
+  if (on) {
+    // Keep the drawback's own picture to put back, unless it has none to swap to or is already showing the suppressed one.
+    const alt = effect.getFlag(MODULE, ORIGINAL_IMG) ? null : await suppressedPicture(effect.img);
+    if (alt && alt !== effect.img) {
+      update.img = alt;
+      update[`flags.${MODULE}.${ORIGINAL_IMG}`] = effect.img;
+    }
+  } else {
+    const original = effect.getFlag(MODULE, ORIGINAL_IMG);
+    if (original) {
+      update.img = original;
+      update[`flags.${MODULE}.-=${ORIGINAL_IMG}`] = null;
+    }
+  }
+  await effect.update(update);
 }
 
 async function choose(candidates) {
