@@ -601,6 +601,20 @@ for (const family of require("./mutagen-formulas")) {
   );
 }
 
+// Formula items for PF2e's other tiered alchemical items (see alchemical-formulas.js), such as the Blood Booster.
+for (const family of require("./alchemical-formulas")) {
+  classItems.push(
+    formulaItem({
+      family: family.name,
+      img: family.img,
+      made: family.name,
+      rarity: family.rarity,
+      pub: modulePublication,
+      tiers: family.tiers.map((t) => ({ name: t.name, level: t.level, uuid: `Compendium.pf2e.equipment-srd.Item.${t.id}` })),
+    }),
+  );
+}
+
 // The source trait an item carries (see scripts/common/source-traits.js): Marquiste for Marquiste Additions, Cauldron for CorpseCap's Cauldron. Effects are
 // only granted by another item, so they don't carry one.
 const SOURCE_TRAITS = { [MODULE_ID]: "marquiste", [CAULDRON_ID]: "cauldron" };
