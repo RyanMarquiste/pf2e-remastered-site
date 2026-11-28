@@ -1,7 +1,29 @@
-// Formula items for PF2e's tiered alchemical items that are not mutagens (see mutagen-formulas.js), one entry for each family. Each family lists its tiers in order, with the
+// Formula items for PF2e's tiered alchemical items that are not mutagens (see mutagen-formulas.js), including the bombs, one entry for each family. Each family lists its tiers in order, with the
 // item's name, level and its id in the equipment compendium. The Alchemist pack makes a formula item for each, so one formula in an alchemy formula book teaches every tier at or
 // below the character's level, and the formula is priced at the lowest tier. A family with one item (the Infiltrator's Elixir) is a formula item with one tier.
 module.exports = [
+  {
+    name: "Acid Flask",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/acid-flask.webp",
+    tiers: [
+      { name: "Acid Flask (Lesser)", level: 1, id: "M1k5QQc1qQLxzyCK" },
+      { name: "Acid Flask (Moderate)", level: 3, id: "SgtqZxt26BdjUmEB" },
+      { name: "Acid Flask (Greater)", level: 11, id: "jC8GmH0Un6vDxdMj" },
+      { name: "Acid Flask (Major)", level: 17, id: "GttLYMT2welSpwCd" },
+    ],
+  },
+  {
+    name: "Alchemist's Fire",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/alchemists-fire.webp",
+    tiers: [
+      { name: "Alchemist's Fire (Lesser)", level: 1, id: "yd3kEK21YknZLlcT" },
+      { name: "Alchemist's Fire (Moderate)", level: 3, id: "gWr4q4HiyGhETA8H" },
+      { name: "Alchemist's Fire (Greater)", level: 11, id: "n5yTlTs63o53n3k6" },
+      { name: "Alchemist's Fire (Major)", level: 17, id: "cLZrOihPht5M7eTw" },
+    ],
+  },
   {
     name: "Antidote",
     rarity: "common",
@@ -22,6 +44,17 @@ module.exports = [
       { name: "Antiplague (Moderate)", level: 6, id: "biRbqKo2C97XLfQ0" },
       { name: "Antiplague (Greater)", level: 10, id: "ORDaAzMZLrf6Hn8A" },
       { name: "Antiplague (Major)", level: 14, id: "kajpTXg3oHIJStQa" },
+    ],
+  },
+  {
+    name: "Blight Bomb",
+    rarity: "common",
+    img: "systems/pf2e/icons/equipment/alchemical-items/alchemical-bombs/blight-bomb.webp",
+    tiers: [
+      { name: "Blight Bomb (Lesser)", level: 1, id: "j8ajvNqyyQGBpBch" },
+      { name: "Blight Bomb (Moderate)", level: 3, id: "158vwM1andv8DbRI" },
+      { name: "Blight Bomb (Greater)", level: 11, id: "LhMXIGelSrFPYild" },
+      { name: "Blight Bomb (Major)", level: 17, id: "sJjuv1991SZ7DWWD" },
     ],
   },
   {
