@@ -143,3 +143,19 @@ Hooks.on("updateCombat", async (combat, changed) => {
     }
   }
 });
+
+// Food packets are infused: the ones left over are lost at daily preparations, which make a fresh batch. PF2e refills a resource that is tied to an item when the character rests (its
+// recharge sets the item's quantity to the maximum), so this only makes sure of it afterwards, for a character whose packets are still below their maximum. It runs on the client that
+// rests, and again for the Reset Daily Crafting button, which PF2e treats as daily preparations too.
+async function refillPackets(actor) {
+  if (!enabled("wanderingChef")) return;
+  const packets = actor.getResource?.("food-packets");
+  if (!packets || packets.value >= packets.max) return;
+  await actor.updateResource("food-packets", packets.max);
+  log(`Food packets refilled for ${actor.name}: ${packets.value} -> ${packets.max}`);
+}
+Hooks.on("pf2e.restForTheNight", (actor) => refillPackets(actor));
+Hooks.on("updateActor", (actor, changes, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (foundry.utils.getProperty(changes, "flags.pf2e.dailyCraftingComplete") === false) refillPackets(actor);
+});

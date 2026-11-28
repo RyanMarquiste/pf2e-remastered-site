@@ -86,7 +86,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       description: {
         value:
           "<p>A small parcel of foraged and prepared ingredients. Its quantity is your food packets: it is set when you make your daily preparations, and one is used up each time you use " +
-          "Create Food with Quick Cooking.</p>",
+          "Create Food with Quick Cooking. Food packets are infused: any you haven't used are lost at your next daily preparations, when you make a fresh batch.</p>",
       },
       hardness: 0,
       hp: { max: 0, value: 0 },
@@ -97,7 +97,7 @@ module.exports = function buildWanderingChef({ items, publication, makeId, uuidO
       quantity: 1,
       rules: [],
       size: "med",
-      traits: { rarity: "common", value: [] },
+      traits: { rarity: "common", value: ["infused"] },
       usage: { value: "carried" },
     },
   });
